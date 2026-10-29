@@ -1,0 +1,30 @@
+{
+  "package": "manju-director-cn",
+  "version": "1.1.0",
+  "date": "2026-10-26",
+  "source_repo": "a2315758011/a",
+  "branch": "main",
+  "scope": "AI漫剧制作、人物场景资产、分镜编写、独立自检、修复、完整终稿重写",
+  "source_first": true,
+  "files": [
+    {
+      "package_path": "references/AIGC人物资产指令.md",
+      "source_path": "AIGC人物资产指令",
+      "git_blob_sha": "b4ee72b3aba73bf83f9bd87be731d9c279029c95"
+    },
+    {
+      "package_path": "references/剧本转分镜指令.md",
+      "source_path": "剧本转分镜指令",
+      "git_blob_sha": "a99ff46195a48bce189fcf3c1116bd13d2d28c4d",
+      "characters": 35111
+    },
+    {
+      "package_path": "references/剧本转分镜自检指令.md",
+      "source_path": "剧本转分镜自检指令",
+      "git_blob_sha": "6ee3fa78ba6dc9374254c96f697dcd64e091fabd",
+      "characters": 20726
+    }
+  ],
+  "source_rule_revision": "Storyboard-director inference, visual beat coverage, shot feasibility, prompt contamination; no SVG deliverable",
+  "source_version": "V2.10.1"
+}

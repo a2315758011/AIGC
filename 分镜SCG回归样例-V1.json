@@ -1,0 +1,645 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "case_id": "phone-closed-valid",
+      "expected_ok": true,
+      "expected_errors": [],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "bagA",
+                "type": "container",
+                "exists": true,
+                "visible": true,
+                "attributes": {
+                  "closed": true,
+                  "opaque": true
+                }
+              },
+              {
+                "id": "phoneA",
+                "type": "object",
+                "parent_id": "bagA",
+                "exists": true,
+                "visible": false
+              },
+              {
+                "id": "screenA",
+                "type": "surface",
+                "parent_id": "phoneA",
+                "exists": true,
+                "visible": false
+              },
+              {
+                "id": "msgA",
+                "type": "screen_content",
+                "parent_id": "screenA",
+                "exists": true,
+                "visible": false,
+                "attributes": {
+                  "readable": false
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "phoneA",
+                "predicate": "inside",
+                "object": "bagA"
+              },
+              {
+                "subject": "msgA",
+                "predicate": "displayed_on",
+                "object": "screenA"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "phone-closed-readable-invalid",
+      "expected_ok": false,
+      "expected_errors": [
+        "E14"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "bagA",
+                "type": "container",
+                "exists": true,
+                "visible": true,
+                "attributes": {
+                  "closed": true,
+                  "opaque": true
+                }
+              },
+              {
+                "id": "phoneA",
+                "type": "object",
+                "parent_id": "bagA",
+                "exists": true,
+                "visible": false
+              },
+              {
+                "id": "screenA",
+                "type": "surface",
+                "parent_id": "phoneA",
+                "exists": true,
+                "visible": false
+              },
+              {
+                "id": "msgA",
+                "type": "screen_content",
+                "parent_id": "screenA",
+                "exists": true,
+                "visible": true,
+                "attributes": {
+                  "readable": true
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "phoneA",
+                "predicate": "inside",
+                "object": "bagA"
+              },
+              {
+                "subject": "msgA",
+                "predicate": "displayed_on",
+                "object": "screenA"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "chair-reuse-valid",
+      "expected_ok": true,
+      "expected_errors": [],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "personA",
+                "type": "person",
+                "exists": true
+              },
+              {
+                "id": "chairA",
+                "type": "object",
+                "exists": true,
+                "unique_key": "hero_chair"
+              }
+            ],
+            "relations": []
+          },
+          {
+            "id": "SH2",
+            "entities": [
+              {
+                "id": "personA",
+                "type": "person",
+                "exists": true
+              },
+              {
+                "id": "chairA",
+                "type": "object",
+                "exists": true,
+                "unique_key": "hero_chair"
+              }
+            ],
+            "relations": [
+              {
+                "subject": "personA",
+                "predicate": "sitting_on",
+                "object": "chairA"
+              }
+            ],
+            "events": [
+              {
+                "id": "EV1",
+                "source_id": "SRC-sit",
+                "action": "sit",
+                "preconditions": [
+                  {
+                    "kind": "exists",
+                    "entity": "chairA"
+                  }
+                ],
+                "effects": [
+                  {
+                    "kind": "add_relation",
+                    "subject": "personA",
+                    "predicate": "sitting_on",
+                    "object": "chairA"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "chair-regenerated-invalid",
+      "expected_ok": false,
+      "expected_errors": [
+        "E01",
+        "E02"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "personA",
+                "type": "person",
+                "exists": true
+              },
+              {
+                "id": "chairA",
+                "type": "object",
+                "exists": true,
+                "unique_key": "hero_chair"
+              }
+            ],
+            "relations": []
+          },
+          {
+            "id": "SH2",
+            "entities": [
+              {
+                "id": "personA",
+                "type": "person",
+                "exists": true
+              },
+              {
+                "id": "chairA",
+                "type": "object",
+                "exists": true,
+                "unique_key": "hero_chair"
+              },
+              {
+                "id": "chairB",
+                "type": "object",
+                "exists": true,
+                "unique_key": "hero_chair"
+              }
+            ],
+            "relations": [
+              {
+                "subject": "personA",
+                "predicate": "sitting_on",
+                "object": "chairB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "projection-wall-valid",
+      "expected_ok": true,
+      "expected_errors": [],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "projectorA",
+                "type": "object",
+                "exists": true
+              },
+              {
+                "id": "wallW1",
+                "type": "surface",
+                "exists": true
+              },
+              {
+                "id": "projectionP1",
+                "type": "surface_projection",
+                "exists": true,
+                "attributes": {
+                  "floating": false
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "projectionP1",
+                "predicate": "projected_from",
+                "object": "projectorA"
+              },
+              {
+                "subject": "projectionP1",
+                "predicate": "projected_onto",
+                "object": "wallW1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "projection-floating-invalid",
+      "expected_ok": false,
+      "expected_errors": [
+        "E09",
+        "E10"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "projectorA",
+                "type": "object",
+                "exists": true
+              },
+              {
+                "id": "wallW1",
+                "type": "surface",
+                "exists": true
+              },
+              {
+                "id": "projectionP1",
+                "type": "surface_projection",
+                "exists": true,
+                "attributes": {
+                  "floating": true
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "projectionP1",
+                "predicate": "projected_from",
+                "object": "projectorA"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "applause-no-source-invalid",
+      "expected_ok": false,
+      "expected_errors": [
+        "E20"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "aud1",
+                "type": "person",
+                "exists": true
+              }
+            ],
+            "relations": [],
+            "crowd_actions": [
+              {
+                "action": "clap",
+                "actor_ids": [
+                  "aud1"
+                ],
+                "scope": "partial"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "applause-expanded-invalid",
+      "expected_ok": false,
+      "expected_errors": [
+        "E21"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "aud1",
+                "type": "person",
+                "exists": true
+              },
+              {
+                "id": "aud2",
+                "type": "person",
+                "exists": true
+              }
+            ],
+            "relations": [],
+            "crowd_actions": [
+              {
+                "action": "clap",
+                "actor_ids": [
+                  "aud1",
+                  "aud2"
+                ],
+                "scope": "all",
+                "authorized_scope": "partial",
+                "authorized_actor_ids": [
+                  "aud1"
+                ],
+                "source_id": "SRC-clap"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "medical-tape-inside-invalid",
+      "expected_ok": false,
+      "expected_errors": [
+        "E07"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "skinA",
+                "type": "body_surface",
+                "exists": true
+              },
+              {
+                "id": "tapeA",
+                "type": "part",
+                "exists": true,
+                "attributes": {
+                  "role": "surface_fixation"
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "tapeA",
+                "predicate": "inside",
+                "object": "skinA"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "occlusion-persistence-valid",
+      "expected_ok": true,
+      "expected_errors": [],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "cupA",
+                "type": "object",
+                "exists": true,
+                "visible": true
+              }
+            ],
+            "relations": []
+          },
+          {
+            "id": "SH2",
+            "entities": [
+              {
+                "id": "cupA",
+                "type": "object",
+                "exists": true,
+                "visible": false,
+                "occluded": true
+              }
+            ],
+            "relations": []
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "occlusion-disappear-invalid",
+      "expected_ok": false,
+      "expected_errors": [
+        "E03"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "cupA",
+                "type": "object",
+                "exists": true
+              },
+              {
+                "id": "personA",
+                "type": "person",
+                "exists": true
+              }
+            ],
+            "relations": []
+          },
+          {
+            "id": "SH2",
+            "entities": [
+              {
+                "id": "personA",
+                "type": "person",
+                "exists": true
+              }
+            ],
+            "relations": []
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "phone-takeout-valid",
+      "expected_ok": true,
+      "expected_errors": [],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "bagA",
+                "type": "container",
+                "exists": true,
+                "attributes": {
+                  "closed": false
+                }
+              },
+              {
+                "id": "personA",
+                "type": "person",
+                "exists": true
+              },
+              {
+                "id": "handR",
+                "type": "part",
+                "parent_id": "personA",
+                "exists": true
+              },
+              {
+                "id": "phoneA",
+                "type": "object",
+                "parent_id": "bagA",
+                "exists": true
+              }
+            ],
+            "relations": [
+              {
+                "subject": "phoneA",
+                "predicate": "inside",
+                "object": "bagA"
+              }
+            ]
+          },
+          {
+            "id": "SH2",
+            "entities": [
+              {
+                "id": "bagA",
+                "type": "container",
+                "exists": true,
+                "attributes": {
+                  "closed": false
+                }
+              },
+              {
+                "id": "personA",
+                "type": "person",
+                "exists": true
+              },
+              {
+                "id": "handR",
+                "type": "part",
+                "parent_id": "personA",
+                "exists": true
+              },
+              {
+                "id": "phoneA",
+                "type": "object",
+                "parent_id": "personA",
+                "exists": true
+              }
+            ],
+            "relations": [
+              {
+                "subject": "phoneA",
+                "predicate": "held_by",
+                "object": "handR"
+              }
+            ],
+            "events": [
+              {
+                "id": "EV1",
+                "source_id": "SRC-takeout",
+                "action": "take_out",
+                "preconditions": [
+                  {
+                    "kind": "relation",
+                    "subject": "phoneA",
+                    "predicate": "inside",
+                    "object": "bagA"
+                  },
+                  {
+                    "kind": "attr",
+                    "entity": "bagA",
+                    "field": "closed",
+                    "equals": false
+                  }
+                ],
+                "effects": [
+                  {
+                    "kind": "remove_relation",
+                    "subject": "phoneA",
+                    "predicate": "inside",
+                    "object": "bagA"
+                  },
+                  {
+                    "kind": "add_relation",
+                    "subject": "phoneA",
+                    "predicate": "held_by",
+                    "object": "handR"
+                  },
+                  {
+                    "kind": "set_parent",
+                    "entity": "phoneA",
+                    "to": "personA"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

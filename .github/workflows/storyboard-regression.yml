@@ -1,0 +1,34 @@
+name: Storyboard Regression
+
+on:
+  pull_request:
+    paths:
+      - "skills/storyboard-director-cn/scripts/**"
+      - "skills/storyboard-director-cn/tests/**"
+      - "skills/storyboard-director-cn/SOURCE_LOCK.json"
+      - ".github/workflows/storyboard-regression.yml"
+  push:
+    branches:
+      - "main"
+      - "fix/storyboard-parallel-regression-ci-20261028"
+    paths:
+      - "skills/storyboard-director-cn/scripts/**"
+      - "skills/storyboard-director-cn/tests/**"
+      - "skills/storyboard-director-cn/SOURCE_LOCK.json"
+      - ".github/workflows/storyboard-regression.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  storyboard-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: SCG regression
+        run: node skills/storyboard-director-cn/scripts/分镜SCG校验器-V1.js skills/storyboard-director-cn/tests/分镜SCG回归样例-V1.json
+      - name: Event-time regression
+        run: node skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js skills/storyboard-director-cn/tests/分镜事件时长回归样例-V1.json

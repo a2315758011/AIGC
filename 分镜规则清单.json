@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "purpose": "分镜自动调用入口的动态规则索引。所有执行端每次分镜任务都必须从默认分支读取此清单，再读取清单内全部规则文件的最新版本。",
+  "repository": "a2315758011/a",
+  "branch": "main",
+  "entry_path": "剧本转分镜自动调用指令",
+  "rules": [
+    {
+      "path": "剧本转分镜指令",
+      "role": "编写规则",
+      "required": true,
+      "version": "V2.10.1",
+      "git_blob_sha": "a99ff46195a48bce189fcf3c1116bd13d2d28c4d"
+    },
+    {
+      "path": "剧本转分镜自检指令",
+      "role": "独立审核、修复与复检规则",
+      "required": true,
+      "version": "V2.10.1",
+      "git_blob_sha": "6ee3fa78ba6dc9374254c96f697dcd64e091fabd"
+    }
+  ],
+  "update_contract": "在线模式须读取 main 最新清单和全部 required 规则，并核对版本/SHA；新增或废弃 required 规则时同步更新本清单、Skill SOURCE_LOCK 与离线全文。高风险时序必须执行结构化事件时间校验；离线模式必须明确标记快照与最新版核验状态。所有模式均禁止把文本审核、结构化校验或视频测试互相冒充。",
+  "gate": {
+    "fail_closed": true,
+    "p0_allowed": 0,
+    "p1_allowed": 0,
+    "must_distinguish": [
+      "规则读取状态",
+      "分镜文本审核状态",
+      "SCG结构校验状态",
+      "事件时间账本校验状态",
+      "实际视频生成测试状态"
+    ],
+    "fail_closed_scope": "规则正文缺失、严重剧情问题或必需验证未完成，不因单次 GitHub fetch 失败自动禁止全部文本工作；离线来源与在线最新版核验分别标记。"
+  },
+  "delivery": {
+    "online_mode": "默认按 main 最新清单动态加载 required 规则；支持 blob/raw/API/浏览器可用渠道",
+    "offline_mode": "学员无联网工具时上传完整离线规则包到聊天，模型确认读到两份全文即可做文本任务",
+    "offline_bundle_path": "学员分镜双规则完整版.md",
+    "offline_provenance": "离线完整规则包原样包含两份规则全文；编写规则 Git blob SHA=a99ff46195a48bce189fcf3c1116bd13d2d28c4d；自检规则 Git blob SHA=6ee3fa78ba6dc9374254c96f697dcd64e091fabd。离线快照不等于在线最新版核验。",
+    "no_tools_policy": "无法读取外部 URL 不等于无效规则；有完整离线正文则允许执行已具备的文本任务；没有全文则阻断规则已加载/正式验收结论",
+    "offline_bundle_version": "V2.10.1",
+    "offline_bundle_rule_blob_sha": {
+      "writing": "a99ff46195a48bce189fcf3c1116bd13d2d28c4d",
+      "self_check": "6ee3fa78ba6dc9374254c96f697dcd64e091fabd"
+    }
+  },
+  "source_version": "V2.10.1",
+  "skill": {
+    "path": "skills/storyboard-director-cn/SKILL.md",
+    "version": "1.1.4",
+    "source_version": "V2.10.1",
+    "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json"
+  },
+  "structured_validators": [
+    {
+      "path": "skills/storyboard-director-cn/scripts/分镜SCG校验器-V1.js",
+      "version": "V1",
+      "required_when": "使用 SCG 结构化状态账本时",
+      "tests": "skills/storyboard-director-cn/tests/分镜SCG回归样例-V1.json",
+      "schema": "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md",
+      "limits": "仅覆盖该版本已实现的 SCG 规则，不等同于完整物理/视频验收"
+    },
+    {
+      "path": "skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js",
+      "version": "V1",
+      "required_when": "存在持续动作、前置依赖、互斥动作、机关接合/持续操作、多人逐一可见展示等高风险时序",
+      "tests": "skills/storyboard-director-cn/tests/分镜事件时长回归样例-V1.json",
+      "schema": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",
+      "limits": "仅校验人工/AI提取并复核的结构化事件账本；不解析普通中文稿，不验证生成视频"
+    }
+  ]
+}

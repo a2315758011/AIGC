@@ -1,0 +1,65 @@
+{
+  "package": "storyboard-director-cn",
+  "date": "2026-10-28",
+  "version": "1.1.4",
+  "source_repo": "a2315758011/a",
+  "branch": "main",
+  "source_version": "V2.10.1",
+  "files": [
+    {
+      "package_path": "references/剧本转分镜指令.md",
+      "source_path": "剧本转分镜指令",
+      "git_blob_sha": "a99ff46195a48bce189fcf3c1116bd13d2d28c4d",
+      "characters": 35111
+    },
+    {
+      "package_path": "references/剧本转分镜自检指令.md",
+      "source_path": "剧本转分镜自检指令",
+      "git_blob_sha": "6ee3fa78ba6dc9374254c96f697dcd64e091fabd",
+      "characters": 20726
+    },
+    {
+      "package_path": "references/分镜SCG数据契约-V1.md",
+      "source_path": "分镜SCG数据契约-V1.md",
+      "git_blob_sha": "016e8830ea1a6f5db590a4c591eb2912c6b126d0",
+      "characters": 2191
+    },
+    {
+      "package_path": "scripts/分镜SCG校验器-V1.js",
+      "source_path": "分镜SCG校验器-V1.js",
+      "git_blob_sha": "3e1e7d4b951193dd7a76551d965ef6298b17204b",
+      "characters": 5822
+    },
+    {
+      "package_path": "tests/分镜SCG回归样例-V1.json",
+      "source_path": "分镜SCG回归样例-V1.json",
+      "git_blob_sha": "fed738efdf79514f72313b98e65671896407330a",
+      "characters": 15834
+    },
+    {
+      "package_path": "references/分镜穿帮专项回归样例-V1.md",
+      "source_path": "分镜穿帮专项回归样例-V1.md",
+      "git_blob_sha": "35dc1d04769b4c015764e7adad1742e4dd3fa8e3",
+      "characters": 1913
+    },
+    {
+      "package_path": "references/分镜事件时间数据契约-V1.md",
+      "source_path": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",
+      "git_blob_sha": "c21fa189e568a9026a1b2845d3ee89318291f142",
+      "characters": 1948
+    },
+    {
+      "package_path": "scripts/分镜事件时长校验器-V1.js",
+      "source_path": "skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js",
+      "git_blob_sha": "79134a062553f87ebd411e4b1fb4eca5239ca5be",
+      "characters": 8037
+    },
+    {
+      "package_path": "tests/分镜事件时长回归样例-V1.json",
+      "source_path": "skills/storyboard-director-cn/tests/分镜事件时长回归样例-V1.json",
+      "git_blob_sha": "8f735c71e57c5b892b92ea160cb92097713f6715",
+      "characters": 31543
+    }
+  ],
+  "source_rule_revision": "Director-led shot design, visual beat coverage, action-chain readability, framing/body orientation, spatial continuity, independent audit, text-first delivery, and optional structured temporal validation for high-risk event sequences"
+}
