@@ -4,7 +4,7 @@ description: 专用于中文 AI 漫剧制作。根据原剧本制作分镜和漫
 metadata:
   version: "1.1.0"
   language: "zh-CN"
-  source_repo: "a2315758011/a"
+  source_repo: "a2315758011/AIGC"
 ---
 
 # AI 漫剧导演与分镜自检重写技能
