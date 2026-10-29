@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "purpose": "分镜自动调用入口的动态规则索引。所有执行端每次分镜任务都必须从默认分支读取此清单，再读取清单内全部规则文件的最新版本。",
-  "repository": "a2315758011/a",
+  "repository": "a2315758011/AIGC",
   "branch": "main",
   "entry_path": "剧本转分镜自动调用指令",
   "rules": [
