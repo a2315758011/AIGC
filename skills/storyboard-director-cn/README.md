@@ -38,6 +38,6 @@ node scripts/分镜事件时长校验器-V1.js tests/分镜事件时长回归样
 - 事件时长校验器只检查结构化事件账本，不解析普通中文稿，也不验证真实生成视频；估算阈值只产生待复核警告，不冒充实测失败。无 Node.js 时必须注明相应程序校验未执行。
 
 ## 规则来源
-- [权威主编写规则](https://github.com/a2315758011/a/blob/main/剧本转分镜指令)
-- [权威独立自检规则](https://github.com/a2315758011/a/blob/main/剧本转分镜自检指令)
-- [本 Skill 目录](https://github.com/a2315758011/a/tree/main/skills/storyboard-director-cn)
+- [权威主编写规则](https://github.com/a2315758011/AIGC/blob/main/剧本转分镜指令)
+- [权威独立自检规则](https://github.com/a2315758011/AIGC/blob/main/剧本转分镜自检指令)
+- [本 Skill 目录](https://github.com/a2315758011/AIGC/tree/main/skills/storyboard-director-cn)
