@@ -4,12 +4,12 @@
 
 本文件是稳定调用入口。老师端优先动态读取仓库 `main` 最新规则；**学员不需要 GitHub 插件、MCP、仓库登录或代码执行工具**，可以直接上传完整规则文件使用。严禁把“有链接”“网页打不开”“无法 fetch”当作已读取/不存在的证据。
 
-- 仓库：https://github.com/a2315758011/a
-- 在线清单：https://raw.githubusercontent.com/a2315758011/a/main/%E5%88%86%E9%95%9C%E8%A7%84%E5%88%99%E6%B8%85%E5%8D%95.json
-- 编写规则原文：https://raw.githubusercontent.com/a2315758011/a/main/%E5%89%A7%E6%9C%AC%E8%BD%AC%E5%88%86%E9%95%9C%E6%8C%87%E4%BB%A4
-- 自检规则原文：https://raw.githubusercontent.com/a2315758011/a/main/%E5%89%A7%E6%9C%AC%E8%BD%AC%E5%88%86%E9%95%9C%E8%87%AA%E6%A3%80%E6%8C%87%E4%BB%A4
-- **学员离线完整规则包（含两份规则全文）**：https://github.com/a2315758011/a/blob/main/%E5%AD%A6%E5%91%98%E5%88%86%E9%95%9C%E5%8F%8C%E8%A7%84%E5%88%99%E5%AE%8C%E6%95%B4%E7%89%88.md
-- 离线文件直链：https://raw.githubusercontent.com/a2315758011/a/main/%E5%AD%A6%E5%91%98%E5%88%86%E9%95%9C%E5%8F%8C%E8%A7%84%E5%88%99%E5%AE%8C%E6%95%B4%E7%89%88.md
+- 仓库：https://github.com/a2315758011/AIGC
+- 在线清单：https://raw.githubusercontent.com/a2315758011/AIGC/main/%E5%88%86%E9%95%9C%E8%A7%84%E5%88%99%E6%B8%85%E5%8D%95.json
+- 编写规则原文：https://raw.githubusercontent.com/a2315758011/AIGC/main/%E5%89%A7%E6%9C%AC%E8%BD%AC%E5%88%86%E9%95%9C%E6%8C%87%E4%BB%A4
+- 自检规则原文：https://raw.githubusercontent.com/a2315758011/AIGC/main/%E5%89%A7%E6%9C%AC%E8%BD%AC%E5%88%86%E9%95%9C%E8%87%AA%E6%A3%80%E6%8C%87%E4%BB%A4
+- **学员离线完整规则包（含两份规则全文）**：https://github.com/a2315758011/AIGC/blob/main/%E5%AD%A6%E5%91%98%E5%88%86%E9%95%9C%E5%8F%8C%E8%A7%84%E5%88%99%E5%AE%8C%E6%95%B4%E7%89%88.md
+- 离线文件直链：https://raw.githubusercontent.com/a2315758011/AIGC/main/%E5%AD%A6%E5%91%98%E5%88%86%E9%95%9C%E5%8F%8C%E8%A7%84%E5%88%99%E5%AE%8C%E6%95%B4%E7%89%88.md
 
 ## 推荐：学员优先使用已安装技能（无需链接读取）
 
@@ -23,7 +23,7 @@
 **A1 在线动态模式（有网页或 GitHub 读取工具）**
 
 1. 从 `main` 读取 `分镜规则清单.json`；再逐项读取清单中所有 `required` 正文，记录可验证的版本 / SHA。
-2. GitHub `blob` 网页 HTML 读取失败，依次尝试 `raw.githubusercontent.com` 原文、`api.github.com/repos/a2315758011/a/contents/<文件路径>`、可用浏览器/代码仓库工具。工具被禁用、域名受限和实际 404 必须区分；不盲目重复同一失败接口。
+2. GitHub `blob` 网页 HTML 读取失败，依次尝试 `raw.githubusercontent.com` 原文、`api.github.com/repos/a2315758011/AIGC/contents/<文件路径>`、可用浏览器/代码仓库工具。工具被禁用、域名受限和实际 404 必须区分；不盲目重复同一失败接口。
 3. 在确认规则完整性后执行；已经明确核对与 `main` 相同的内容可复用，不得把过期缓存当最新版。
 4. 如果无法校验在线最新版但存在已提供的完整离线规则包，则转 A2；**不能因为 fetch 失败而忽略当前对话里的有效全文**。
 
