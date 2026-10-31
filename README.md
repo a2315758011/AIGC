@@ -14,6 +14,7 @@
 - [中文运镜导演技能](./skills/camera-motion-director-cn/)：摄影机运动设计、图生视频运动可行性、模型提示词适配与运镜审片。
 - [场景真实性导演技能](./skills/scene-realism-director-cn/)：专门处理场景图假感、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真和全景完整性。
 - [场景真实性研究记录](./docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md)：论文证据、SpatialGenEval、Qwen-Image-Bench、SA-BENCH 等基准及原创中文测试集。
+- [场景空间智能基准补充研究](./docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md)：SpatialGenEval、GenSpace、InSpace、360°全景 3D 重建路线及真实生图测试阻塞记录。
 - [学员双规则离线完整版](./学员分镜双规则完整版.md)：无 GitHub 联网能力时上传完整规则。
 - [分镜专项回归测试](./.github/workflows/storyboard-regression.yml)：校验结构化分镜与事件时长。
 
