@@ -1,0 +1,43 @@
+{
+  "valid_small_push": {
+    "expected_valid": true,
+    "story_function": "增强人物情绪临近感",
+    "camera": {
+      "move_type": "dolly",
+      "start_position": "人物正前方，胸口高度",
+      "end_position": "保持正面，靠近一个小幅度",
+      "direction": "沿人物正前方直线推进",
+      "magnitude": "small",
+      "speed_profile": "稳定起步、缓慢匀速、末段减速停稳",
+      "duration_seconds": 5
+    },
+    "subject_motion": "人物保持原站位，轻微抬眼",
+    "environment_motion": "背景保持稳定",
+    "continuity_locks": ["人物世界坐标不变", "身体朝向与视线不变", "场景结构不变"],
+    "end_frame": "人物面部近景，眼睛清晰",
+    "fallback": "固定机位近景",
+    "risk": "low",
+    "prompt": "摄影机从稳定画面开始，沿人物正前方缓慢直线推进，人物保持原站位和朝向，最后减速停在眼部清晰的近景。"
+  },
+  "invalid_fake_orbit": {
+    "expected_valid": false,
+    "story_function": "展示人物",
+    "camera": {
+      "move_type": "orbit",
+      "start_position": "正面",
+      "end_position": "背面",
+      "direction": "向右环绕",
+      "magnitude": "large",
+      "speed_profile": "快速",
+      "angle_degrees": 360,
+      "duration_seconds": 5
+    },
+    "subject_motion": "人物不动",
+    "environment_motion": "背景不动",
+    "continuity_locks": ["人物身份不变"],
+    "end_frame": "人物背面",
+    "fallback": "固定镜头",
+    "risk": "high",
+    "prompt": "摄影机环绕人物360度。"
+  }
+}
