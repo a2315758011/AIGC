@@ -1,0 +1,97 @@
+{
+  "version": "1.0.0",
+  "skill": "fight-impact-vfx-cn",
+  "target_repository": "a2315758011/AIGC",
+  "research_date": "2026-11-01",
+  "research_sources": [
+    {
+      "repository": "irenerachel/fight-prompt-director",
+      "url": "https://github.com/irenerachel/fight-prompt-director",
+      "use": "角色差异、攻防因果、命中与位移、跨镜连续性、失败单变量排错",
+      "license": "MIT",
+      "action": "仅吸收通用机制；本技能正文独立编写"
+    },
+    {
+      "repository": "ZzzAloong/fight-scene-director",
+      "url": "https://github.com/ZzzAloong/fight-scene-director",
+      "use": "初始站位、动作轨迹图、双轨迹图、不同战斗类型的镜头/特效/节奏路由",
+      "license": "MIT（LICENSE.txt 已读取）",
+      "action": "提炼流程，不复制提示词模板"
+    },
+    {
+      "repository": "qualsenWeb/fight-video-create-skill",
+      "url": "https://github.com/qualsenWeb/fight-video-create-skill",
+      "use": "战斗剧情、招式/技能路由、动作空间调度与分镜职责拆分",
+      "license": "源代码与文档 Apache-2.0；data/ 与 reference/ CC BY-NC-ND 4.0",
+      "action": "仅研究职责边界；不复制受限数据资产、参考资料或 GIF"
+    },
+    {
+      "repository": "snowfrost/skill-movie",
+      "url": "https://github.com/snowfrost/skill-movie",
+      "use": "动作物理、节奏编辑、VFX 因果链、媒介适配和特效生命周期",
+      "license": "本次未找到仓库根许可证",
+      "action": "仅记录公开技术概念和来源；不复制其 Skill 文本、数据或词库"
+    },
+    {
+      "repository": "LearnPrompt/awesome-seedance",
+      "url": "https://github.com/LearnPrompt/awesome-seedance",
+      "use": "有证据案例、动作编舞模板、跨模型复测和视频生成失败归因",
+      "license": "MIT（LICENSE 已读取）",
+      "action": "吸收案例验证与去重方法，不复制完整案例提示词"
+    },
+    {
+      "repository": "umohsamuel/impact",
+      "url": "https://github.com/umohsamuel/impact",
+      "use": "视频抽帧网格、视觉模型识别接触峰值、FFmpeg 在原生帧率上应用冲击帧效果",
+      "license": "MIT",
+      "action": "仅作后期自动化概念参考；依赖 Gemini API、Go 1.26.1 和 PostgreSQL，不作为默认免费离线方案"
+    },
+    {
+      "repository": "storytold/effectcraft",
+      "url": "https://github.com/storytold/effectcraft",
+      "use": "图层、关键帧、308 类效果、3D 相机/灯光、合成和渲染队列，可脚本/MCP 控制",
+      "license": "MIT OR Apache-2.0（README 与 LICENSE-MIT/LICENSE-APACHE 已核对）",
+      "action": "列为可选后期合成工具研究对象；未安装或运行"
+    },
+    {
+      "repository": "landon2022/minimax-h3-video-prompt",
+      "url": "https://github.com/landon2022/minimax-h3-video-prompt",
+      "use": "按交锋定义起始几何、攻击路径、防守、结果、受力与新几何",
+      "license": "本次未核实",
+      "action": "仅作公开参考，不复制文本"
+    },
+    {
+      "repository": "OSideMedia/higgsfield-ai-prompt-skill",
+      "url": "https://github.com/OSideMedia/higgsfield-ai-prompt-skill",
+      "use": "动作参考视频与高层动作描述组合方式",
+      "license": "本次未核实",
+      "action": "仅作参考"
+    },
+    {
+      "repository": "btwiuse/video-skills",
+      "url": "https://github.com/btwiuse/video-skills",
+      "use": "动作节奏、hit-stop、受击反馈、音乐同步与打击峰值设计",
+      "license": "本次未核实",
+      "action": "仅作参考"
+    }
+  ],
+  "validation": {
+    "status": "authored_pending_review",
+    "tested": "已检查新增 Markdown 与 JSON 内容；未运行任何视频模型或后期合成软件",
+    "not_tested": [
+      "未运行视频生成模型",
+      "未运行 EffectCraft",
+      "未执行自动冲击帧检测端到端视频测试"
+    ],
+    "boundary": "技能规则为本仓库独立编写；代码、模型权重、训练数据与参考素材的许可必须分别判断。"
+  },
+  "files": [
+    "SKILL.md",
+    "SOURCE_LOCK.json",
+    "references/打击感物理与动作因果.md",
+    "references/特效家族与媒介适配.md",
+    "references/动作节奏与剪辑打点.md",
+    "references/特效审片与失败诊断.md",
+    "tests/打击感回归样例.md"
+  ]
+}
