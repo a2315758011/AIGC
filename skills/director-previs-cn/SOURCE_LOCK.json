@@ -73,7 +73,7 @@
     "new_skill_files_read_back": true,
     "source_routing_read_back": true,
     "classroom_fixture_json_parse": true,
-    "classroom_fixture_static_assertions": "17/17 passed",
+    "classroom_fixture_static_assertions": "21/21 passed",
     "automated_skill_frontmatter_and_links": "not_run",
     "blind_real_image_video_ab": "not_run",
     "note": "Image generation attempts returned unrelated comparison infographics and were excluded; no classroom image/video result is claimed."
