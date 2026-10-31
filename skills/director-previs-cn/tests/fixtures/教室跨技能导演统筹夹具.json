@@ -1,0 +1,96 @@
+{
+  "case_id": "DO-CLASSROOM-INTEGRATION-20261031",
+  "source_assets": [
+    "阳光洒落的整洁教室.png",
+    "教室俯视图与全景机位示意.png",
+    "现代高中课堂剧照参考板.png"
+  ],
+  "reference_roles": {
+    "阳光洒落的整洁教室.png": "本轮桌椅布局唯一真值：4列×6排、24套桌椅；所有桌椅朝向黑板",
+    "教室俯视图与全景机位示意.png": "建筑边界、门窗、约数尺寸和机位说明；不得覆盖桌椅唯一真值",
+    "现代高中课堂剧照参考板.png": "人物身份、服装、教室风格和讲台/道具外观参考"
+  },
+  "scene_truth": {
+    "dimensions_m": {
+      "width_approx": 8,
+      "depth_approx": 6,
+      "height_approx": 3,
+      "measurement_status": "reference_estimate_not_survey"
+    },
+    "layout_source": "阳光洒落的整洁教室.png",
+    "desks": {
+      "columns": 4,
+      "rows": 6,
+      "count": 24,
+      "all_face": "blackboard",
+      "one_chair_per_desk": true
+    },
+    "door": {
+      "location": "front_right",
+      "connects_to": "school_corridor",
+      "must_not_connect_to": "grass"
+    },
+    "fixed_anchors": [
+      "blackboard",
+      "teacher_podium",
+      "left_windows",
+      "right_windows",
+      "central_aisle"
+    ]
+  },
+  "dramatic_intent": {
+    "scene_goal": "转校生进入教室，男主注意到她",
+    "audience_information": "观众看到女主入场，并能读懂男主注意到她",
+    "visible_event": "女主从校园走廊经前右门进入并在门内停留；男主身体继续朝向黑板，只转头和视线看向女主",
+    "end_state": "女主在门内，男主仍坐在既定座位，教师留在讲台"
+  },
+  "blocking_constraints": {
+    "female_transfer_student": {
+      "entry": "front_right_door",
+      "path": "corridor_to_inside",
+      "end_state": "pause_just_inside"
+    },
+    "male_lead": {
+      "seat_row_from_front": 4,
+      "seat_column_from_left": 4,
+      "body_facing": "blackboard",
+      "head_and_gaze_target": "female_transfer_student"
+    },
+    "teacher": {
+      "anchor": "teacher_podium",
+      "movement": "stationary"
+    },
+    "other_students": {
+      "movement": "none_without_story_authorization"
+    }
+  },
+  "specialist_handoffs": {
+    "scene_realism": [
+      "确认门外走廊与门洞关系",
+      "锁定4列×6排桌椅真值",
+      "保持建筑与家具锚点"
+    ],
+    "storyboard": [
+      "锁定男主第4排第4列",
+      "身体/头部/视线分开",
+      "女主入场动作链",
+      "跨镜连续性"
+    ],
+    "camera_motion": [
+      "本场基线为固定机位",
+      "如增加运动另行设计且不得改变人物世界坐标"
+    ],
+    "fight_impact_vfx": [
+      "本场没有打斗动作，不调用 fight-impact-vfx-cn"
+    ]
+  },
+  "integration_invariants": [
+    "三个专业技能使用同一场景版本",
+    "场景真实性技能不重排人物座位",
+    "分镜技能不重设计建筑/家具",
+    "运镜技能不改变人物世界位置",
+    "门外是校园走廊，不是草地",
+    "无打斗动作时不调用打斗特效技能",
+    "没有真实生成图像/视频时不得报告视觉验收通过"
+  ]
+}

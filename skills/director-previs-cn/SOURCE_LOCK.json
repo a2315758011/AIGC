@@ -1,0 +1,162 @@
+{
+  "package": "director-previs-cn",
+  "version": "1.2.0",
+  "date": "2026-11-01",
+  "source_repo": "a2315758011/AIGC",
+  "branch": "feat/director-orchestration-cn-20261101-v3",
+  "verified_main_commit": "5170ef3fba501bf08fd7dd628cc15bcd20234ec6",
+  "scope": "导演意图、跨专业技能路由、共享事实底稿、跨技能整合与整体验收",
+  "source_first": true,
+  "upstream_references": [
+    {
+      "repository": "wuwangzhang1216/DirectorSKILL",
+      "commit_sha": "c65ae0d14457053efb1e354c7e7f7e120d97fad1",
+      "license": "MIT",
+      "url": "https://github.com/wuwangzhang1216/DirectorSKILL",
+      "files_reviewed": [
+        {
+          "path": "SKILL.md",
+          "blob_sha": "84991f293d9a0fafb99da596202959c2342c39af"
+        },
+        {
+          "path": "references/blocking-and-staging.md",
+          "blob_sha": "3f08d41fc12b12b1f3459848e8437643e46662f1"
+        },
+        {
+          "path": "references/cinematic-language.md",
+          "blob_sha": "1aefa4171a1caa073e3e08773bd206af15ef464c"
+        },
+        {
+          "path": "LICENSE",
+          "blob_sha": "7bc31676d9571c9dd6f1a7f9ef43a7123669a6dd"
+        }
+      ],
+      "use": "导演全流程、场面目标、节拍、调度、摄影机覆盖和失败诊断；只提炼方法，不复制整包"
+    },
+    {
+      "repository": "smixs/visual-skills",
+      "commit_sha": "92be33a5a73325fb3d8e0c73b22744b114e2a90e",
+      "license": "CC-BY-4.0",
+      "url": "https://github.com/smixs/visual-skills",
+      "files_reviewed": [
+        {
+          "path": "README.md",
+          "blob_sha": "8ad4cc66425cf0f83628a999e9a20b2e09972105"
+        },
+        {
+          "path": "LICENSE",
+          "blob_sha": "da6ab6cc8f333d7e89a99812866df8f24374d47c"
+        }
+      ],
+      "use": "戏剧先于模型语法、镜头功能和关键帧控制原则；未复制受保护文案或素材"
+    },
+    {
+      "repository": "62656456/ai-film-skills",
+      "commit_sha": "f1fee0587e985fa81eedc3be7d7258a9a39a2ed3",
+      "license": "Apache-2.0",
+      "url": "https://github.com/62656456/ai-film-skills",
+      "files_reviewed": [
+        {
+          "path": "README.md",
+          "blob_sha": "92d5ecace19d2e206452cff9f923377bc276e97a"
+        },
+        {
+          "path": "LICENSE",
+          "blob_sha": "f433b1a53f5b830a205fd2df78e2b34974656c7b"
+        }
+      ],
+      "use": "专业技能模块化、阶段交接、白模预演与分层验收；未复制源码、文档或资产"
+    }
+  ],
+  "local_dependencies": [
+    {
+      "package": "scene-realism-director-cn",
+      "version": "1.2.1",
+      "path": "skills/scene-realism-director-cn/SKILL.md",
+      "git_blob_sha": "36a9c09061dfa69ab4c3c4bdaeb3f10694b2969c",
+      "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
+      "source_lock_version": "1.2.1",
+      "source_lock_git_blob_sha": "8866c10dc819ae2b980f035c71021fd864cd6980",
+      "authority": "场景真实性、建筑拓扑、功能布局、透视尺度、物理接触、光材质、全景与参考图保真",
+      "status": "conditional"
+    },
+    {
+      "package": "scene-realism-rules",
+      "version": "1.0.0",
+      "path": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
+      "git_blob_sha": "54163775d985da52f388e881112f8c81e29dbd55",
+      "authority": "场景空间世界模型、建筑拓扑、俯视/全景、布局与功能常识"
+    },
+    {
+      "package": "storyboard-director-cn",
+      "version": "1.2.1",
+      "source_version": "V2.10.5",
+      "path": "skills/storyboard-director-cn/SKILL.md",
+      "git_blob_sha": "59aa29c843c6976269f3a9424c435636672c7438",
+      "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json",
+      "source_lock_version": "1.2.1",
+      "source_lock_git_blob_sha": "2e537558f9b2c7090aaf61a9c09294f85db9337b",
+      "authority": "正式分镜、人物站位/朝向/视线、走位、轴线、连续性与SCG"
+    },
+    {
+      "package": "storyboard-positioning-rules",
+      "version": "1.4.0",
+      "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
+      "git_blob_sha": "0bdac34090778d426f4f2ea5ca875256c541bdb0",
+      "authority": "人物世界位置、身体/头部/视线、走位动作链和场景锚点"
+    },
+    {
+      "package": "camera-motion-director-cn",
+      "version": "1.0.0",
+      "path": "skills/camera-motion-director-cn/SKILL.md",
+      "git_blob_sha": "39909f0bc2a2a613754e4500113190d9eddfe2d9",
+      "source_lock_path": "skills/camera-motion-director-cn/SOURCE_LOCK.json",
+      "source_lock_version": "1.1.1",
+      "source_lock_git_blob_sha": "5e6102a843c1b132d4e3b8dac86c1dbe2c941e2c",
+      "authority": "摄影机运动设计、轨迹/速度、视频模型适配与运镜审片",
+      "note": "SKILL frontmatter reports 1.0.0 while SOURCE_LOCK reports 1.1.1; both pinned separately."
+    },
+    {
+      "package": "fight-impact-vfx-cn",
+      "version": "1.0.0",
+      "path": "skills/fight-impact-vfx-cn/SKILL.md",
+      "git_blob_sha": "45c06cb21597094a7a254412a2102494e395b460",
+      "source_lock_path": "skills/fight-impact-vfx-cn/SOURCE_LOCK.json",
+      "source_lock_version": "1.0.0",
+      "source_lock_git_blob_sha": "0b71d6146e8940ca5d4a85cc663fc20724d755d8",
+      "authority": "打斗动作因果、受力/接触、打击节奏、命中特效、环境反馈与声画同步",
+      "status": "authored_pending_review"
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "package": "manju-director-cn",
+      "version": "1.1.0",
+      "source_version": "V2.10.1",
+      "source_lock_git_blob_sha": "cfa4b8906050c27595ebdd3438fde2a75bf14105",
+      "reason": "当前离线快照仍锁定 V2.10.1，落后 main 的 storyboard V2.10.5；为避免使用过期分镜/自检规则，本轮不作为活动路由。待该包单独刷新后再评估。"
+    }
+  ],
+  "verification": {
+    "upstream_sources_read": true,
+    "licenses_checked": true,
+    "local_dependencies_read": true,
+    "local_dependency_blob_shas_pinned": true,
+    "main_commit": "5170ef3fba501bf08fd7dd628cc15bcd20234ec6",
+    "orchestrator_regression_cases": 10,
+    "fight_impact_skill_status": "authored_pending_review",
+    "manju_director_status": "excluded_until_source_refresh",
+    "automated_static_regression": "configured; latest GitHub Actions PR check is the source of truth",
+    "manual_route_dry_run": {
+      "status": "passed",
+      "pass_count": 10,
+      "fail_count": 0,
+      "method": "same-assistant rule walkthrough against the machine-readable expected routes",
+      "independent": false
+    },
+    "workflow_integration_ab": "not_run",
+    "real_image_video_ab": "not_run",
+    "note": "Static checks verify repository contracts and pinned dependencies only. They do not prove specialist model compliance, fight-video quality or scene/video quality improvement.",
+    "independent_route_review": "not_run"
+  }
+}

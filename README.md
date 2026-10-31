@@ -13,6 +13,7 @@
 - [人物站位与场景调度规则](./skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md)：多人站位、走位路径、场景锚点与摄影机轴线。
 - [中文运镜导演技能](./skills/camera-motion-director-cn/)：摄影机运动设计、图生视频运动可行性、模型提示词适配与运镜审片。
 - [打斗与打击感特效导演技能](./skills/fight-impact-vfx-cn/)：动作因果、受击反馈、冲击帧、速度表现、武器拖尾、冲击波、碎片、声音同步与特效审片。
+- [导演统筹与场面预演技能](./skills/director-previs-cn/SKILL.md)：跨场景真实性、正式分镜、摄影机运镜和打斗特效的导演意图、共享事实与专业技能交接；不重复专业规则。
 - [打斗特效与打击感研究记录](./Deepresearch/2026-11-01_打斗特效与打击感仓库技能调研.md)：外部仓库、技能、后期工具与许可证审查。
 - [场景真实性导演技能](./skills/scene-realism-director-cn/)：专门处理场景图假感、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真和全景完整性。
 - [场景真实性研究记录](./docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md)：论文证据、SpatialGenEval、Qwen-Image-Bench、SA-BENCH 等基准及原创中文测试集。

@@ -1,0 +1,42 @@
+name: director-previs-regression
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "README.md"
+      - "AGENTS.md"
+      - "skills/director-previs-cn/**"
+      - "skills/scene-realism-director-cn/**"
+      - "skills/storyboard-director-cn/**"
+      - "skills/camera-motion-director-cn/**"
+      - "skills/fight-impact-vfx-cn/**"
+      - ".github/workflows/director-previs-regression.yml"
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - "AGENTS.md"
+      - "skills/director-previs-cn/**"
+      - "skills/scene-realism-director-cn/**"
+      - "skills/storyboard-director-cn/**"
+      - "skills/camera-motion-director-cn/**"
+      - "skills/fight-impact-vfx-cn/**"
+      - ".github/workflows/director-previs-regression.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate director orchestration contract
+        run: node skills/director-previs-cn/scripts/validate_director_previs.js
