@@ -11,7 +11,7 @@
 5. 使用结构化镜头状态或高风险事件时间核查时，读取 [分镜导演 Skill](./skills/storyboard-director-cn/SKILL.md)、`references/`、`scripts/` 与 `tests/` 并运行对应校验。
 6. 多人站位、场景调度、走位路径、摄影机轴线或双人近景，必须读取 `skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md`。
 7. **涉及摄影机运镜时**，读取 [中文运镜导演 Skill](./skills/camera-motion-director-cn/SKILL.md)，按需加载其 references；图生视频须先评估源画面景深、边缘余量、遮挡和隐藏表面。运镜设计不得改变分镜既定人物世界坐标、站位、距离、朝向、视线、轴线或道具状态。存在结构化运镜计划时运行 `skills/camera-motion-director-cn/scripts/validate_camera_move.py`。
-8. 参考各平台主播/创作者的站位方法时，读取 `docs/平台创作者人物站位实战研究_20261101.md`；仅将有复现证据的方法升级为强制规则。
+8. 参考各平台主播/创作者的站位方法时，读取 `docs/平台创作者人物站位实战研究_20261101.md` 与 `docs/平台创作者人物站位实战研究_20261101_第二批.md`；仅将有复现证据的方法升级为强制规则。
 9. 不联网的学员使用 [完整双规则离线文件](./学员分镜双规则完整版.md) 或完整下载对应 Skill 文件夹。
 
 ## 权威版本与验收
