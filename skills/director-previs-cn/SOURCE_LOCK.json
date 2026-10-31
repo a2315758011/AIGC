@@ -1,0 +1,133 @@
+{
+  "package": "director-previs-cn",
+  "version": "1.1.1",
+  "date": "2026-11-01",
+  "source_repo": "a2315758011/AIGC",
+  "branch": "feat/director-orchestration-cn-20261101",
+  "verified_main_commit": "b7d8d86db4235a3ea8ab3c68fd22e90b42ee82c6",
+  "scope": "导演意图、跨专业技能路由、共享事实底稿、跨技能整合与整体验收",
+  "source_first": true,
+  "upstream_references": [
+    {
+      "repository": "wuwangzhang1216/DirectorSKILL",
+      "commit_sha": "c65ae0d14457053efb1e354c7e7f7e120d97fad1",
+      "license": "MIT",
+      "url": "https://github.com/wuwangzhang1216/DirectorSKILL",
+      "files_reviewed": [
+        {
+          "path": "SKILL.md",
+          "blob_sha": "84991f293d9a0fafb99da596202959c2342c39af"
+        },
+        {
+          "path": "references/blocking-and-staging.md",
+          "blob_sha": "3f08d41fc12b12b1f3459848e8437643e46662f1"
+        },
+        {
+          "path": "references/cinematic-language.md",
+          "blob_sha": "1aefa4171a1caa073e3e08773bd206af15ef464c"
+        },
+        {
+          "path": "LICENSE",
+          "blob_sha": "7bc31676d9571c9dd6f1a7f9ef43a7123669a6dd"
+        }
+      ],
+      "use": "导演全流程、场面目标、节拍、调度、摄影机覆盖、失败诊断；只提炼方法，不复制整包"
+    },
+    {
+      "repository": "smixs/visual-skills",
+      "commit_sha": "92be33a5a73325fb3d8e0c73b22744b114e2a90e",
+      "license": "CC-BY-4.0",
+      "url": "https://github.com/smixs/visual-skills",
+      "files_reviewed": [
+        {
+          "path": "README.md",
+          "blob_sha": "8ad4cc66425cf0f83628a999e9a20b2e09972105"
+        },
+        {
+          "path": "LICENSE",
+          "blob_sha": "da6ab6cc8f333d7e89a99812866df8f24374d47c"
+        }
+      ],
+      "use": "戏剧先于模型语法、镜头功能和关键帧控制原则；未复制受保护文案或素材"
+    },
+    {
+      "repository": "62656456/ai-film-skills",
+      "commit_sha": "f1fee0587e985fa81eedc3be7d7258a9a39a2ed3",
+      "license": "Apache-2.0",
+      "url": "https://github.com/62656456/ai-film-skills",
+      "files_reviewed": [
+        {
+          "path": "README.md",
+          "blob_sha": "92d5ecace19d2e206452cff9f923377bc276e97a"
+        },
+        {
+          "path": "LICENSE",
+          "blob_sha": "f433b1a53f5b830a205fd2df78e2b34974656c7b"
+        }
+      ],
+      "use": "专业技能模块化、阶段交接、白模预演与分层验收；未复制源码或资产"
+    }
+  ],
+  "local_dependencies": [
+    {
+      "package": "scene-realism-director-cn",
+      "version": "1.1.0",
+      "path": "skills/scene-realism-director-cn/SKILL.md",
+      "git_blob_sha": "70a44a3944156cc54ffdcc479ecff20584e10d5d",
+      "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
+      "source_lock_version": "1.1.0",
+      "source_lock_git_blob_sha": "586da2eacf3f8113754ad4d20878635510fccda4",
+      "authority": "场景真实性、建筑拓扑、功能布局、透视尺度、物理接触、光材质、全景与参考图保真",
+      "status": "conditional"
+    },
+    {
+      "package": "scene-realism-rules",
+      "version": "1.0.0",
+      "path": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
+      "git_blob_sha": "54163775d985da52f388e881112f8c81e29dbd55",
+      "authority": "场景空间世界模型、建筑拓扑、俯视/全景、布局与功能常识"
+    },
+    {
+      "package": "storyboard-director-cn",
+      "version": "1.1.8",
+      "source_version": "V2.10.5",
+      "path": "skills/storyboard-director-cn/SKILL.md",
+      "git_blob_sha": "3f89cd4a3cac4cb4783dc4fdeceb60eaaf2fcfa2",
+      "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json",
+      "source_lock_version": "1.1.8",
+      "source_lock_git_blob_sha": "a741b2e9dd0c3b78c73f06ce87b83edd0fba038d",
+      "authority": "正式分镜、人物站位/朝向/视线、走位、轴线、连续性与SCG"
+    },
+    {
+      "package": "storyboard-positioning-rules",
+      "version": "1.2.0",
+      "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
+      "git_blob_sha": "8faade38e9db972053bcbe944c74cd69a1ffc780",
+      "authority": "人物世界位置、身体/头部/视线、走位动作链和场景锚点"
+    },
+    {
+      "package": "camera-motion-director-cn",
+      "version": "1.0.0",
+      "path": "skills/camera-motion-director-cn/SKILL.md",
+      "git_blob_sha": "39909f0bc2a2a613754e4500113190d9eddfe2d9",
+      "source_lock_path": "skills/camera-motion-director-cn/SOURCE_LOCK.json",
+      "source_lock_version": "1.1.1",
+      "source_lock_git_blob_sha": "5e6102a843c1b132d4e3b8dac86c1dbe2c941e2c",
+      "authority": "摄影机运动设计、轨迹/速度、视频模型适配与运镜审片",
+      "note": "SKILL frontmatter currently reports 1.0.0 while SOURCE_LOCK reports 1.1.1; pin both values separately rather than inventing a unified version."
+    }
+  ],
+  "verification": {
+    "upstream_sources_read": true,
+    "licenses_checked": true,
+    "local_dependencies_read": true,
+    "local_dependency_blob_shas_pinned": true,
+    "main_commit": "b7d8d86db4235a3ea8ab3c68fd22e90b42ee82c6",
+    "orchestrator_regression_cases": 8,
+    "automated_static_regression": "added; CI pending",
+    "manual_route_dry_run": "not_run",
+    "workflow_integration_ab": "not_run",
+    "real_image_video_ab": "not_run",
+    "note": "This skill only orchestrates existing specialist skills. Static validation does not prove model compliance or image/video quality improvement."
+  }
+}
