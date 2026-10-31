@@ -155,18 +155,6 @@
       "url": "https://github.com/snap-research/ac3d",
       "use": "CogVideoX Plücker 条件 ControlNet 相机控制",
       "license_status": "Snap 非商业研究许可；禁止作为商业生产依赖"
-    },
-    {
-      "repository": "PixCtrol/WorldCast",
-      "url": "https://github.com/PixCtrol/WorldCast",
-      "use": "多视角主体锚点与大角度相机轨迹控制",
-      "license_status": "Apache-2.0；底座 Wan 权重许可独立核查"
-    },
-    {
-      "repository": "TencentARC/VerseCrafter",
-      "url": "https://github.com/TencentARC/VerseCrafter",
-      "use": "Blender 预演与 4D 相机/多物体几何控制",
-      "license_status": "仅学术用途，禁止商业/生产用途，且不面向欧盟使用"
     }
   ],
   "files": [
@@ -195,7 +183,9 @@
       "local_run": "exit_code=0; valid_small_push passed; invalid_fake_orbit correctly rejected"
     },
     "limits": "静态校验只证明结构规则；第二轮文档是仓库/README/许可研究，尚未本地安装或运行第三方模型和预演工具。",
-    "integration_note": "已与 AIGC main 现有 V1 人物站位与场景调度规则建立联读关系；本技能通过 PR #3 提交，合入后由 main 维护。"
+    "integration_note": "已与 AIGC main 现有 V1 人物站位与场景调度规则建立联读关系；本技能通过 PR #3 提交，合入后由 main 维护。",
+    "research_source_entries": 25,
+    "note": "25 个唯一外部仓库/技能来源已登记；同一仓库只保留一条许可证状态较新的记录。"
   },
   "related_existing_rules": [
     {
