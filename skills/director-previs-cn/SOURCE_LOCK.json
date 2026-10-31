@@ -1,0 +1,105 @@
+{
+  "package": "director-previs-cn",
+  "version": "1.0.1",
+  "date": "2026-10-31",
+  "source_repo": "a2315758011/AIGC",
+  "branch": "feat/director-previs-cn-20261031-v2",
+  "scope": "导演意图、空间预演、场景保真、人物调度、摄影机预演、全景/俯视重建和AI预演验收",
+  "source_first": true,
+  "upstream_references": [
+    {
+      "repository": "wuwangzhang1216/DirectorSKILL",
+      "license": "MIT",
+      "url": "https://github.com/wuwangzhang1216/DirectorSKILL",
+      "files_reviewed": [
+        {
+          "path": "SKILL.md",
+          "git_blob_sha": "84991f293d9a0fafb99da596202959c2342c39af",
+          "use": "导演工作流路由、导演阐述、节拍、预演流程"
+        },
+        {
+          "path": "references/blocking-and-staging.md",
+          "git_blob_sha": "3f08d41fc12b12b1f3459848e8437643e46662f1",
+          "use": "人物距离、场面调度、权力几何、行动路径"
+        },
+        {
+          "path": "references/cinematic-language.md",
+          "git_blob_sha": "1aefa4171a1caa073e3e08773bd206af15ef464c",
+          "use": "镜头语法、轴线、构图、焦段与拍摄距离"
+        }
+      ],
+      "reuse_policy": "方法研究与独立中文重写；不复制上游完整文件或长段落"
+    },
+    {
+      "repository": "smixs/visual-skills",
+      "license": "CC-BY-4.0",
+      "url": "https://github.com/smixs/visual-skills",
+      "files_reviewed": [
+        {
+          "path": "README.md",
+          "git_blob_sha": "8ad4cc66425cf0f83628a999e9a20b2e09972105",
+          "use": "戏剧先于模型语法、镜头功能、关键帧控制点"
+        },
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
+          "use": "许可核对"
+        }
+      ],
+      "reuse_policy": "仅提炼方法原则；未复制文案、图片或源文件；如未来分发其受保护表达须先满足署名与许可条件"
+    },
+    {
+      "repository": "62656456/ai-film-skills",
+      "license": "Apache-2.0",
+      "url": "https://github.com/62656456/ai-film-skills",
+      "files_reviewed": [
+        {
+          "path": "README.md",
+          "git_blob_sha": "92d5ecace19d2e206452cff9f923377bc276e97a",
+          "use": "模块化职责、阶段交接、白模预演与实片验收分层"
+        },
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
+          "use": "许可核对"
+        }
+      ],
+      "reuse_policy": "方法研究与独立中文重写；不复制上游技能源码或资产"
+    }
+  ],
+  "verification": {
+    "upstream_files_read": true,
+    "license_files_checked": true,
+    "new_skill_files_read_back": true,
+    "source_routing_read_back": true,
+    "classroom_fixture_json_parse": true,
+    "classroom_fixture_static_assertions": "17/17 passed",
+    "automated_skill_frontmatter_and_links": "not_run",
+    "blind_real_image_video_ab": "not_run",
+    "note": "Image generation attempts returned unrelated comparison infographics and were excluded; no classroom image/video result is claimed."
+  },
+  "local_dependencies": [
+    {
+      "package": "storyboard-director-cn",
+      "version": "1.1.5",
+      "source_version": "V2.10.2",
+      "path": "skills/storyboard-director-cn/SKILL.md",
+      "git_blob_sha": "2fce611d30308969c1c57be3f3d5185fdcabef9c",
+      "authority": "正式分镜、人物站位、朝向/视线、走位、轴线、跨镜连续性"
+    },
+    {
+      "package": "storyboard-director-cn-positioning-rules",
+      "version": "1.0.0",
+      "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
+      "git_blob_sha": "8bc3b531b64942466d441ec84b624c7145db38c7",
+      "authority": "人物世界位置、身体/头部/视线、走位链、多人调度、摄影机轴线"
+    },
+    {
+      "package": "camera-motion-director-cn",
+      "version": "1.0.0",
+      "path": "skills/camera-motion-director-cn/SKILL.md",
+      "git_blob_sha": "419ee36a2e162ed881eefadc85d2c380886dce09",
+      "authority": "摄影机运动类型、物理轨迹、速度节奏、图生视频运镜与模型适配"
+    }
+  ]
+}
