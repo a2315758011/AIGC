@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "date": "2026-10-31",
   "source_repo": "a2315758011/AIGC",
-  "branch": "feat/camera-motion-director-cn",
+  "branch": "main",
   "source_strategy": "独立编写与归纳，不复制未确认许可证的第三方技能文件",
   "research_sources": [
     {
@@ -58,7 +58,7 @@
       "local_run": "exit_code=0; valid_small_push passed; invalid_fake_orbit correctly rejected"
     },
     "limits": "只证明计划结构与高风险规则回归符合预期，不验证任何真实视频生成或视觉质量",
-    "integration_note": "已与 AIGC main 现有 V1 人物站位与场景调度规则建立联读关系；集成分支需通过 PR 合入。"
+    "integration_note": "已与 AIGC main 现有 V1 人物站位与场景调度规则建立联读关系；本技能通过 PR #3 提交，合入后由 main 维护。"
   },
   "related_existing_rules": [
     {
