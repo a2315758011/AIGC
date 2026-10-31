@@ -5,8 +5,8 @@
   "date": "2026-10-31",
   "authority": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
   "files": {
-    "SKILL.md": "c8f16c962b5d6025b302b8f1f7c66e865b2692d1",
-    "README.md": "609c2b1ac2826f926bed39284b29d6c6afb9d03f",
+    "SKILL.md": "6b401acfdbfc594a5a52b627e202749825da6946",
+    "README.md": "ea604a0eccbdb2d2091cea0a9cf592d0b90d6966",
     "references/场景真实性控制规则-V1.md": "54163775d985da52f388e881112f8c81e29dbd55",
     "references/开源仓库研究与采纳记录_20261031.md": "f2d4bba31a302e293244f7b8bc7d083ef91f0ee2",
     "references/场景图真实性质检与回归样例-V1.json": "d7a2c0bc42ccb189444ceb3a18cfbeaf3003cac8",
@@ -14,13 +14,14 @@
     "references/可控生成与诊断工具.md": "56f12ad00dcb03d9e689a194ac7fada8306ade3f",
     "tests/场景真实性回归样例.md": "2824424223edd6fec8d33fc7dadfc38139c625bf"
   },
+  "external_research": "docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md",
   "validation": {
     "repository_files_present": true,
     "static_structure_review": "passed",
-    "manual_regression_cases_authored": 12,
+    "structured_manual_cases": 12,
     "target_model_ab_test": "not_run",
     "comfyui_runtime_test": "not_run",
     "platform_skill_install_test": "not_run"
   },
-  "note": "Git blob SHAs identify exact committed source versions. Update this lock after any subsequent file change. Conditional status must not be promoted to verified without target-environment tests."
+  "note": "Git blob SHAs identify exact committed file versions. Update this lock after any subsequent file change. Conditional status must not be promoted to verified without target-environment tests."
 }
