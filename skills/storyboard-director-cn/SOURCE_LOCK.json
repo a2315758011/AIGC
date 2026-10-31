@@ -1,22 +1,22 @@
 {
   "package": "storyboard-director-cn",
-  "date": "2026-10-28",
-  "version": "1.1.4",
+  "date": "2026-10-31",
+  "version": "1.1.5",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "source_version": "V2.10.1",
+  "source_version": "V2.10.2",
   "files": [
     {
       "package_path": "references/剧本转分镜指令.md",
       "source_path": "剧本转分镜指令",
-      "git_blob_sha": "a99ff46195a48bce189fcf3c1116bd13d2d28c4d",
-      "characters": 35111
+      "git_blob_sha": "6d8b7a19ac0073abd1522f7f0434c48691621b0f",
+      "characters": 35352
     },
     {
       "package_path": "references/剧本转分镜自检指令.md",
       "source_path": "剧本转分镜自检指令",
-      "git_blob_sha": "6ee3fa78ba6dc9374254c96f697dcd64e091fabd",
-      "characters": 20726
+      "git_blob_sha": "11dd2062cfbb1616912d6011409c5a83446f4845",
+      "characters": 21366
     },
     {
       "package_path": "references/分镜SCG数据契约-V1.md",
@@ -59,7 +59,13 @@
       "source_path": "skills/storyboard-director-cn/tests/分镜事件时长回归样例-V1.json",
       "git_blob_sha": "8f735c71e57c5b892b92ea160cb92097713f6715",
       "characters": 31543
+    },
+    {
+      "package_path": "references/人物站位与场景调度规则-V1.md",
+      "source_path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
+      "git_blob_sha": "8bc3b531b64942466d441ec84b624c7145db38c7",
+      "characters": 1948
     }
   ],
-  "source_rule_revision": "Director-led shot design, visual beat coverage, action-chain readability, framing/body orientation, spatial continuity, independent audit, text-first delivery, and optional structured temporal validation for high-risk event sequences"
+  "source_rule_revision": "V2.10.2 adds scene-local coordinate frames, fixed landmarks, world-position/screen-projection separation, blocking path chain, camera-axis checks, and blocking-specific QA; preserves existing SCG and independent video-validation boundaries."
 }
