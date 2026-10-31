@@ -64,7 +64,7 @@ check("cross-domain task uses orchestrator", skillText.includes("同时跨越两
 check("root README exposes orchestrator", rootReadme.includes("./skills/director-previs-cn/SKILL.md"));
 check("root AGENTS routes orchestrator", rootAgents.includes("./skills/director-previs-cn/SKILL.md"));
 check("skill README documents all specialists", specialists.every(name => readmeText.includes(name)));
-check("changelog records 1.1.1", changelogText.includes("## 1.1.1"));
+check("changelog records 1.2.0", changelogText.includes("## 1.2.0"));
 check("root README has no escaped newline corruption", !rootReadme.includes("\\n- ["));
 
 check("three upstream sources are pinned", Array.isArray(lock.upstream_references) && lock.upstream_references.length === 3);
@@ -121,7 +121,8 @@ check("integration test contains controlled A/B", integrationText.includes("A组
 check("visual A/B is not falsely marked complete", lock.verification.real_image_video_ab === "not_run");
 check("fight impact dependency remains pending review", lock.verification.fight_impact_skill_status === "authored_pending_review");
 check("stale manju package is explicitly excluded", Array.isArray(lock.excluded_candidates) && lock.excluded_candidates.some(item => item.package === "manju-director-cn" && item.source_version === "V2.10.1"));
-check("manual and runtime validation remain explicit", lock.verification.manual_route_dry_run === "not_run" && lock.verification.workflow_integration_ab === "not_run");
+check("manual route dry run is 10/10 but not independent", lock.verification.manual_route_dry_run.status === "passed" && lock.verification.manual_route_dry_run.pass_count === 10 && lock.verification.independent_route_review === "not_run");
+check("workflow A/B and real image/video A/B remain unrun", lock.verification.workflow_integration_ab === "not_run" && lock.verification.real_image_video_ab === "not_run");
 
 process.stdout.write(`\n结果：${passed} PASS / ${failed} FAIL\n`);
 if (failed > 0) process.exitCode = 1;
