@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "验证导演统筹的任务路由和跨技能交接合同；不替代目标模型实测。",
+  "cases": [
+    {
+      "id": "DO-01",
+      "input": "只要求修复一张场景图的塑料感",
+      "expected_route": [
+        "scene-realism-director-cn"
+      ],
+      "orchestration_required": false,
+      "expected_result": "直接进入场景真实性诊断与最小修复"
+    },
+    {
+      "id": "DO-02",
+      "input": "只要求检查双人近景站位和轴线",
+      "expected_route": [
+        "storyboard-director-cn"
+      ],
+      "orchestration_required": false,
+      "expected_result": "按现有分镜/站位规则检查，不另造字段"
+    },
+    {
+      "id": "DO-03",
+      "input": "只要求缓慢推镜并保持人物位置",
+      "expected_route": [
+        "camera-motion-director-cn"
+      ],
+      "orchestration_required": false,
+      "expected_result": "只设计摄影机运动，不改变人物世界坐标"
+    },
+    {
+      "id": "DO-04",
+      "input": "同时要求场景重建、人物入场分镜和运镜",
+      "expected_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn",
+        "storyboard-director-cn",
+        "camera-motion-director-cn"
+      ],
+      "orchestration_required": true,
+      "expected_result": "共享事实底稿，按场景→分镜→运镜交接"
+    },
+    {
+      "id": "DO-05",
+      "input": "导演只说压迫感更强",
+      "expected_route": [
+        "director-previs-cn"
+      ],
+      "orchestration_required": true,
+      "expected_result": "先转成可观察的空间/动作/信息目标，再决定是否需要专业技能"
+    },
+    {
+      "id": "DO-06",
+      "input": "两张参考图的门窗位置冲突，但任务只涉及场景重建",
+      "expected_route": [
+        "scene-realism-director-cn"
+      ],
+      "orchestration_required": false,
+      "expected_result": "按证据等级记录冲突和未知，不凭空融合结构"
+    },
+    {
+      "id": "DO-07",
+      "input": "下游场景输出与用户锁定的场景锚点冲突，要求协调修复",
+      "expected_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn"
+      ],
+      "orchestration_required": true,
+      "expected_result": "保留用户锁定事实，定位冲突源并回到场景技能修复"
+    },
+    {
+      "id": "DO-08",
+      "input": "只有导演文字方案，没有真实生成图/视频",
+      "expected_route": [
+        "director-previs-cn"
+      ],
+      "orchestration_required": true,
+      "expected_result": "只报告文字/结构检查；视觉验收必须标记NOT_RUN",
+      "visual_acceptance": "NOT_RUN"
+    }
+  ]
+}
