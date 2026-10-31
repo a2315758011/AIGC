@@ -57,6 +57,13 @@
       "regression_fixture_blob_sha": "c8ce46765e5a9690102505e679d5e778bd0d9877",
       "local_run": "exit_code=0; valid_small_push passed; invalid_fake_orbit correctly rejected"
     },
-    "limits": "只证明计划结构与高风险规则回归符合预期，不验证任何真实视频生成或视觉质量"
-  }
+    "limits": "只证明计划结构与高风险规则回归符合预期，不验证任何真实视频生成或视觉质量",
+    "integration_note": "已与 AIGC main 现有 V1 人物站位与场景调度规则建立联读关系；集成分支需通过 PR 合入。"
+  },
+  "related_existing_rules": [
+    {
+      "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
+      "purpose": "提供人物世界位置、场景锚点、走位路径和摄影机轴线约束；运镜技能按需联读，不复制该规则。"
+    }
+  ]
 }
