@@ -1,6 +1,6 @@
 {
   "package": "director-previs-cn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "date": "2026-10-31",
   "source_repo": "a2315758011/AIGC",
   "branch": "feat/director-previs-cn-20261031",
@@ -71,7 +71,35 @@
     "upstream_files_read": true,
     "license_files_checked": true,
     "new_skill_files_read_back": true,
-    "automated_validation": "not_run",
-    "real_image_video_ab": "not_run"
-  }
+    "source_routing_read_back": true,
+    "classroom_fixture_json_parse": true,
+    "classroom_fixture_static_assertions": "17/17 passed",
+    "automated_skill_frontmatter_and_links": "not_run",
+    "blind_real_image_video_ab": "not_run",
+    "note": "Image generation attempts returned unrelated comparison infographics and were excluded; no classroom image/video result is claimed."
+  },
+  "local_dependencies": [
+    {
+      "package": "storyboard-director-cn",
+      "version": "1.1.5",
+      "source_version": "V2.10.2",
+      "path": "skills/storyboard-director-cn/SKILL.md",
+      "git_blob_sha": "2fce611d30308969c1c57be3f3d5185fdcabef9c",
+      "authority": "正式分镜、人物站位、朝向/视线、走位、轴线、跨镜连续性"
+    },
+    {
+      "package": "storyboard-director-cn-positioning-rules",
+      "version": "1.0.0",
+      "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
+      "git_blob_sha": "8bc3b531b64942466d441ec84b624c7145db38c7",
+      "authority": "人物世界位置、身体/头部/视线、走位链、多人调度、摄影机轴线"
+    },
+    {
+      "package": "camera-motion-director-cn",
+      "version": "1.0.0",
+      "path": "skills/camera-motion-director-cn/SKILL.md",
+      "git_blob_sha": "419ee36a2e162ed881eefadc85d2c380886dce09",
+      "authority": "摄影机运动类型、物理轨迹、速度节奏、图生视频运镜与模型适配"
+    }
+  ]
 }
