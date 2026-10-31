@@ -1,22 +1,22 @@
 {
   "package": "storyboard-director-cn",
   "date": "2026-10-31",
-  "version": "1.1.6",
+  "version": "1.1.8",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "source_version": "V2.10.3",
+  "source_version": "V2.10.5",
   "files": [
     {
       "package_path": "references/剧本转分镜指令.md",
       "source_path": "剧本转分镜指令",
-      "git_blob_sha": "6e67a513fd07f878d94a9e2553a2e2645e54d261",
-      "characters": 35625
+      "git_blob_sha": "98feb1281d83aed5ee035bf9f70713598610588c",
+      "characters": 35851
     },
     {
       "package_path": "references/剧本转分镜自检指令.md",
       "source_path": "剧本转分镜自检指令",
-      "git_blob_sha": "6ebc7bf422b664f5c2a0b12aeb87c7e4ccb0a173",
-      "characters": 21749
+      "git_blob_sha": "778c79dbab0705186cad159d22b1356cdbff0e2e",
+      "characters": 22048
     },
     {
       "package_path": "references/分镜SCG数据契约-V1.md",
@@ -63,9 +63,9 @@
     {
       "package_path": "references/人物站位与场景调度规则-V1.md",
       "source_path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
-      "git_blob_sha": "2bc8b4c12faec667d3eef9fe95ae31bd25d06224",
-      "characters": 4519
+      "git_blob_sha": "bb16ee4df116ba460899f4d16cce959f2bc4b93f",
+      "characters": 6711
     }
   ],
-  "source_rule_revision": "V2.10.3 expands blocking with scene-level baseline and per-shot delta inheritance, distance/power heuristics (non-binding), separate speech addressee/gaze/movement/camera vectors, physical support/corridor checks, optional master-shot reference, and four-level evidence gates. Preserves SCG and video-validation boundaries."
+  "source_rule_revision": "V2.10.5 adds reflection/scale/world-rule topology, aspect-aware camera projection, confidence-aware pose inference, depth/pose/edge control modality boundaries, expert storyboard sample attribution, and verified entity memory; preserves existing SCG and video-validation boundaries."
 }
