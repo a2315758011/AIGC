@@ -89,4 +89,4 @@ metadata:
 node skills/director-previs-cn/scripts/validate_director_previs.js
 ```
 
-该检查器验证路由合同、来源锁、依赖文件 SHA、教室集成夹具和八项回归用例。它只证明仓库静态合同一致，不证明模型真实遵循提示词，也不证明图像/视频质量提升。
+该检查器验证路由合同、来源锁、依赖文件 SHA、教室集成夹具和十项回归用例。fight-impact-vfx 当前自身状态为 `authored_pending_review`，使用时须遵守其验证边界。静态检查只证明仓库合同一致，不证明模型真实遵循提示词，也不证明图像/视频质量提升。
