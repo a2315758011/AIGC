@@ -1,6 +1,6 @@
 {
   "package": "camera-motion-director-cn",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "date": "2026-10-31",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
@@ -35,6 +35,102 @@
       "url": "https://github.com/62656456/ai-film-skills",
       "use": "独立影视技能模块化组织参考",
       "license_status": "本次未复制第三方文件"
+    },
+    {
+      "repository": "wuwangzhang1216/DirectorSKILL",
+      "url": "https://github.com/wuwangzhang1216/DirectorSKILL",
+      "use": "导演全流程、镜头动机、运动预算、首帧控制点、故障诊断；提炼规则，不复制整包",
+      "license_status": "MIT，已读取 LICENSE"
+    },
+    {
+      "repository": "olegspiridonovdev-spec/cinematic-video-skill",
+      "url": "https://github.com/olegspiridonovdev-spec/cinematic-video-skill",
+      "use": "单镜头合同、头-转折-尾、运动预算、抽帧审片",
+      "license_status": "MIT，已读取 LICENSE"
+    },
+    {
+      "repository": "dennisonbertram/emulsion",
+      "url": "https://github.com/dennisonbertram/emulsion",
+      "use": "3D 预演、摄影机关键帧、LookAt/FOV、跟拍与导出运动参考视频",
+      "license_status": "MIT，已读取 LICENSE"
+    },
+    {
+      "repository": "mbkizil/Generate-Camera-Trajectory",
+      "url": "https://github.com/mbkizil/Generate-Camera-Trajectory",
+      "use": "LAMP/Auteur 轨迹原语、参数化路径、相机 POV、坐标系导出",
+      "license_status": "本次未找到根目录 LICENSE；仅记录与研究"
+    },
+    {
+      "repository": "worldlabsai/atlas-camera-studio",
+      "url": "https://github.com/worldlabsai/atlas-camera-studio",
+      "use": "单图深度/点云、交互式路径绘制、路径平滑与视频生成",
+      "license_status": "MIT，已读取 README 许可声明"
+    },
+    {
+      "repository": "TencentARC/SCoPE",
+      "url": "https://github.com/TencentARC/SCoPE",
+      "use": "逐帧 camera-to-world pose、HFOV、Plücker sightline camera conditioning",
+      "license_status": "Apache-2.0，已读取 LICENSE.txt"
+    },
+    {
+      "repository": "Yukun66/OmniCamera",
+      "url": "https://github.com/Yukun66/OmniCamera",
+      "use": "文本/轨迹/参考相机视频三类条件与内容条件组合",
+      "license_status": "Apache-2.0，已读取 LICENSE"
+    },
+    {
+      "repository": "gulucaptain/CameraNoise",
+      "url": "https://github.com/gulucaptain/CameraNoise",
+      "use": "参考视频位姿估计、GRFlow、噪声空间相机条件",
+      "license_status": "README 标示 Apache-2.0；根 LICENSE 路径本次未读取，复制前需再次确认"
+    },
+    {
+      "repository": "nv-tlabs/GEN3C",
+      "url": "https://github.com/nv-tlabs/GEN3C",
+      "use": "3D-informed 轨迹类型、旋转模式与位移距离控制",
+      "license_status": "Apache-2.0，已读取 LICENSE"
+    },
+    {
+      "repository": "yixuanli98/CameraAnything",
+      "url": "https://github.com/yixuanli98/CameraAnything",
+      "use": "相机外参、焦距内参、画幅与多镜头联合控制",
+      "license_status": "本次未找到根目录 LICENSE；仅记录与研究"
+    },
+    {
+      "repository": "seunghyuns98/TriMotion",
+      "url": "https://github.com/seunghyuns98/TriMotion",
+      "use": "视频/Pose/文本多模态运动嵌入与 I2V/V2V 控制",
+      "license_status": "本次未找到根目录 LICENSE；仅记录与研究"
+    },
+    {
+      "repository": "TrajectoryCrafter/TrajectoryCrafter",
+      "url": "https://github.com/TrajectoryCrafter/TrajectoryCrafter",
+      "use": "单目视频的目标相机轨迹重定向",
+      "license_status": "本次未找到根目录 LICENSE；仅记录与研究"
+    },
+    {
+      "repository": "Westlake-AGI-Lab/WorldinWorld",
+      "url": "https://github.com/Westlake-AGI-Lab/WorldinWorld",
+      "use": "自由相机重摄影、bullet time、几何 warp 视频重拍",
+      "license_status": "本轮未核实许可；仅记录与研究"
+    },
+    {
+      "repository": "PixCtrol/WorldCast",
+      "url": "https://github.com/PixCtrol/WorldCast",
+      "use": "单图+多视角主体锚点+目标轨迹的大角度相机控制",
+      "license_status": "本轮未核实许可；仅记录与研究"
+    },
+    {
+      "repository": "TencentARC/VerseCrafter",
+      "url": "https://github.com/TencentARC/VerseCrafter",
+      "use": "4D 相机与多物体运动联合控制",
+      "license_status": "本轮未核实许可；仅记录与研究"
+    },
+    {
+      "repository": "cvlab-kaist/Vid-CamEdit",
+      "url": "https://github.com/cvlab-kaist/Vid-CamEdit",
+      "use": "基于估计几何的生成式视频相机轨迹编辑",
+      "license_status": "本轮未核实许可；仅记录与研究"
     }
   ],
   "files": [
@@ -46,18 +142,22 @@
     "references/提示词编译与模型适配.md",
     "references/运镜质量检查.md",
     "scripts/validate_camera_move.py",
-    "tests/运镜计划回归样例.json"
+    "tests/运镜计划回归样例.json",
+    "references/导演工作流与动态镜头合同.md",
+    "references/三维摄影机轨迹与预演工具.md",
+    "references/可控视频生成技术路线.md",
+    "Deepresearch/2026-10-31_运镜控制技能第二轮扩展研究.md"
   ],
   "validation": {
     "static_validator": "passed",
     "regression_cases": 2,
-    "execution_status": "passed",
+    "execution_status": "first_round_passed_second_round_docs_added",
     "evidence": {
       "validator_blob_sha": "59588e85643d4dfbb7a3ecd6efd1a1542426008e",
       "regression_fixture_blob_sha": "c8ce46765e5a9690102505e679d5e778bd0d9877",
       "local_run": "exit_code=0; valid_small_push passed; invalid_fake_orbit correctly rejected"
     },
-    "limits": "只证明计划结构与高风险规则回归符合预期，不验证任何真实视频生成或视觉质量",
+    "limits": "静态校验只证明结构规则；第二轮文档是仓库/README/许可研究，尚未本地安装或运行第三方模型和预演工具。",
     "integration_note": "已与 AIGC main 现有 V1 人物站位与场景调度规则建立联读关系；本技能通过 PR #3 提交，合入后由 main 维护。"
   },
   "related_existing_rules": [
