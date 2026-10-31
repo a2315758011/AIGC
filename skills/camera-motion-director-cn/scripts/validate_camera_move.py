@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
-"""Validate a camera-motion plan. Static checks only; not a video quality test."""
+"""Validate one camera-motion plan or a named regression-case map. Static checks only."""
 from __future__ import annotations
 import argparse
 import json
 import sys
 from pathlib import Path
 
-MOVE_TYPES = {
-    "static", "pan", "tilt", "roll", "dolly", "truck", "pedestal",
-    "crane", "arc", "orbit", "tracking", "follow", "lead",
-    "zoom", "rack_focus", "handheld",
-}
+MOVE_TYPES = {"static", "pan", "tilt", "roll", "dolly", "truck", "pedestal", "crane", "arc", "orbit", "tracking", "follow", "lead", "zoom", "rack_focus", "handheld"}
 MAGNITUDES = {"minimal", "small", "medium", "large"}
 RISKS = {"low", "medium", "high"}
 TRANSLATIONS = {"dolly", "truck", "pedestal", "crane", "arc", "orbit", "tracking", "follow", "lead"}
@@ -24,9 +20,7 @@ def validate(plan: dict) -> tuple[list[str], list[str]]:
     camera = plan.get("camera")
     if not isinstance(camera, dict):
         return ["camera must be an object"], []
-    move = camera.get("move_type")
-    magnitude = camera.get("magnitude")
-    risk = plan.get("risk")
+    move, magnitude, risk = camera.get("move_type"), camera.get("magnitude"), plan.get("risk")
     if move not in MOVE_TYPES:
         errors.append(f"camera.move_type must be one of {sorted(MOVE_TYPES)}")
     if magnitude not in MAGNITUDES:
@@ -73,7 +67,7 @@ def validate(plan: dict) -> tuple[list[str], list[str]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("plan", help="JSON file path or - for stdin")
+    parser.add_argument("plan", help="JSON plan path, '-' for stdin, or regression-case map")
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--strict", action="store_true", help="warnings also fail")
     args = parser.parse_args()
@@ -82,12 +76,24 @@ def main() -> int:
         data = json.loads(raw)
         if not isinstance(data, dict):
             raise ValueError("top-level JSON must be an object")
-        errors, warnings = validate(data)
+        if "camera" in data:
+            cases = {"plan": data}
+        elif data and all(isinstance(value, dict) for value in data.values()):
+            cases = data
+        else:
+            raise ValueError("expected one plan object or a map of named plan cases")
+        results = {}
+        errors, warnings = [], []
+        for name, plan in cases.items():
+            case_errors, case_warnings = validate(plan)
+            results[name] = {"valid": not case_errors and (not args.strict or not case_warnings), "errors": case_errors, "warnings": case_warnings}
+            errors.extend(f"{name}: {item}" for item in case_errors)
+            warnings.extend(f"{name}: {item}" for item in case_warnings)
+        valid = not errors and (not args.strict or not warnings)
     except (OSError, UnicodeError, json.JSONDecodeError, ValueError) as exc:
-        errors, warnings = [str(exc)], []
-    valid = not errors and (not args.strict or not warnings)
+        errors, warnings, results, valid = [str(exc)], [], {}, False
     if args.json:
-        print(json.dumps({"valid": valid, "errors": errors, "warnings": warnings}, ensure_ascii=False, indent=2))
+        print(json.dumps({"valid": valid, "cases": results, "errors": errors, "warnings": warnings}, ensure_ascii=False, indent=2))
     else:
         for item in errors:
             print(f"错误：{item}")
