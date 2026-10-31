@@ -49,8 +49,14 @@
     "tests/运镜计划回归样例.json"
   ],
   "validation": {
-    "static_validator": "added",
+    "static_validator": "passed",
     "regression_cases": 2,
-    "execution_status": "pending"
+    "execution_status": "passed",
+    "evidence": {
+      "validator_blob_sha": "59588e85643d4dfbb7a3ecd6efd1a1542426008e",
+      "regression_fixture_blob_sha": "c8ce46765e5a9690102505e679d5e778bd0d9877",
+      "local_run": "exit_code=0; valid_small_push passed; invalid_fake_orbit correctly rejected"
+    },
+    "limits": "只证明计划结构与高风险规则回归符合预期，不验证任何真实视频生成或视觉质量"
   }
 }
