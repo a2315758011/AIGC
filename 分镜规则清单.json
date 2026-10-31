@@ -40,10 +40,10 @@
     "offline_bundle_path": "学员分镜双规则完整版.md",
     "offline_provenance": "离线完整规则包原样包含两份规则全文；编写规则 Git blob SHA=6e67a513fd07f878d94a9e2553a2e2645e54d261；自检规则 Git blob SHA=6ebc7bf422b664f5c2a0b12aeb87c7e4ccb0a173。离线快照不等于在线最新版核验。",
     "no_tools_policy": "无法读取外部 URL 不等于无效规则；有完整离线正文则允许执行已具备的文本任务；没有全文则阻断规则已加载/正式验收结论",
-    "offline_bundle_version": "V2.10.1",
+    "offline_bundle_version": "V2.10.3",
     "offline_bundle_rule_blob_sha": {
-      "writing": "a99ff46195a48bce189fcf3c1116bd13d2d28c4d",
-      "self_check": "6ee3fa78ba6dc9374254c96f697dcd64e091fabd"
+      "writing": "6e67a513fd07f878d94a9e2553a2e2645e54d261",
+      "self_check": "6ebc7bf422b664f5c2a0b12aeb87c7e4ccb0a173"
     }
   },
   "source_version": "V2.10.3",
