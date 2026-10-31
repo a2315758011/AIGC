@@ -1,0 +1,90 @@
+{
+  "package": "director-previs-cn",
+  "version": "1.1.0",
+  "date": "2026-10-31",
+  "source_repo": "a2315758011/AIGC",
+  "branch": "feat/director-orchestration-cn-20261031",
+  "scope": "导演意图、跨专业技能路由、共享事实底稿、跨技能整合与整体验收",
+  "source_first": true,
+  "upstream_references": [
+    {
+      "repository": "wuwangzhang1216/DirectorSKILL",
+      "license": "MIT",
+      "url": "https://github.com/wuwangzhang1216/DirectorSKILL",
+      "files_reviewed": [
+        "SKILL.md",
+        "references/blocking-and-staging.md",
+        "references/cinematic-language.md",
+        "LICENSE"
+      ],
+      "use": "导演全流程、导演阐述、节拍、调度、摄影机覆盖、失败诊断；只提炼方法，不复制整包"
+    },
+    {
+      "repository": "smixs/visual-skills",
+      "license": "CC-BY-4.0",
+      "url": "https://github.com/smixs/visual-skills",
+      "files_reviewed": [
+        "README.md",
+        "LICENSE"
+      ],
+      "use": "戏剧先于模型语法、镜头功能和关键帧控制原则；未复制受保护文案或素材"
+    },
+    {
+      "repository": "62656456/ai-film-skills",
+      "license": "Apache-2.0",
+      "url": "https://github.com/62656456/ai-film-skills",
+      "files_reviewed": [
+        "README.md",
+        "LICENSE"
+      ],
+      "use": "模块化职责、阶段交接、白模预演与分层验收；未复制源码或资产"
+    }
+  ],
+  "local_dependencies": [
+    {
+      "package": "scene-realism-director-cn",
+      "version": "1.0.0",
+      "path": "skills/scene-realism-director-cn/SKILL.md",
+      "git_blob_sha": "6b401acfdbfc594a5a52b627e202749825da6946",
+      "authority": "场景真实性、建筑拓扑、功能布局、透视尺度、物理接触、光材质、全景与参考图保真"
+    },
+    {
+      "package": "storyboard-director-cn",
+      "version": "1.1.6",
+      "source_version": "V2.10.3",
+      "path": "skills/storyboard-director-cn/SKILL.md",
+      "git_blob_sha": "d3db8d0bbe5d846a5e29fe6b0f0be4ec8cbf6b26",
+      "authority": "正式分镜、人物站位/朝向/视线、走位、轴线、连续性与SCG"
+    },
+    {
+      "package": "storyboard-positioning-rules",
+      "version": "1.1.0",
+      "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
+      "git_blob_sha": "2bc8b4c12faec667d3eef9fe95ae31bd25d06224",
+      "authority": "人物世界位置、身体/头部/视线、走位动作链和场景锚点"
+    },
+    {
+      "package": "camera-motion-director-cn",
+      "version": "1.0.0",
+      "path": "skills/camera-motion-director-cn/SKILL.md",
+      "git_blob_sha": "39909f0bc2a2a613754e4500113190d9eddfe2d9",
+      "authority": "摄影机运动设计、轨迹/速度、视频模型适配与运镜审片"
+    },
+    {
+      "package": "scene-realism-rules",
+      "version": "1.0.0",
+      "path": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
+      "git_blob_sha": "54163775d985da52f388e881112f8c81e29dbd55",
+      "authority": "场景空间世界模型、建筑拓扑、俯视/全景、布局与功能常识"
+    }
+  ],
+  "verification": {
+    "upstream_sources_read": true,
+    "licenses_checked": true,
+    "local_dependencies_read": true,
+    "orchestrator_regression_cases": 8,
+    "workflow_integration_ab": "not_run",
+    "real_image_video_ab": "not_run",
+    "note": "This skill only orchestrates existing specialist skills. It does not claim image/video quality improvements without matched runtime tests."
+  }
+}
