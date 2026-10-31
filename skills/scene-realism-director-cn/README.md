@@ -11,6 +11,9 @@
 - `references/场景图真实性质检与回归样例-V1.json`：12 个结构化人工回归用例。
 - `tests/场景真实性回归样例.md`：可复现人工回归场景。
 - `tests/场景真实性配对盲评记录模板-V1.1.md`：配对盲评、十维评分与结论门槛。
+- `references/场景真实性原创中文配对基准集-V1.json`：8 类场景、64 条可判定问题的原创 A/B 基准。
+- `tests/validate-scene-benchmark.cjs`：基准集结构校验器。
+- `docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md`：新增空间智能基准和 360°全景 3D 研究。
 - `SOURCE_LOCK.json`：文件级 Git Blob SHA 与验证状态。
 
 - `references/场景真实性原创中文配对基准集-V1.json`：8 类场景、64 条可判定问题，含 A/B 提示词。
