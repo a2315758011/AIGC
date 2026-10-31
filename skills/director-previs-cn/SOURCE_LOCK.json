@@ -146,7 +146,13 @@
     "orchestrator_regression_cases": 10,
     "fight_impact_skill_status": "authored_pending_review",
     "manju_director_status": "excluded_until_source_refresh",
-    "automated_static_regression": "added; CI pending",
+    "automated_static_regression": {
+      "status": "passed",
+      "run_id": 41220913784,
+      "pass_count": 78,
+      "fail_count": 0,
+      "workflow": "director-previs-regression"
+    },
     "manual_route_dry_run": "not_run",
     "workflow_integration_ab": "not_run",
     "real_image_video_ab": "not_run",
