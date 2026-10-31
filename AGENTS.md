@@ -9,7 +9,8 @@
 3. 写分镜→按独立自检逐镜审核→默认修复 P0/P1→重写完整修订稿→从头复检。需要完整调度时读 [总控](./剧本转分镜总控-学员技能优先版-V3.0.md)。
 4. 涉及人物、三视图、场景或道具，再读 [AIGC人物资产指令](./AIGC人物资产指令)。
 5. 使用结构化镜头状态或高风险事件时间核查时，读取 [分镜导演 Skill](./skills/storyboard-director-cn/SKILL.md)、`references/`、`scripts/` 与 `tests/` 并运行对应校验。
-6. 多人站位、场景调度、走位路径、摄影机轴线或双人近景，必须读取 `skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md`。\n7. **涉及摄影机运镜时**，读取 [中文运镜导演 Skill](./skills/camera-motion-director-cn/SKILL.md)，按需加载其 references；图生视频须先评估源画面景深、边缘余量、遮挡和隐藏表面。运镜设计不得改变分镜既定人物世界坐标、站位、距离、朝向、视线、轴线或道具状态。存在结构化运镜计划时运行 `skills/camera-motion-director-cn/scripts/validate_camera_move.py`。
+6. 多人站位、场景调度、走位路径、摄影机轴线或双人近景，必须读取 `skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md`。
+7. **涉及摄影机运镜时**，读取 [中文运镜导演 Skill](./skills/camera-motion-director-cn/SKILL.md)，按需加载其 references；图生视频须先评估源画面景深、边缘余量、遮挡和隐藏表面。运镜设计不得改变分镜既定人物世界坐标、站位、距离、朝向、视线、轴线或道具状态。存在结构化运镜计划时运行 `skills/camera-motion-director-cn/scripts/validate_camera_move.py`。
 8. 不联网的学员使用 [完整双规则离线文件](./学员分镜双规则完整版.md) 或完整下载对应 Skill 文件夹。
 
 ## 权威版本与验收
