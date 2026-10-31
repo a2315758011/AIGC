@@ -4,7 +4,7 @@
   "date": "2026-10-31",
   "source_repo": "a2315758011/AIGC",
   "branch": "feat/director-previs-cn-20261031-v2",
-  "scope": "导演意图、空间预演、场景保真、人物调度、摄影机预演、全景/俯视重建和AI预演验收",
+  "scope": "场面导演意图、场景拓扑、环境重建、俯视/全景和场景级机位覆盖",
   "source_first": true,
   "upstream_references": [
     {
