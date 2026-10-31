@@ -13,6 +13,8 @@
 - `tests/场景真实性配对盲评记录模板-V1.1.md`：配对盲评、十维评分与结论门槛。
 - `SOURCE_LOCK.json`：文件级 Git Blob SHA 与验证状态。
 
+- `references/场景真实性原创中文配对基准集-V1.json`：8 类场景、64 条可判定问题，含 A/B 提示词。
+- `tests/validate-scene-benchmark.cjs`：原创基准集结构校验器（尚待 Windows 实际运行）。
 ## 使用方式
 把整个 `scene-realism-director-cn` 文件夹导入支持本地 Skill 的 AI 客户端。只导入 SKILL.md 不完整；需要一并提供 references、tests 和 SOURCE_LOCK。
 
