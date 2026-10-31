@@ -1,0 +1,161 @@
+{
+  "case_id": "DP-AB-CLASSROOM-20261031",
+  "status": "previsualization_fixture",
+  "scene": {
+    "name": "普通中国高中教室",
+    "source_images": [
+      {
+        "name": "阳光洒落的整洁教室.png",
+        "role": "本轮桌椅布局唯一真值",
+        "authority": "4列×6排、约24套桌椅、中央通道、黑板/讲台、前右门、两侧窗"
+      },
+      {
+        "name": "教室俯视图与全景机位示意.png",
+        "role": "建筑锚点与机位补充",
+        "authority": "约8.0m×6.0m房间、门窗/墙体关系、机位标记"
+      },
+      {
+        "name": "现代高中课堂剧照参考板.png",
+        "role": "人物与环境外观参考",
+        "authority": "女主转校生、男主、教师、校服、课桌椅与教室材质"
+      }
+    ],
+    "dimensions_m": {
+      "width": 8.0,
+      "depth": 6.0,
+      "height": 3.0,
+      "status": "参考图标注的约数，不是现场实测"
+    },
+    "coordinate_system": {
+      "origin": "教室前方左侧内墙地面角",
+      "x_axis": "沿前墙向右",
+      "y_axis": "由前墙向后排",
+      "z_axis": "垂直向上",
+      "units": "meter",
+      "front_wall": "y=0",
+      "rear_wall": "y=6"
+    },
+    "anchors": [
+      {
+        "id": "blackboard",
+        "type": "fixed",
+        "center_m": [4.0, 0.0, 1.7],
+        "width_m": 4.0,
+        "evidence": "reference_visible"
+      },
+      {
+        "id": "teacher_podium",
+        "type": "fixed",
+        "center_m": [4.0, 0.75, 0.45],
+        "size_m": [1.8, 0.8, 0.9],
+        "evidence": "reference_visible"
+      },
+      {
+        "id": "front_right_door",
+        "type": "fixed",
+        "wall": "front",
+        "center_m": [7.45, 0.0, 1.05],
+        "width_m": 0.9,
+        "swing": "inward",
+        "connects_to": "school_corridor",
+        "evidence": "reference_visible"
+      },
+      {
+        "id": "left_windows",
+        "type": "fixed",
+        "wall": "left",
+        "connects_to": "outdoor",
+        "evidence": "reference_visible"
+      },
+      {
+        "id": "right_windows",
+        "type": "fixed",
+        "wall": "right",
+        "connects_to": "outdoor",
+        "evidence": "reference_visible"
+      },
+      {
+        "id": "central_aisle",
+        "type": "walkable_zone",
+        "evidence": "reference_visible"
+      },
+      {
+        "id": "corridor_outside_door",
+        "type": "exterior_zone",
+        "connects_to": "front_right_door",
+        "surface": "school_corridor_floor",
+        "must_not_be": ["grass", "playground", "undefined_open_field"]
+      }
+    ],
+    "desks": {
+      "count": 24,
+      "columns": 4,
+      "rows": 6,
+      "row_order": "front_to_back",
+      "desk_size_m_approx": [0.6, 0.4],
+      "column_centers_x_m_approx": [1.84, 3.12, 4.88, 6.16],
+      "row_centers_y_m_approx": [1.4, 2.15, 2.9, 3.65, 4.4, 5.15],
+      "all_face": "blackboard",
+      "chair_pairing": "one chair per desk",
+      "layout_source": "阳光洒落的整洁教室.png",
+      "coordinates_are": "approximate visual estimates, not measured survey data"
+    }
+  },
+  "blocking": {
+    "female_transfer_student": {
+      "asset": "现代高中课堂剧照参考板.png#女主（转校生）",
+      "start_m": [7.45, -0.7, 0.0],
+      "path_m": [[7.45, -0.2, 0.0], [7.45, 0.0, 0.0], [7.3, 0.7, 0.0]],
+      "end_m": [7.3, 0.7, 0.0],
+      "body_facing": "into_classroom",
+      "head_facing": "toward_teacher",
+      "gaze_target": "teacher",
+      "movement": "enter_then_pause",
+      "evidence": "test_blocking_decision"
+    },
+    "male_lead": {
+      "asset": "现代高中课堂剧照参考板.png#男主",
+      "seat": {
+        "row_from_front": 4,
+        "column_from_left": 4,
+        "world_position_m": [6.16, 3.65, 0.0]
+      },
+      "body_facing": "toward_blackboard",
+      "head_facing": "toward_front_right_door",
+      "gaze_target": "female_transfer_student",
+      "movement": "head_turn_only",
+      "evidence": "test_blocking_decision"
+    },
+    "teacher": {
+      "position_m": [4.0, 0.75, 0.0],
+      "anchor": "teacher_podium",
+      "body_facing": "toward_students",
+      "movement": "stationary"
+    },
+    "other_students": {
+      "positions": "remain_at_existing_desks",
+      "body_facing": "toward_blackboard",
+      "group_reaction": "none_without_story_authorization"
+    }
+  },
+  "camera_previs": {
+    "camera_id": "CAM-01",
+    "position_m": [0.7, 5.5, 1.55],
+    "aim_point_m": [6.8, 0.9, 1.35],
+    "lens_equivalent_mm": 28,
+    "movement": "locked_off",
+    "purpose": "establish the classroom geography while keeping the entrance, teacher and male lead's reaction readable",
+    "risk": "male lead may be partially occluded by desks; if facial reaction is not legible, use a motivated insert/reverse angle without moving the character"
+  },
+  "hard_invariants": [
+    "room topology and door/window locations remain unchanged",
+    "the door connects to a corridor, not grass or an open field",
+    "24 desks remain in a regular 4-column by 6-row grid",
+    "all desks and chairs face the blackboard",
+    "male lead remains at row 4, column 4",
+    "female enters through the front-right door and does not teleport",
+    "male body remains facing the blackboard while head and gaze turn toward the female",
+    "teacher remains at the podium",
+    "camera changes do not alter world coordinates"
+  ]
+}
