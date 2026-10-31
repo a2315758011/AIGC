@@ -1,0 +1,77 @@
+{
+  "package": "director-previs-cn",
+  "version": "1.0.0",
+  "date": "2026-10-31",
+  "source_repo": "a2315758011/AIGC",
+  "branch": "feat/director-previs-cn-20261031",
+  "scope": "导演意图、空间预演、场景保真、人物调度、摄影机预演、全景/俯视重建和AI预演验收",
+  "source_first": true,
+  "upstream_references": [
+    {
+      "repository": "wuwangzhang1216/DirectorSKILL",
+      "license": "MIT",
+      "url": "https://github.com/wuwangzhang1216/DirectorSKILL",
+      "files_reviewed": [
+        {
+          "path": "SKILL.md",
+          "git_blob_sha": "84991f293d9a0fafb99da596202959c2342c39af",
+          "use": "导演工作流路由、导演阐述、节拍、预演流程"
+        },
+        {
+          "path": "references/blocking-and-staging.md",
+          "git_blob_sha": "3f08d41fc12b12b1f3459848e8437643e46662f1",
+          "use": "人物距离、场面调度、权力几何、行动路径"
+        },
+        {
+          "path": "references/cinematic-language.md",
+          "git_blob_sha": "1aefa4171a1caa073e3e08773bd206af15ef464c",
+          "use": "镜头语法、轴线、构图、焦段与拍摄距离"
+        }
+      ],
+      "reuse_policy": "方法研究与独立中文重写；不复制上游完整文件或长段落"
+    },
+    {
+      "repository": "smixs/visual-skills",
+      "license": "CC-BY-4.0",
+      "url": "https://github.com/smixs/visual-skills",
+      "files_reviewed": [
+        {
+          "path": "README.md",
+          "git_blob_sha": "8ad4cc66425cf0f83628a999e9a20b2e09972105",
+          "use": "戏剧先于模型语法、镜头功能、关键帧控制点"
+        },
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
+          "use": "许可核对"
+        }
+      ],
+      "reuse_policy": "仅提炼方法原则；未复制文案、图片或源文件；如未来分发其受保护表达须先满足署名与许可条件"
+    },
+    {
+      "repository": "62656456/ai-film-skills",
+      "license": "Apache-2.0",
+      "url": "https://github.com/62656456/ai-film-skills",
+      "files_reviewed": [
+        {
+          "path": "README.md",
+          "git_blob_sha": "92d5ecace19d2e206452cff9f923377bc276e97a",
+          "use": "模块化职责、阶段交接、白模预演与实片验收分层"
+        },
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
+          "use": "许可核对"
+        }
+      ],
+      "reuse_policy": "方法研究与独立中文重写；不复制上游技能源码或资产"
+    }
+  ],
+  "verification": {
+    "upstream_files_read": true,
+    "license_files_checked": true,
+    "new_skill_files_read_back": true,
+    "automated_validation": "not_run",
+    "real_image_video_ab": "not_run"
+  }
+}
