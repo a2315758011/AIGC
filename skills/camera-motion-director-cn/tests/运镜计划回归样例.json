@@ -1,5 +1,6 @@
 {
   "valid_small_push": {
+    "expected_valid": true,
     "story_function": "增强人物情绪临近感",
     "camera": {
       "move_type": "dolly",
@@ -19,6 +20,7 @@
     "prompt": "摄影机从稳定画面开始，沿人物正前方缓慢直线推进，人物保持原站位和朝向，最后减速停在眼部清晰的近景。"
   },
   "invalid_fake_orbit": {
+    "expected_valid": false,
     "story_function": "展示人物",
     "camera": {
       "move_type": "orbit",
