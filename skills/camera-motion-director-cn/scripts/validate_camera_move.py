@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate one camera-motion plan or a named regression-case map. Static checks only."""
+"""Validate a camera-motion plan or run named regression cases. Static checks only."""
 from __future__ import annotations
 import argparse
 import json
@@ -15,8 +15,7 @@ ROTATIONS = {"pan", "tilt", "roll"}
 
 
 def validate(plan: dict) -> tuple[list[str], list[str]]:
-    errors: list[str] = []
-    warnings: list[str] = []
+    errors, warnings = [], []
     camera = plan.get("camera")
     if not isinstance(camera, dict):
         return ["camera must be an object"], []
@@ -67,7 +66,7 @@ def validate(plan: dict) -> tuple[list[str], list[str]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("plan", help="JSON plan path, '-' for stdin, or regression-case map")
+    parser.add_argument("plan", help="JSON plan path, '-' for stdin, or named regression-case map")
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--strict", action="store_true", help="warnings also fail")
     args = parser.parse_args()
@@ -76,20 +75,28 @@ def main() -> int:
         data = json.loads(raw)
         if not isinstance(data, dict):
             raise ValueError("top-level JSON must be an object")
-        if "camera" in data:
-            cases = {"plan": data}
-        elif data and all(isinstance(value, dict) for value in data.values()):
-            cases = data
-        else:
+        cases = {"plan": data} if "camera" in data else data
+        if not cases or not all(isinstance(value, dict) for value in cases.values()):
             raise ValueError("expected one plan object or a map of named plan cases")
-        results = {}
-        errors, warnings = [], []
+        results, errors, warnings = {}, [], []
         for name, plan in cases.items():
             case_errors, case_warnings = validate(plan)
-            results[name] = {"valid": not case_errors and (not args.strict or not case_warnings), "errors": case_errors, "warnings": case_warnings}
-            errors.extend(f"{name}: {item}" for item in case_errors)
+            actual_valid = not case_errors
+            expected_valid = plan.get("expected_valid", True)
+            if not isinstance(expected_valid, bool):
+                case_errors.append("expected_valid must be boolean")
+                actual_valid = False
+                expected_valid = True
+            passed = actual_valid == expected_valid and (not args.strict or not case_warnings)
+            results[name] = {"passed": passed, "actual_valid": actual_valid, "expected_valid": expected_valid, "errors": case_errors, "warnings": case_warnings}
+            if not passed:
+                errors.extend(f"{name}: {item}" for item in case_errors)
+                if actual_valid != expected_valid:
+                    errors.append(f"{name}: expected_valid={expected_valid}, actual_valid={actual_valid}")
+                if args.strict:
+                    warnings.extend(f"{name}: {item}" for item in case_warnings)
             warnings.extend(f"{name}: {item}" for item in case_warnings)
-        valid = not errors and (not args.strict or not warnings)
+        valid = all(item["passed"] for item in results.values())
     except (OSError, UnicodeError, json.JSONDecodeError, ValueError) as exc:
         errors, warnings, results, valid = [str(exc)], [], {}, False
     if args.json:
@@ -100,7 +107,7 @@ def main() -> int:
         for item in warnings:
             print(f"警告：{item}")
         if valid:
-            print("通过：运镜计划结构校验")
+            print("通过：运镜计划回归校验")
     return 0 if valid else 1
 
 
