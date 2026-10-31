@@ -12,8 +12,9 @@
 - [AIGC人物资产指令](./AIGC人物资产指令)：人物、场景、道具资产。
 - [分镜导演技能](./skills/storyboard-director-cn/) 和 [漫剧导演技能](./skills/manju-director-cn/)：连同 references、scripts、tests 一起下载；不能仅凭 SKILL.md 摘要冒充全文。
 - [人物站位与场景调度规则](./skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md)：多人站位、走位路径、场景锚点与摄影机轴线。
-- [中文运镜导演技能](./skills/camera-motion-director-cn/)：独立负责摄影机运动设计、图生视频运动可行性、模型提示词适配与运镜审片；配有 references、结构化校验器和回归样例。
-- [学员双规则离线完整版](./学员分镜双规则完整版.md)：无 GitHub 联网能力时上传完整规则。
+- [中文运镜导演技能](./skills/camera-motion-director-cn/)：独立负责摄影机运动设计、图生视频运动可行性、模型提示词适配与运镜审片；配有导演工作流、3D 轨迹预演、可控视频生成技术路线等扩展研究。
+- [运镜控制技能第二轮扩展研究](./Deepresearch/2026-10-31_运镜控制技能第二轮扩展研究.md)：新增导演 Skill、轨迹编辑器、相机位姿控制模型与许可证审查。
+- [学员双规则离线完整版](./学员分镜双规则离线完整版.md)：无 GitHub 联网能力时上传完整规则。
 - [分镜专项回归测试](./.github/workflows/storyboard-regression.yml)：校验结构化分镜与事件时长。
 
 迁移前这些文件主要位于 [a 旧仓库](https://github.com/a2315758011/a)，小游戏和通用工程指令仍由原仓库维护。未来分镜规则应**只在本仓库维护权威原文**，再同步离线包、SOURCE_LOCK 及相关 Skill，避免各处版本漂移。
