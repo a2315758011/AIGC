@@ -9,15 +9,15 @@
       "path": "剧本转分镜指令",
       "role": "编写规则",
       "required": true,
-      "version": "V2.10.1",
-      "git_blob_sha": "a99ff46195a48bce189fcf3c1116bd13d2d28c4d"
+      "version": "V2.10.2",
+      "git_blob_sha": "6d8b7a19ac0073abd1522f7f0434c48691621b0f"
     },
     {
       "path": "剧本转分镜自检指令",
       "role": "独立审核、修复与复检规则",
       "required": true,
-      "version": "V2.10.1",
-      "git_blob_sha": "6ee3fa78ba6dc9374254c96f697dcd64e091fabd"
+      "version": "V2.10.2",
+      "git_blob_sha": "11dd2062cfbb1616912d6011409c5a83446f4845"
     }
   ],
   "update_contract": "在线模式须读取 main 最新清单和全部 required 规则，并核对版本/SHA；新增或废弃 required 规则时同步更新本清单、Skill SOURCE_LOCK 与离线全文。高风险时序必须执行结构化事件时间校验；离线模式必须明确标记快照与最新版核验状态。所有模式均禁止把文本审核、结构化校验或视频测试互相冒充。",
@@ -46,11 +46,11 @@
       "self_check": "6ee3fa78ba6dc9374254c96f697dcd64e091fabd"
     }
   },
-  "source_version": "V2.10.1",
+  "source_version": "V2.10.2",
   "skill": {
     "path": "skills/storyboard-director-cn/SKILL.md",
-    "version": "1.1.4",
-    "source_version": "V2.10.1",
+    "version": "1.1.5",
+    "source_version": "V2.10.2",
     "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json"
   },
   "structured_validators": [
@@ -69,6 +69,18 @@
       "tests": "skills/storyboard-director-cn/tests/分镜事件时长回归样例-V1.json",
       "schema": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",
       "limits": "仅校验人工/AI提取并复核的结构化事件账本；不解析普通中文稿，不验证生成视频"
+    }
+  ],
+  "offline_bundle_version": "V2.10.2",
+  "offline_bundle_rule_blob_sha": {
+    "writing": "6d8b7a19ac0073abd1522f7f0434c48691621b0f",
+    "self_check": "11dd2062cfbb1616912d6011409c5a83446f4845"
+  },
+  "supplemental_references": [
+    {
+      "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
+      "version": "V1.0.0",
+      "required_when": "涉及多人站位、场景调度、走位路径、摄影机轴线或双人近景"
     }
   ]
 }
