@@ -13,7 +13,7 @@
 - [人物站位与场景调度规则](./skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md)：多人站位、走位路径、场景锚点与摄影机轴线。
 - [中文运镜导演技能](./skills/camera-motion-director-cn/)：摄影机运动设计、图生视频运动可行性、模型提示词适配与运镜审片。
 - [场景真实性导演技能](./skills/scene-realism-director-cn/)：专门处理场景图假感、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真和全景完整性。
-- [场景真实性研究记录](./docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md)：论文证据、官方渲染资料、SpatialGenEval/SceneEval 等新基准、工具路线与验证边界。
+- [场景真实性研究记录](./docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md)：论文证据、SpatialGenEval、Qwen-Image-Bench、SA-BENCH 等基准及原创中文测试集。
 - [学员双规则离线完整版](./学员分镜双规则完整版.md)：无 GitHub 联网能力时上传完整规则。
 - [分镜专项回归测试](./.github/workflows/storyboard-regression.yml)：校验结构化分镜与事件时长。
 
