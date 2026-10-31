@@ -4,7 +4,11 @@
 
 **版本维护顺序：先修订和验收权威指令 → 冻结源文件 SHA → 更新对应 Skill 与 references → 检查一致性 → 验收后发布。**
 
-## 场景真实性专项\n\n- [scene-realism-director-cn](./scene-realism-director-cn/)：场景图真实性控制、建筑拓扑、功能布局、透视尺度、接触遮挡、光照材质、参考图保真、全景检查与独立质检。\n\n## 漫剧专项
+## 场景真实性专项
+
+- [scene-realism-director-cn](./scene-realism-director-cn/)：场景图真实性控制、建筑拓扑、功能布局、透视尺度、接触遮挡、光照材质、参考图保真、全景检查与独立质检。
+
+## 漫剧专项
 
 - [manju-director-cn](./manju-director-cn/)：AI 漫剧专用，剧本转分镜、独立自检、自动修复、重新输出完整修订终稿及人物/场景/道具资产规则。
 - [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，保留原有版本和程序校验资产。
