@@ -20,6 +20,7 @@ on:
       - "skills/scene-realism-director-cn/**"
       - "skills/storyboard-director-cn/**"
       - "skills/camera-motion-director-cn/**"
+      - "skills/fight-impact-vfx-cn/**"
       - ".github/workflows/director-previs-regression.yml"
 
 permissions:
