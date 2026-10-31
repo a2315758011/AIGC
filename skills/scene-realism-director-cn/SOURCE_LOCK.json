@@ -1,12 +1,12 @@
 {
   "skill": "scene-realism-director-cn",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "status": "conditional",
   "date": "2026-11-01",
   "authority": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
   "files": {
-    "README.md": "a54753af4f2891cdcad108bcfb109b30afa59009",
-    "SKILL.md": "0aa13bd3375e2fa9dbdfd2565ca677749575a337",
+    "README.md": "8a7ee4fde7539fed5d8209ed30fa8df456db325c",
+    "SKILL.md": "36a9c09061dfa69ab4c3c4bdaeb3f10694b2969c",
     "references/可控生成与诊断工具.md": "0659e2690e47ccd0a780147b030d7d64b4337c57",
     "references/场景图真实性质检与回归样例-V1.json": "d7a2c0bc42ccb189444ceb3a18cfbeaf3003cac8",
     "references/场景真实性原创中文配对基准集-V1.json": "6e6f34101af0622a0e1e20771f63498dd5ef5d0c",
@@ -23,7 +23,7 @@
     "static_structure_review": "passed",
     "structured_manual_cases": 12,
     "manual_scenario_protocols": 3,
-    "target_model_ab_test": "not_run",
+    "target_model_ab_test": "not_run_no_job_submitted",
     "comfyui_runtime_test": "not_run",
     "platform_skill_install_test": "not_run",
     "paired_blind_review_template": "added",
@@ -31,7 +31,11 @@
     "original_chinese_benchmark_questions": 64,
     "benchmark_json_in_memory_validation": "passed",
     "benchmark_validator_windows_execution": "not_run_pc_mcp_unavailable",
-    "shared_generation_gateway_health": "not_run_pc_mcp_unavailable"
+    "shared_generation_gateway_health": "failed_SERVICE_NOT_RUNNING",
+    "shared_generation_gateway_startup": "failed_SERVICE_START_TIMEOUT",
+    "pc_mcp_after_startup": "UNAVAILABLE"
   },
-  "note": "Git blob SHAs identify exact committed file versions. Conditional status must not be promoted to verified without target-environment tests. Depth, segmentation, normal and relighting tools are documented as candidates only; none is claimed installed or executed on the user's workstation."
+  "note": "Git blob SHAs identify exact committed file versions. Conditional status must not be promoted to verified without target-environment tests. The original Chinese benchmark is repository-authored and structurally checked in memory; its Windows validator, target model A/B image generation, and human blind review remain not run because the shared Generation Gateway failed to start and PC MCP disconnected. No generation job was submitted. Depth, segmentation, normal, relighting and InSpace are documented as candidates only; none is claimed installed or executed on the user's workstation.",
+  "supplementary_research": "docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md",
+  "supplementary_research_git_blob_sha": "cbfa7052d13a282bcf75f8e933af0e997a95c1d3"
 }
