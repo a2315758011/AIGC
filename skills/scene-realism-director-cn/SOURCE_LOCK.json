@@ -1,17 +1,19 @@
 {
   "skill": "scene-realism-director-cn",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "status": "conditional",
   "date": "2026-11-01",
   "authority": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
   "files": {
-    "README.md": "9bb89284912f0039287552f401a8ae3304cb6535",
-    "SKILL.md": "70a44a3944156cc54ffdcc479ecff20584e10d5d",
+    "README.md": "a54753af4f2891cdcad108bcfb109b30afa59009",
+    "SKILL.md": "0aa13bd3375e2fa9dbdfd2565ca677749575a337",
     "references/可控生成与诊断工具.md": "0659e2690e47ccd0a780147b030d7d64b4337c57",
     "references/场景图真实性质检与回归样例-V1.json": "d7a2c0bc42ccb189444ceb3a18cfbeaf3003cac8",
+    "references/场景真实性原创中文配对基准集-V1.json": "6e6f34101af0622a0e1e20771f63498dd5ef5d0c",
     "references/场景真实性控制规则-V1.md": "54163775d985da52f388e881112f8c81e29dbd55",
     "references/场景真实性检查表.md": "bf5fa5d49eee501c62cf8f2519547eef74576d3a",
-    "references/开源仓库研究与采纳记录_20261031.md": "26dc3dc58f76a9f24ac9165689acfa5ff9e0a421",
+    "references/开源仓库研究与采纳记录_20261031.md": "107acba0a3007d4cfdb8307ed99efed7aa86a341",
+    "tests/validate-scene-benchmark.cjs": "e5ac4e84b67ca4c6a473ca636c6ad05f9387eb8c",
     "tests/场景真实性回归样例.md": "2824424223edd6fec8d33fc7dadfc38139c625bf",
     "tests/场景真实性配对盲评记录模板-V1.1.md": "ad73a3769a5bda8969870561205d0d818b6c116a"
   },
@@ -24,7 +26,12 @@
     "target_model_ab_test": "not_run",
     "comfyui_runtime_test": "not_run",
     "platform_skill_install_test": "not_run",
-    "paired_blind_review_template": "added"
+    "paired_blind_review_template": "added",
+    "original_chinese_benchmark_cases": 8,
+    "original_chinese_benchmark_questions": 64,
+    "benchmark_json_in_memory_validation": "passed",
+    "benchmark_validator_windows_execution": "not_run_pc_mcp_unavailable",
+    "shared_generation_gateway_health": "not_run_pc_mcp_unavailable"
   },
   "note": "Git blob SHAs identify exact committed file versions. Conditional status must not be promoted to verified without target-environment tests. Depth, segmentation, normal and relighting tools are documented as candidates only; none is claimed installed or executed on the user's workstation."
 }
