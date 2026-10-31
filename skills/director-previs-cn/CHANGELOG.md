@@ -6,6 +6,7 @@
 - 将 `manju-director-cn` 标记为暂不路由：其离线快照仍引用 V2.10.1，落后于 main 的 V2.10.5，待独立刷新后再接入。
 - 扩展回归用例至10项，增加打斗单专业路由与打斗跨专业路由。
 - 教室集成场景没有打斗动作，明确跳过 fight-impact-vfx，防止无意义调用。
+- GitHub Actions run 41220913784：78 PASS / 0 FAIL。
 
 ## 1.1.1 — 2026-11-01
 - 以 main 最新提交 `b7d8d86db4235a3ea8ab3c68fd22e90b42ee82c6` 为基线，刷新 scene-realism、storyboard 和 camera-motion 依赖版本及 Blob SHA。
