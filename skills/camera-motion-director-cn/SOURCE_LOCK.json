@@ -1,0 +1,56 @@
+{
+  "package": "camera-motion-director-cn",
+  "version": "1.0.0",
+  "date": "2026-10-31",
+  "source_repo": "a2315758011/AIGC",
+  "branch": "feat/camera-motion-director-cn",
+  "source_strategy": "独立编写与归纳，不复制未确认许可证的第三方技能文件",
+  "research_sources": [
+    {
+      "repository": "HiAPIAI/hiapi-image-to-video-camera-motion-skill",
+      "url": "https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill",
+      "use": "图生视频源图可行性、运动层级、结构化计划、运镜质检",
+      "license_status": "仓库根目录 LICENSE 路径未找到；未复制代码或正文"
+    },
+    {
+      "repository": "fal-ai-community/skills",
+      "url": "https://github.com/fal-ai-community/skills/tree/main/skills/cinematography",
+      "use": "镜头语言、景别、焦段、构图与模型路由思想",
+      "license_status": "本次未复制第三方文件"
+    },
+    {
+      "repository": "snowfrost/skill-movie",
+      "url": "https://github.com/snowfrost/skill-movie",
+      "use": "导演总控、全局镜头语言和多镜头一致性",
+      "license_status": "根目录 LICENSE 未能通过本次读取确认；未复制第三方文件"
+    },
+    {
+      "repository": "Rylaispirit/cinematic-video-prompt-skill",
+      "url": "https://github.com/Rylaispirit/cinematic-video-prompt-skill",
+      "use": "运镜词汇分类和镜头提示词组织参考",
+      "license_status": "MIT；仅引用项目来源，未复制其术语表/正文"
+    },
+    {
+      "repository": "62656456/ai-film-skills",
+      "url": "https://github.com/62656456/ai-film-skills",
+      "use": "独立影视技能模块化组织参考",
+      "license_status": "本次未复制第三方文件"
+    }
+  ],
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "SOURCE_LOCK.json",
+    "references/运镜物理与选择.md",
+    "references/源画面可行性评估.md",
+    "references/提示词编译与模型适配.md",
+    "references/运镜质量检查.md",
+    "scripts/validate_camera_move.py",
+    "tests/运镜计划回归样例.json"
+  ],
+  "validation": {
+    "static_validator": "added",
+    "regression_cases": 2,
+    "execution_status": "pending"
+  }
+}
