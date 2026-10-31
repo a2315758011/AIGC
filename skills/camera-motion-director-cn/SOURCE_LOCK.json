@@ -1,6 +1,6 @@
 {
   "package": "camera-motion-director-cn",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "date": "2026-10-31",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
@@ -131,6 +131,42 @@
       "url": "https://github.com/cvlab-kaist/Vid-CamEdit",
       "use": "基于估计几何的生成式视频相机轨迹编辑",
       "license_status": "本轮未核实许可；仅记录与研究"
+    },
+    {
+      "repository": "KlingAIResearch/ReCamMaster",
+      "url": "https://github.com/KlingAIResearch/ReCamMaster",
+      "use": "实拍视频沿十类新相机轨迹重拍；开源 Wan2.1 版与论文内部模型效果存在差异",
+      "license_status": "MIT，已读取 LICENSE"
+    },
+    {
+      "repository": "byeongjun-park/ReDirector",
+      "url": "https://github.com/byeongjun-park/ReDirector",
+      "use": "长视频重拍与旋转相机编码，支持相机类型和速度",
+      "license_status": "Apache-2.0，已读取 LICENSE"
+    },
+    {
+      "repository": "EnVision-Research/DualCamCtrl",
+      "url": "https://github.com/EnVision-Research/DualCamCtrl",
+      "use": "几何感知双分支 RGB/深度视频相机控制",
+      "license_status": "本次未找到 LICENSE；仅研究"
+    },
+    {
+      "repository": "snap-research/ac3d",
+      "url": "https://github.com/snap-research/ac3d",
+      "use": "CogVideoX Plücker 条件 ControlNet 相机控制",
+      "license_status": "Snap 非商业研究许可；禁止作为商业生产依赖"
+    },
+    {
+      "repository": "PixCtrol/WorldCast",
+      "url": "https://github.com/PixCtrol/WorldCast",
+      "use": "多视角主体锚点与大角度相机轨迹控制",
+      "license_status": "Apache-2.0；底座 Wan 权重许可独立核查"
+    },
+    {
+      "repository": "TencentARC/VerseCrafter",
+      "url": "https://github.com/TencentARC/VerseCrafter",
+      "use": "Blender 预演与 4D 相机/多物体几何控制",
+      "license_status": "仅学术用途，禁止商业/生产用途，且不面向欧盟使用"
     }
   ],
   "files": [
@@ -146,7 +182,8 @@
     "references/导演工作流与动态镜头合同.md",
     "references/三维摄影机轨迹与预演工具.md",
     "references/可控视频生成技术路线.md",
-    "Deepresearch/2026-10-31_运镜控制技能第二轮扩展研究.md"
+    "Deepresearch/2026-10-31_运镜控制技能第二轮扩展研究.md",
+    "Deepresearch/2026-10-31_运镜控制技能第三轮研究与许可证审查.md"
   ],
   "validation": {
     "static_validator": "passed",
