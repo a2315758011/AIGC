@@ -1,0 +1,33 @@
+{
+  "case_id": "DO-CLASSROOM-INTEGRATION-20261031",
+  "source_assets": [
+    "教室俯视图与全景机位示意.png",
+    "阳光洒落的整洁教室.png",
+    "现代高中课堂剧照参考板.png"
+  ],
+  "scene_truth": {
+    "layout_source": "阳光洒落的整洁教室.png",
+    "desks": {"columns": 4, "rows": 6, "count": 24, "all_face": "blackboard"},
+    "door": {"location": "front_right", "connects_to": "school_corridor", "must_not_connect_to": "grass"},
+    "fixed_anchors": ["blackboard", "teacher_podium", "left_windows", "right_windows", "central_aisle"]
+  },
+  "dramatic_intent": {
+    "scene_goal": "转校生进入教室，男主注意到她",
+    "audience_information": "观众看到女主入场，并能读懂男主注意到她",
+    "visible_event": "女主从走廊进入门内停留；男主身体继续朝向黑板，只转头和视线看向女主",
+    "end_state": "女主在门内，男主仍坐在既定座位，教师留在讲台"
+  },
+  "specialist_handoffs": {
+    "scene_realism": ["校验门外走廊", "锁定4列×6排桌椅", "保持建筑与家具锚点"],
+    "storyboard": ["男主第4排既定座位", "身体/头部/视线分开", "女主入场动作链", "跨镜连续性"],
+    "camera_motion": ["本场基线为固定机位", "如后续增加运动，另行设计并不得改变世界坐标"]
+  },
+  "integration_invariants": [
+    "三个专业技能使用同一场景版本",
+    "场景真实性技能不重排人物座位",
+    "分镜技能不重设计建筑/家具",
+    "运镜技能不改变人物世界位置",
+    "门外是校园走廊，不是草地",
+    "没有真实生成图像/视频时不得报告视觉验收通过"
+  ]
+}
