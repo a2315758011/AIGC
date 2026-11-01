@@ -28,7 +28,7 @@ function validate(h) {
  for(const r of refs){
   if(!assetIds.has(r.asset_id))err("H04","reference "+r.reference_id+" points to undeclared asset "+r.asset_id);
   if(!r.role||!arr(r.authority_fields)||!r.authority_fields.length||!Number.isFinite(r.priority)||!arr(r.may_override_fields))err("H04","reference mapping incomplete: "+r.reference_id);
-  for(const field of r.authority_fields||[]){const key=field+"|"+r.priority;if(authority.has(key))err("H05","conflicting authority for "+field+" at priority "+r.priority);else authority.set(key,r.reference_id);}
+  for(const field of r.authority_fields||[]){const key=r.asset_id+"|"+field+"|"+r.priority;if(authority.has(key))err("H05","conflicting authority for "+field+" at priority "+r.priority);else authority.set(key,r.reference_id);}
  }
  const invariants=arr(h.invariants)?h.invariants:[];
  uniq(invariants,"invariant_id","H06","invariant_id");
