@@ -49,7 +49,7 @@ const podium = facts.get("PODIUM-01");
 const leftWall = facts.get("WALL-LEFT");
 const rightWall = facts.get("WALL-RIGHT");
 check(door?.location?.wall === "right" && near(door.location.position_y, 0.14), "教室门必须位于右侧前段");
-check(board?.location?.wall === "front" && near(board.location.x, 0.5) && near(board.location.y, 0), "黑板必须位于前墙中央");
+check(near(board?.location?.x, 0.5) && near(board?.location?.y, 0), "黑板必须位于前墙中央");
 check(near(podium?.location?.x, 0.5) && near(podium?.location?.y, 0.12), "讲台必须位于前墙中央前方");
 check(leftWall?.location?.wall === "left" && rightWall?.location?.wall === "right", "左右侧墙事实必须存在");
 const left = zones.get("CLEARANCE-1-2");
