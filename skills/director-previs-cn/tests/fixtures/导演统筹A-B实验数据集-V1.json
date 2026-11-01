@@ -198,7 +198,7 @@
     },
     {
       "id": "EVAL-11",
-      "route_case": "DO-04",
+      "route_case": "DO-11",
       "category": "multi_domain_dynamic_movement",
       "task": "两名人物在教室内沿有时间标记的路径交错通行；人物根节点路径、身体动作、脚底接触和摄影机位置/视线轨迹分别控制，并保持跨镜状态",
       "gold_route": [
