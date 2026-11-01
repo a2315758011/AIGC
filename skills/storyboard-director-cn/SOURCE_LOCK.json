@@ -1,7 +1,7 @@
 {
   "package": "storyboard-director-cn",
   "date": "2026-11-01",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
   "source_version": "V2.10.5",
@@ -63,9 +63,9 @@
     {
       "package_path": "references/人物站位与场景调度规则-V1.md",
       "source_path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
-      "git_blob_sha": "a16a61dd6f1f922d01de0a581ca144dd26eecfff",
-      "characters": 11044
+      "git_blob_sha": "978af056a9b24d5e5e0dfb95354c3d7748245864",
+      "characters": 11833
     }
   ],
-  "source_rule_revision": "V1.5.0 adds static-to-dynamic workflow, separate body-action and root-motion tracks, timed path contract, support/contact/collision checks, multi-actor path conflict and staggered crowd movement, independent camera tracks, reference-video responsibility, and tool evidence boundaries."
+  "source_rule_revision": "V1.6.0 adds distance-based hand-drawn path timing and shape preservation, distinguishes foot grounding from foot planting, requires joint velocity continuity at keys/loops, validates crowd-instance behavior preservation, and separates camera position from aim-path continuity."
 }
