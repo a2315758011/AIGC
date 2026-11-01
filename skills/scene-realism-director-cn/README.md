@@ -1,4 +1,4 @@
-# 场景真实性导演与独立质检 Skill V1.6.0
+# 场景真实性导演与独立质检 Skill V1.6.1
 
 本技能处理 AIGC 场景图的空间假感、建筑结构错误、透视比例异常、家具悬浮/穿插、光影不一致、颜色过艳、材质塑料感、物体局部失真和全景不连续。
 
@@ -8,7 +8,7 @@
 - references/场景真实性控制规则-V1.md：权威方法规则，覆盖空间拓扑、功能布局、摄影几何、物理接触、光照、颜色、材质和局部编辑副作用。
 - references/场景真实性检查表.md：独立逐项质检，包含空间、光色、物体级和局部编辑检查。
 - references/可控生成与诊断工具.md：深度估计、控制图、PBR 和色彩管理的适用边界。
-- references/场景图真实性质检与回归样例-V1.json：12 个结构化人工回归用例。
+- references/场景图真实性质检与回归样例-V1.json：13 个结构化人工回归用例。
 - references/场景真实性原创中文配对基准集-V1.json：8 类场景、64 条可判定问题的原创 A/B 基准。
 - references/第三方评测器部署门槛-V1.md：SpatialGenEval、Qwen-Image-Bench、Shedding Light、CFM、PICABench 等工具的资源、许可和费用边界。
 - tests/场景真实性回归样例.md：基础场景人工回归。
@@ -19,6 +19,11 @@
 - docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md：SpatialGenEval、GenSpace、InSpace 和全景 3D 路线。
 - docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md：Shedding Light、CFM、PICABench、ImagenWorld 和物体级真实感研究。
 - docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md：GPT 原生生图四类场景的首轮人工检查、缺陷与后续配对实验计划。\n- references/教室空间权威布局基准-3列5排-V1.json：教室固定空间事实、15张桌椅归一化坐标、相机预设、不变量和未知尺寸边界。\n- references/漫剧场景空间数据库_SCHEMA_V1.json：通用场景数据库结构约束。\n- references/漫剧场景空间数据库模板_V1.json：新场景初始化模板。\n- projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json：15桌15椅的独立对象实例、配对关系、固定事实、动态状态和相机预设。\n- tests/validate-scene-database.cjs：无第三方依赖的 Node 场景数据库结构校验器。\n- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
+- docs/Deepresearch/2026-11-01_GPT原生生图第二轮复合图失败分析.md：追加第十、十一轮无效信息图输出记录与拒收依据。
+
+## 生成调用门禁
+
+每次 GPT 原生生图只生成一个对象、一个机位；不得在生成阶段要求 A/B 对照海报、评分或信息图。输出形态失败直接拒收。图像对象/机位不明确时先澄清，不从助手自己的计划推定。
 
 ## 使用方式
 
