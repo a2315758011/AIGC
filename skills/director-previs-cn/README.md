@@ -1,12 +1,12 @@
-# 导演统筹与场面预演 Skill V1.3.0
+# 导演统筹与场面预演 Skill V1.3.1
 
 本技能是导演层的任务统筹入口，不重复开发已有专业规则。
 
 ## 当前权威专业技能版本
-- `scene-realism-director-cn` V1.3.0（conditional）：场景真实性、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真、俯视/全景。
-- `storyboard-director-cn` V1.3.1 / source V2.10.5：正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性。
-- 人物站位与场景调度规则 V1.6.0：动态路径、foot grounding/foot planting、关键帧速度连续性、群演一致性、相机位置/视线轨迹分离。
-- `camera-motion-director-cn`：摄影机运动、位置/视线轨迹、模型适配和运镜审片。
+- `scene-realism-director-cn` V1.4.0（conditional）：场景真实性、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真、俯视/全景。
+- `storyboard-director-cn` V1.3.4 / source V2.10.5：正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性。
+- 人物站位与场景调度规则 V1.9.0：动态路径、foot grounding/foot planting、关键帧速度连续性、群演一致性、相机位置/视线轨迹分离。
+- `camera-motion-director-cn` V1.1.1：摄影机运动、位置/视线轨迹、模型适配和运镜审片。
 - `fight-impact-vfx-cn` V1.0.0：打斗动作因果、接触/受击、打击节奏、命中特效、环境反馈和声画同步（当前自身 SOURCE_LOCK 标记 authored_pending_review）。
 
 ## 本 Skill 的独有职责
@@ -25,3 +25,10 @@
 - `scripts/validate_director_eval.js`：A/B 数据集、评分量表和实验状态校验。
 - `scripts/validate_director_previs.js`：依赖 SHA、路由和教室夹具静态校验。
 - `.github/workflows/director-previs-regression.yml`：PR 自动回归。
+
+
+## 版本与预演状态
+
+- 结构化导演台与多视角角色一致性研究已登记为低等级候选；仅有静态源码/论文证据，未在本工作站安装或运行。
+- `manju-director-cn` 离线快照已同步至 V2.10.5，但因与本技能默认分镜路由存在职责重叠，不纳入核心自动路由；用户明确需要漫剧资产+分镜完整闭环时可单独调用。
+- 本技能静态回归与真实导演工作流/图像/视频 A/B 分开记录；真实 A/B 当前仍为 NOT_RUN。

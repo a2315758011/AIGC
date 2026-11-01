@@ -12,6 +12,10 @@ on:
       - "skills/storyboard-director-cn/**"
       - "skills/camera-motion-director-cn/**"
       - "skills/fight-impact-vfx-cn/**"
+      - "skills/manju-director-cn/**"
+      - "分镜规则清单.json"
+      - "剧本转分镜指令"
+      - "剧本转分镜自检指令"
       - ".github/workflows/director-previs-regression.yml"
   push:
     branches: [main]

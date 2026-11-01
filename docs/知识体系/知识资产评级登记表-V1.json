@@ -27,10 +27,10 @@
       "name": "导演统筹静态合同与自动回归",
       "domain": "导演统筹/工作流",
       "rating": "高",
-      "evidence_level": "E3（133项自动静态回归；仅覆盖合同/协议，不是目标模型E4）",
+      "evidence_level": "E3（164项自动静态回归：导演统筹合同128项 + A/B协议36项；不是目标模型E4）",
       "claim": "导演统筹路由合同、专业依赖锁、A/B协议静态合同可由自动化回归检查。",
-      "basis": "GitHub Actions run 41261038369 记录 133 PASS / 0 FAIL；范围为导演合同97项+A/B协议36项。",
-      "verified_scope": "仓库静态合同、规则结构与校验器覆盖项。",
+      "basis": "GitHub Actions run 41271282478（run #93）记录 164 PASS / 0 FAIL；导演统筹合同与依赖/快照校验128项，A/B评测协议36项。",
+      "verified_scope": "仓库静态合同、专业依赖文件SHA、路由回归、教室事实夹具、漫剧V2.10.5离线源/包SHA与字符数、A/B协议结构。",
       "not_verified_scope": "独立路由复核、真实导演工作流A/B、真实图像/视频A/B、模型服从率和最终成片质量。",
       "sources": [
         "skills/director-previs-cn/tests/执行记录_20261101.md",
@@ -41,7 +41,7 @@
       "source_refs": [
         {
           "path": "skills/director-previs-cn/SOURCE_LOCK.json",
-          "git_blob_sha": "000d10f7c78d23c36fe6f116e47490023e7c87da"
+          "git_blob_sha": "1a31c9cc3b430008c898465984496df1252c60b0"
         },
         {
           "path": "skills/director-previs-cn/tests/执行记录_20261101.md",
@@ -53,7 +53,27 @@
         },
         {
           "path": "skills/director-previs-cn/tests/导演统筹工作流A-B实验协议-V1.md",
-          "git_blob_sha": "7e8901dc252e3d25251d763d4622d511865047f6"
+          "git_blob_sha": "efb84c8152df21ad1738eeb97fbcfe9d812e6e4a"
+        },
+        {
+          "path": "skills/director-previs-cn/SKILL.md",
+          "git_blob_sha": "019a3845fd87a18a1b6576c541a47cfea50c1240"
+        },
+        {
+          "path": "skills/director-previs-cn/README.md",
+          "git_blob_sha": "feaab1cc630b40b5f3786ac7ae5896de08cbf72e"
+        },
+        {
+          "path": "skills/director-previs-cn/CHANGELOG.md",
+          "git_blob_sha": "cd0e100463966729046c9ede1d59e8bd16fb4bbd"
+        },
+        {
+          "path": "skills/director-previs-cn/scripts/validate_director_previs.js",
+          "git_blob_sha": "827182544995703589c0d9fcc14c158d0f146c54"
+        },
+        {
+          "path": "skills/director-previs-cn/scripts/validate_director_eval.js",
+          "git_blob_sha": "2dbc87efa49187603d5fc826c5319f871d73ece4"
         }
       ],
       "status": "STATIC_VERIFIED_TARGET_WORKFLOW_NOT_RUN"
@@ -82,7 +102,7 @@
         },
         {
           "path": "docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md",
-          "git_blob_sha": "dab37157979350af07d928c4b85984cf56e2eeb0"
+          "git_blob_sha": "6a19b71b6afebf13ebf8c43f65e7ec5420e97ab3"
         },
         {
           "path": "skills/scene-realism-director-cn/tests/场景真实性A-B测试执行规程-V1.md",
@@ -176,7 +196,7 @@
         },
         {
           "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
-          "git_blob_sha": "4077f98129c5d91d5b95f2baa3f00818934c79aa"
+          "git_blob_sha": "435d7b10c2bf4f75f19fb643547121bebf371f78"
         }
       ]
     },
@@ -207,7 +227,7 @@
         },
         {
           "path": "skills/director-previs-cn/tests/fixtures/导演统筹A-B实验数据集-V1.json",
-          "git_blob_sha": "09c9b8b8a4c41ab9cfc7f58ace6866cdcc36c862"
+          "git_blob_sha": "47b04bb875faf040a1a381876d46d67a516f0228"
         },
         {
           "path": "skills/director-previs-cn/tests/执行记录_20261101.md",
@@ -235,11 +255,11 @@
       "source_refs": [
         {
           "path": "skills/director-previs-cn/tests/导演统筹工作流A-B实验协议-V1.md",
-          "git_blob_sha": "7e8901dc252e3d25251d763d4622d511865047f6"
+          "git_blob_sha": "efb84c8152df21ad1738eeb97fbcfe9d812e6e4a"
         },
         {
           "path": "skills/director-previs-cn/tests/fixtures/导演统筹A-B实验数据集-V1.json",
-          "git_blob_sha": "09c9b8b8a4c41ab9cfc7f58ace6866cdcc36c862"
+          "git_blob_sha": "47b04bb875faf040a1a381876d46d67a516f0228"
         },
         {
           "path": "skills/director-previs-cn/tests/执行记录_20261101.md",
@@ -320,18 +340,39 @@
         "skills/manju-director-cn/SOURCE_LOCK.json",
         "分镜规则清单.json"
       ],
-      "usage": "禁止作为活动分镜入口；刷新到 V2.10.5 并完成文件哈希一致性、离线包解压和回归后再重新评级。",
+      "usage": "离线规则已同步主线 V2.10.5；作为独立漫剧资产+分镜完整闭环按需调用，不替代默认 storyboard-director 专业路由。",
       "source_refs": [
         {
           "path": "skills/manju-director-cn/SOURCE_LOCK.json",
-          "git_blob_sha": "cfa4b8906050c27595ebdd3438fde2a75bf14105"
+          "git_blob_sha": "f33403cf33db58c203786cfd2a48d014185e9185"
         },
         {
           "path": "分镜规则清单.json",
-          "git_blob_sha": "31d867cc1f76a52955617f67bad71af288b18d36"
+          "git_blob_sha": "7d75c8089fabe8a8749c45daae3e7c375481288c"
+        },
+        {
+          "path": "skills/manju-director-cn/SKILL.md",
+          "git_blob_sha": "1773c8e680b78f6f14614141ee67a9010d897750"
+        },
+        {
+          "path": "skills/manju-director-cn/README.md",
+          "git_blob_sha": "f16af7928d2f9f0222b0849d70ff6144dca3d297"
+        },
+        {
+          "path": "skills/manju-director-cn/references/剧本转分镜指令.md",
+          "git_blob_sha": "98feb1281d83aed5ee035bf9f70713598610588c"
+        },
+        {
+          "path": "skills/manju-director-cn/references/剧本转分镜自检指令.md",
+          "git_blob_sha": "778c79dbab0705186cad159d22b1356cdbff0e2e"
+        },
+        {
+          "path": "skills/manju-director-cn/references/AIGC人物资产指令.md",
+          "git_blob_sha": "b4ee72b3aba73bf83f9bd87be731d9c279029c95"
         }
       ],
-      "status": "EXCLUDED_STALE_DO_NOT_ROUTE"
+      "status": "REFRESHED_V2_10_5_STANDALONE_NOT_CORE_ROUTE",
+      "source_version": "V2.10.5"
     },
     {
       "id": "AIGC-SCG-WORLDSTATE-001",
@@ -397,7 +438,7 @@
       "source_refs": [
         {
           "path": "skills/camera-motion-director-cn/SKILL.md",
-          "git_blob_sha": "39909f0bc2a2a613754e4500113190d9eddfe2d9"
+          "git_blob_sha": "d3ced489b27d991c97b54e469697191d9ccb102b"
         },
         {
           "path": "skills/camera-motion-director-cn/SOURCE_LOCK.json",
@@ -410,6 +451,10 @@
         {
           "path": "skills/camera-motion-director-cn/tests/运镜计划回归样例.json",
           "git_blob_sha": "c8ce46765e5a9690102505e679d5e778bd0d9877"
+        },
+        {
+          "path": "skills/camera-motion-director-cn/README.md",
+          "git_blob_sha": "5fd192b4690eaa22a5e62bee9b5a683151f47d08"
         }
       ],
       "usage": "用于设计与静态校验运镜计划；真实视频生成和审片必须另行验收。",
@@ -441,7 +486,7 @@
         },
         {
           "path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
-          "git_blob_sha": "95239ba5336a34353b45a5a61dc0b1aec3247481"
+          "git_blob_sha": "3c39af7b812adefefe78b3b5092db3e1a6302972"
         }
       ],
       "external_sources": [
@@ -480,7 +525,7 @@
         },
         {
           "path": "skills/director-previs-cn/tests/导演统筹工作流A-B实验协议-V1.md",
-          "git_blob_sha": "7e8901dc252e3d25251d763d4622d511865047f6"
+          "git_blob_sha": "efb84c8152df21ad1738eeb97fbcfe9d812e6e4a"
         }
       ],
       "external_sources": [
@@ -594,64 +639,112 @@
     }
   ],
   "audit_snapshot": {
-    "main_head": "bcc7d1ce8a7641126e1a7c281b7b99b8f1a6f4ed",
-    "repository_file_count": 114,
-    "method_entry_count": 15,
-    "scope": "本轮聚焦剧本理解、世界状态、场景真实性、人物调度、运镜、导演统筹与打击感等直接服务预演/分镜的高价值方法；不是全仓库逐文件穷尽审计。",
-    "rule": "评级按具体主张及其验证范围，不按整个 Skill 一刀切；静态测试不代表目标模型生成效果。"
+    "main_head": "c281194f1cca561825323b4ba48395de86d1fa52",
+    "repository_file_count": 116,
+    "method_entry_count": 17,
+    "scope": "本轮审计聚焦剧本理解、世界状态、场景真实性、人物调度、运镜、导演统筹、打击感与结构化预演；不是全仓库逐文件穷尽审计。",
+    "rule": "评级按具体主张及其验证范围，不按整个 Skill 一刀切；静态测试不代表目标模型生成效果。",
+    "pc_mcp_reconnected": true,
+    "generation_gateway_status": "SERVICE_NOT_RUNNING; provider start last reported STATUS_BREAKPOINT_0x80000003; no generation jobs submitted.",
+    "latest_pr_head": "636efe34797b4318906176c5e52bd0440f53d0cf",
+    "static_ci": {
+      "workflow": "director-previs-regression",
+      "run_id": 41271282478,
+      "run_number": 93,
+      "status": "success",
+      "pass_count": 164,
+      "fail_count": 0,
+      "breakdown": {
+        "director_previs_contract": 128,
+        "director_ab_protocol": 36
+      },
+      "tested_commit": "636efe34797b4318906176c5e52bd0440f53d0cf",
+      "scope": "静态技能合同、依赖文件SHA、路由、教室夹具、漫剧离线快照内容/字符数、导演A/B协议；不包含目标模型生成质量"
+    },
+    "version_alignment": {
+      "director_previs": "1.3.1",
+      "scene_realism": "1.4.0",
+      "storyboard": "1.3.4",
+      "positioning_rules": "V1.9.0",
+      "camera_motion": "1.1.1",
+      "manju_director": {
+        "package_version": "1.1.1",
+        "source_version": "V2.10.5",
+        "routing": "standalone_not_core_route"
+      }
+    }
   },
   "version_drifts": [
     {
       "id": "DRIFT-DIRECTOR-PREVIS-001",
       "severity": "high",
-      "status": "stale_dependency_lock",
+      "status": "resolved",
       "path": "skills/director-previs-cn/SOURCE_LOCK.json",
       "pinned_versions": {
-        "scene_realism": "1.3.0",
-        "storyboard": "1.3.1",
-        "blocking_rules": "V1.6.0"
+        "scene_realism": "1.4.0",
+        "storyboard": "1.3.4",
+        "blocking_rules": "V1.9.0"
       },
       "current_main_versions": {
         "scene_realism": "1.4.0",
-        "storyboard": "1.3.2",
-        "blocking_rules": "V1.7.0"
+        "storyboard": "1.3.4",
+        "blocking_rules": "V1.9.0"
       },
       "impact": "导演统筹锁定的专业依赖不是当前主线最新版本，离线快照可能遗漏最新场景真实性、站位与动态走位规则。",
-      "action": "依赖锁刷新并回归前，仅把 director-previs 用作统筹/路由参考；专业规则从当前 main 分别读取。"
+      "action": "依赖锁刷新并回归前，仅把 director-previs 用作统筹/路由参考；专业规则从当前 main 分别读取。",
+      "resolved_date": "2026-11-01",
+      "resolution": "director-previs-cn V1.3.1 SOURCE_LOCK and SKILL/README/CHANGELOG refreshed to current main; current PR CI pending."
     },
     {
       "id": "DRIFT-CAMERA-MOTION-001",
       "severity": "medium",
-      "status": "frontmatter_source_lock_mismatch",
+      "status": "resolved",
       "path": "skills/camera-motion-director-cn/",
-      "frontmatter_version": "1.0.0",
+      "frontmatter_version": "1.1.1",
       "source_lock_version": "1.1.1",
       "impact": "技能入口显示版本与来源锁版本不一致，离线分发和版本追踪存在歧义。",
-      "action": "修正 frontmatter/README/SOURCE_LOCK 的统一版本并重新计算哈希后再发布离线包。"
+      "action": "修正 frontmatter/README/SOURCE_LOCK 的统一版本并重新计算哈希后再发布离线包。",
+      "resolved_date": "2026-11-01",
+      "resolution": "SKILL frontmatter and README aligned to SOURCE_LOCK V1.1.1."
     },
     {
       "id": "DRIFT-MANJU-SNAPSHOT-001",
       "severity": "high",
-      "status": "excluded_stale_snapshot",
+      "status": "resolved_snapshot_refreshed_standalone",
       "path": "skills/manju-director-cn/SOURCE_LOCK.json",
-      "pinned_source_version": "V2.10.1",
+      "pinned_source_version": "V2.10.5",
       "current_main_source_version": "V2.10.5",
       "impact": "离线漫剧导演快照落后主线权威分镜与自检规则。",
-      "action": "继续排除活动路由；完成刷新、哈希一致性和回归后再重新评级。"
+      "action": "继续排除活动路由；完成刷新、哈希一致性和回归后再重新评级。",
+      "resolved_date": "2026-11-01",
+      "resolution": "Offline writing/self-check references refreshed from main with exact blob SHA and character counts; package version 1.1.1. Kept standalone to avoid duplicating the default storyboard route."
     }
   ],
   "validation_gaps": [
     "场景真实性原创中文基准为8个场景/64个问题；Windows校验器本轮未运行，目标模型A/B与双人盲评未执行。",
     "场景真实性 V1.4.0 的光照/色彩/物体/物理编辑专项回归已定义5项，但没有目标模型输出或运行结果。",
-    "导演统筹 CI 的133/133只覆盖静态合同与协议；11项路由演练不是独立评审，导演工作流A/B与真实图像/视频A/B未运行。",
+    "导演统筹当前 PR GitHub Actions run 41271282478（run #93）已通过 164/164（128+36）；该证据仅覆盖仓库静态合同、依赖/快照指纹和评测协议。导演工作流A/B、场景提示策略A/B与真实图像/视频效果仍未运行。",
     "人物动态走位研究含创作者自述和官方工具说明；尚无目标视频模型上的独立复现结果。",
     "打击感技能仍为 authored_pending_review，未运行视频模型、EffectCraft或Impact端到端流程。",
-    "Windows PC MCP 当前连接失败；本轮没有访问或修改本机 Generation Gateway。该服务另有其他 Agent 资源锁，本轮未干扰。"
+    "Windows PC MCP 已于 2026-11-01 重新连接；共享资源锁检查为空，但 Generation Gateway 仍为 SERVICE_NOT_RUNNING，提供程序启动最近报 STATUS_BREAKPOINT 0x80000003，根因尚未确认。本轮尚未提交生图任务；真实图像/视频 A/B 与双人盲评未执行。"
   ],
   "audit_summary": {
     "high": 2,
     "medium": 9,
     "low": 6,
     "note": "等级是本轮已登记的具体方法条目数量，不是整个仓库知识占比；后续新增证据或版本漂移时应重新评级。"
+  },
+  "version_alignment": {
+    "audited_main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
+    "director_previs": "1.3.1",
+    "scene_realism": "1.4.0",
+    "storyboard": "1.3.4",
+    "positioning_rules": "V1.9.0",
+    "camera_motion": "1.1.1",
+    "manju_director": {
+      "package_version": "1.1.1",
+      "source_version": "V2.10.5",
+      "routing": "standalone_not_core_route"
+    }
   }
 }

@@ -2,7 +2,7 @@
 name: camera-motion-director-cn
 description: 面向 AI 漫剧、AI 短剧、图生视频与文生视频的摄影机运动设计、提示词编译和运镜质量审核。用户提出推拉摇移、跟拍、环绕、升降、镜头运动、镜头轨迹、视频运镜修复或希望镜头更有电影感时调用。
 metadata:
-  version: "1.0.0"
+  version: "1.1.1"
   language: "zh-CN"
   source_repo: "a2315758011/AIGC"
 ---
