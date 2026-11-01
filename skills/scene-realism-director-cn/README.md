@@ -40,3 +40,6 @@
 - tests/validate-scg-3d-motion.cjs：无第三方依赖的 SCG 三维代理碰撞检查器。
 - tests/fixtures/SCG三维碰撞回归-V1.json：人物地面通行、桌子碰撞、越过低障碍、摄影机穿墙四类回归。
 - 场景数据库的固定家具/建筑几何与 SCG 的逐镜动态状态分权威管理，避免重复事实源。
+
+- tests/fixtures/SCG场景数据库几何合并测试.json 与对应数据库：验证固定家具几何从场景数据库合并进同 ID 的 SCG 实体。
+- tests/fixtures/SCG未知固定障碍阻断测试.json 与对应数据库：验证未知固定障碍会阻止“无碰撞通过”。
