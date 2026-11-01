@@ -37,7 +37,7 @@ function expandedObstacle(o,v){
 function equal(a,b){return xyz(a)&&xyz(b)&&Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z)<1e-6;}
 function run(doc,sceneDb){
  const errors=[],warnings=[];let previous=null;
- const fixed=new Map();
+ const fixed=new Map(),fixedUnknown=[];\n if(sceneDb&&sceneDb.coordinate_system&&sceneDb.coordinate_system.units==="normalized_0_to_1")warnings.push({code:"UNRESOLVED",message:"场景坐标为归一化值；仅能做相对碰撞检查，不能证明真实尺寸/净空"});
  if(sceneDb&&Array.isArray(sceneDb.objects))for(const o of sceneDb.objects){
   if(!o||!o.id)continue;
   const p=o.position&&{x:o.position.x,y:o.position.y,z:o.position.z};
@@ -50,7 +50,7 @@ function run(doc,sceneDb){
  }
  for(const shot of doc.shots||[]){
   const entities=new Map((shot.entities||[]).map(e=>[e.id,e]));
-  for(const [id,e] of fixed)if(!entities.has(id))entities.set(id,e);
+  for(const [id,e] of fixed){const old=entities.get(id);if(!old)entities.set(id,e);else{const a=old.attributes||{},g=e.attributes||{};entities.set(id,{...old,attributes:{...g,...a,world_position:a.world_position||g.world_position,collision_volume:a.collision_volume||g.collision_volume,collision_role:a.collision_role||g.collision_role||"obstacle"}});}}
   for(const ev of shot.events||[]){
    const m=ev.motion;if(!m)continue;
    const id=m.entity_id||ev.actor,actor=entities.get(id);
