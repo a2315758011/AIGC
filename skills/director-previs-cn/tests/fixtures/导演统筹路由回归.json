@@ -112,6 +112,29 @@
       ],
       "orchestration_required": true,
       "expected_result": "先锁静态空间，再分别交接人物根节点路径/姿态动作/grounding/foot planting/多人错峰，最后独立定义摄影机位置与视线轨迹"
+    },
+    {
+      "id": "DO-12",
+      "input": "三张参考图的布局/建筑/角色职责不同，辅助平面图内嵌桌椅示意与唯一4×6布局冲突，要求保留唯一真值并记录冲突",
+      "expected_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn",
+        "storyboard-director-cn"
+      ],
+      "orchestration_required": true,
+      "expected_result": "按图像职责建立权威矩阵，保留4×6/24套唯一布局；辅助图只供建筑/机位，角色板只供身份/风格；不得融合冲突布局"
+    },
+    {
+      "id": "DO-13",
+      "input": "复杂多人走位、相机升降/持续跟随与多机位切换，提供白模视频、场景图、角色图和动作参考，要求验证导演意图服从性",
+      "expected_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn",
+        "storyboard-director-cn",
+        "camera-motion-director-cn"
+      ],
+      "orchestration_required": true,
+      "expected_result": "先做动作状态预检，再分开地面路径/相机XYZ高度/LookAt/素材职责/监视器切点；白模A/B独立于导演工作流A/B"
     }
   ]
 }
