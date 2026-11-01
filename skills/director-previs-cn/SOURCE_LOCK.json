@@ -192,7 +192,7 @@
       "independent": false
     },
     "workflow_integration_ab": "not_run",
-    "real_image_video_ab": "not_run_provider_unavailable",
+    "real_image_video_ab": "not_run",
     "note": "Static checks verify repository contracts and pinned dependencies only. Scene-realism A/B tests prompt strategy separately from director workflow A/B; do not combine these variables. Dynamic movement research is a static source review, not an installed runtime. No real image/video A/B or Windows Gateway test is claimed.",
     "independent_route_review": "not_run",
     "workflow_ab_protocol": "prepared_not_run",
@@ -224,6 +224,7 @@
     "provider_executable_start": "failed_STATUS_BREAKPOINT_0x80000003",
     "shared_generation_gateway_current_lock": "empty_at_2026-11-01T03:05Z",
     "generation_jobs_submitted": 0,
-    "production_files_modified": false
+    "production_files_modified": false,
+    "real_image_video_ab_blocker": "Generation Gateway SERVICE_NOT_RUNNING; provider executable last failed with STATUS_BREAKPOINT 0x80000003; no generation jobs submitted."
   }
 }
