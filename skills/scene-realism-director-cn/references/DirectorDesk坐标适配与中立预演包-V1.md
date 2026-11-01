@@ -43,3 +43,8 @@ node tests/test-directordesk-neutral.cjs
 ## 坐标约定纠错记录（2026-11-01）
 
 此前示例把目标 +X 写成 right，同时声明 +Y up、+Z forward、右手系；这组语义彼此不相容。glTF 2.0 右手坐标中 +X 指向左侧、-X 指向右侧。已修正测试夹具和模板：源 X right/Y backward/Z up 按左手源处理，目标 X left/Y up/Z forward 按右手目标处理，轴变换行列式为 -1。DirectorDesk 原生目标 X 正方向仍须通过安装版实际项目/视口确认；不能仅因其 +Y up、角色局部 +Z forward 就宣称已确认。
+
+
+## 摄影机预设导出补充
+
+适配器现已读取场景数据库 `camera_views[]`，将 `camera_position` 与 `look_at` 分别转换为米制目标坐标，保留 view_id、projection 和 one_image_one_camera 输出契约。缺少完整位置或注视点时加入 unresolved 并阻止 release_ready。该实现只覆盖静态预设，不等同于逐镜动态摄影机轨迹、视锥遮挡或原生相机控制已完成。
