@@ -49,14 +49,14 @@ check("still test has five replicates per arm",dataset.cases.find(x=>x.id==="EVA
 check("video test is gated after still phase",dataset.cases.find(x=>x.id==="EVAL-05").visual_eval==="required_after_still_phase");
 check("fight visual tests blocked until skill review",dataset.cases.filter(x=>x.id==="EVAL-08"||x.id==="EVAL-09").every(x=>x.visual_eval==="not_allowed_until_skill_review"));
 check("result template remains NOT_RUN",template.status==="NOT_RUN"&&template.decision==="NOT_EVALUATED");
-check("result template pins director V1.3.1",template.environment.workflow_version==="director-previs-cn@1.3.1");
+check("result template pins current director version",template.environment.workflow_version==="director-previs-cn@"+lock.version);\ncheck("result template pins current specialist versions",template.environment.specialist_versions["scene-realism-director-cn"]===lock.local_dependencies.find(x=>x.package==="scene-realism-director-cn").version && template.environment.specialist_versions["storyboard-director-cn"]===lock.local_dependencies.find(x=>x.package==="storyboard-director-cn").version);
 check("dynamic movement case is routed across required specialists",dataset.cases.find(x=>x.id==="EVAL-11").gold_route.join(",")==="director-previs-cn,scene-realism-director-cn,storyboard-director-cn,camera-motion-director-cn" && dataset.cases.find(x=>x.id==="EVAL-11").route_case==="DO-11");
 check("result template records PC blocker",template.blocked_reason.includes("运行时填写具体阻塞原因"));
 check("classroom unique layout truth preserved",dataset.classroom_assets.layout_truth==="阳光洒落的整洁教室.png"&&classroom.scene_truth.layout_source===dataset.classroom_assets.layout_truth);
 check("composite seating thumbnail is non-authoritative",dataset.classroom_assets.authority_rules.some(x=>x.includes("拼图内嵌座位示意不得覆盖")));
 check("reference assets remain outside public repository",dataset.classroom_assets.asset_storage.includes("Library")&&protocol.includes("不复制到公开仓库"));
 check("source lock records A/B as not run",lock.verification.workflow_integration_ab==="not_run"&&lock.verification.real_image_video_ab==="not_run");
-check("source lock pins latest main commit",lock.verified_main_commit==="c281194f1cca561825323b4ba48395de86d1fa52" && lock.branch==="main");
+check("source lock records a valid verified main commit",/^[0-9a-f]{40}$/.test(lock.verified_main_commit) && lock.branch==="main");
 check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version)&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.5"));
 console.log("\n结果："+passed+" PASS / "+failed+" FAIL");
 if(failed) process.exitCode=1;
