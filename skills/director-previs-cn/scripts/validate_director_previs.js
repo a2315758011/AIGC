@@ -128,7 +128,7 @@ check("DO-08 visual acceptance remains NOT_RUN", byId["DO-08"].visual_acceptance
 check("DO-09 fight-only task routes directly", JSON.stringify(byId["DO-09"].expected_route) === JSON.stringify(["fight-impact-vfx-cn"]));
 check("DO-10 cross-domain fight route is ordered", JSON.stringify(byId["DO-10"].expected_route) === JSON.stringify(["director-previs-cn","scene-realism-director-cn","fight-impact-vfx-cn","storyboard-director-cn","camera-motion-director-cn"]));
 check("markdown covers all ten IDs", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10"].every(id => regressionText.includes(id)));
-check("integration test contains controlled A/B", integrationText.includes("A组") && integrationText.includes("B组") && integrationText.includes("控制变量"));
+check("integration test contains controlled A/B", integrationText.includes("A组") && integrationText.includes("B组") && integrationText.includes("A/B 变量隔离"));
 check("classroom integration skips non-applicable fight skill", integrationText.includes("fight-impact-vfx-cn` 明确跳过"));
 check("visual A/B is not falsely marked complete", lock.verification.real_image_video_ab === "not_run");
 check("fight impact dependency remains pending review", lock.verification.fight_impact_skill_status === "authored_pending_review");
