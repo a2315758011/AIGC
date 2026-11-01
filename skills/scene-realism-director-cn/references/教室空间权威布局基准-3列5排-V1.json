@@ -1,0 +1,292 @@
+{
+  "schema_version": "1.0",
+  "scene_id": "CLASSROOM-CN-3X5-001",
+  "title": "普通中国中学教室空间权威布局基准",
+  "status": "logical_layout_baseline_not_measured",
+  "units": "normalized_0_to_1_coordinates",
+  "coordinate_system": {
+    "origin": "room_front_left_floor_corner",
+    "x_axis": "from_left_wall_to_right_wall",
+    "y_axis": "from_front_wall_to_rear_wall",
+    "z_axis": "floor_to_ceiling",
+    "front_wall": "y=0",
+    "rear_wall": "y=1",
+    "left_wall": "x=0",
+    "right_wall": "x=1",
+    "note": "归一化坐标仅定义相对位置，不代表米制尺寸。所有真实尺寸均为未知，禁止由生成图反推。"
+  },
+  "room": {
+    "shape": "rectangular",
+    "boundary": {
+      "x_min": 0,
+      "x_max": 1,
+      "y_min": 0,
+      "y_max": 1
+    },
+    "dimensions": null,
+    "ceiling_height": null,
+    "walls": {
+      "thickness": null,
+      "doors_and_windows_cut_openings": true
+    }
+  },
+  "fixed_architecture": {
+    "blackboard": {
+      "wall": "front",
+      "center": {
+        "x": 0.5,
+        "y": 0
+      },
+      "span_x": [
+        0.24,
+        0.76
+      ],
+      "z": "wall_mid_height"
+    },
+    "podium": {
+      "center": {
+        "x": 0.5,
+        "y": 0.12
+      },
+      "orientation": "faces_rear",
+      "support": "floor"
+    },
+    "door": {
+      "wall": "right",
+      "position_y": 0.16,
+      "opens_to": "school_corridor",
+      "swing_clearance": "must_be_clear",
+      "hinge_and_swing_direction": "not_fixed_until_reference_confirmed"
+    },
+    "windows": {
+      "wall": "left",
+      "segments": "multiple_adjacent_window_bays",
+      "position_y_range": [
+        0.18,
+        0.82
+      ],
+      "opens_to": "exterior_or_lightwell"
+    },
+    "central_aisle": {
+      "x_range": [
+        0.43,
+        0.57
+      ],
+      "y_range": [
+        0.22,
+        0.94
+      ],
+      "continuous": true
+    },
+    "inter_column_aisles": [
+      {
+        "x_range": [
+          0.3,
+          0.36
+        ],
+        "y_range": [
+          0.22,
+          0.94
+        ],
+        "continuous": true
+      },
+      {
+        "x_range": [
+          0.64,
+          0.7
+        ],
+        "y_range": [
+          0.22,
+          0.94
+        ],
+        "continuous": true
+      }
+    ],
+    "side_clearance": {
+      "left": {
+        "x_range": [
+          0,
+          0.16
+        ],
+        "y_range": [
+          0.22,
+          0.94
+        ]
+      },
+      "right": {
+        "x_range": [
+          0.84,
+          1
+        ],
+        "y_range": [
+          0.22,
+          0.94
+        ]
+      }
+    }
+  },
+  "furniture": {
+    "desk_count": 15,
+    "chair_count": 15,
+    "columns": 3,
+    "rows": 5,
+    "orientation": "all desk fronts face front_wall (negative y)",
+    "placement_rule": "exactly one desk per column-row cell; no paired side-by-side desks; each chair is behind its desk toward rear wall",
+    "desk_centers": [
+      [
+        0.23,
+        0.28
+      ],
+      [
+        0.5,
+        0.28
+      ],
+      [
+        0.77,
+        0.28
+      ],
+      [
+        0.23,
+        0.42
+      ],
+      [
+        0.5,
+        0.42
+      ],
+      [
+        0.77,
+        0.42
+      ],
+      [
+        0.23,
+        0.56
+      ],
+      [
+        0.5,
+        0.56
+      ],
+      [
+        0.77,
+        0.56
+      ],
+      [
+        0.23,
+        0.7
+      ],
+      [
+        0.5,
+        0.7
+      ],
+      [
+        0.77,
+        0.7
+      ],
+      [
+        0.23,
+        0.84
+      ],
+      [
+        0.5,
+        0.84
+      ],
+      [
+        0.77,
+        0.84
+      ]
+    ],
+    "chair_relation": "one chair per desk, centered behind desk on same column axis; chair faces front_wall",
+    "desk_dimensions": null,
+    "chair_dimensions": null,
+    "spacing": "relative placement only; physical clearance and furniture dimensions not specified"
+  },
+  "camera_presets": {
+    "rear_eye_level": {
+      "position": {
+        "x": 0.5,
+        "y": 0.97,
+        "z": "standing_eye_height"
+      },
+      "look_at": {
+        "x": 0.5,
+        "y": 0,
+        "z": "blackboard_center"
+      },
+      "projection": "perspective",
+      "output": "one independent photorealistic image"
+    },
+    "front_eye_level": {
+      "position": {
+        "x": 0.5,
+        "y": 0.04,
+        "z": "standing_eye_height"
+      },
+      "look_at": {
+        "x": 0.5,
+        "y": 0.8,
+        "z": "desk_height"
+      },
+      "projection": "perspective",
+      "output": "one independent photorealistic image"
+    },
+    "topdown": {
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": "directly_above_room"
+      },
+      "look_direction": "vertical_down",
+      "projection": "orthographic_only_if_supported",
+      "output": "one independent top-down image"
+    },
+    "left_side": {
+      "position": {
+        "x": 0.03,
+        "y": 0.5,
+        "z": "standing_eye_height"
+      },
+      "look_at": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": "desk_height"
+      },
+      "projection": "perspective",
+      "output": "one independent photorealistic image"
+    }
+  },
+  "invariants": [
+    "15 desks and 15 chairs",
+    "3 columns and 5 rows",
+    "exactly one desk per column-row cell",
+    "all desk fronts face the blackboard",
+    "chair behind each desk on the same column axis",
+    "blackboard and podium remain on front wall",
+    "windows remain on left wall",
+    "door remains on right wall and opens to corridor",
+    "central and inter-column aisles remain continuous",
+    "no extra desk columns, paired desk blocks, or duplicated furniture"
+  ],
+  "unknowns": [
+    "real room width, length, and ceiling height",
+    "wall thickness and exact door/window dimensions",
+    "desk/chair physical dimensions",
+    "aisle widths in meters and code compliance",
+    "door hinge and swing direction"
+  ],
+  "generation_constraints": {
+    "one_image_per_request": true,
+    "one_camera_per_image": true,
+    "forbidden_outputs": [
+      "collage",
+      "multi-panel",
+      "storyboard sheet",
+      "infographic",
+      "dimension labels",
+      "scorecard",
+      "self-declared pass labels"
+    ],
+    "do_not_invent_measurements": true,
+    "do_not_change_layout_invariants": true,
+    "image_generation_role": "visual appearance and photographic rendering, not authoritative geometry source",
+    "acceptance": "independent review against this JSON; image text or model self-assessment is not evidence"
+  }
+}
