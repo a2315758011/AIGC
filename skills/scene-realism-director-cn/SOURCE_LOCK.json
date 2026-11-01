@@ -5,8 +5,8 @@
   "date": "2026-11-01",
   "authority": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
   "files": {
-    "README.md": "2e2f9611a201b34de0e56a509a925405b80f6e9f",
-    "SKILL.md": "75b94f13666908f8037a1583a2a5cf7128e46844",
+    "README.md": "900f262668b6161db9f5e11fde97053d2f9c22cc",
+    "SKILL.md": "422a4d4412c2bbbf4fb77bc9fc67c49e2169f1c8",
     "references/可控生成与诊断工具.md": "0659e2690e47ccd0a780147b030d7d64b4337c57",
     "references/场景图真实性质检与回归样例-V1.json": "d7a2c0bc42ccb189444ceb3a18cfbeaf3003cac8",
     "references/场景真实性原创中文配对基准集-V1.json": "6e6f34101af0622a0e1e20771f63498dd5ef5d0c",
@@ -70,7 +70,7 @@
     "skill_improvement_claim": "not_established_exploratory_single_sample_per_scene",
     "output_shape_contract": "added",
     "output_shape_contract_cases": 9,
-    "output_shape_static_regression": "pending",
+    "output_shape_static_regression": "PASS_9_OF_9",
     "gpt_native_output_shape_failures_in_current_session": 2,
     "gpt_native_output_shape_failure_severity": "P0",
     "gpt_native_valid_single_scene_samples_after_contract": 0,
@@ -78,13 +78,18 @@
     "generation_gateway_listeners": "none_on_18130_18140",
     "generation_gateway_submitted_jobs": 0,
     "generation_gateway_lock": "no_generation_gateway_lock_observed; unrelated project locks preserved",
-    "output_tool_metadata": "both calls returned prompt_empty_seed_null; effective prompt/model version not auditable"
+    "output_tool_metadata": "both calls returned prompt_empty_seed_null; effective prompt/model version not auditable",
+    "output_shape_source_and_staging_regression": "PASS",
+    "scene_benchmark_source_and_staging_regression": "PASS_8_CASES_64_QUESTIONS",
+    "skill_package_source_files": 18,
+    "skill_package_staging": "pending_final_manifest_verify"
   },
-  "note": "v1.4.0 adds evidence-based photometric, color-fidelity, object-centric and physical-edit tests. Research and regression definitions are committed; no target-model image generation or runtime evaluation was performed. Do not promote status from conditional until real outputs and blind-review evidence exist. The shared Generation Gateway is currently locked by another agent; this agent did not touch the protected service or submit generation jobs. Fourth follow-up on 2026-11-01: PC MCP restored; workstation bootstrap and project memory reviewed. 4173/4174 healthy, Funnel online, no active locks at inspection. Generation provider process absent, no 18130-18140 listener, stale runtime PID from 2026-10-28; no recent matching WER event. EXE 0.2.9 and app.asar metadata read only. No duplicate launch test, no job submitted, no production files changed. Root cause remains unknown. GPT-native image generation smoke test completed on 2026-11-01 with four single-view scenes (classroom, office, school corridor, U-shaped kitchen). All four passed basic visible scene-logic review with minor issues; no paired A/B, seed/model-version controls, blind review, or multiview checks. Report is committed; binary images are not yet uploaded to repository. No claim of skill effectiveness. GPT-native image generation smoke test completed on 2026-11-01 with four single-view scenes (classroom, office, school corridor, U-shaped kitchen). All four passed basic visible scene-logic review with minor issues; no paired A/B, seed/model-version controls, blind review, or multiview checks. Report is committed; binary images are not yet uploaded to repository. No claim of skill effectiveness. Fifth follow-up on 2026-11-01: two additional ChatGPT native image tool calls were explicitly preceded by a single-classroom-photo task description but returned multi-panel infographic-style reports. Both are P0 output-mode mismatches and excluded from scene quality/A-B statistics; tool metadata exposes prompt empty and seed null, so the effective request binding/root cause remains unknown/probable. A single-output routing contract and nine-case static regression were added; the regression and CI result remain pending. Shared Generation Gateway was checked read-only with --health --no-start and returned SERVICE_NOT_RUNNING; no moyin-creator.exe process or 18130-18140 listener was present, and no generation jobs were submitted.",
+  "note": "v1.4.0 adds evidence-based photometric, color-fidelity, object-centric and physical-edit tests. Research and regression definitions are committed; no target-model image generation or runtime evaluation was performed. Do not promote status from conditional until real outputs and blind-review evidence exist. The shared Generation Gateway is currently locked by another agent; this agent did not touch the protected service or submit generation jobs. Fourth follow-up on 2026-11-01: PC MCP restored; workstation bootstrap and project memory reviewed. 4173/4174 healthy, Funnel online, no active locks at inspection. Generation provider process absent, no 18130-18140 listener, stale runtime PID from 2026-10-28; no recent matching WER event. EXE 0.2.9 and app.asar metadata read only. No duplicate launch test, no job submitted, no production files changed. Root cause remains unknown. GPT-native image generation smoke test completed on 2026-11-01 with four single-view scenes (classroom, office, school corridor, U-shaped kitchen). All four passed basic visible scene-logic review with minor issues; no paired A/B, seed/model-version controls, blind review, or multiview checks. Report is committed; binary images are not yet uploaded to repository. No claim of skill effectiveness. GPT-native image generation smoke test completed on 2026-11-01 with four single-view scenes (classroom, office, school corridor, U-shaped kitchen). All four passed basic visible scene-logic review with minor issues; no paired A/B, seed/model-version controls, blind review, or multiview checks. Report is committed; binary images are not yet uploaded to repository. No claim of skill effectiveness. Fifth follow-up on 2026-11-01: two additional ChatGPT native image tool calls were explicitly preceded by a single-classroom-photo task description but returned multi-panel infographic-style reports. Both are P0 output-mode mismatches and excluded from scene quality/A-B statistics; tool metadata exposes prompt empty and seed null, so the effective request binding/root cause remains unknown/probable. A single-output routing contract and nine-case static regression were added; the regression and CI result remain pending. Shared Generation Gateway was checked read-only with --health --no-start and returned SERVICE_NOT_RUNNING; no moyin-creator.exe process or 18130-18140 listener was present, and no generation jobs were submitted. Output-mode contract release 1.4.1: 9 static cases passed (3 allowed PASS, 5 invalid FAIL, 1 unauditable BLOCKED); existing 8-scene/64-question benchmark validator passed in source and first staging. Final staging manifest verification remains pending. The target generator itself is not validated; two current-session output-shape failures remain excluded from image-quality statistics.",
   "supplementary_research": "docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md",
   "supplementary_research_git_blob_sha": "6a19b71b6afebf13ebf8c43f65e7ec5420e97ab3",
   "gpt_native_smoke_test_report": "docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md",
   "gpt_native_smoke_test_commit": "a862bde293028b385afa688d516512d14d0c55ed",
   "gpt_native_smoke_test_report_git_blob_sha": "25c671d08b78f562734200bc55d2ea512d885477",
-  "output_shape_failure_report": "docs/Deepresearch/2026-11-01_GPT原生生图输出形态失败复盘.md"
+  "output_shape_failure_report": "docs/Deepresearch/2026-11-01_GPT原生生图输出形态失败复盘.md",
+  "output_shape_failure_report_git_blob_sha": "eca6e7b7db7e57c660e3599ac538db87fa405298"
 }
