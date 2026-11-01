@@ -58,9 +58,9 @@
     }
   ],
   "tests": {
-    "source_readback": "PASS",
+    "source_readback": "PASS_ALL_REQUIRED_FILES",
     "frontmatter_and_reference_presence": "PASS_STATIC",
-    "qc_case_execution": "PENDING"
+    "qc_case_execution": "PASS_4_OF_4_ISOLATED_PYTHON"
   },
   "packaging": {
     "zip_created": false,
