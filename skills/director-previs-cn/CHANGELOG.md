@@ -8,6 +8,9 @@
 - 教室集成场景没有打斗动作，明确跳过 fight-impact-vfx，防止无意义调用。
 - 十项路由规则演练 10/10 与预期一致（同一助手演练，非独立评审）；GitHub Actions run 41221232731：79 PASS / 0 FAIL。
 - GitHub Actions run 41220913784：78 PASS / 0 FAIL。
+- 补齐A/B实验协议、十项实验数据集、P0硬门禁与图像/视频评分量表；加入盲评、控制变量和小样本结论限制。
+- 重新目视核对三张教室参考图，明确复合参考板中的座位缩略图不得覆盖唯一4×6桌椅真值。
+- 真实工作流、图像和视频A/B仍保持 NOT_RUN；PC MCP连接失败，未伪造生成实验结果。
 
 ## 1.1.1 — 2026-11-01
 - 以 main 最新提交 `b7d8d86db4235a3ea8ab3c68fd22e90b42ee82c6` 为基线，刷新 scene-realism、storyboard 和 camera-motion 依赖版本及 Blob SHA。
