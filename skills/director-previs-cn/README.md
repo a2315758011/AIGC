@@ -17,6 +17,10 @@
 - `SKILL.md`：触发条件、路由、导演意图、共享事实和冲突处理。
 - `SOURCE_LOCK.json`：外部来源许可证、Commit、文件 Blob SHA，以及当前 main 的专业依赖版本和哈希。
 - `references/导演意图与技能交接协议.md`：共享事实、交接顺序和冲突优先级。
-- `tests/fixtures/`：十项路由用例和高中教室集成基准。
+- `tests/fixtures/`：十项路由用例、A/B 实验数据集和高中教室集成基准。
+- `tests/导演统筹工作流A-B实验协议-V1.md`：A/B 对照组、控制变量、盲评、样本规模和判定门槛。
+- `tests/导演统筹视觉评分量表-V1.json`：P0 硬门禁与静态图像/视频评分权重。
+- `tests/templates/导演统筹实验结果模板-V1.json`：真实实验结果记录模板，当前保持 NOT_RUN。
+- `scripts/validate_director_eval.js`：A/B 数据集、评分量表和实验状态校验。
 - `scripts/validate_director_previs.js`：无第三方依赖的静态合同校验器。
 - `.github/workflows/director-previs-regression.yml`：PR 自动回归。
