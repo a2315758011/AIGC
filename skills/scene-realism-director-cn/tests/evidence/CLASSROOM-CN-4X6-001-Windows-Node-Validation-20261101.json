@@ -34,7 +34,7 @@
       "paired_chairs": 24,
       "central_aisle_wider_than_both_adjacent": true
     },
-    "claim_status": "invalidated_due_to_wrong_reference_count"
+    "claim_status": "historical_only_not_valid_for_current_scene"
   },
   "warning_breakdown": {
     "unknown_footprints": 48,
@@ -77,7 +77,7 @@
     "门扇开启方向",
     "女主具体座位列号"
   ],
-  "boundary": "本证据仅保留历史审计，4×6校验通过不代表原始用户教室正确；该布局已被原图目视计数纠正为4×5。",
-  "status": "superseded_invalid_baseline",
-  "superseded_reason": "原始用户参考图片实际可见4列×5排、20套桌椅；此证据验证的是错误4×6实例，不能代表用户场景验收。"
+  "boundary": "仅保留历史审计。当前正确基准为4列×5排、20套桌椅。",
+  "status": "superseded",
+  "superseded_reason": "原始用户参考图片实物计数为4列×5排、20套桌椅；本记录验证的是错误的4×6布局，不能代表当前用户场景验收。"
 }
