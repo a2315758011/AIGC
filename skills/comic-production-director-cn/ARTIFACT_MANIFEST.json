@@ -1,14 +1,14 @@
 {
   "schema": "skill-artifact-manifest-v1",
   "skill": "comic-production-director-cn",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "generated_from": "GitHub main; all listed files fetched and checked by GitHub Contents API",
   "files": [
     {
       "path": "SKILL.md",
       "required": true,
-      "git_blob_sha": "fdfc51ca0bffa2ef2aeffac78c6211993d1974ae",
-      "character_count": 4230
+      "git_blob_sha": "5d61ca4be392b58eb8c0a368734805f9cf4c729d",
+      "character_count": 4643
     },
     {
       "path": "references/外部项目采纳矩阵-V1.md",
@@ -43,14 +43,14 @@
     {
       "path": "scripts/validate_skill.py",
       "required": true,
-      "git_blob_sha": "18f2797c3300a0f26bddad17113c86b1fecba3c6",
-      "character_count": 4250
+      "git_blob_sha": "96057a84b57755f0946e0e494d7316f69d4ab188",
+      "character_count": 4454
     },
     {
       "path": "tests/test_validate_skill.py",
       "required": true,
-      "git_blob_sha": "49525bcd2d75c52e7aaae3870bb679683e4e241f",
-      "character_count": 4906
+      "git_blob_sha": "12c4a2cf947af647867b0002546b77edcbecbbe8",
+      "character_count": 5477
     },
     {
       "path": "tests/漫画页面质检正反例-V1.json",
@@ -84,13 +84,13 @@
   "tests": {
     "source_readback": "PASS_ALL_REQUIRED_FILES",
     "frontmatter_and_reference_presence": "PASS_STATIC",
-    "skill_contract_unittest": "PASS_8_OF_8_ISOLATED_PYTHON_AFTER_FIX",
+    "skill_contract_unittest": "PASS_9_OF_9_ISOLATED_PYTHON",
     "qc_case_execution": "PASS_4_OF_4_ISOLATED_PYTHON",
     "committed_github_actions": "NOT_RUN",
     "local_installation": "NOT_RUN",
     "external_tool_runtime": "NOT_RUN",
     "comic_artifact_e2e": "NOT_RUN",
-    "source_references": "PASS_STATIC_AFTER_FIX",
+    "source_references": "PASS_STATIC_V1_2_3",
     "external_tool_security_review": "PASS_STATIC_SOURCE_REVIEW",
     "tt_automanga_runtime": "BLOCKED_MISSING_MCP_SDK_PYTEST_SWARMUI"
   },
