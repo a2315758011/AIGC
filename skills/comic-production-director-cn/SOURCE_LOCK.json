@@ -4,37 +4,111 @@
   "authoritative_sources": [
     {
       "path": "docs/漫画专业制作与出版总规范-V1.md",
-      "git_blob_sha": "7280c19057b9bd28cc985da2ad8196b5e9cd371f"
+      "git_blob_sha1": "7280c19057b9bd28cc985da2ad8196b5e9cd371f"
     },
     {
       "path": "docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
-      "git_blob_sha": "0c7a256885e8786c2bbba8e57643b78f38b5df95"
+      "git_blob_sha1": "e08f50d17273a692772247f2872aac90d7e02c12"
+    },
+    {
+      "path": "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
+      "git_blob_sha1": "c1614d7d7ff07a23e60c966ea51ccfedf66e1856"
     }
   ],
   "skill_files": [
     {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha": "ce626286fb2c66996c7bb212c080a3347d32be43"
+      "git_blob_sha1": "ce4ad169668adec60922ca938d16d95bfa739bd4"
     },
     {
       "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
-      "git_blob_sha": "958d9ae9ea5d67fa56eead05757581b2b1cafebe"
+      "git_blob_sha1": "199385520607b677740bb232cfbfdcf137ae5bdb"
+    },
+    {
+      "path": "skills/comic-production-director-cn/scripts/validate_skill.py",
+      "git_blob_sha1": "f87f19b5c9dbfb57c79353304534574521bfc39c"
+    },
+    {
+      "path": "skills/comic-production-director-cn/tests/test_validate_skill.py",
+      "git_blob_sha1": "99530b5f5550e9112f783c5d01cfe850afbafb28"
+    },
+    {
+      "path": ".github/workflows/comic-production-skill-regression.yml",
+      "git_blob_sha1": "807d2abb8dbd82129b61dd70bb12d6d5a767f574"
     }
   ],
   "external_projects_reviewed": [
-    "pr0h0/OpenManga",
-    "Saeyeon-developer/agent-comic-kit",
-    "Arybil/manga-text-removal",
-    "adachi0130/comic-pipeline",
-    "new-sankaku/manga-editor-desu",
-    "Es00bac/sloom-studio"
+    {
+      "repo": "pr0h0/OpenManga",
+      "license": "Apache-2.0",
+      "review": "readme_docs_license"
+    },
+    {
+      "repo": "Saeyeon-developer/agent-comic-kit",
+      "license": "Apache-2.0",
+      "review": "skill_readme_license"
+    },
+    {
+      "repo": "Arybil/manga-text-removal",
+      "license": "MIT_claim_needs_license_file_recheck",
+      "review": "skill_readme"
+    },
+    {
+      "repo": "adachi0130/comic-pipeline",
+      "license": "GPL-3.0",
+      "review": "readme_license"
+    },
+    {
+      "repo": "new-sankaku/manga-editor-desu",
+      "license": "GPL-3.0",
+      "review": "readme_repo_metadata"
+    },
+    {
+      "repo": "Es00bac/sloom-studio",
+      "license": "GPL-3.0-or-later",
+      "review": "readme_project_page"
+    },
+    {
+      "repo": "AskAillex/comic-maker",
+      "license": "MIT",
+      "commit": "4b3924a37736a92e573cd0c4be78f622cb28508d"
+    },
+    {
+      "repo": "wesleytaetae/comtexia",
+      "license": "UNDECLARED",
+      "commit": "627f45080f34ec3218e8520a851d6d18a800f573"
+    },
+    {
+      "repo": "yifanchen12/MangaColorAI",
+      "license": "UNDECLARED",
+      "commit": "674c0757f4c7bc4e791302a65a5ad9561778057c"
+    },
+    {
+      "repo": "pragnyanramtha/manga-colorization",
+      "license": "UNDECLARED",
+      "commit": "e3025297185ae60090b314128a9e439ee56ec44d"
+    },
+    {
+      "repo": "longweekendlabs/speech-bubble-editor",
+      "license": "MIT",
+      "commit": "77ff45601be5f2db132963523577c1dadaf15b48"
+    },
+    {
+      "repo": "scenecraft-ai/free-comic-strip-panel-maker",
+      "license": "MIT",
+      "commit": "5f683ac1c42b557b8a56bc97bd3e84a68e56ef98"
+    }
   ],
   "tests": {
-    "frontmatter": "PASS_STATIC_READ",
-    "reference_paths": "PASS_STATIC_READ",
+    "repository_paths": "PASS_FETCH_ALL_REQUIRED_FILES",
+    "python_contract_logic": "PASS_4_OF_4_REPLICATED_TEST_CASES",
+    "committed_validator_runtime": "NOT_RUN",
+    "committed_unittest_runtime": "NOT_RUN",
+    "github_actions_run": "NOT_CONFIRMED",
     "local_installation": "NOT_RUN",
     "tool_runtime": "NOT_RUN",
-    "comic_artifact_e2e": "NOT_RUN"
+    "comic_artifact_e2e": "NOT_RUN",
+    "package_staging_and_zip": "NOT_RUN"
   },
-  "note": "方法学与源码/文档完成静态审查；不代表任何外部软件已在用户工作站安装或运行。"
+  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. No SHA-256 package manifest or ZIP is claimed. Static contract test logic was exercised in an isolated temporary Python fixture; the committed test files and workflow have not yet been run in the target repository runtime."
 }
