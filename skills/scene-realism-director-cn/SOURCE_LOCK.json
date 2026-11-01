@@ -231,5 +231,8 @@
   },
   "gpt_native_classroom_second_round_report": "docs/Deepresearch/2026-11-01_GPT原生生图第二轮教室单图实测.md",
   "classroom_truth_correction_report": "docs/Deepresearch/2026-11-01_教室真值基准纠错与4x6场景数据迁移.md",
-  "classroom_truth_correction_report_git_blob_sha": "2b7edd9d20e6a139ebfd95c106ef282eee22c137"
+  "classroom_truth_correction_report_git_blob_sha": "2b7edd9d20e6a139ebfd95c106ef282eee22c137",
+  "cross_refs": {
+    "projects/漫剧场景数据库/CLASSROOM-CN-4X5-001/导演走位预演计划_V1.json": "0343d82c039b2466c147e4551df9005a46fd57d0"
+  }
 }
