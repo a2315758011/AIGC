@@ -1,26 +1,27 @@
-# 导演统筹与场面预演 Skill V1.2.0
+# 导演统筹与场面预演 Skill V1.3.0
 
 本技能是导演层的任务统筹入口，不重复开发已有专业规则。
 
-## 四项专业技能
-- `scene-realism-director-cn`：场景真实性、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真、俯视/全景。
-- `storyboard-director-cn`：正式逐镜分镜、人物站位/朝向/视线、走位、轴线、连续性和独立质检。
-- `camera-motion-director-cn`：推拉摇移、跟拍、环绕、轨迹/速度、图生视频运镜和运动审片。
-- `fight-impact-vfx-cn`：打斗动作因果、接触/受击、打击节奏、命中特效、环境反馈和声画同步（当前自身 SOURCE_LOCK 标记 authored_pending_review）。
+## 当前权威专业技能版本
+- `scene-realism-director-cn` V1.3.0（conditional）：场景真实性、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真、俯视/全景。
+- `storyboard-director-cn` V1.3.1 / source V2.10.5：正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性。
+- 人物站位与场景调度规则 V1.6.0：动态路径、foot grounding/foot planting、关键帧速度连续性、群演一致性、相机位置/视线轨迹分离。
+- `camera-motion-director-cn`：摄影机运动、位置/视线轨迹、模型适配和运镜审片。
+- `fight-impact-vfx-cn` V1.0.0：打斗动作因果、接触/受击、打击节奏、命中特效、环境反馈和声画同步（当前自身 SOURCE_LOCK 标记 authored_pending_review）。
 
 ## 本 Skill 的独有职责
-导演意图简报、跨领域任务拆分、专业技能调用顺序、共享事实底稿、跨技能冲突消解和整体验收。
+导演意图简报、跨领域任务拆分、专业技能调用顺序、共享事实底稿、动态通道分离、跨技能冲突消解和整体验收。
 
 单一专业任务直接调用对应技能；跨两个以上领域或明确要求导演整体统筹时，才调用本技能。
 
 ## 文件
 - `SKILL.md`：触发条件、路由、导演意图、共享事实和冲突处理。
-- `SOURCE_LOCK.json`：外部来源许可证、Commit、文件 Blob SHA，以及当前 main 的专业依赖版本和哈希。
-- `references/导演意图与技能交接协议.md`：共享事实、交接顺序和冲突优先级。
-- `tests/fixtures/`：十项路由用例、A/B 实验数据集和高中教室集成基准。
-- `tests/导演统筹工作流A-B实验协议-V1.md`：A/B 对照组、控制变量、盲评、样本规模和判定门槛。
-- `tests/导演统筹视觉评分量表-V1.json`：P0 硬门禁与静态图像/视频评分权重。
+- `SOURCE_LOCK.json`：外部来源许可证、Commit、文件 Blob SHA，以及最新 main 专业依赖版本和哈希。
+- `references/导演意图与技能交接协议.md`：共享事实、动态走位通道、交接顺序和冲突优先级。
+- `tests/fixtures/`：十项路由用例、十一项工作流 A/B 实验数据和高中教室集成基准。
+- `tests/导演统筹工作流A-B实验协议-V1.md`：导演工作流对照；明确与场景提示策略 A/B 隔离。
+- `tests/导演统筹视觉评分量表-V1.json`：沿用场景真实性 P0-P3 和十维 1—5 分，补充动态走位视频检查项。
 - `tests/templates/导演统筹实验结果模板-V1.json`：真实实验结果记录模板，当前保持 NOT_RUN。
 - `scripts/validate_director_eval.js`：A/B 数据集、评分量表和实验状态校验。
-- `scripts/validate_director_previs.js`：无第三方依赖的静态合同校验器。
+- `scripts/validate_director_previs.js`：依赖 SHA、路由和教室夹具静态校验。
 - `.github/workflows/director-previs-regression.yml`：PR 自动回归。
