@@ -1,4 +1,4 @@
-# 场景真实性导演与独立质检 Skill V1.4.0
+# 场景真实性导演与独立质检 Skill V1.4.1
 
 本技能处理 AIGC 场景图的空间假感、建筑结构错误、透视比例异常、家具悬浮/穿插、光影不一致、颜色过艳、材质塑料感、物体局部失真和全景不连续。
 
@@ -16,6 +16,8 @@
 - tests/场景真实性A-B测试执行规程-V1.md：固定参数、盲评、缺陷分级、通过门槛和费用门禁。
 - tests/光色物理真实性专项回归-V1.md：光照、颜色、物体级形状纹理和物理编辑副作用测试。
 - tests/validate-scene-benchmark.cjs：原创中文基准结构校验器。
+- references/生成输出形态与任务路由合同-V1.md：默认单任务单图、显式多面板许可、首次形态错误停止重试。
+- tests/fixtures/生成输出形态回归-V1.json 与 tests/validate-generation-output-contract.cjs：输出模式正向、负向和边界回归。
 - docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md：SpatialGenEval、GenSpace、InSpace 和全景 3D 路线。
 - docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md：Shedding Light、CFM、PICABench、ImagenWorld 和物体级真实感研究。
 - docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md：GPT 原生生图四类场景的首轮人工检查、缺陷与后续配对实验计划。\n- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
@@ -30,4 +32,4 @@
 
 ## 验收边界
 
-当前状态为 conditional：研究、规则和测试定义已建立；GPT 原生生图已完成四类场景单样本冒烟测试，但严格 A/B 配对、双人盲评、多视角一致性、光色物理专项盲评和 Windows 运行时验收尚未完成。不得把文档检查或论文结果说成用户模型效果提升。
+当前状态为 conditional：研究、规则和静态回归已建立；首轮四类场景单样本冒烟检查完成，但本会话后续两次单图请求均错误输出多面板信息图（P0），有效教室 A/B 样本为 0。共享 Generation Gateway 当前 SERVICE_NOT_RUNNING；严格 A/B 配对、双人盲评、多视角一致性、光色物理专项盲评和 Windows 运行时验收尚未完成。不得把文档检查或论文结果说成用户模型效果提升。
