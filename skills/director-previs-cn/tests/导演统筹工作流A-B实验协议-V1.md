@@ -1,8 +1,8 @@
 # 导演统筹工作流 A/B 实验协议 V1.0
 
 实验编号：DIRECTOR-PREVIS-EVAL-20261101
-适用技能：director-previs-cn V1.3.0
-权威专业依赖：scene-realism-director-cn V1.3.0；storyboard-director-cn V1.3.1 / 站位规则 V1.6.0；camera-motion-director-cn；fight-impact-vfx-cn（待独立评审）
+适用技能：director-previs-cn V1.3.1
+权威专业依赖：scene-realism-director-cn V1.4.0；storyboard-director-cn V1.3.4 / 站位规则 V1.9.0；camera-motion-director-cn；fight-impact-vfx-cn（待独立评审）
 状态：实验协议已准备；真实工作流与图像/视频 A/B 尚未运行。
 
 ## 1. 实验目的与变量隔离
@@ -74,7 +74,7 @@ A/B 唯一有意改变的变量是“是否先经过导演统筹并形成共享�
 
 ## 6. 动态走位交接约束
 
-依据当前 storyboard-director-cn V1.3.1 与人物站位规则 V1.6.0：
+依据当前 storyboard-director-cn V1.3.4 与人物站位规则 V1.9.0：
 - 先锁静态空间、人物身份、初始站位和摄影机，再添加动态动作。
 - 人物整体位移路径（root path）与身体动作/姿态（pose/action）必须分开描述。
 - 路径包含起点、途经点、终点和时间/关键帧；手绘路径按空间距离分配时间，不能按鼠标采样点数量分配。
@@ -83,7 +83,7 @@ A/B 唯一有意改变的变量是“是否先经过导演统筹并形成共享�
 - 动作关键帧、动作拼接点和循环接缝检查关节速度连续性。
 - 摄影机位置路径与注视点/视线目标路径是不同通道；相机连续不代表人物路径连续。
 - 群演共享/实例化后，仍需检查每个成员身份、体型、布局、朝向、变换、动作和相位。
-- DirectorDesk 等工具目前仅做源码/测试静态研究，不代表已安装或在用户工作站运行；不得擅自下载模型、安装大型评测器或新建第二套生成服务。
+- DirectorDesk 与第六批结构化导演台研究仅做源码/论文静态审查，不代表已安装或在用户工作站运行；不得擅自下载模型、安装大型评测器或新建第二套生成服务。若有授权结构化导演台/MCP，必须先读取真实工程、稳定ID与人工锁定项，使用工具声明的时间基准；不默认24fps。
 
 ## 7. 执行顺序
 
@@ -131,7 +131,7 @@ B 组只有同时满足以下条件，才可判定为“值得默认启用”：
 
 ## 11. 当前阻塞
 
-PC MCP 当前返回 UNAVAILABLE: Connection failed；主分支场景真实性 SOURCE_LOCK 也记录共享 Generation Gateway 未运行且启动超时。因此目前不能读取本机 Generation Gateway/ComfyUI，也不能提交真实生成任务。协议和评测资产已准备；真实工作流、图像/视频 A/B 仍为 NOT_RUN。
+Windows PC MCP 已于 2026-11-01 重新连接；4173/4174 健康，Tailscale Funnel 在线，当前资源锁为空。但共享 Generation Gateway 为 SERVICE_NOT_RUNNING，自动启动超时；最近一次提供程序进程退出状态为 0x80000003（STATUS_BREAKPOINT），根因仍未知。本轮未提交任何生图任务、未修改生产文件。真实工作流、图像/视频 A/B 仍为 NOT_RUN。
 
 ## 12. 方法来源
 
