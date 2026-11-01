@@ -92,7 +92,13 @@
           "path": "skills/scene-realism-director-cn/references/场景真实性原创中文配对基准集-V1.json",
           "git_blob_sha": "6e6f34101af0622a0e1e20771f63498dd5ef5d0c"
         }
-      ]
+      ],
+      "external_sources": [
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/4a5c76c63f83ea45fb136d62db6c7104-Abstract-Conference.html",
+        "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4e582b104248a396a703646755071329-Abstract-Datasets_and_Benchmarks_Track.html",
+        "https://www.microsoft.com/en-us/research/publication/benchmarking-spatial-relationships-in-text-to-image-generation/"
+      ],
+      "status": "CROSS_RESEARCH_SUPPORTED_TARGET_MODEL_AB_NOT_RUN"
     },
     {
       "id": "AIGC-SCENE-PHYS-002",
@@ -123,7 +129,15 @@
           "path": "skills/scene-realism-director-cn/tests/场景真实性配对盲评记录模板-V1.1.md",
           "git_blob_sha": "ad73a3769a5bda8969870561205d0d818b6c116a"
         }
-      ]
+      ],
+      "external_sources": [
+        "https://arxiv.org/abs/2609.10787",
+        "https://openaccess.thecvf.com/content/CVPR2026/html/Fang_Too_Vivid_to_Be_Real_Benchmarking_and_Calibrating_Generative_Color_CVPR_2026_paper.html",
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/ae0509bfd3e0c2414164209949708e4e-Abstract-Conference.html",
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/458fa8ee331566383d8e74bdb647f829-Abstract-Conference.html",
+        "https://openaccess.thecvf.com/content/CVPR2025/html/Liang_Be_More_Specific_Evaluating_Object-centric_Realism_in_Synthetic_Images_CVPR_2025_paper.html"
+      ],
+      "status": "RESEARCH_CROSS_SUPPORTED_TESTS_DEFINED_NOT_RUN"
     },
     {
       "id": "AIGC-BLOCKING-001",
@@ -310,7 +324,7 @@
       "source_refs": [
         {
           "path": "skills/manju-director-cn/SOURCE_LOCK.json",
-          "git_blob_sha": "cfa4e6b747429915110578c0a70ace2127b6a4e21"
+          "git_blob_sha": "cfa4b8906050c27595ebdd3438fde2a75bf14105"
         },
         {
           "path": "分镜规则清单.json",
