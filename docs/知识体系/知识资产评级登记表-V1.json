@@ -86,7 +86,7 @@
       "evidence_level": "E2（多项独立研究/基准支持；目标模型A/B未运行）",
       "claim": "对象相对位置、方向参照、遮挡、可通行/交互关系、尺度与空间因果应作为独立约束和验收项，不能只罗列物体名词。",
       "basis": "SpatialGenEval、GenSpace 和 Microsoft VISOR 等独立研究/基准分别从复杂空间推理、3D空间忠实度和对象空间关系评测揭示生成模型的空间弱点；仓库已建立中文配对基准与A/B规程。",
-      "verified_scope": "文献/基准结论与本地规则设计的相互支持。",
+      "verified_scope": "独立研究/基准支持空间推理拆分；仓库场景数据库、SCG二维/三维代理和固定几何合并已纳入 GitHub Actions，三维 6/6、二维运动、场景数据库、镜头连续性均通过对应回归。教室家具尺寸仍未知，AABB仅为代理。",
       "not_verified_scope": "用户当前图像模型上的效果提升比例、真实生成稳定性。",
       "sources": [
         "docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md",
@@ -118,7 +118,31 @@
         "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4e582b104248a396a703646755071329-Abstract-Datasets_and_Benchmarks_Track.html",
         "https://www.microsoft.com/en-us/research/publication/benchmarking-spatial-relationships-in-text-to-image-generation/"
       ],
-      "status": "CROSS_RESEARCH_SUPPORTED_TARGET_MODEL_AB_NOT_RUN"
+      "status": "STATIC_3D_REGRESSION_PASS_TARGET_MODEL_AB_NOT_RUN_GENERATOR_OUTPUT_FORM_FAILURE",
+      "latest_generation_failure": {
+        "date": "2026-11-01",
+        "generator": "GPT native image generation",
+        "generation_ids": [
+          "e31250d5-00bb-4c1a-8b59-cac0f2f7a51b",
+          "79b410d9-579b-4bce-ba20-27c3c0430a7c"
+        ],
+        "status": "two_invalid_infographic_outputs",
+        "observed_claims": {
+          "layout": "4x6 / 24 desk sets",
+          "scores": [
+            "2.7/5",
+            "4.8/5",
+            "69.6",
+            "95.8"
+          ],
+          "skill_version": "V1.4.0"
+        },
+        "authoritative_layout": "3 columns x 5 rows / 15 desks + 15 chairs",
+        "accepted_images": 0,
+        "accepted_ab_pairs": 0,
+        "accepted_scores": 0,
+        "conclusion": "image-embedded A/B scores and self-promotion claims rejected; no knowledge-grade promotion"
+      }
     },
     {
       "id": "AIGC-SCENE-PHYS-002",
@@ -507,7 +531,7 @@
       "evidence_level": "E2（多个创作者案例与官方工具手册交叉支持；缺目标模型独立复测）",
       "claim": "复杂多人调度、路径绕障碍、相机与主体相对运动、多机位和升降/环绕镜头适合先做白模/关键帧预演；简单固定对白不必机械上3D。",
       "basis": "多位创作者、Updream案例和小云雀官方导演台手册给出相近的空间/动作/相机分轨操作；作者自述A/B不是独立复现。",
-      "verified_scope": "工具能力说明、操作流程和多来源经验共识。",
+      "verified_scope": "复杂场景白模/结构化预演方法有多源支持；DirectorDesk 中立坐标/单位/手性适配器 GitHub Actions 7/7 通过，SCG三维代理 6/6 通过。实际 DirectorDesk 工程导入、视口播放和目标视频模型服从性未验证。",
       "not_verified_scope": "当前用户目标视频模型的服从率提升、预演成本收益和跨平台稳定性。",
       "sources": [
         "docs/平台创作者人物动态走位与导演预演研究_20261101_第三批.md",
@@ -533,7 +557,7 @@
         "https://www.huasheng.ai/insights/wechat-2247491605-1/"
       ],
       "usage": "仅对高复杂度镜头启用白模；白模负责空间/动作/相机参考，场景图负责美术，角色资产负责身份；成片必须独立复核。",
-      "status": "METHOD_CROSS_SUPPORTED_TARGET_VIDEO_NOT_RUN"
+      "status": "ADAPTER_STATIC_TEST_PASS_REAL_DIRECTORDESK_PREVIEW_NOT_RUN"
     },
     {
       "id": "AIGC-CREATOR-STRUCTURED-INPUT-001",
@@ -639,27 +663,26 @@
     }
   ],
   "audit_snapshot": {
-    "main_head": "23aaee54a276d46209c6cd4986a257e940ae513a",
-    "repository_file_count": 116,
+    "main_head": "be1d349b6a40e75169c69275be1228bb7b690361",
+    "repository_file_count": 144,
     "method_entry_count": 17,
     "scope": "本轮审计聚焦剧本理解、世界状态、场景真实性、人物调度、运镜、导演统筹、打击感与结构化预演；不是全仓库逐文件穷尽审计。",
     "rule": "评级按具体主张及其验证范围，不按整个 Skill 一刀切；静态测试不代表目标模型生成效果。",
     "pc_mcp_reconnected": true,
     "generation_gateway_status": "SERVICE_NOT_RUNNING; provider start last reported STATUS_BREAKPOINT_0x80000003; no generation jobs submitted.",
-    "latest_pr_head": "23aaee54a276d46209c6cd4986a257e940ae513a",
+    "latest_pr_head": "be1d349b6a40e75169c69275be1228bb7b690361",
     "static_ci": {
       "workflow": "director-previs-regression",
-      "run_id": 41271402723,
-      "run_number": 95,
+      "run_id": 41283011268,
       "status": "success",
-      "pass_count": 164,
+      "pass_count": 181,
       "fail_count": 0,
       "breakdown": {
-        "director_previs_contract": 128,
+        "director_previs_contract": 145,
         "director_ab_protocol": 36
       },
-      "tested_commit": "23aaee54a276d46209c6cd4986a257e940ae513a",
-      "scope": "主分支合并后 GitHub Actions 静态技能合同、依赖SHA、路由、教室事实夹具、漫剧V2.10.5源/包SHA与字符数、导演A/B协议；不包含目标模型生成质量"
+      "tested_commit": "f7c9e60d782400a7f971ed23fa55d37c299e37b9",
+      "scope": "GitHub Actions 静态合同、依赖SHA、路由、教室事实夹具、A/B协议与当前专业版本；不代表目标模型生成质量。"
     },
     "version_alignment": {
       "director_previs": "1.3.1",
@@ -678,6 +701,26 @@
       "url": "https://github.com/a2315758011/AIGC/pull/23",
       "merge_commit": "23aaee54a276d46209c6cd4986a257e940ae513a",
       "merged_at": "2026-11-01T04:01:00Z"
+    },
+    "scene_regression_ci": {
+      "workflow": "director-previs-regression",
+      "run_id": 41283011268,
+      "status": "success",
+      "steps_passed": 14,
+      "steps_failed": 0,
+      "results": {
+        "scene_database_validator_syntax": "passed",
+        "authoritative_classroom_database": "PASSED_WITH_WARNINGS",
+        "chinese_scene_benchmark": "passed",
+        "shot_continuity_positive": "passed",
+        "shot_continuity_teleport_negative": "rejected_as_expected",
+        "scg_2d_spatial_motion": "passed",
+        "directordesk_neutral_adapter": "7_of_7_pass",
+        "scg_3d_proxy_collision": "4_of_4_pass",
+        "scene_database_geometry_merge": "2_of_2_pass",
+        "unknown_fixed_obstacle": "blocked_as_expected"
+      },
+      "scope": "GitHub Actions Node runtime. Classroom footprint and real physical dimensions remain unknown; Windows and native DirectorDesk viewport not run."
     }
   },
   "version_drifts": [
@@ -687,19 +730,21 @@
       "status": "resolved",
       "path": "skills/director-previs-cn/SOURCE_LOCK.json",
       "pinned_versions": {
-        "scene_realism": "1.4.0",
+        "director_previs": "1.4.0",
+        "scene_realism": "1.10.0",
         "storyboard": "1.3.4",
         "blocking_rules": "V1.9.0"
       },
       "current_main_versions": {
-        "scene_realism": "1.4.0",
+        "director_previs": "1.4.0",
+        "scene_realism": "1.10.0",
         "storyboard": "1.3.4",
         "blocking_rules": "V1.9.0"
       },
       "impact": "导演统筹锁定的专业依赖不是当前主线最新版本，离线快照可能遗漏最新场景真实性、站位与动态走位规则。",
       "action": "依赖锁刷新并回归前，仅把 director-previs 用作统筹/路由参考；专业规则从当前 main 分别读取。",
       "resolved_date": "2026-11-01",
-      "resolution": "director-previs-cn V1.3.1 SOURCE_LOCK and SKILL/README/CHANGELOG refreshed to current main; current PR CI pending."
+      "resolution": "director-previs-cn V1.4.0 SOURCE_LOCK 已同步 scene-realism V1.10.0 与最新共享事实/SCG交接 SHA；GitHub Actions run 41282691940 和后续 run 41283011268 均通过对应合同/回归。"
     },
     {
       "id": "DRIFT-CAMERA-MOTION-001",
@@ -727,12 +772,13 @@
     }
   ],
   "validation_gaps": [
-    "场景真实性原创中文基准为8个场景/64个问题；Windows校验器本轮未运行，目标模型A/B与双人盲评未执行。",
-    "场景真实性 V1.4.0 的光照/色彩/物体/物理编辑专项回归已定义5项，但没有目标模型输出或运行结果。",
-    "导演统筹已合并至 main；主分支 GitHub Actions run 41271402723（run #95）通过 164/164。该证据只覆盖仓库静态合同、依赖/快照指纹和评测协议；导演工作流A/B、场景提示策略A/B与真实图像/视频效果仍未运行。",
+    "场景真实性原创中文基准为8个场景/64个问题；GitHub Actions 已验证基准结构，但 Windows 本机执行、目标模型 A/B 与双人盲评未执行。",
+    "场景真实性 V1.10.0 的光照/色彩/物体/物理编辑专项回归已定义5项，但没有目标模型输出或运行结果。",
+    "导演统筹 GitHub Actions run 41283011268：145项导演合同+36项A/B协议通过；该证据只覆盖仓库静态合同和结构化评测协议，导演工作流A/B、场景提示策略A/B与真实图像/视频效果仍未运行。",
     "人物动态走位研究含创作者自述和官方工具说明；尚无目标视频模型上的独立复现结果。",
     "打击感技能仍为 authored_pending_review，未运行视频模型、EffectCraft或Impact端到端流程。",
-    "Windows PC MCP 已于 2026-11-01 重新连接；共享资源锁检查为空，但 Generation Gateway 仍为 SERVICE_NOT_RUNNING，提供程序启动最近报 STATUS_BREAKPOINT 0x80000003，根因尚未确认。本轮尚未提交生图任务；真实图像/视频 A/B 与双人盲评未执行。"
+    "Windows PC MCP 当前会话不可用；Generation Gateway 仍为 SERVICE_NOT_RUNNING，提供程序最近启动报 STATUS_BREAKPOINT 0x80000003，根因尚未确认。未提交本地生成任务。",
+    "GPT 原生生图续测两次输出信息图并伪造 A/B 评分与 4×6/24 桌椅布局，全部判无效；当前没有新增合格样本或技能效果提升证据。"
   ],
   "audit_summary": {
     "high": 2,
@@ -741,9 +787,8 @@
     "note": "等级是本轮已登记的具体方法条目数量，不是整个仓库知识占比；后续新增证据或版本漂移时应重新评级。"
   },
   "version_alignment": {
-    "audited_main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
-    "director_previs": "1.3.1",
-    "scene_realism": "1.4.0",
+    "director_previs": "1.4.0",
+    "scene_realism": "1.10.0",
     "storyboard": "1.3.4",
     "positioning_rules": "V1.9.0",
     "camera_motion": "1.1.1",
