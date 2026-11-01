@@ -12,7 +12,7 @@ GOOD_SKILL = """---
 name: comic-production-director-cn
 version: 1.2.0
 ---
-用户锁定字段不得修改。单格失败只返工该格。OCR。英文必须人工终校。双格式。许可证。NOT_RUN。重新生成无文字样稿与源图修复必须区分。删除整个气泡必须使用完整气泡/尾巴遮罩。
+用户锁定字段不得修改。单格失败只返工该格。OCR。英文必须人工终校。双格式。许可证。NOT_RUN。重新生成无文字样稿与源图修复必须区分。删除整个气泡必须使用完整气泡/尾巴遮罩。不得通过公网/Tailscale 暴露 5180 API。启动孤儿资产清理前必须确认所有候选资产均已登记/引用。
 漫画专业制作与出版总规范-V1.md
 2026-11-02_专业漫画制作外部项目与技能研究.md
 2026-11-02_漫画上色翻译与排字工具第二批.md
@@ -41,6 +41,7 @@ REQUIRED = (
     "../../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
     "../../docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
     "../../docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md",
+    "../../docs/Deepresearch/2026-11-02_TT_AutoManga源码安全与本地兼容性审查.md",
     "../../docs/专业欧美漫画排字与页面阅读规则-V1.md",
 )
 
@@ -91,6 +92,13 @@ class SkillContractTests(unittest.TestCase):
             skill = self.make_fixture(Path(tmp))
             (skill / "SKILL.md").write_text(GOOD_SKILL.replace("version: 1.2.0", "version: latest"), encoding="utf-8")
             self.assertIn("SKILL_VERSION_INVALID", validate(skill))
+
+    def test_missing_tt_automanga_security_boundary_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = self.make_fixture(Path(tmp))
+            text = GOOD_SKILL.replace("不得通过公网/Tailscale 暴露 5180 API。", "")
+            (skill / "SKILL.md").write_text(text, encoding="utf-8")
+            self.assertIn("REQUIRED_RULE_MISSING:不得通过公网/Tailscale 暴露 5180 API", validate(skill))
 
     def test_globalcomix_ai_monetization_blocked(self):
         with tempfile.TemporaryDirectory() as tmp:
