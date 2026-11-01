@@ -21,6 +21,10 @@
     {
       "path": "docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md",
       "git_blob_sha1": "d29bf549dc207c7de65a794f6bbe4add584abf9e"
+    },
+    {
+      "path": "docs/专业欧美漫画排字与页面阅读规则-V1.md",
+      "git_blob_sha1": "e1a9e7aa3cf0994220077186336bbbf63b23b18a"
     }
   ],
   "skill_files": [
@@ -38,7 +42,7 @@
     },
     {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha1": "7f033b0fb4e535149f82c6b77bd887c3a899b926"
+      "git_blob_sha1": "274201ae945d3d08a32ae82c2a887fda46933c38"
     },
     {
       "path": "skills/comic-production-director-cn/references/平台导出配置登记表-V1.json",
@@ -46,19 +50,19 @@
     },
     {
       "path": "skills/comic-production-director-cn/scripts/validate_skill.py",
-      "git_blob_sha1": "4c10fcb2403601f5076b7e050ea9d609ee024353"
+      "git_blob_sha1": "18f2797c3300a0f26bddad17113c86b1fecba3c6"
     },
     {
       "path": "skills/comic-production-director-cn/tests/test_validate_skill.py",
-      "git_blob_sha1": "fe65520ea15c32f6ebcef28b8eb442a7feafb270"
+      "git_blob_sha1": "f535fb4d11da119331dfa782509b3610d98626b9"
     },
     {
       "path": "README.md",
-      "git_blob_sha1": "2507f016f9a0f58d398a7a791e7ca913b01e8726"
+      "git_blob_sha1": "0d0940f507f485e2da3d0b87714132c7994ff66b"
     },
     {
       "path": "skills/README.md",
-      "git_blob_sha1": "5c502ec15815debb0f21034055dfd1011fb83756"
+      "git_blob_sha1": "5018a1e488acb66f8c6bee53c8376a48ef6e5965"
     }
   ],
   "external_projects_reviewed": [
@@ -163,7 +167,8 @@
     "tapas_upload_size": "CONFLICT_OFFICIAL_CREATOR_GUIDES",
     "webtoon_upload_dimensions": "UNVERIFIED_OFFICIAL_SPEC_NOT_FOUND",
     "kdp_ai_disclosure": "PASS_POLICY_REVIEWED",
-    "platform_profile_policy_guards": "PASS_4_PLATFORM_PROFILES"
+    "platform_profile_policy_guards": "PASS_4_PLATFORM_PROFILES",
+    "professional_lettering_rules": "PASS_SOURCE_REVIEWED_AND_REGISTERED"
   },
-  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run."
+  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted."
 }
