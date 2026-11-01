@@ -147,7 +147,7 @@
     "columns": 4,
     "rows": 5,
     "orientation": "all desk fronts face front_wall",
-    "placement_rule": "exactly one individual desk per row-column cell; one chair behind each desk on same column axis; four columns by six rows; central passage is between columns 2 and 3",
+    "placement_rule": "exactly one individual desk per row-column cell; one chair behind each desk on same column axis; four columns by five rows; central passage is between columns 2 and 3",
     "desk_centers": [
       [
         0.18,
@@ -280,7 +280,7 @@
     }
   },
   "invariants": [
-    "4 columns and 6 rows",
+    "4 columns and 5 rows",
     "exactly one desk per row-column cell",
     "all desk fronts face the front wall and blackboard",
     "one chair behind each desk on the same column axis",
