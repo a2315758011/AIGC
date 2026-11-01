@@ -20,6 +20,7 @@
 - [第二批上色/翻译/排字研究](../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md)：Comtexia、MangaColorAI、Speech Bubble Editor、Free Comic Panel Maker 等工具的授权和适用性审查。
 - [MOONKEEP 第一话实物基准](../docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md)：源画格/重生成图区分、气泡遮罩、OCR 预检和工具运行限制。
 - [漫画平台规格与 AI 商业化规则](../docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md)：Tapas、WEBTOON、GlobalComix、KDP 的官方规格、AI 披露、变现门槛与提现规则。
+- [平台导出配置登记表](./comic-production-director-cn/references/平台导出配置登记表-V1.json)：机器可读的平台导出参数、AI 披露和商业化状态。
 
 ## 分镜专项
 
