@@ -8,8 +8,17 @@
     },
     {
       "path": "docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
-      "status": "created_commit_5c8ca193053da0c3d17e2f87ca447c227ec4c78d",
-      "sha": "pending_fetch"
+      "git_blob_sha": "0c7a256885e8786c2bbba8e57643b78f38b5df95"
+    }
+  ],
+  "skill_files": [
+    {
+      "path": "skills/comic-production-director-cn/SKILL.md",
+      "git_blob_sha": "ce626286fb2c66996c7bb212c080a3347d32be43"
+    },
+    {
+      "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
+      "git_blob_sha": "958d9ae9ea5d67fa56eead05757581b2b1cafebe"
     }
   ],
   "external_projects_reviewed": [
@@ -21,10 +30,11 @@
     "Es00bac/sloom-studio"
   ],
   "tests": {
-    "skill_structure": "pending",
+    "frontmatter": "PASS_STATIC_READ",
+    "reference_paths": "PASS_STATIC_READ",
     "local_installation": "NOT_RUN",
     "tool_runtime": "NOT_RUN",
     "comic_artifact_e2e": "NOT_RUN"
   },
-  "note": "Source lock records reviewed inputs; do not infer local installation or runtime validation."
+  "note": "方法学与源码/文档完成静态审查；不代表任何外部软件已在用户工作站安装或运行。"
 }
