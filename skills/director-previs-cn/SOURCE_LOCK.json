@@ -71,12 +71,12 @@
   "local_dependencies": [
     {
       "package": "scene-realism-director-cn",
-      "version": "1.4.0",
+      "version": "1.10.0",
       "path": "skills/scene-realism-director-cn/SKILL.md",
-      "git_blob_sha": "b27560d127ce8e9508ffbb0589ad865cb45ed794",
+      "git_blob_sha": "d0754fb4a47f863235036fe7e4063c96c3b51029",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.4.0",
-      "source_lock_git_blob_sha": "c772b347fb220e2de6a442ef7338507e7fca886d",
+      "source_lock_version": "1.10.0",
+      "source_lock_git_blob_sha": "1606d7fd3f00442b4ee373ba79eaccfbf365981c",
       "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
       "status": "conditional"
     },
@@ -160,7 +160,7 @@
       "package": "director-shared-facts-scg-handoff",
       "version": "1.0.0",
       "path": "skills/director-previs-cn/references/导演共享事实与SCG交接规范-V1.md",
-      "git_blob_sha": "5cc2a98258bebbcca19527043229142e64f8960f",
+      "git_blob_sha": "6cd621046e2b57e86deb43b2ef7fe5f4714076e2",
       "authority": "导演层剧本/项目资产/场景基线/角色道具/SCG逐镜状态/事件时码/摄影机轨迹统一交接；不另造分镜字段"
     },
     {
