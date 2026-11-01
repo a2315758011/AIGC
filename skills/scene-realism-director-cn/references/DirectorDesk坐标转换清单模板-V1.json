@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "source_units": "meter",
+  "source_handedness": "right",
+  "target_handedness": "right",
+  "source_axis_positive": {
+    "x": "right",
+    "y": "backward",
+    "z": "up"
+  },
+  "target_axis_positive": {
+    "x": "right",
+    "y": "up",
+    "z": "forward"
+  },
+  "target_axis_from_source": {
+    "x": {"axis": "x", "sign": 1},
+    "y": {"axis": "z", "sign": 1},
+    "z": {"axis": "y", "sign": -1}
+  },
+  "origin_offset_m": {"x": 0, "y": 0, "z": 0},
+  "approval": {
+    "reference": "示例模板；必须替换为经用户确认的源场景轴向/前后方向依据"
+  }
+}
