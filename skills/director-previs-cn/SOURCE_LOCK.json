@@ -146,7 +146,14 @@
     "orchestrator_regression_cases": 10,
     "fight_impact_skill_status": "authored_pending_review",
     "manju_director_status": "excluded_until_source_refresh",
-    "automated_static_regression": "configured; latest GitHub Actions PR check is the source of truth",
+    "automated_static_regression": {
+      "status": "passed",
+      "run_id": 41221516170,
+      "pass_count": 89,
+      "fail_count": 0,
+      "workflow": "director-previs-regression",
+      "scope": "PR #14 head commit 7bd7b70332a3a9e372719764636abd73bf0da8b8"
+    },
     "manual_route_dry_run": {
       "status": "passed",
       "pass_count": 10,
@@ -157,6 +164,16 @@
     "workflow_integration_ab": "not_run",
     "real_image_video_ab": "not_run",
     "note": "Static checks verify repository contracts and pinned dependencies only. They do not prove specialist model compliance, fight-video quality or scene/video quality improvement.",
-    "independent_route_review": "not_run"
+    "independent_route_review": "not_run",
+    "workflow_ab_protocol": "prepared_not_run",
+    "visual_scoring_protocol": "prepared_not_run",
+    "reference_assets_review": {
+      "status": "retrieved_and_visually_inspected",
+      "assets": 3,
+      "public_repo_copy": false,
+      "layout_truth": "阳光洒落的整洁教室.png",
+      "note": "复合参考图内嵌座位缩略图不得覆盖唯一桌椅布局真值"
+    },
+    "pc_mcp_connection": "unavailable: UNAVAILABLE: Connection failed"
   }
 }
