@@ -20,7 +20,8 @@
 - tests/fixtures/生成输出形态回归-V1.json 与 tests/validate-generation-output-contract.cjs：输出模式正向、负向和边界回归。
 - docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md：SpatialGenEval、GenSpace、InSpace 和全景 3D 路线。
 - docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md：Shedding Light、CFM、PICABench、ImagenWorld 和物体级真实感研究。
-- docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md：GPT 原生生图四类场景的首轮人工检查、缺陷与后续配对实验计划。\n- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
+- docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md：GPT 原生生图四类场景的首轮人工检查、缺陷与后续配对实验计划。
+- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
 
 ## 使用方式
 
