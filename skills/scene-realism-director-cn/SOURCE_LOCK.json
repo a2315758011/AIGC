@@ -5,7 +5,7 @@
   "date": "2026-11-01",
   "authority": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
   "files": {
-    "README.md": "b3dfc406241879ce6100a887816829f2a724b71b",
+    "README.md": "ca88fc9c49c857be33dbf2a4cc865c967da7c4d4",
     "SKILL.md": "20612cdb12086051d26e96ae11ba228e2f2db100",
     "references/可控生成与诊断工具.md": "0659e2690e47ccd0a780147b030d7d64b4337c57",
     "references/场景图真实性质检与回归样例-V1.json": "d7a2c0bc42ccb189444ceb3a18cfbeaf3003cac8",
