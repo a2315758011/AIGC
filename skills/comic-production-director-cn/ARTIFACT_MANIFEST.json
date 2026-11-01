@@ -1,0 +1,70 @@
+{
+  "schema": "skill-artifact-manifest-v1",
+  "skill": "comic-production-director-cn",
+  "version": "1.1.0",
+  "generated_from": "GitHub main branch; source tree verified by fetch_file",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "required": true,
+      "git_blob_sha": "530d56605e60202240aa29cad2e48805d7000c36",
+      "character_count": 4004
+    },
+    {
+      "path": "references/外部项目采纳矩阵-V1.md",
+      "required": true,
+      "git_blob_sha": "41556228e22c90de4a6718cfdc00e8783d671ff1",
+      "character_count": 2494
+    },
+    {
+      "path": "references/读者测试与页面质检清单-V1.md",
+      "required": true,
+      "git_blob_sha": "27cee268464d662b3f0ba6b955848d37561ed473",
+      "character_count": 1742
+    },
+    {
+      "path": "references/漫画专业制作与出版总规范-V1.md",
+      "required": true,
+      "git_blob_sha": "5c3abf8a53349508767921baa7865b27ef5bb0fc",
+      "character_count": 3272
+    },
+    {
+      "path": "references/第二批外部工具研究摘要-V1.md",
+      "required": true,
+      "git_blob_sha": "d23dccf6b4553c1da574a3d0e2d50712f52180ea",
+      "character_count": 4881
+    },
+    {
+      "path": "tests/漫画页面质检正反例-V1.json",
+      "required": true,
+      "git_blob_sha": "8749410865a4592de02c451ceacc7658b0f05d13",
+      "character_count": 1805
+    },
+    {
+      "path": "tests/validate_qc_cases.py",
+      "required": true,
+      "git_blob_sha": "161d559586913b56e1a45050f723d74aba6b31a7",
+      "character_count": 975
+    }
+  ],
+  "excluded_from_file_hash_list": [
+    {
+      "path": "SOURCE_LOCK.json",
+      "reason": "contains source/manifest verification metadata; listing its own hash here would create a circular update dependency"
+    },
+    {
+      "path": "ARTIFACT_MANIFEST.json",
+      "reason": "manifest cannot include its own Git blob SHA"
+    }
+  ],
+  "tests": {
+    "source_readback": "PASS",
+    "frontmatter_and_reference_presence": "PASS_STATIC",
+    "qc_case_execution": "PENDING"
+  },
+  "packaging": {
+    "zip_created": false,
+    "staging_created": false,
+    "reason": "No ZIP package was requested; repository Skill directory is the delivered artifact."
+  }
+}
