@@ -1,5 +1,14 @@
 # 更新记录
 
+## 1.4.0 — 2026-11-01
+- 修复导演统筹 Skill 与当前 main 的依赖版本漂移：scene-realism-director-cn V1.4.0；storyboard-director-cn V1.3.4；人物站位规则 V1.9.0。
+- 新增《导演世界状态交接数据契约 V1》：场景/世界版本、资产ID、参考图职责、锁定事实、未知项、镜头链和SCG引用。
+- 明确 SCG 是每镜完整实体/关系/事件状态唯一事实源；导演交接包不重复存储 entities/relations/events。
+- 新增世界状态交接结构校验器和教室正/负向回归，覆盖静态世界版本漂移、前驱镜头错误、参考图权威冲突、未声明资产、状态变更绕过SCG、人物/摄影机轨迹混用、重复镜头ID和复制SCG状态。
+- 更新导演统筹知识调用清单、知识结构图、根README、AGENTS与第七批研究档案。
+- camera-motion-director-cn frontmatter 1.0.0 / SOURCE_LOCK 1.1.1 的既有版本不一致仍保留为显式警告；fight-impact-vfx-cn 仍为 authored_pending_review。
+- 新增静态检查待 GitHub Actions 执行；目标视频模型、真实白模、图像/视频 A/B 仍未运行。
+
 ## 1.3.0 — 2026-11-01
 - 刷新最新 main 依赖：scene-realism-director-cn V1.3.0；storyboard-director-cn V1.3.1；人物站位规则 V1.6.0。
 - 将动态走位事实拆分为人物根节点路径、身体动作/姿态、脚底支撑、摄影机位置路径、注视点路径、多人错峰和跨镜末态；不复制专业技能参数规则。
@@ -12,9 +21,9 @@
 - 真实工作流、图像和视频 A/B 仍为 NOT_RUN；PC MCP 连接不可用，不虚报本机生成测试。
 
 ## 1.2.0 — 2026-11-01
-- 接入 main 新增的 `fight-impact-vfx-cn`，补齐打斗动作因果、受击反馈、命中特效和声画同步的专业路由。
+- 接入 main 新增的 fight-impact-vfx-cn，补齐打斗动作因果、受击反馈、命中特效和声画同步的专业路由。
 - 更新 storyboard-director-cn 至 V1.2.1 / V2.10.5、站位规则至 V1.4.0；更新 scene-realism-director-cn 至 V1.2.1。
-- 将 `manju-director-cn` 标记为暂不路由：其离线快照仍引用 V2.10.1，落后于 main 的 V2.10.5，待独立刷新后再接入。
+- 将 manju-director-cn 标记为暂不路由：其离线快照仍引用 V2.10.1，落后于 main 的 V2.10.5，待独立刷新后再接入。
 - 扩展回归用例至10项，增加打斗单专业路由与打斗跨专业路由。
 - 教室集成场景没有打斗动作，明确跳过 fight-impact-vfx，防止无意义调用。
 - GitHub Actions run 41221516170：89 PASS / 0 FAIL；十项路由规则由同一助手演练 10/10，非独立评审。
