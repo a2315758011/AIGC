@@ -4,7 +4,7 @@
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "7454c7e929aa50addc83d28a7fc7e6caac937218",
+  "verified_main_commit": "670b9a29a71e866792b674dc4d16bca7a75836e4",
   "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
@@ -76,7 +76,7 @@
       "git_blob_sha": "ba673c3c970fa20df2b7c1f271b680c84e353010",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
       "source_lock_version": "1.15.0",
-      "source_lock_git_blob_sha": "efa17901f736369c17b486173b9d8a37dc5ee564",
+      "source_lock_git_blob_sha": "c8c96cedfb7293d5197b2d595830b8d16b929e40",
       "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
       "status": "conditional"
     },
@@ -263,7 +263,7 @@
     "classroom_female_seat": "row3_adjacent_column_and_side_unresolved",
     "director_previs_version": "1.4.1"
   },
-  "note": "导演共享事实与SCG交接规范 V1.0.0 已加入；版本同步与回归断言已修复。GitHub Actions 运行 41293255055：185 PASS / 0 FAIL。真实工作流A/B及真实图片/视频A/B尚未执行。静态回归只证明仓库合同与测试通过，不代表模型真实生成质量已通过。 V1.4.1 final classroom correction: source image is 4 columns x 5 rows = 20 desks, not 4x6. Scene realism dependency is upgraded/pinned at V1.15.0; classroom integration fixture now matches the original image and user's story: teacher at podium, female lead sits at adjacent desk to male lead, female classmate 2 interrupts first and classmate 3 later. Male is row3 with exact column unresolved; female is adjacent with exact column/side unresolved. Regression script asserts these unresolved constraints rather than inventing a seat. GitHub Actions workflow label and classroom-specific test target are updated to 4x5. Follow-up CI repair: director-previs validator now expects version 1.4.1 and its README matches; scene-realism README/SKILL/source lock are V1.15.0, director README dependency label is V1.15.0. Workflow and source-lock hashes are synchronized. The 4x5 classroom fixture and test script were corrected; latest CI run had only two remaining failures caused by stale version assertions, now fixed. A/B protocol and result template are now pinned to director-previs 1.4.1 and scene-realism 1.15.0. The protocol's experiment status remains NOT_RUN; no model-level A/B result is claimed. Classroom continuation 2026-11-01: added CLASSROOM-CN-4X5-001/导演走位预演计划_V1.json with six source-grounded ordered events. It preserves unresolved character columns, exact paths, dimensions and timecodes; it is a symbolic blocking plan, not a completed SCG shot ledger or visual validation.",
+  "note": "导演共享事实与SCG交接规范 V1.0.0 已加入；版本同步与回归断言已修复。GitHub Actions 运行 41293255055：185 PASS / 0 FAIL。真实工作流A/B及真实图片/视频A/B尚未执行。静态回归只证明仓库合同与测试通过，不代表模型真实生成质量已通过。 V1.4.1 final classroom correction: source image is 4 columns x 5 rows = 20 desks, not 4x6. Scene realism dependency is upgraded/pinned at V1.15.0; classroom integration fixture now matches the original image and user's story: teacher at podium, female lead sits at adjacent desk to male lead, female classmate 2 interrupts first and classmate 3 later. Male is row3 with exact column unresolved; female is adjacent with exact column/side unresolved. Regression script asserts these unresolved constraints rather than inventing a seat. GitHub Actions workflow label and classroom-specific test target are updated to 4x5. Follow-up CI repair: director-previs validator now expects version 1.4.1 and its README matches; scene-realism README/SKILL/source lock are V1.15.0, director README dependency label is V1.15.0. Workflow and source-lock hashes are synchronized. The 4x5 classroom fixture and test script were corrected; latest CI run had only two remaining failures caused by stale version assertions, now fixed. A/B protocol and result template are now pinned to director-previs 1.4.1 and scene-realism 1.15.0. The protocol's experiment status remains NOT_RUN; no model-level A/B result is claimed. Classroom continuation 2026-11-01: added CLASSROOM-CN-4X5-001/导演走位预演计划_V1.json with six source-grounded ordered events. It preserves unresolved character columns, exact paths, dimensions and timecodes; it is a symbolic blocking plan, not a completed SCG shot ledger or visual validation. CI repair 2026-11-01: latest main run 41313396815 exposed two stale pins only: scene-realism SOURCE_LOCK blob SHA and director dependency source_lock_git_blob_sha. Updated both to current scene-realism SOURCE_LOCK SHA c8c96cedfb7293d5197b2d595830b8d16b929e40; no skill logic or classroom facts changed. Awaiting rerun of GitHub Actions. Real image/video A/B remains NOT_RUN; current classroom baseline remains 4 columns x 5 rows = 20 desk-chair sets.",
   "cross_skill_refs": {
     "scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md": "d85741572d8de2f0610394530ad99703ce5296f3",
     "scene-realism-director-cn/references/教室空间权威布局基准-4列5排-V1.json": "1ef6f55eb084bcf63167c59fd16b959d8279f316",
