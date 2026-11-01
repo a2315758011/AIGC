@@ -9,6 +9,9 @@
 ## 导演统筹任务
 ## 专业漫画制作任务
 
+MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须先读取对应项目的真实归档、源画格和连续性台账；如已存在 [MOONKEEP 第一话实物基准报告](./docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md)，必须遵守其“源图修复 vs 重新生成样稿”区别、遮罩与 OCR 预检结论。不得用新生成图替换原始画格。
+
+
 用户要求制作、续作、修复、排字或出版漫画时，必须读取 [漫画专业制作 Skill](./skills/comic-production-director-cn/SKILL.md)、[漫画专业制作与出版总规范](./docs/漫画专业制作与出版总规范-V1.md) 和 [外部项目与技能研究](./docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md)。
 - 漫画页面/分格/气泡/文字层/双格式出版属于漫画专业技能，不得用影视分镜或漫剧 Skill 代替。
 - 涉及场景真实性、人物站位、导演调度时，再按需调用 scene-realism-director-cn、storyboard-director-cn、director-previs-cn；必须共享已锁定事实。
