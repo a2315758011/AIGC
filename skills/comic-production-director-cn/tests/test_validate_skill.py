@@ -10,7 +10,7 @@ from validate_skill import validate
 
 GOOD_SKILL = """---
 name: comic-production-director-cn
-version: 1.0.0
+version: 1.1.0
 ---
 用户锁定字段不得修改。单格失败只返工该格。OCR。英文必须人工终校。双格式。许可证。NOT_RUN。重新生成无文字样稿与源图修复必须区分。删除整个气泡必须使用完整气泡/尾巴遮罩。
 漫画专业制作与出版总规范-V1.md
