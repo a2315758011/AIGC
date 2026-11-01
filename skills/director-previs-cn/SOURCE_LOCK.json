@@ -1,11 +1,11 @@
 {
   "package": "director-previs-cn",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "3593d91897c6913b6e1f4b1306e1d104888a5c43",
-  "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
+  "verified_main_commit": "28b02ae55eaca1a1416c32ba84913af723c44824",
+  "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位/白模预演、参考素材职责隔离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
     {
@@ -71,20 +71,20 @@
   "local_dependencies": [
     {
       "package": "scene-realism-director-cn",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "path": "skills/scene-realism-director-cn/SKILL.md",
-      "git_blob_sha": "4a177d7a8682c49cdef49887f09dce59466e206c",
+      "git_blob_sha": "b27560d127ce8e9508ffbb0589ad865cb45ed794",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.3.0",
-      "source_lock_git_blob_sha": "ba2f877b44a27d8b2d03046147a4b45f18b8839d",
-      "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
+      "source_lock_version": "1.4.0",
+      "source_lock_git_blob_sha": "95239ba5336a34353b45a5a61dc0b1aec3247481",
+      "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光照/色彩/曝光、物体级形状纹理、局部编辑物理副作用、参考图保真",
       "status": "conditional"
     },
     {
       "package": "scene-realism-rules",
       "version": "1.0.0",
       "path": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
-      "git_blob_sha": "cf821882dbe75b43161cf5372c90a9faf0531e66",
+      "git_blob_sha": "2a18a092c747d584eb2e4371372654781b40cbcc",
       "authority": "场景空间世界模型、建筑拓扑、俯视/全景、布局与功能常识"
     },
     {
@@ -99,26 +99,26 @@
       "package": "scene-realism-evaluator-deployment-gate",
       "version": "1.0.0",
       "path": "skills/scene-realism-director-cn/references/第三方评测器部署门槛-V1.md",
-      "git_blob_sha": "7187e74c7ca1d1886045afacd02ed3973e04149d",
+      "git_blob_sha": "eaef08f3a633f6905ef593a049df743ca0c1d0de",
       "authority": "第三方评测器硬件/依赖/费用门禁；禁止未经核验部署大型评测器"
     },
     {
       "package": "storyboard-director-cn",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "source_version": "V2.10.5",
       "path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "8ed62d873612322aa1aea639e87a9112f1a40e12",
+      "git_blob_sha": "bb7ebd840f109375b5e7be3a7f98f51b61739f95",
       "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.3.1",
-      "source_lock_git_blob_sha": "9ad090ca3829c68050143c7526171b1c96b81d22",
-      "authority": "正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性"
+      "source_lock_version": "1.3.2",
+      "source_lock_git_blob_sha": "d301675d5fa3af7fe9a648e35f560b6270a11493",
+      "authority": "正式分镜、人物站位/朝向/视线、动作状态预检、根节点走位、路径时间、预演输入映射、多机位切点与连续性"
     },
     {
       "package": "storyboard-positioning-rules",
-      "version": "1.6.0",
+      "version": "1.7.0",
       "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
-      "git_blob_sha": "978af056a9b24d5e5e0dfb95354c3d7748245864",
-      "authority": "人物世界位置、身体/头部/视线、路径关键帧、支撑接触、grounding/foot planting、多人避障与相机视线分轨"
+      "git_blob_sha": "4077f98129c5d91d5b95f2baa3f00818934c79aa",
+      "authority": "人物世界位置、身体/头部/视线、动作状态预检、地面路径与相机高度通道分离、白模/美术/身份素材职责、多机位切点、grounding/foot planting、复杂度门槛与失败变量归因"
     },
     {
       "package": "dynamic-movement-research-third-batch",
@@ -148,6 +148,27 @@
       "source_lock_git_blob_sha": "0b71d6146e8940ca5d4a85cc663fc20724d755d8",
       "authority": "打斗动作因果、受力/接触、打击节奏、命中特效、环境反馈与声画同步",
       "status": "authored_pending_review"
+    },
+    {
+      "package": "scene-realism-photometric-regression",
+      "version": "1.0.0",
+      "path": "skills/scene-realism-director-cn/tests/光色物理真实性专项回归-V1.md",
+      "git_blob_sha": "7e1bc94613f928a928e9733d4fc2b083dd3a5357",
+      "authority": "光照/色彩/曝光、物体级真实性与局部物理编辑的五项专项回归"
+    },
+    {
+      "package": "scene-realism-photometric-research",
+      "version": "2026-11-01",
+      "path": "docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md",
+      "git_blob_sha": "88b3ab6ffa40e96fcf0b6ee46179100e754430d6",
+      "authority": "光度真实性、色彩保真、物体级真实感和局部编辑物理副作用；仅研究/测试定义，运行时未验证"
+    },
+    {
+      "package": "dynamic-previs-research-fourth-batch",
+      "version": "2026-11-01",
+      "path": "docs/AI漫剧动态预演控制与生成服从性验证研究_20261101_第四批.md",
+      "git_blob_sha": "6a5675cb92735b161f1f7dac142a78816996fd37",
+      "authority": "白模动态参考A/B、角色动作状态、顶视地面路径、相机XYZ高度/LookAt、监视器导出、多机位切点、素材职责映射与复杂度门槛；创作者自述与官方建议均按证据等级使用"
     }
   ],
   "excluded_candidates": [
@@ -164,8 +185,8 @@
     "licenses_checked": true,
     "local_dependencies_read": true,
     "local_dependency_blob_shas_pinned": true,
-    "main_commit": "3593d91897c6913b6e1f4b1306e1d104888a5c43",
-    "orchestrator_regression_cases": 11,
+    "main_commit": "28b02ae55eaca1a1416c32ba84913af723c44824",
+    "orchestrator_regression_cases": 13,
     "fight_impact_skill_status": "authored_pending_review",
     "manju_director_status": "excluded_until_source_refresh",
     "automated_static_regression": {
@@ -182,14 +203,14 @@
     },
     "manual_route_dry_run": {
       "status": "passed",
-      "pass_count": 11,
+      "pass_count": 13,
       "fail_count": 0,
-      "method": "same-assistant rule walkthrough against the machine-readable expected routes DO-01..DO-11",
+      "method": "same-assistant rule walkthrough against machine-readable routes DO-01..DO-13",
       "independent": false
     },
     "workflow_integration_ab": "not_run",
     "real_image_video_ab": "not_run",
-    "note": "Static checks verify repository contracts and pinned dependencies only. Scene-realism A/B tests prompt strategy separately from director workflow A/B; do not combine these variables. Dynamic movement research is a static source review, not an installed runtime. No real image/video A/B or Windows Gateway test is claimed.",
+    "note": "Static checks verify repository contracts and pinned dependencies only. Scene-realism prompt A/B, director workflow A/B and whitebox-previs A/B are three separate experiments. Whitebox A/B only adds the whitebox reference video to B; all other assets, prompt, model and parameters remain fixed. Latest storyboard V1.7.0 adds pose/locomotion preflight, top-view ground paths vs 3D camera height keys, one-shot LookAt vs continuous tracking, monitor export/cut validation, asset-role separation, previs complexity gate, compliance testing and variable-specific diagnosis. Scene-realism V1.4.0 adds photometric/color/object-centric/physical-edit coverage. PC MCP is reconnected, but the shared Generation Gateway provider EXE exits with 0x80000003; root cause unknown. No generation jobs were submitted; real image/video A/B and independent review remain NOT_RUN.",
     "independent_route_review": "not_run",
     "workflow_ab_protocol": "prepared_not_run",
     "visual_scoring_protocol": "aligned_to_scene_realism_10_dimensions_1_to_5",
@@ -198,19 +219,31 @@
       "assets": 3,
       "public_repo_copy": false,
       "layout_truth": "阳光洒落的整洁教室.png",
-      "note": "复合参考图内嵌座位缩略图不得覆盖唯一桌椅布局真值"
+      "note": "三张资料库参考图已目视检查；阳光洒落的整洁教室.png是4×6/24套桌椅唯一真值。教室俯视图与全景机位示意.png的内嵌桌椅示意与唯一真值不一致；复合图座位缩略图均不得覆盖权威布局。"
     },
-    "pc_mcp_connection": "unavailable: UNAVAILABLE: Connection failed",
+    "pc_mcp_connection": "reconnected",
     "scene_realism_skill_status": "conditional",
     "scene_realism_prompt_ab": "separate_protocol_added_target_model_ab_not_run",
-    "storyboard_skill_version": "1.3.1",
-    "storyboard_positioning_rules_version": "1.6.0",
-    "dynamic_movement_research": "reviewed_static_only_not_installed",
+    "storyboard_skill_version": "1.3.2",
+    "storyboard_positioning_rules_version": "1.7.0",
+    "dynamic_movement_research": "third_and_fourth_batch_reviewed_static_only",
     "third_party_evaluator": "not_installed_hardware_and_cost_gate",
     "pull_request_merge": {
       "number": 17,
       "state": "merged",
       "merge_commit_sha": "68e5e2a320667a1216ce0d61991e34af9c3c2e6a"
-    }
-  }
+    },
+    "scene_realism_skill_version": "1.4.0",
+    "photometric_realism_research": "read_static_only_runtime_tests_not_run",
+    "reference_conflict_negative_case": "added_DO-12",
+    "whitebox_previs_ab_protocol": "prepared_not_run",
+    "whitebox_previs_scenarios": 8,
+    "generation_gateway_health": "failed_SERVICE_NOT_RUNNING",
+    "generation_gateway_provider_start": "failed_STATUS_BREAKPOINT_0x80000003",
+    "generation_gateway_root_cause": "unknown",
+    "generation_jobs_submitted": 0,
+    "production_files_modified_by_gateway_diagnostic": false,
+    "next_ci": "pending"
+  },
+  "note": "Static checks verify repository contracts and pinned dependencies only. Scene-realism prompt A/B, director workflow A/B and whitebox-previs A/B are three separate experiments. Whitebox A/B only adds the whitebox reference video to B; all other assets, prompt, model and parameters remain fixed. Latest storyboard V1.7.0 adds pose/locomotion preflight, top-view ground paths vs 3D camera height keys, one-shot LookAt vs continuous tracking, monitor export/cut validation, asset-role separation, previs complexity gate, compliance testing and variable-specific diagnosis. Scene-realism V1.4.0 adds photometric/color/object-centric/physical-edit coverage. PC MCP is reconnected, but the shared Generation Gateway provider EXE exits with 0x80000003; root cause unknown. No generation jobs were submitted; real image/video A/B and independent review remain NOT_RUN."
 }
