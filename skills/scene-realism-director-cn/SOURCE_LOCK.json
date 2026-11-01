@@ -45,7 +45,7 @@
     "references/DirectorDesk坐标适配与中立预演包-V1.md": "766de463ed0fda8edf8f46e59239ede87ebf0ee4",
     "references/SCG骨骼姿态与接触约束扩展契约-V1.md": "2f37b13c0f434c58a2465e1cfdec3e1fbe6084a1",
     "tests/validate-scg-skeletal-contact.cjs": "970713adb7147733812c65bccb5ebbb428ee9782",
-    "tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json": "f6eadaad244f72eef4a385af8a688d7493e9834e",
+    "tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json": "bcc594703fe0503d4d6fb2d79ee8930f49ced38b",
     ".github/workflows/director-previs-regression.yml": "4bfee87fc8768cb576c01222d0cd7710f152da2b"
   },
   "external_research": "docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md",

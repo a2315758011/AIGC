@@ -650,14 +650,7 @@
                 }
               }
             ],
-            "events": [
-              {
-                "id": "EV-END",
-                "actor": "C",
-                "action": "contact_end",
-                "contact_id": "K1"
-              }
-            ]
+            "events": []
           }
         ]
       }
