@@ -10,6 +10,9 @@ description: 面向欧美彩色漫画、数字漫画、网漫和分页出版的�
 开始任务必须读取：
 - `docs/漫画专业制作与出版总规范-V1.md`
 - `docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md`
+- `docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md`
+- `references/读者测试与页面质检清单-V1.md`
+- `tests/漫画页面质检正反例-V1.json`
 - `docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md`
 - `docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md`
 - `docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md`
@@ -64,13 +67,19 @@ MOONKEEP 第一话实物基准见 `docs/Deepresearch/2026-11-02_MOONKEEP第一�
 ### 8. 发布门禁
 P0/P1 缺陷为零；英文校对、素材/字体授权、AI 披露、平台规格和双格式预检均完成，才能标记出版候选。平台审核、开户、收款和真实销售单独验证，不与漫画制作进度混算。
 
+## 漫画读者测试与页面质检
+必须使用 `references/读者测试与页面质检清单-V1.md`。先关闭剧本做读者理解测试，再逐格检查角色/动作/场景/留白，之后检查英文排字、气泡尾巴、阅读顺序和出版文件。正反向用例见 `tests/漫画页面质检正反例-V1.json`；缺少阅读方向、角色批准、说话者归属、文字溢出或导出重开失败时必须阻断出版候选。欧美英语项目默认 LTR（左到右），但必须在项目设置中明确记录，不得套用日漫 RTL 或 CJK 竖排规则。
+
 ## 外部工具适配策略
 优先评估：
 - OpenManga：角色/服装版本、状态时间线、连续性检查、局部编辑和导出。
+- TT_AutoManga：beat sheet、读者测试、角色逐格并排审核、页面预览和 7 项视觉质检；MIT。
 - agent-comic-kit：角色批准、用户锁定字段、逐格审核/返工、独立排字；其 v0.1.0 的图像生成后端并非 GPT 原生生图直连，自动气泡位置仍需人工审核。
 - manga-text-removal：文字检测、掩码、LaMa 补全和 OCR 验收；CTD 脚本生成文字掩码，不自动等于完整气泡/尾巴掩码。
 - Comic Pipeline：版本血缘、页面编辑、候选比较、导出。
 - Manga Editor Desu / Sloom Studio：专业格框、气泡、文字和印前排版。
+- ComfyUI Comic Creator：可编辑 SVG、页面图层、格框编辑和 DPI 出版；MIT。
+- WakuWaku：无密钥轻量格框布局；MIT。
 - Speech Bubble Editor：桌面人工调整气泡、尾巴、字体和图层；先核对字体独立许可证与可编辑源文件。
 - Free Comic Panel Maker：SVG 单格气泡/尾巴/文字/SFX 编辑；仅作单格排字备选。
 - Comtexia：仅借鉴 OCR、翻译记忆、掩码修正和人工重排字流程；未声明许可证，禁止复制代码或商业部署。
