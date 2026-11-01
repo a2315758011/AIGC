@@ -51,7 +51,7 @@
     "references/教室空间权威布局基准-4列6排-V1.json": "6e48088f82022fff77deb99100047bb57df49ed8",
     "projects/漫剧场景数据库/CLASSROOM-CN-4X6-001/场景空间数据_V1.json": "8c99df6f5d19828ee7d2e7b57d60ca4474031a21",
     "tests/evidence/CLASSROOM-CN-4X6-001-Windows-Node-Validation-20261101.json": "ceb064f9df0d1ebf77ecac2941a50b4d98051483",
-    "docs/Deepresearch/2026-11-01_教室真值基准纠错与4x6场景数据迁移.md": "33c2cd39ea4c66123deea7e58867928066140119",
+    "docs/Deepresearch/2026-11-01_教室真值基准纠错与4x6场景数据迁移.md": "2b7edd9d20e6a139ebfd95c106ef282eee22c137",
     "projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json": "9c496199c6ca8149bea670c8755888272f0d819e",
     "docs/Deepresearch/2026-11-01_GPT原生生图第二轮教室单图实测.md": "6be4218541569994857d8fd72e1fa73704d44425"
   },
@@ -218,5 +218,5 @@
   },
   "gpt_native_classroom_second_round_report": "docs/Deepresearch/2026-11-01_GPT原生生图第二轮教室单图实测.md",
   "classroom_truth_correction_report": "docs/Deepresearch/2026-11-01_教室真值基准纠错与4x6场景数据迁移.md",
-  "classroom_truth_correction_report_git_blob_sha": "33c2cd39ea4c66123deea7e58867928066140119"
+  "classroom_truth_correction_report_git_blob_sha": "2b7edd9d20e6a139ebfd95c106ef282eee22c137"
 }
