@@ -67,61 +67,54 @@
       ],
       "opens_to": "exterior_or_lightwell"
     },
-    "central_aisle": {
-      "x_range": [
-        0.43,
-        0.57
-      ],
-      "y_range": [
-        0.22,
-        0.94
-      ],
-      "continuous": true
-    },
     "inter_column_aisles": [
       {
         "x_range": [
-          0.3,
-          0.36
+          0.34,
+          0.39
         ],
         "y_range": [
           0.22,
           0.94
         ],
-        "continuous": true
+        "continuous": true,
+        "role": "left_inter_column_passage"
       },
       {
         "x_range": [
-          0.64,
-          0.7
+          0.61,
+          0.66
         ],
         "y_range": [
           0.22,
           0.94
         ],
-        "continuous": true
+        "continuous": true,
+        "role": "right_inter_column_passage"
       }
     ],
     "side_clearance": {
       "left": {
         "x_range": [
-          0,
-          0.16
+          0.08,
+          0.13
         ],
         "y_range": [
           0.22,
           0.94
-        ]
+        ],
+        "continuous": true
       },
       "right": {
         "x_range": [
-          0.84,
-          1
+          0.87,
+          0.92
         ],
         "y_range": [
           0.22,
           0.94
-        ]
+        ],
+        "continuous": true
       }
     }
   },
@@ -262,7 +255,7 @@
     "blackboard and podium remain on front wall",
     "windows remain on left wall",
     "door remains on right wall and opens to corridor",
-    "central and inter-column aisles remain continuous",
+    "both inter-column passages and both side clearances remain continuous",
     "no extra desk columns, paired desk blocks, or duplicated furniture"
   ],
   "unknowns": [
@@ -288,5 +281,11 @@
     "do_not_change_layout_invariants": true,
     "image_generation_role": "visual appearance and photographic rendering, not authoritative geometry source",
     "acceptance": "independent review against this JSON; image text or model self-assessment is not evidence"
-  }
+  },
+  "validation_notes": [
+    "本基准是3列×5排的逻辑布局样例，不代表通用教室法定标准。",
+    "三列桌椅中心分别位于x=0.23、0.50、0.77；因此两条列间通道位于相邻桌列之间，不存在一条穿过中央桌列的中央通道。",
+    "此前版本把中央通道定义为x=0.43..0.57，与中央列桌椅中心x=0.50重叠，属于内部空间冲突；本版本已删除该错误定义。",
+    "桌椅实际占地宽度未知，因此通道是否具有真实净宽仍未验证。"
+  ]
 }
