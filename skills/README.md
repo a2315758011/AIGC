@@ -13,6 +13,7 @@
 - [scene-realism-director-cn](./scene-realism-director-cn/)：场景图真实性控制、建筑拓扑、功能布局、透视尺度、接触遮挡、光照/色彩/曝光、物体级形状纹理、局部编辑物理副作用、参考图保真、全景检查与独立质检；包含 8 场景空间基准和 5 项光色物理专项回归。
 
 ## 专业漫画制作专项
+- 第二批外部工具与读者测试：见 [第二批研究](../docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md) 和 [读者测试/页面质检清单](./comic-production-director-cn/references/读者测试与页面质检清单-V1.md)。
 
 - [comic-production-director-cn](./comic-production-director-cn/)：独立漫画生产总控，覆盖漫画脚本、页面节奏、分格、角色/场景连续性、逐格返工、去字修复、独立排字、网漫与分页出版。
 - [漫画专业制作与出版总规范](../docs/漫画专业制作与出版总规范-V1.md)：漫画生产权威规范。
