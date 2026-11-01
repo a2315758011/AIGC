@@ -60,7 +60,7 @@ const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演�
 const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
 check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
-check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.1"/.test(frontmatter[1])) && lock.version === "1.4.0");
+check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.1"/.test(frontmatter[1])) && lock.version === "1.4.1");
 check("source lock targets current branch", lock.branch === "main");
 check("source lock records a valid reviewed main commit", /^[0-9a-f]{40}$/.test(lock.verified_main_commit) && lock.branch === "main");
 const cameraFrontmatter = cameraSkillText.match(/^---\n([\s\S]*?)\n---/);
@@ -115,7 +115,7 @@ check("root AGENTS routes fight specialist", rootAgents.includes("直接调用 `
 check("director skill flags fight skill review status", skillText.includes("authored_pending_review"));
 check("PR workflow watches fight skill", workflowText.includes("skills/fight-impact-vfx-cn/**"));
 check("skill README documents all specialists", specialists.every(name => readmeText.includes(name)));
-check("director README is version 1.4.0", readmeText.includes("V1.4.0"));
+check("director README is version 1.4.1", readmeText.includes("V1.4.1"));
 check("director handoff contract is documented", readmeText.includes("导演共享事实与SCG交接规范-V1.md"));
 check("director contract reuses authoritative SCG", handoffContract.includes("分镜SCG数据契约-V1.md") && scgContract.includes("shot") && scgContract.includes("entities"));
 check("director contract reuses event time contract", handoffContract.includes("分镜事件时间数据契约-V1.md") && eventTimeContract.includes("time_start_ms"));
