@@ -76,7 +76,7 @@
       "git_blob_sha": "d0754fb4a47f863235036fe7e4063c96c3b51029",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
       "source_lock_version": "1.10.0",
-      "source_lock_git_blob_sha": "b7877e67798fca6234bdeebcbd2b5ec3f4161672",
+      "source_lock_git_blob_sha": "729a0c483cc4df80edf1eed61549b117921344c5",
       "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
       "status": "conditional"
     },
@@ -243,7 +243,7 @@
       "state": "merged",
       "merge_commit_sha": "68e5e2a320667a1216ce0d61991e34af9c3c2e6a"
     },
-    "scene_realism_skill_version": "1.4.0",
+    "scene_realism_skill_version": "1.10.0",
     "camera_motion_skill_version": "1.1.1",
     "windows_pc_mcp": "connected_2026-11-01",
     "generation_gateway_health": "failed_SERVICE_NOT_RUNNING",
@@ -256,7 +256,10 @@
     "manju_snapshot_content_gates": "passed",
     "unified_handoff_contract": "added_and_pinned",
     "scg_data_contract": "reused_as_authority_no_duplicate_schema",
-    "event_time_contract": "reused_as_authority"
+    "event_time_contract": "reused_as_authority",
+    "scene_database_validator_ci": "passed_github_actions_run_41283011268",
+    "scene_regression_suite": "14_of_14_steps_passed_github_actions_run_41283011268",
+    "gpt_native_latest_output_form": "two_invalid_infographic_outputs; fabricated A-B scores rejected; zero valid samples"
   },
   "note": " Unified handoff V1.0.0 added: script provenance, project asset references, scene baseline, character/prop state, complete per-shot SCG snapshots, event timeline, and independent camera trajectory. Existing SCG and event-time contracts remain authoritative; no duplicate storyboard schema was created. Real target-model A/B remains NOT_RUN."
 }
