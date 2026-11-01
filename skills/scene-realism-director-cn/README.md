@@ -18,7 +18,7 @@
 - tests/validate-scene-benchmark.cjs：原创中文基准结构校验器。
 - docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md：SpatialGenEval、GenSpace、InSpace 和全景 3D 路线。
 - docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md：Shedding Light、CFM、PICABench、ImagenWorld 和物体级真实感研究。
-- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
+- docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md：GPT 原生生图四类场景的首轮人工检查、缺陷与后续配对实验计划。\n- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
 
 ## 使用方式
 
@@ -30,4 +30,4 @@
 
 ## 验收边界
 
-当前状态为 conditional：研究、规则和测试定义已建立；目标模型真实 A/B 生图、光色物理专项盲评和 Windows 运行时验收尚未完成。不得把文档检查或论文结果说成用户模型效果提升。
+当前状态为 conditional：研究、规则和测试定义已建立；GPT 原生生图已完成四类场景单样本冒烟测试，但严格 A/B 配对、双人盲评、多视角一致性、光色物理专项盲评和 Windows 运行时验收尚未完成。不得把文档检查或论文结果说成用户模型效果提升。
