@@ -1,0 +1,337 @@
+{
+  "schema_version": "1.0",
+  "scene_id": "CLASSROOM-CN-4X5-001",
+  "title": "用户原始教室照片空间基准（4列×5排）",
+  "status": "logical_layout_baseline_not_measured",
+  "units": "normalized_0_to_1_coordinates",
+  "source_of_truth": {
+    "source_type": "user_reference",
+    "reference": "用户资料库原图《阳光洒落的整洁教室.png》，PNG 1448×1086；SHA-256 906871fdb53393ab95dda6d6ca7ff7d0fa8428af8b72e2097e13fb5891c73c44。直接数图可见4列×5排，共20套单人桌椅；图像全景边界完整，未见第6排。坐标为逻辑重建，不是实测。"
+  },
+  "coordinate_system": {
+    "origin": "room_front_left_floor_corner",
+    "x_axis": "from_left_wall_to_right_wall",
+    "y_axis": "from_front_wall_to_rear_wall",
+    "z_axis": "floor_to_ceiling",
+    "front_wall": "y=0",
+    "rear_wall": "y=1",
+    "left_wall": "x=0",
+    "right_wall": "x=1",
+    "note": "归一化坐标只表示相对位置；未从图像推断米制尺寸。前墙为讲台/黑板所在墙，图像上方。"
+  },
+  "room": {
+    "shape": "rectangular",
+    "boundary": {
+      "x_min": 0,
+      "x_max": 1,
+      "y_min": 0,
+      "y_max": 1
+    },
+    "dimensions": null,
+    "ceiling_height": null,
+    "walls": {
+      "thickness": null,
+      "doors_and_windows_cut_openings": true
+    }
+  },
+  "fixed_architecture": {
+    "blackboard": {
+      "wall": "front",
+      "center": {
+        "x": 0.5,
+        "y": 0
+      },
+      "span_x": [
+        0.22,
+        0.78
+      ],
+      "z": "wall_mid_height",
+      "authority": "reference_observed"
+    },
+    "podium": {
+      "center": {
+        "x": 0.5,
+        "y": 0.12
+      },
+      "orientation": "faces_rear",
+      "support": "floor",
+      "authority": "reference_observed"
+    },
+    "door": {
+      "wall": "right",
+      "position_y": 0.14,
+      "opens_to": "school_corridor",
+      "swing_clearance": "must_be_clear",
+      "hinge_and_swing_direction": "unknown_not_inferred",
+      "authority": "reference_observed"
+    },
+    "windows": {
+      "walls": [
+        "left",
+        "right"
+      ],
+      "segments": "multiple_window_bays_on_both_side_walls",
+      "position_y_range": [
+        0.16,
+        0.86
+      ],
+      "opens_to": "exterior",
+      "authority": "reference_observed"
+    },
+    "inter_column_aisles": [
+      {
+        "x_range": [
+          0.28,
+          0.33
+        ],
+        "y_range": [
+          0.18,
+          0.9
+        ],
+        "continuous": true,
+        "role": "between_column_1_and_2"
+      },
+      {
+        "x_range": [
+          0.46,
+          0.54
+        ],
+        "y_range": [
+          0.18,
+          0.9
+        ],
+        "continuous": true,
+        "role": "central_aisle_between_column_2_and_3"
+      },
+      {
+        "x_range": [
+          0.67,
+          0.72
+        ],
+        "y_range": [
+          0.18,
+          0.9
+        ],
+        "continuous": true,
+        "role": "between_column_3_and_4"
+      }
+    ],
+    "side_clearance": {
+      "left": {
+        "x_range": [
+          0.08,
+          0.13
+        ],
+        "y_range": [
+          0.18,
+          0.9
+        ],
+        "continuous": true
+      },
+      "right": {
+        "x_range": [
+          0.87,
+          0.92
+        ],
+        "y_range": [
+          0.18,
+          0.9
+        ],
+        "continuous": true
+      }
+    }
+  },
+  "furniture": {
+    "desk_count": 20,
+    "chair_count": 20,
+    "columns": 4,
+    "rows": 5,
+    "orientation": "all desk fronts face front_wall",
+    "placement_rule": "exactly one individual desk per row-column cell; one chair behind each desk on same column axis; four columns by six rows; central passage is between columns 2 and 3",
+    "desk_centers": [
+      [
+        0.18,
+        0.28
+      ],
+      [
+        0.38,
+        0.28
+      ],
+      [
+        0.62,
+        0.28
+      ],
+      [
+        0.82,
+        0.28
+      ],
+      [
+        0.18,
+        0.42
+      ],
+      [
+        0.38,
+        0.42
+      ],
+      [
+        0.62,
+        0.42
+      ],
+      [
+        0.82,
+        0.42
+      ],
+      [
+        0.18,
+        0.56
+      ],
+      [
+        0.38,
+        0.56
+      ],
+      [
+        0.62,
+        0.56
+      ],
+      [
+        0.82,
+        0.56
+      ],
+      [
+        0.18,
+        0.7
+      ],
+      [
+        0.38,
+        0.7
+      ],
+      [
+        0.62,
+        0.7
+      ],
+      [
+        0.82,
+        0.7
+      ],
+      [
+        0.18,
+        0.84
+      ],
+      [
+        0.38,
+        0.84
+      ],
+      [
+        0.62,
+        0.84
+      ],
+      [
+        0.82,
+        0.84
+      ]
+    ],
+    "chair_relation": "one chair per desk, centered behind desk on the same column axis; chair faces front_wall",
+    "desk_dimensions": null,
+    "chair_dimensions": null,
+    "spacing": "relative positions only; physical dimensions and clearances unknown"
+  },
+  "character_seat_constraints": {
+    "male_lead": {
+      "row": 3,
+      "column": null,
+      "authority": "user_story_description",
+      "status": "provisional",
+      "relation_to_aisle": "near_aisle_column_not_resolved",
+      "note": "用户剧情描述男主位于倒数第3排；当前原图共5排，因此逻辑映射为第3排。具体列号未从原图证实。"
+    },
+    "female_lead": {
+      "row": 3,
+      "column": null,
+      "authority": "user_story_description",
+      "status": "unresolved",
+      "seat_relation": "sits_at_adjacent_desk_to_male_lead",
+      "note": "剧情要求女主坐到男主旁边；具体列号/左右侧需核对原始剧本和镜头动线，不从旧生成板件推断。"
+    }
+  },
+  "camera_presets": {
+    "rear_eye_level": {
+      "position": {
+        "x": 0.5,
+        "y": 0.97,
+        "z": "standing_eye_height"
+      },
+      "look_at": {
+        "x": 0.5,
+        "y": 0,
+        "z": "blackboard_center"
+      },
+      "projection": "perspective",
+      "output": "one independent photorealistic image"
+    },
+    "topdown": {
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": "directly_above_room"
+      },
+      "look_direction": "vertical_down",
+      "projection": "orthographic",
+      "output": "one independent top-down image"
+    }
+  },
+  "invariants": [
+    "4 columns and 6 rows",
+    "exactly one desk per row-column cell",
+    "all desk fronts face the front wall and blackboard",
+    "one chair behind each desk on the same column axis",
+    "blackboard and teacher podium remain on the front wall",
+    "door remains on the right-front wall and connects to the school corridor",
+    "windows are present on both left and right side walls, as visible in the reference",
+    "three inter-column passages are continuous, with the central aisle wider than the adjacent passages",
+    "left and right side clearances remain present",
+    "do not invent measured room/furniture dimensions or aisle widths",
+    "20 individual student desks and 20 individual student chairs",
+    "4 columns and 5 rows",
+    "exactly one desk per row-column cell",
+    "all desk fronts face the front wall and blackboard",
+    "one chair behind each desk on the same column axis",
+    "male lead is in row 3 (third row from rear in a 5-row room), exact column unresolved",
+    "female lead sits at an adjacent desk to male lead, exact column unresolved"
+  ],
+  "unknowns": [
+    "wall thickness and exact door/window dimensions",
+    "desk/chair physical dimensions and true aisle clearances",
+    "door hinge and swing direction",
+    "corridor geometry beyond the doorway",
+    "真实房间长宽高与桌椅物理尺寸",
+    "桌椅占地和真实通道净宽",
+    "门扇开启方向",
+    "男主具体列号",
+    "女主具体列号及相对男主左右侧"
+  ],
+  "generation_constraints": {
+    "one_image_per_request": true,
+    "one_camera_per_image": true,
+    "forbidden_outputs": [
+      "collage",
+      "multi-panel",
+      "storyboard sheet",
+      "infographic",
+      "dimension labels",
+      "scorecard",
+      "self-declared pass labels"
+    ],
+    "do_not_invent_measurements": true,
+    "do_not_change_layout_invariants": true,
+    "image_generation_role": "visual appearance and photographic rendering, not authoritative geometry source",
+    "acceptance": "independent review against this JSON and the user reference image; image text or model self-assessment is not evidence"
+  },
+  "validation_notes": [
+    "直接目视用户资料库原始图片《阳光洒落的整洁教室.png》：画面完整显示4列×5排，共20套桌椅；没有第6排。",
+    "前墙/黑板/教师讲台位于画面上方；教室门位于右前侧；左、右两侧墙均有窗。",
+    "中央通道位于第2列与第3列之间，逻辑宽度大于相邻列间通道；归一化范围不是实测尺寸。",
+    "原图不包含学生人物，因此不能从该图确定男主/女主具体列号。",
+    "用户剧情描述男主在倒数第3排；在当前5排布局下对应第3排。具体列号仍未知。女主应坐男主相邻桌，具体列号需从原始剧本/明确分镜事实确认。",
+    "归一化坐标仅为结构化布局逻辑，不代表米制测量。"
+  ]
+}
