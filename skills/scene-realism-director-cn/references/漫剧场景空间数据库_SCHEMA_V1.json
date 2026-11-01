@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/aigc/scene-database-v1.schema.json",
+  "title": "漫剧场景空间数据库 V1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scene_id",
+    "scene_name",
+    "status",
+    "coordinate_system",
+    "fixed_facts",
+    "objects",
+    "dynamic_state",
+    "unknowns",
+    "camera_views"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scene_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{2,63}$"
+    },
+    "scene_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "reviewed",
+        "locked",
+        "deprecated"
+      ]
+    },
+    "source_of_truth": {
+      "type": "object",
+      "required": [
+        "source_type",
+        "reference"
+      ],
+      "properties": {
+        "source_type": {
+          "enum": [
+            "user_reference",
+            "measured_plan",
+            "approved_3d_scene",
+            "logical_baseline"
+          ]
+        },
+        "reference": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "coordinate_system": {
+      "type": "object",
+      "required": [
+        "origin",
+        "x_axis",
+        "y_axis",
+        "z_axis",
+        "units"
+      ],
+      "properties": {
+        "origin": {
+          "type": "string"
+        },
+        "x_axis": {
+          "type": "string"
+        },
+        "y_axis": {
+          "type": "string"
+        },
+        "z_axis": {
+          "type": "string"
+        },
+        "units": {
+          "enum": [
+            "meter",
+            "centimeter",
+            "normalized_0_to_1",
+            "unknown"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixed_facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "category",
+          "description",
+          "location",
+          "authority"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "category": {
+            "enum": [
+              "architecture",
+              "opening",
+              "fixed_furniture",
+              "fixed_equipment",
+              "layout_rule"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "location": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "authority": {
+            "enum": [
+              "user_confirmed",
+              "reference_observed",
+              "measured",
+              "logical_assumption"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "count",
+          "position",
+          "orientation",
+          "mobility",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "position": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "orientation": {
+            "type": [
+              "string",
+              "object",
+              "null"
+            ]
+          },
+          "mobility": {
+            "enum": [
+              "fixed",
+              "movable",
+              "unknown"
+            ]
+          },
+          "status": {
+            "enum": [
+              "confirmed",
+              "provisional",
+              "unknown"
+            ]
+          },
+          "paired_with": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "support_surface": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "clearance_required": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dynamic_state": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "entity_id",
+          "state",
+          "as_of"
+        ],
+        "properties": {
+          "entity_id": {
+            "type": "string"
+          },
+          "state": {
+            "type": "object"
+          },
+          "as_of": {
+            "type": "string"
+          },
+          "source_shot_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "camera_views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "view_id",
+          "camera_position",
+          "look_at",
+          "projection",
+          "output_contract"
+        ],
+        "properties": {
+          "view_id": {
+            "type": "string"
+          },
+          "camera_position": {
+            "type": "object"
+          },
+          "look_at": {
+            "type": "object"
+          },
+          "projection": {
+            "enum": [
+              "perspective",
+              "orthographic",
+              "unknown"
+            ]
+          },
+          "output_contract": {
+            "const": "one_image_one_camera"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "prohibited_inferences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
