@@ -1,10 +1,10 @@
 {
   "package": "director-previs-cn",
   "version": "1.4.1",
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "941708dd25f65e48b6d45a192daf07273cda6c93",
+  "verified_main_commit": "a873956fe073417c594863eb55c6027784bcc4c2",
   "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
@@ -76,7 +76,7 @@
       "git_blob_sha": "ba673c3c970fa20df2b7c1f271b680c84e353010",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
       "source_lock_version": "1.15.0",
-      "source_lock_git_blob_sha": "f77fd190f8994c5d8e3544222f7d429bf1672d24",
+      "source_lock_git_blob_sha": "e5bef399edc0b2557690b0373cebce57bef8fec9",
       "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
       "status": "conditional"
     },
