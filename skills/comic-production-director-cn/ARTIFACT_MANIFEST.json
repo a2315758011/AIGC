@@ -1,7 +1,7 @@
 {
   "schema": "skill-artifact-manifest-v1",
   "skill": "comic-production-director-cn",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "generated_from": "GitHub main; all listed files fetched and checked by GitHub Contents API",
   "files": [
     {
@@ -100,7 +100,9 @@
     "github_actions_steps": {
       "source_contract": "PASS",
       "positive_negative_contract_tests": "PASS"
-    }
+    },
+    "tool_candidate_review": "PASS_GITHUB_SOURCE_READBACK",
+    "local_tool_installation": "NOT_RUN_WINDOWS_MCP_UNAVAILABLE"
   },
   "packaging": {
     "zip_created": false,
