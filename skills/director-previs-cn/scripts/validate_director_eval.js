@@ -28,9 +28,9 @@ check("protocol locks model and generation settings",["精确版本","随机种�
 check("protocol requires blind randomized review",protocol.includes("随机化左右/先后顺序")&&protocol.includes("至少 2 名独立评审"));
 check("protocol separates process and visual metrics",protocol.includes("流程指标（主要）")&&protocol.includes("视觉指标（次要）"));
 check("protocol forbids false visual acceptance",protocol.includes("真实工作流、图像/视频 A/B 仍为 NOT_RUN"));
-check("director A/B is isolated from scene prompt A/B",protocol.includes("不得把导演统筹同时作为第二变量") && dataset.scene_realism_prompt_ab.status === "separate_experiment_not_combined");
+check("director A/B is isolated from scene prompt A/B",protocol.includes("两类实验必须分开") && dataset.scene_realism_prompt_ab.status === "separate_experiment_not_combined");
 check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V1.3.0") && protocol.includes("storyboard-director-cn V1.3.1") && protocol.includes("V1.6.0"));
-check("protocol contains dynamic movement controls",protocol.includes("foot planting") && protocol.includes("相机位置路径与注视点/视线目标路径"));
+check("protocol contains dynamic movement controls",protocol.includes("foot planting") && protocol.includes("摄影机位置路径与注视点/视线目标路径"));
 check("protocol includes source research",["developers.openai.com","anthropic.com/research","proceedings.neurips.cc","proceedings.iclr.cc"].every(x=>protocol.includes(x)));
 check("rubric has 8 P0 gates",rubric.p0_hard_gates.length===8);
 check("rubric reuses 10 scene-realism dimensions",rubric.base_visual_dimensions.length===10);
