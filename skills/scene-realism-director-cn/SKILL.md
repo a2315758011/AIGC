@@ -55,7 +55,10 @@ description: 面向 AIGC 静态场景图、室内外环境图和漫剧背景的�
 2. `references/场景真实性检查表.md`：逐项验收。
 3. `references/开源仓库研究与采纳记录_20261031.md`：来源、版本、许可证与采纳边界。
 4. `references/可控生成与诊断工具.md`：工具适用范围和限制。
-5. `references/场景图真实性质检与回归样例-V1.json` 与 `tests/场景真实性回归样例.md`：按目标场景选择回归样例。\n6. `references/场景真实性原创中文配对基准集-V1.json`：使用原创 A/B 场景题和可判定问题。\n7. `tests/场景真实性配对盲评记录模板-V1.1.md`：真实模型对照与盲评。\n8. `docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md`：SpatialGenEval、GenSpace、InSpace 的来源与采纳边界。
+5. `references/场景图真实性质检与回归样例-V1.json` 与 `tests/场景真实性回归样例.md`：按目标场景选择回归样例。
+6. `references/场景真实性原创中文配对基准集-V1.json`：使用原创 A/B 场景题和可判定问题。
+7. `tests/场景真实性配对盲评记录模板-V1.1.md`：真实模型对照与盲评。
+8. `docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md`：SpatialGenEval、GenSpace、InSpace 的来源与采纳边界。
 
 当任务同时涉及人物站位、走位或摄影机运动时，继续读取现有 storyboard/camera-motion Skill；本 Skill 不覆盖这些技能的职责。
 
