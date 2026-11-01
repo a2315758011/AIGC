@@ -46,6 +46,8 @@ const scgContract = read("skills/storyboard-director-cn/references/分镜SCG数�
 const eventTimeContract = read("skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md");
 const workflowText = read(".github/workflows/director-previs-regression.yml");
 const lock = JSON.parse(read("skills/director-previs-cn/SOURCE_LOCK.json"));
+const sceneRealismLock = JSON.parse(read("skills/scene-realism-director-cn/SOURCE_LOCK.json"));
+const sceneRealismLockText = read("skills/scene-realism-director-cn/SOURCE_LOCK.json");
 const classroom = JSON.parse(read("skills/director-previs-cn/tests/fixtures/教室跨技能导演统筹夹具.json"));
 const cameraSkillText = read("skills/camera-motion-director-cn/SKILL.md");
 const cameraLock = JSON.parse(read("skills/camera-motion-director-cn/SOURCE_LOCK.json"));
@@ -95,7 +97,10 @@ const specialists = [
 ];
 check("all four specialist routes exist", specialists.every(name => skillText.includes(name)));
 const dependencyByName = Object.fromEntries((lock.local_dependencies || []).map(item => [item.package, item]));
-check("scene realism dependency is current", dependencyByName["scene-realism-director-cn"]?.version === "1.10.0");
+check("scene realism dependency is current", dependencyByName["scene-realism-director-cn"]?.version === sceneRealismLock.version);
+check("scene realism skill blob is current", dependencyByName["scene-realism-director-cn"]?.git_blob_sha === sceneRealismLock.files?.["SKILL.md"]);
+check("scene realism source lock blob is current", dependencyByName["scene-realism-director-cn"]?.source_lock_version === sceneRealismLock.version && dependencyByName["scene-realism-director-cn"]?.source_lock_git_blob_sha === gitBlobSha(sceneRealismLockText));
+check("skeletal contact contract is pinned", Boolean(lock.cross_skill_refs?.["scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md"]) && exists("skills/scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md"));
 check("storyboard dependency is current", dependencyByName["storyboard-director-cn"]?.version === "1.3.4");
 check("positioning rules are current", dependencyByName["storyboard-positioning-rules"]?.version === "1.9.0");
 check("camera motion dependency is current", dependencyByName["camera-motion-director-cn"]?.version === "1.1.1");
