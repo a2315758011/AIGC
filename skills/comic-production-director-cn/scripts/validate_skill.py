@@ -12,6 +12,7 @@ REQUIRED_FILES = (
     "../../docs/漫画专业制作与出版总规范-V1.md",
     "../../docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
     "../../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
+    "../../docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
 )
 REQUIRED_RULES = (
     "用户锁定字段不得修改",
@@ -21,6 +22,13 @@ REQUIRED_RULES = (
     "双格式",
     "许可证",
     "NOT_RUN",
+)
+
+SOURCE_REFERENCES = (
+    "docs/漫画专业制作与出版总规范-V1.md",
+    "docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
+    "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
+    "docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
 )
 
 def validate(root: Path) -> list[str]:
@@ -41,20 +49,15 @@ def validate(root: Path) -> list[str]:
                 errors.append("FRONTMATTER_UNCLOSED")
             else:
                 front = match.group(1)
-                if not re.search(r"(?m)^name:\s*comic-production-director-cn\s*$", front):
+                if not re.search(r"(?m)^name:\\s*comic-production-director-cn\\s*$", front):
                     errors.append("SKILL_NAME_INVALID")
-                if not re.search(r"(?m)^version:\s*\d+\.\d+\.\d+\s*$", front):
+                if not re.search(r"(?m)^version:\\s*\\d+\\.\\d+\\.\\d+\\s*$", front):
                     errors.append("SKILL_VERSION_INVALID")
         for rule in REQUIRED_RULES:
             if rule not in content:
                 errors.append(f"REQUIRED_RULE_MISSING:{rule}")
-        for rel in (
-            "docs/漫画专业制作与出版总规范-V1.md",
-            "docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
-            "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
-    "../../docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
-        ):
-            if rel.split("/")[-1] not in content:
+        for rel in SOURCE_REFERENCES:
+            if Path(rel).name not in content:
                 errors.append(f"SKILL_SOURCE_NOT_REFERENCED:{rel}")
     return errors
 
