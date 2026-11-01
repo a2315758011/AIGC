@@ -42,7 +42,7 @@ check("still test has five replicates per arm",dataset.cases.find(x=>x.id==="EVA
 check("video test is gated after still phase",dataset.cases.find(x=>x.id==="EVAL-05").visual_eval==="required_after_still_phase");
 check("fight visual tests blocked until skill review",dataset.cases.filter(x=>x.id==="EVAL-08"||x.id==="EVAL-09").every(x=>x.visual_eval==="not_allowed_until_skill_review"));
 check("result template remains NOT_RUN",template.status==="NOT_RUN"&&template.decision==="NOT_EVALUATED");
-check("result template records PC blocker",template.blocked_reason.includes("UNAVAILABLE"));
+check("result template records PC blocker",template.blocked_reason.includes("运行时填写具体阻塞原因"));
 check("classroom unique layout truth preserved",dataset.classroom_assets.layout_truth==="阳光洒落的整洁教室.png"&&classroom.scene_truth.layout_source===dataset.classroom_assets.layout_truth);
 check("composite seating thumbnail is non-authoritative",dataset.classroom_assets.authority_rules.some(x=>x.includes("拼图内嵌座位示意不得覆盖")));
 check("reference assets remain outside public repository",dataset.classroom_assets.asset_storage.includes("Library")&&protocol.includes("不复制到公开仓库"));
