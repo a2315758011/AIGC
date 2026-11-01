@@ -157,15 +157,18 @@ for (const dep of lock.local_dependencies || []) {
 }
 
 check("classroom has exactly 3 reference assets", classroom.source_assets.length === 3);
-check("desk grid is 4x6=24", classroom.scene_truth.desks.columns * classroom.scene_truth.desks.rows === 24 && classroom.scene_truth.desks.count === 24);
+check("desk grid is 4x5=20 from original image", classroom.scene_truth.desks.columns === 4 && classroom.scene_truth.desks.rows === 5 && classroom.scene_truth.desks.count === 20);
 check("desk layout source is unique", classroom.scene_truth.layout_source === "阳光洒落的整洁教室.png");
 check("room measurements are marked estimates", classroom.scene_truth.dimensions_m.measurement_status === "reference_estimate_not_survey");
 check("classroom door connects to corridor", classroom.scene_truth.door.connects_to === "school_corridor");
 check("grass doorway is explicitly forbidden", classroom.scene_truth.door.must_not_connect_to === "grass");
-check("male seat and body facing are locked", classroom.blocking_constraints.male_lead.seat_row_from_front === 4 && classroom.blocking_constraints.male_lead.body_facing === "blackboard");
+check("male seat row is third and exact column remains unresolved", classroom.blocking_constraints.male_lead.seat_row_from_front === 3 && classroom.blocking_constraints.male_lead.seat_row_from_rear === 3 && classroom.blocking_constraints.male_lead.seat_column_from_left === null && classroom.blocking_constraints.male_lead.seat_column_status === "unresolved_from_reference_image");
+check("female lead is seated adjacent with column unresolved", classroom.blocking_constraints.female_transfer_student.seat_row_from_front === 3 && classroom.blocking_constraints.female_transfer_student.seat_column_from_left === null && classroom.blocking_constraints.female_transfer_student.end_state === "seated_at_desk_adjacent_to_male_lead");
+check("two female classmates interrupt in story order", classroom.blocking_constraints.female_classmates.length === 2 && classroom.blocking_constraints.female_classmates[0].role === "female_classmate_2" && classroom.blocking_constraints.female_classmates[1].role === "female_classmate_3");
 check("teacher remains at podium", classroom.blocking_constraints.teacher.anchor === "teacher_podium");
 check("all specialist handoffs exist", ["scene_realism", "storyboard", "camera_motion", "fight_impact_vfx"].every(key => Array.isArray(classroom.specialist_handoffs[key])));
 check("classroom correctly skips fight skill", classroom.specialist_handoffs.fight_impact_vfx.some(item => item.includes("不调用")));
+check("classroom handoff explicitly preserves unresolved seat columns", classroom.specialist_handoffs.storyboard.some(item => item.includes("具体列号待")) && classroom.specialist_handoffs.scene_realism.some(item => item.includes("保持未知")));
 check("visual acceptance is a hard invariant", classroom.integration_invariants.some(item => item.includes("不得报告视觉验收通过")));
 
 check("eleven route regression cases exist", routes.cases.length === 11);
