@@ -38,7 +38,7 @@
     },
     {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha1": "bfe52741ee606a7e5e49afeafa4393f748db8626"
+      "git_blob_sha1": "7f033b0fb4e535149f82c6b77bd887c3a899b926"
     },
     {
       "path": "skills/comic-production-director-cn/references/平台导出配置登记表-V1.json",
@@ -50,7 +50,7 @@
     },
     {
       "path": "skills/comic-production-director-cn/tests/test_validate_skill.py",
-      "git_blob_sha1": "c61e10c4dec68c6cfc6ded6947a8f6b0f0051c74"
+      "git_blob_sha1": "fe65520ea15c32f6ebcef28b8eb442a7feafb270"
     },
     {
       "path": "README.md",
