@@ -15,10 +15,12 @@
 
 AIGC 场景数据库当前约定 X 左右、Y 前后、Z 高度；DirectorDesk 约定世界坐标以米为单位、+Y 向上，人物局部前方为 +Z。
 
-不得直接复制坐标。导出前建立场景级轴映射与原点变换：
-- X_D = X_AIGC
-- Y_D = Z_AIGC
-- Z_D = s × Y_AIGC，其中 s 由已批准场景的“前/后”方向确定，可为 +1 或 -1
+不得直接复制坐标。AIGC 旧数据没有正方向字段，必须逐场景由参考图/已批准平面图确认后写入 manifest；禁止自动猜测。
+
+对右手源/右手目标，示例映射可为 X_D=X_AIGC、Y_D=Z_AIGC、Z_D=-Y_AIGC，但只有当源 +Y 被确认指向后方、目标 +Z 指向前方时才成立。映射矩阵行列式必须为 +1；否则会产生镜像/手性翻转。若经确认的源轴语义不同，必须重新求合法的一一轴映射，不得强套示例。
+
+- 每个目标轴必须声明来自哪个源轴及符号（+1/-1）。
+- 必须声明源/目标手性和每个轴的正方向语义。
 - 若两个系统原点不同，另加经批准的 originOffset。
 - 旋转、相机 look-at、路径 heading、门扇开合方向必须使用同一变换；不能只转换人物位置。
 - 归一化坐标不得直接当米制。没有实测尺寸时可制作比例白模，但必须标记为相对比例，不得声称人体工学/真实净宽已验证。
@@ -77,3 +79,9 @@ AIGC 场景数据库当前约定 X 左右、Y 前后、Z 高度；DirectorDesk �
 - `references/editing.md`，SHA-256: `f94d8e8b9238e2e5b9bd0b1ff6c9470e35e564522b11036bbe2f5e56fd1e0c6c`
 
 这些文件说明工具提供了相应字段/工作流；它们不是当前 AIGC 场景的实际视觉验收证据。当前对话未连接 DirectorDesk 专用 MCP 工具，因此尚未执行实时导演台操作或实际白模渲染。
+
+## 自动适配器
+
+使用 `scripts/export-directordesk-neutral.cjs` 将场景数据库和 SCG 转为中立交换包；该文件不是 DirectorDesk 原生 `.director` 工程。模板见 `references/DirectorDesk坐标转换清单模板-V1.json`。未声明轴向、手性、单位、原点或批准依据时，适配器拒绝导出；缺少固定物体尺寸或动态实体坐标时输出 UNRESOLVED 并将 release_ready 设为 false。
+
+回归：`node tests/test-directordesk-neutral.cjs`。
