@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.1",
+  "schema_version": "1.1.0",
   "scale": {
     "1": "失败/不可用：严重违背要求或存在明显结构错误",
     "2": "较差：多处明显缺陷，必须重做",
@@ -79,6 +79,15 @@
       ],
       "criterion": "人物、桌椅、门窗之间无明显穿插、悬空或物理接触错误",
       "evidence": "局部放大或逐帧检查"
+    },
+    {
+      "id": "HG-09",
+      "applies_to": [
+        "classroom_still",
+        "classroom_video"
+      ],
+      "criterion": "多参考图冲突必须遵守明确的单一真值与素材职责；不得把辅助图中的不一致布局平均/融合",
+      "evidence": "逐张标注参考图职责；核对4×6/24套桌椅唯一真值；冲突图只保留其授权职责"
     }
   ],
   "base_visual_dimensions": [
@@ -173,6 +182,46 @@
       "id": "MV-08",
       "name": "跨镜状态连续性",
       "description": "镜头切点人物位置、姿态、持物、支撑和场景状态正确继承"
+    },
+    {
+      "id": "MV-09",
+      "name": "动作状态预检",
+      "description": "整体位移前基础动作姿态/动作轨道与走路、跑步、坐下等运动任务匹配，不以站姿平移代替步态"
+    },
+    {
+      "id": "MV-10",
+      "name": "顶视地面路径与相机XYZ高度分离",
+      "description": "人物地面路径从顶视图核验；摄影机升降使用真实三维高度关键帧，不将地面平面路径当作相机升降"
+    },
+    {
+      "id": "MV-11",
+      "name": "一次性LookAt与持续跟随区分",
+      "description": "沿相机路径逐关键帧核验注视目标；一次性定向不得误报为持续跟随"
+    },
+    {
+      "id": "MV-12",
+      "name": "多机位监视器输出与切点",
+      "description": "导出当前机位监视器而非导演视角；关闭名牌/UI；逐帧核验切点前后状态和时间轴连续"
+    },
+    {
+      "id": "MV-13",
+      "name": "白模/场景/角色/动作/音频素材职责",
+      "description": "按真实上传顺序映射素材；白模不把灰白材质/蓝色人形/UI传入成片，场景图与角色图不互相覆盖"
+    },
+    {
+      "id": "MV-14",
+      "name": "白模与文字时间线一致",
+      "description": "白模路径、动作时序、镜头切点与文字提示不矛盾、不重复描述冲突"
+    },
+    {
+      "id": "MV-15",
+      "name": "预演复杂度门槛",
+      "description": "空间运动为叙事主体时采用预演；简单单人对白/静态特写不因流程完整而机械增加预演"
+    },
+    {
+      "id": "MV-16",
+      "name": "失败变量可定位",
+      "description": "失败归因到角色ID、姿态、根路径、关键帧时间、支撑脚、障碍、相机位置/注视点、焦距/构图、切点或素材职责"
     }
   ],
   "scoring": {
@@ -185,7 +234,8 @@
       "P3"
     ],
     "unknown_rule": "证据不足标记UNVERIFIABLE或N/A，不计为PASS",
-    "pairwise_rule": "先独立缺陷分级和逐项评分，再随机左右顺序做A/B偏好判断"
+    "pairwise_rule": "先独立缺陷分级和逐项评分，再随机左右顺序做A/B偏好判断",
+    "previs_compliance_method": "白模服从性使用0—4分逐项记录并附时间戳/帧号；与场景十维1—5分、美学评分分开，不合并成总分。"
   },
   "reviewer_requirements": {
     "minimum_independent_human_reviewers": 2,
@@ -202,6 +252,122 @@
     "pilot_image_pairwise_win_count": 4,
     "pilot_image_pairwise_total_pairs": 5,
     "scene_realism_prompt_ab_must_be_separate": true,
-    "interpretation": "5组图像中至少4组B胜仅为初步偏好信号，不是统计显著性证据"
+    "interpretation": "5组图像中至少4组B胜仅为初步偏好信号，不是统计显著性证据",
+    "whitebox_previs_min_replicates_per_arm": 3,
+    "whitebox_previs_min_pilot_scenarios": 3,
+    "whitebox_previs_ab_must_be_separate": true
+  },
+  "previs_compliance_dimensions_0_to_4": [
+    {
+      "id": "PC-01",
+      "name": "角色身份稳定",
+      "description": "角色ID、外观与跨帧身份一致"
+    },
+    {
+      "id": "PC-02",
+      "name": "世界空间路径",
+      "description": "人物在场景锚点间的路线、起终点和避障符合"
+    },
+    {
+      "id": "PC-03",
+      "name": "事件时间与到位",
+      "description": "动作开始/结束、停留、出画和切点时间符合预演"
+    },
+    {
+      "id": "PC-04",
+      "name": "动作姿态与根节点同步",
+      "description": "步态/坐站等动作与整体位移匹配，无站姿滑行"
+    },
+    {
+      "id": "PC-05",
+      "name": "脚底支撑与接触",
+      "description": "grounding、foot planting、支撑面接触合理"
+    },
+    {
+      "id": "PC-06",
+      "name": "避障与多人交汇",
+      "description": "绕障、错峰、让行、交叉点与碰撞关系成立"
+    },
+    {
+      "id": "PC-07",
+      "name": "摄影机轨迹与高度",
+      "description": "相机平移/旋转/升降轨迹和高度关键帧符合"
+    },
+    {
+      "id": "PC-08",
+      "name": "注视点/持续跟随",
+      "description": "LookAt与持续跟随行为按时间正确执行"
+    },
+    {
+      "id": "PC-09",
+      "name": "多机位切点连续",
+      "description": "当前机位输出、切点时间、跨镜末态和轴线一致"
+    },
+    {
+      "id": "PC-10",
+      "name": "素材职责与叙事可读性",
+      "description": "白模、场景、角色、动作、音频素材职责清楚，画面能读懂导演意图"
+    }
+  ],
+  "scene_realism_v1_4_extensions": [
+    {
+      "id": "SR14-01",
+      "name": "光度真实性",
+      "applies_when": "场景含明确主光/辅助光或强反射",
+      "checks": [
+        "主光方向/软硬/色温",
+        "曝光与高光剪切",
+        "阴影方向/接触阴影",
+        "反射/折射一致性"
+      ]
+    },
+    {
+      "id": "SR14-02",
+      "name": "色彩保真",
+      "applies_when": "场景存在明显色彩/白平衡要求",
+      "checks": [
+        "饱和度",
+        "白平衡/色温",
+        "暗部细节",
+        "局部色彩断层"
+      ]
+    },
+    {
+      "id": "SR14-03",
+      "name": "物体级真实感",
+      "applies_when": "关键物体有明确结构/材质",
+      "checks": [
+        "轮廓/部件结构",
+        "厚度/边缘",
+        "纹理尺度",
+        "材质响应"
+      ]
+    },
+    {
+      "id": "SR14-04",
+      "name": "局部编辑物理副作用",
+      "applies_when": "任务包含添加/删除/移动对象",
+      "checks": [
+        "阴影",
+        "反射/折射",
+        "遮挡",
+        "接触关系",
+        "未编辑区域稳定"
+      ]
+    }
+  ],
+  "previs_complexity_gate": {
+    "use_when": [
+      "人物路径或相对运动是叙事主体",
+      "多人交汇/绕障/穿越",
+      "相机升降/环绕/跟拍",
+      "同一场景多机位空间连续性"
+    ],
+    "skip_when": [
+      "简单单人对白",
+      "静态特写",
+      "空间运动不是重点的抽象光影镜头"
+    ],
+    "rule": "复杂度门槛是成本收益判断，不是所有镜头的强制流程；必须记录采用/跳过理由"
   }
 }
