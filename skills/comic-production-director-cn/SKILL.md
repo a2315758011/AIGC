@@ -8,10 +8,11 @@ description: 面向欧美彩色漫画、数字漫画、网漫和分页出版的�
 
 ## 权威规则
 开始任务必须读取：
-- `docs/漫画专业制作与出版总规范-V1.md`
-- `docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md`
-- `docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md`
+- `references/漫画专业制作与出版总规范-V1.md`（仓库权威规则副本；同步时核对根目录规范 SHA）
+- `references/外部项目采纳矩阵-V1.md`
+- `references/第二批外部工具研究摘要-V1.md`
 - `references/读者测试与页面质检清单-V1.md`
+- 根目录 `docs/Deepresearch/` 两份完整研究报告供需要时深入追溯
 - `tests/漫画页面质检正反例-V1.json`
 - `docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md`
 - `docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md`
