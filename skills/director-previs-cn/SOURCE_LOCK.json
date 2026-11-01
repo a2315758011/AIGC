@@ -4,7 +4,7 @@
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "fcf00d18bc698fe58e7b9bc4a64a4ccd0d3b8dbb",
+  "verified_main_commit": "941708dd25f65e48b6d45a192daf07273cda6c93",
   "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
@@ -271,7 +271,7 @@
     "scene-realism-director-cn/tests/validate-classroom-layout.cjs": "326d36535ea554661587514b513b16fddd2bb509",
     "scene-realism-director-cn/tests/evidence/CLASSROOM-CN-4X5-001-Windows-Node-Validation-20261101.json": "20b46c4ea202338c1f01af0ddb3da5a3d366d738",
     "director-previs-cn/tests/fixtures/教室跨技能导演统筹夹具.json": "061fbac218816168c44d1d3465956b2f28323d97",
-    "director-previs-cn/scripts/validate_director_previs.js": "68e2785146ac2d502e566e35ac417e0dad135011",
+    "director-previs-cn/scripts/validate_director_previs.js": "d3afddb7a25a0dc44a9df35b76fe4d8eecad2883",
     "director-previs-cn/tests/导演统筹工作流A-B实验协议-V1.md": "09d6923cf57793ce84d0ed73e3b5d978d66575e3",
     "director-previs-cn/tests/templates/导演统筹实验结果模板-V1.json": "fa1d89f3abb1c90de861a8dc6e00f6be1c9dd07b",
     "projects/漫剧场景数据库/CLASSROOM-CN-4X5-001/导演走位预演计划_V1.json": "0343d82c039b2466c147e4551df9005a46fd57d0"
