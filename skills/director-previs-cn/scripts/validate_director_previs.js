@@ -41,6 +41,9 @@ const rootReadme = read("README.md");
 const rootAgents = read("AGENTS.md");
 const regressionText = read("skills/director-previs-cn/tests/导演统筹回归用例.md");
 const integrationText = read("skills/director-previs-cn/tests/教室跨技能导演统筹集成测试.md");
+const handoffContract = read("skills/director-previs-cn/references/导演共享事实与SCG交接规范-V1.md");
+const scgContract = read("skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md");
+const eventTimeContract = read("skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md");
 const workflowText = read(".github/workflows/director-previs-regression.yml");
 const lock = JSON.parse(read("skills/director-previs-cn/SOURCE_LOCK.json"));
 const classroom = JSON.parse(read("skills/director-previs-cn/tests/fixtures/教室跨技能导演统筹夹具.json"));
@@ -107,7 +110,16 @@ check("root AGENTS routes fight specialist", rootAgents.includes("直接调用 `
 check("director skill flags fight skill review status", skillText.includes("authored_pending_review"));
 check("PR workflow watches fight skill", workflowText.includes("skills/fight-impact-vfx-cn/**"));
 check("skill README documents all specialists", specialists.every(name => readmeText.includes(name)));
-check("changelog records 1.3.1", changelogText.includes("## 1.3.1"));
+check("director README is version 1.4.0", readmeText.includes("V1.4.0"));
+check("director handoff contract is documented", readmeText.includes("导演共享事实与SCG交接规范-V1.md"));
+check("director contract reuses authoritative SCG", handoffContract.includes("分镜SCG数据契约-V1.md") && scgContract.includes("shot") && scgContract.includes("entities"));
+check("director contract reuses event time contract", handoffContract.includes("分镜事件时间数据契约-V1.md") && eventTimeContract.includes("time_start_ms"));
+check("director contract prohibits parallel schema", handoffContract.includes("不另造一套分镜 JSON"));
+check("director contract requires stable IDs and asset references", handoffContract.includes("稳定 ID") && handoffContract.includes("canonical_asset"));
+check("director contract preserves full world state across shots", handoffContract.includes("完整世界状态快照") && handoffContract.includes("出画/遮挡不删除实体"));
+check("director contract separates camera and actor channels", handoffContract.includes("摄影机位置") && handoffContract.includes("人物根节点位移"));
+
+check("changelog records 1.4.0", changelogText.includes("## 1.4.0"));
 check("root README has no escaped newline corruption", !rootReadme.includes("\\n- ["));
 
 check("three upstream sources are pinned", Array.isArray(lock.upstream_references) && lock.upstream_references.length === 3);
@@ -118,7 +130,11 @@ for (const source of lock.upstream_references || []) {
   check(`upstream file SHAs valid: ${source.repository}`, (source.files_reviewed || []).every(file => /^[0-9a-f]{40}$/.test(file.blob_sha || "")));
 }
 
-check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 9);
+check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 12);
+check("unified handoff contract is pinned", lock.local_dependencies.some(item => item.package === "director-shared-facts-scg-handoff" && item.path === "skills/director-previs-cn/references/导演共享事实与SCG交接规范-V1.md"));
+check("SCG contract is pinned", lock.local_dependencies.some(item => item.package === "storyboard-scg-data-contract" && item.path === "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md"));
+check("event time contract is pinned", lock.local_dependencies.some(item => item.package === "storyboard-event-time-contract" && item.path === "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md"));
+
 for (const dep of lock.local_dependencies || []) {
   check(`dependency exists: ${dep.package}`, exists(dep.path));
   if (exists(dep.path)) {
