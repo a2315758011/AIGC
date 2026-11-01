@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0.0",
+  "experiment_id": "DIRECTOR-PREVIS-EVAL-20261101",
+  "baseline_branch_commit": "c770655384cca0e7f74ee4da32351bd2b82a1ad9",
+  "arms": {
+    "A": {
+      "name": "直接专业技能工作流",
+      "rule": "按gold_route直接调用对应专业技能；各技能读取同一原始任务和原始参考素材；不生成导演统筹共享事实底稿"
+    },
+    "B": {
+      "name": "导演统筹工作流",
+      "rule": "多专业任务先调用director-previs-cn形成共享事实和交接包，再调用相同专业技能；单一专业任务必须绕过director-previs-cn"
+    }
+  },
+  "classroom_assets": {
+    "layout_truth": "阳光洒落的整洁教室.png",
+    "architecture_camera_reference": "教室俯视图与全景机位示意.png",
+    "character_style_reference": "现代高中课堂剧照参考板.png",
+    "asset_storage": "用户Library；不得复制到公开仓库",
+    "authority_rules": [
+      "桌椅布局唯一真值只来自阳光洒落的整洁教室.png：4列×6排=24套",
+      "教室俯视图与全景机位示意.png只用于建筑、门窗、估算尺寸、机位信息；其内嵌桌椅布局不得覆盖唯一真值",
+      "现代高中课堂剧照参考板.png只用于角色/服装/风格/道具参考；拼图内嵌座位示意不得覆盖唯一真值或本次男主座位",
+      "男主座位由本次锁定事实指定为第4排第4列"
+    ]
+  },
+  "cases": [
+    {
+      "id": "EVAL-01",
+      "route_case": "DO-01",
+      "category": "single_domain",
+      "task": "只修复一张教室场景图的塑料感，保持建筑和家具原位",
+      "gold_route": [
+        "scene-realism-director-cn"
+      ],
+      "orchestration_required": false,
+      "scope": "workflow_only",
+      "visual_eval": "optional"
+    },
+    {
+      "id": "EVAL-02",
+      "route_case": "DO-02",
+      "category": "single_domain",
+      "task": "只检查双人近景站位、身体朝向、头部朝向和视线轴线",
+      "gold_route": [
+        "storyboard-director-cn"
+      ],
+      "orchestration_required": false,
+      "scope": "workflow_only",
+      "visual_eval": "not_required"
+    },
+    {
+      "id": "EVAL-03",
+      "route_case": "DO-03",
+      "category": "single_domain",
+      "task": "只设计一段缓慢推镜，人物世界坐标必须保持不变",
+      "gold_route": [
+        "camera-motion-director-cn"
+      ],
+      "orchestration_required": false,
+      "scope": "workflow_only",
+      "visual_eval": "optional"
+    },
+    {
+      "id": "EVAL-04",
+      "route_case": "DO-04",
+      "category": "multi_domain_classroom_still",
+      "task": "用三张固定参考图制作女主刚从前右门进入、男主注意到她的教室关键帧；完整保留教室布局",
+      "gold_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn",
+        "storyboard-director-cn"
+      ],
+      "orchestration_required": true,
+      "scope": "workflow_and_image",
+      "visual_eval": "required",
+      "replicates_per_arm": 5,
+      "reference_assets": [
+        "阳光洒落的整洁教室.png",
+        "教室俯视图与全景机位示意.png",
+        "现代高中课堂剧照参考板.png"
+      ],
+      "hard_gate_ids": [
+        "HG-01",
+        "HG-02",
+        "HG-03",
+        "HG-04",
+        "HG-05",
+        "HG-06",
+        "HG-07",
+        "HG-08"
+      ]
+    },
+    {
+      "id": "EVAL-05",
+      "route_case": "DO-04",
+      "category": "multi_domain_classroom_video",
+      "task": "基于同一教室和人物资产生成5秒短镜头：女主由前右门进入停住，男主只转头和视线，摄影机按指定轨迹运动",
+      "gold_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn",
+        "storyboard-director-cn",
+        "camera-motion-director-cn"
+      ],
+      "orchestration_required": true,
+      "scope": "workflow_and_video",
+      "visual_eval": "required_after_still_phase",
+      "replicates_per_arm": 3,
+      "reference_assets": [
+        "阳光洒落的整洁教室.png",
+        "教室俯视图与全景机位示意.png",
+        "现代高中课堂剧照参考板.png"
+      ],
+      "hard_gate_ids": [
+        "HG-01",
+        "HG-02",
+        "HG-03",
+        "HG-04",
+        "HG-05",
+        "HG-06",
+        "HG-07",
+        "HG-08"
+      ]
+    },
+    {
+      "id": "EVAL-06",
+      "route_case": "DO-06",
+      "category": "reference_conflict",
+      "task": "两张参考图的门窗位置或布局信息冲突，只要求重建场景并明确保留未知项",
+      "gold_route": [
+        "scene-realism-director-cn"
+      ],
+      "orchestration_required": false,
+      "scope": "workflow_only",
+      "visual_eval": "not_required"
+    },
+    {
+      "id": "EVAL-07",
+      "route_case": "DO-07",
+      "category": "locked_anchor_conflict",
+      "task": "下游场景结果擅自移动用户锁定的门窗/家具锚点，要求协调并修复",
+      "gold_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn"
+      ],
+      "orchestration_required": true,
+      "scope": "workflow_only",
+      "visual_eval": "optional"
+    },
+    {
+      "id": "EVAL-08",
+      "route_case": "DO-09",
+      "category": "single_domain_fight",
+      "task": "只设计一次拳击命中和受击反馈，不需要完整分镜",
+      "gold_route": [
+        "fight-impact-vfx-cn"
+      ],
+      "orchestration_required": false,
+      "scope": "routing_only_pending_skill_review",
+      "visual_eval": "not_allowed_until_skill_review"
+    },
+    {
+      "id": "EVAL-09",
+      "route_case": "DO-10",
+      "category": "multi_domain_fight",
+      "task": "复杂打斗场景同时需要环境破坏、动作因果、正式分镜和摄影机运动",
+      "gold_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn",
+        "fight-impact-vfx-cn",
+        "storyboard-director-cn",
+        "camera-motion-director-cn"
+      ],
+      "orchestration_required": true,
+      "scope": "routing_only_pending_skill_review",
+      "visual_eval": "not_allowed_until_skill_review"
+    },
+    {
+      "id": "EVAL-10",
+      "route_case": "DO-05",
+      "category": "ambiguous_director_intent",
+      "task": "用户只说让场面更有压迫感，要求先把它转成可观察的场面目标；本轮只交文字方案，不生成图片/视频",
+      "gold_route": [
+        "director-previs-cn"
+      ],
+      "orchestration_required": true,
+      "scope": "workflow_only",
+      "visual_eval": "must_remain_NOT_RUN"
+    }
+  ]
+}
