@@ -21,6 +21,8 @@
 - [MOONKEEP 第一话实物基准](../docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md)：源画格/重生成图区分、气泡遮罩、OCR 预检和工具运行限制。
 - [漫画平台规格与 AI 商业化规则](../docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md)：Tapas、WEBTOON、GlobalComix、KDP 的官方规格、AI 披露、变现门槛与提现规则。
 
+## 分镜专项
+
 - [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，保留原有版本和程序校验资产。
 
 ## 漫剧专项
