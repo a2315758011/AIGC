@@ -1,0 +1,66 @@
+{
+  "cases": [
+    {
+      "case_id": "static-scene-db-geometry-merges-into-scg-entity",
+      "expected_3d_ok": false,
+      "expected_3d_errors": [
+        "3D-MOTION-03"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "CHAR-A",
+                "exists": true,
+                "attributes": {
+                  "world_position": {
+                    "x": 3,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "collision_volume": {
+                    "shape": "capsule",
+                    "radius": 0.2,
+                    "height": 1.7
+                  },
+                  "collision_role": "actor"
+                }
+              },
+              {
+                "id": "DESK-A",
+                "exists": true,
+                "attributes": {
+                  "collision_role": "obstacle"
+                }
+              }
+            ],
+            "events": [
+              {
+                "id": "EV1",
+                "source_id": "SRC1",
+                "actor": "CHAR-A",
+                "motion": {
+                  "entity_id": "CHAR-A",
+                  "from": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "to": {
+                    "x": 3,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "start_ms": 0,
+                  "end_ms": 1000
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
