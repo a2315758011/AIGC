@@ -18,6 +18,7 @@
 - [漫画专业制作与出版总规范](../docs/漫画专业制作与出版总规范-V1.md)：漫画生产权威规范。
 - [外部专业漫画项目研究](../docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md)：OpenManga、agent-comic-kit、manga-text-removal、Comic Pipeline、Manga Editor Desu、Sloom Studio 等外部来源审查与许可证记录。
 - [第二批上色/翻译/排字研究](../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md)：Comtexia、MangaColorAI、Speech Bubble Editor、Free Comic Panel Maker 等工具的授权和适用性审查。
+- [MOONKEEP 第一话实物基准](../docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md)：源画格/重生成图区分、气泡遮罩、OCR 预检和工具运行限制。
 
 - [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，保留原有版本和程序校验资产。
 
