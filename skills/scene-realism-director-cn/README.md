@@ -57,4 +57,5 @@ node skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/sc
 - AABB 是保守代理，不是精确网格/骨骼物理；未知几何必须输出 UNRESOLVED，不能当作无碰撞。
 - 教室使用 normalized_0_to_1 归一化坐标，不代表真实米制尺寸。家具 footprint 为 null 时，碰撞和净空仍未验证。
 - GPT 原生生图四类场景首轮为探索性单样本冒烟测试；严格 A/B、双人盲评、同一三维场景跨视角渲染和目标视频模型服从性尚未完成。
-- Windows 工作站 Node 运行、DirectorDesk 实际白模视口、真实图像/视频 A/B 仍需单独验收。不得把 GitHub Actions 或单张图的可见检查说成成片通过。
+- Windows 工作站隔离临时目录已执行9组Node回归，9/9符合预期；证据见 `tests/evidence/AIGC-Windows-Node-Regression-20261101.json`。这不代表完整本地Git工作树构建。
+- DirectorDesk实际白模视口、生产角色骨骼/网格碰撞、真实图像/视频A/B仍需单独验收。不得把结构回归或单张图可见检查说成成片通过。
