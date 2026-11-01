@@ -43,3 +43,5 @@
 
 - tests/fixtures/SCG场景数据库几何合并测试.json 与对应数据库：验证固定家具几何从场景数据库合并进同 ID 的 SCG 实体。
 - tests/fixtures/SCG未知固定障碍阻断测试.json 与对应数据库：验证未知固定障碍会阻止“无碰撞通过”。
+
+- references/DirectorDesk三维白模预演适配规范-V1.md：复用现有导演台的场景、动作、相机和近似物理能力，并定义坐标映射与验收边界。
