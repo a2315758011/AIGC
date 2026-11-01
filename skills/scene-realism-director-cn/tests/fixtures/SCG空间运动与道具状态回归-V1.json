@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "case_id": "path-clear-valid",
+      "expected_motion_ok": true,
+      "expected_motion_errors": [],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "CHAR-A",
+                "type": "person",
+                "exists": true,
+                "attributes": {
+                  "world_position": {
+                    "x": 0.9,
+                    "y": 0.1
+                  },
+                  "footprint": {
+                    "width": 0.1,
+                    "depth": 0.1
+                  },
+                  "collision_role": "actor"
+                }
+              },
+              {
+                "id": "DESK-A",
+                "type": "object",
+                "exists": true,
+                "attributes": {
+                  "world_position": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "footprint": {
+                    "width": 0.2,
+                    "depth": 0.2
+                  },
+                  "collision_role": "obstacle"
+                }
+              }
+            ],
+            "relations": [],
+            "events": [
+              {
+                "id": "EV-CLEAR",
+                "source_id": "SRC-MOVE",
+                "actor": "CHAR-A",
+                "action": "move",
+                "motion": {
+                  "entity_id": "CHAR-A",
+                  "from": {
+                    "x": 0.1,
+                    "y": 0.1
+                  },
+                  "waypoints": [
+                    {
+                      "x": 0.5,
+                      "y": 0.1
+                    }
+                  ],
+                  "to": {
+                    "x": 0.9,
+                    "y": 0.1
+                  },
+                  "start_ms": 0,
+                  "end_ms": 1200
+                },
+                "effects": [
+                  {
+                    "kind": "set_position",
+                    "entity": "CHAR-A",
+                    "to": {
+                      "x": 0.9,
+                      "y": 0.1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "path-through-desk-invalid",
+      "expected_motion_ok": false,
+      "expected_motion_errors": [
+        "MOTION-04"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "CHAR-A",
+                "type": "person",
+                "exists": true,
+                "attributes": {
+                  "world_position": {
+                    "x": 0.9,
+                    "y": 0.5
+                  },
+                  "footprint": {
+                    "width": 0.1,
+                    "depth": 0.1
+                  },
+                  "collision_role": "actor"
+                }
+              },
+              {
+                "id": "DESK-A",
+                "type": "object",
+                "exists": true,
+                "attributes": {
+                  "world_position": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "footprint": {
+                    "width": 0.2,
+                    "depth": 0.2
+                  },
+                  "collision_role": "obstacle"
+                }
+              }
+            ],
+            "relations": [],
+            "events": [
+              {
+                "id": "EV-HIT",
+                "source_id": "SRC-MOVE",
+                "actor": "CHAR-A",
+                "action": "move",
+                "motion": {
+                  "entity_id": "CHAR-A",
+                  "from": {
+                    "x": 0.1,
+                    "y": 0.5
+                  },
+                  "waypoints": [],
+                  "to": {
+                    "x": 0.9,
+                    "y": 0.5
+                  },
+                  "start_ms": 0,
+                  "end_ms": 1200
+                },
+                "effects": [
+                  {
+                    "kind": "set_position",
+                    "entity": "CHAR-A",
+                    "to": {
+                      "x": 0.9,
+                      "y": 0.5
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "prop-two-holders-invalid",
+      "expected_motion_ok": false,
+      "expected_motion_errors": [
+        "PROP-01"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "SH1",
+            "entities": [
+              {
+                "id": "PROP-A",
+                "type": "object",
+                "exists": true
+              },
+              {
+                "id": "HAND-A",
+                "type": "part",
+                "exists": true
+              },
+              {
+                "id": "HAND-B",
+                "type": "part",
+                "exists": true
+              }
+            ],
+            "relations": [
+              {
+                "subject": "PROP-A",
+                "predicate": "held_by",
+                "object": "HAND-A"
+              },
+              {
+                "subject": "PROP-A",
+                "predicate": "held_by",
+                "object": "HAND-B"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
