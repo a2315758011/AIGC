@@ -1,6 +1,6 @@
 ---
 name: comic-production-director-cn
-version: 1.2.1
+version: 1.2.2
 description: 面向欧美彩色漫画、数字漫画、网漫和分页出版的专业制作总控。负责漫画脚本、页面节奏、分格、角色与场景状态、单格生产/返工、去字修复、独立排字、双格式出版和逐格质检。用户要求制作/续作漫画、修复漫画原图、排版对白或准备出版时调用。
 ---
 
@@ -18,6 +18,7 @@ description: 面向欧美彩色漫画、数字漫画、网漫和分页出版的�
 - `docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md`
 - `docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md`
 - `docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md`
+- `references/TT_AutoManga安全隔离审查-V1.md`
 - `docs/专业欧美漫画排字与页面阅读规则-V1.md`
 - `skills/comic-production-director-cn/references/平台导出配置登记表-V1.json`
 
@@ -75,7 +76,7 @@ P0/P1 缺陷为零；英文校对、素材/字体授权、AI 披露、平台规�
 ## 外部工具适配策略
 优先评估：
 - OpenManga：角色/服装版本、状态时间线、连续性检查、局部编辑和导出。
-- TT_AutoManga：beat sheet、读者测试、角色逐格并排审核、页面预览和 7 项视觉质检；MIT。
+- TT_AutoManga：只采纳 beat sheet、读者测试、逐格 QC 和局部返工方法；其后端默认数据目录、启动孤儿资产清理、无认证 loopback API 和 SwarmUI 依赖必须先通过 `references/TT_AutoManga安全隔离审查-V1.md` 门禁；当前工作站缺少 pytest/MCP SDK，SwarmUI 未响应，正式部署 BLOCKED。
 - agent-comic-kit：角色批准、用户锁定字段、逐格审核/返工、独立排字；其 v0.1.0 的图像生成后端并非 GPT 原生生图直连，自动气泡位置仍需人工审核。
 - manga-text-removal：文字检测、掩码、LaMa 补全和 OCR 验收；CTD 脚本生成文字掩码，不自动等于完整气泡/尾巴掩码。
 - Comic Pipeline：版本血缘、页面编辑、候选比较、导出。
