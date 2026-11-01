@@ -10,7 +10,7 @@
 
 ## 场景真实性专项
 
-- [scene-realism-director-cn](./scene-realism-director-cn/)：场景图真实性控制、建筑拓扑、功能布局、透视尺度、接触遮挡、光照材质、参考图保真、全景检查与独立质检。
+- [scene-realism-director-cn](./scene-realism-director-cn/)：场景图真实性控制、建筑拓扑、功能布局、透视尺度、接触遮挡、光照/色彩/曝光、物体级形状纹理、局部编辑物理副作用、参考图保真、全景检查与独立质检；包含 8 场景空间基准和 5 项光色物理专项回归。
 
 ## 漫剧专项
 
