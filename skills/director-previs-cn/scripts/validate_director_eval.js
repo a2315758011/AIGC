@@ -48,7 +48,7 @@ check("still test has five replicates per arm",dataset.cases.find(x=>x.id==="EVA
 check("video test is gated after still phase",dataset.cases.find(x=>x.id==="EVAL-05").visual_eval==="required_after_still_phase");
 check("fight visual tests blocked until skill review",dataset.cases.filter(x=>x.id==="EVAL-08"||x.id==="EVAL-09").every(x=>x.visual_eval==="not_allowed_until_skill_review"));
 check("result template remains NOT_RUN",template.status==="NOT_RUN"&&template.decision==="NOT_EVALUATED");
-check("result template pins director V1.3.0",template.environment.workflow_version==="director-previs-cn@1.4.0");
+check("result template pins director V1.4.0",template.environment.workflow_version==="director-previs-cn@1.4.0");
 check("dynamic movement case is routed across required specialists",dataset.cases.find(x=>x.id==="EVAL-11").gold_route.join(",")==="director-previs-cn,scene-realism-director-cn,storyboard-director-cn,camera-motion-director-cn" && dataset.cases.find(x=>x.id==="EVAL-11").route_case==="DO-11");
 check("result template records PC blocker",template.blocked_reason.includes("运行时填写具体阻塞原因"));
 check("classroom unique layout truth preserved",dataset.classroom_assets.layout_truth==="阳光洒落的整洁教室.png"&&classroom.scene_truth.layout_source===dataset.classroom_assets.layout_truth);
