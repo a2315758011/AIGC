@@ -1,0 +1,26 @@
+{
+  "coordinate_system": {
+    "units": "meter"
+  },
+  "objects": [
+    {
+      "id": "DESK-A",
+      "kind": "desk",
+      "count": 1,
+      "position": {
+        "x": 1,
+        "y": 0,
+        "z": 0
+      },
+      "orientation": null,
+      "mobility": "fixed",
+      "status": "confirmed",
+      "collision_volume": {
+        "shape": "box",
+        "width": 0.8,
+        "depth": 0.8,
+        "height": 0.75
+      }
+    }
+  ]
+}
