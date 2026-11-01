@@ -1,6 +1,6 @@
 ---
 name: comic-production-director-cn
-version: 1.2.3
+version: 1.2.4
 description: 面向欧美彩色漫画、数字漫画、网漫和分页出版的专业制作总控。负责漫画脚本、页面节奏、分格、角色与场景状态、单格生产/返工、去字修复、独立排字、双格式出版和逐格质检。用户要求制作/续作漫画、修复漫画原图、排版对白或准备出版时调用。
 ---
 
@@ -20,6 +20,7 @@ description: 面向欧美彩色漫画、数字漫画、网漫和分页出版的�
 - `docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md`
 - `docs/Deepresearch/2026-11-02_TT_AutoManga源码安全与本地兼容性审查.md`
 - `references/TT_AutoManga安全隔离审查-V1.md`
+- `docs/Deepresearch/2026-11-02_漫画原文清理与排字工具第三批实测候选审查.md`
 - `docs/专业欧美漫画排字与页面阅读规则-V1.md`
 - `skills/comic-production-director-cn/references/平台导出配置登记表-V1.json`
 
