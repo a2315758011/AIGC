@@ -1,0 +1,58 @@
+{
+  "evidence_id": "CLASSROOM-CN-4X5-001-WINDOWS-NODE-VALIDATION-20261101",
+  "date": "2026-11-01",
+  "environment": {
+    "os": "Windows workstation",
+    "node_version": "v24.13.0",
+    "node_runtime": "local Node.js via Windows MCP",
+    "generic_validator": "skills/scene-realism-director-cn/tests/validate-scene-database.cjs",
+    "classroom_validator": "skills/scene-realism-director-cn/tests/validate-classroom-layout.cjs",
+    "classroom_validator_git_blob_sha": "326d36535ea554661587514b513b16fddd2bb509"
+  },
+  "source_reference": {
+    "name": "阳光洒落的整洁教室.png",
+    "sha256": "906871fdb53393ab95dda6d6ca7ff7d0fa8428af8b72e2097e13fb5891c73c44",
+    "resolution": "1448x1086",
+    "visual_count": "4 columns x 5 rows = 20 desk-chair sets"
+  },
+  "input": {
+    "scene_id": "CLASSROOM-CN-4X5-001",
+    "scene_file": "projects/漫剧场景数据库/CLASSROOM-CN-4X5-001/场景空间数据_V1.json",
+    "scene_file_sha256": "bf031824a52bd7d406cc0da82f3d2a684345240c24d848b0d818f7e082534446",
+    "grid_validator_local_sha256": "e9e70aacd8b4641dba95978d434c8115eb934ba5a8cf5d3ae57c464323a3870e"
+  },
+  "generic_scene_database_validation": {
+    "exit_code": 0,
+    "status": "PASSED_WITH_WARNINGS",
+    "error_count": 0,
+    "warning_count": 41,
+    "warning_breakdown": {
+      "unknown_footprints": 40,
+      "normalized_coordinates_not_metric": 1
+    }
+  },
+  "dedicated_classroom_grid_validation": {
+    "exit_code": 0,
+    "status": "PASSED",
+    "error_count": 0,
+    "desk_objects": 20,
+    "chair_objects": 20,
+    "columns": 4,
+    "rows": 5,
+    "unique_cells": 20,
+    "paired_chairs": 20,
+    "central_aisle_wider_than_both_adjacent": true,
+    "male_row": 3,
+    "male_column_unresolved": true,
+    "female_adjacent_seat_unresolved_column": true
+  },
+  "not_verified": [
+    "真实米制尺寸",
+    "桌椅占地碰撞",
+    "通道净宽与规范合规性",
+    "门扇开启方向",
+    "男主具体列号",
+    "女主具体列号及左右侧"
+  ],
+  "boundary": "Windows Node 24.13.0 实际执行。结果只证明归一化4列×5排网格、对象关系、固定建筑锚点及逻辑通道宽度检查通过；不证明真实尺寸、碰撞或通道净宽。人物列号不从无人物的原图推断。"
+}
