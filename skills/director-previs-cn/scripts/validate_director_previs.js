@@ -47,6 +47,7 @@ const classroom = JSON.parse(read("skills/director-previs-cn/tests/fixtures/教�
 const cameraSkillText = read("skills/camera-motion-director-cn/SKILL.md");
 const cameraLock = JSON.parse(read("skills/camera-motion-director-cn/SOURCE_LOCK.json"));
 const manjuSkillText = read("skills/manju-director-cn/SKILL.md");
+const manjuReadmeText = read("skills/manju-director-cn/README.md");
 const manjuLock = JSON.parse(read("skills/manju-director-cn/SOURCE_LOCK.json"));
 const storyboardRuleIndex = JSON.parse(read("分镜规则清单.json"));
 const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演统筹路由回归.json"));
@@ -66,6 +67,22 @@ const writingSource = storyboardRuleIndex.rules.find(item => item.path === "剧�
 const selfCheckSource = storyboardRuleIndex.rules.find(item => item.path === "剧本转分镜自检指令");
 check("manju writing snapshot SHA matches current main", Boolean(writingSource && manjuLock.files.some(item => item.package_path === "references/剧本转分镜指令.md" && item.git_blob_sha === writingSource.git_blob_sha)));
 check("manju self-check snapshot SHA matches current main", Boolean(selfCheckSource && manjuLock.files.some(item => item.package_path === "references/剧本转分镜自检指令.md" && item.git_blob_sha === selfCheckSource.git_blob_sha)));
+check("manju README summarizes all V2.10.5 additions", ["人物站位与场面调度","场景基线与空间差量","场景拓扑与可信姿态推断"].every(term => manjuReadmeText.includes(term)));
+for (const snapshot of manjuLock.files || []) {
+  const packagePath = path.join("skills/manju-director-cn", snapshot.package_path);
+  check(`manju packaged snapshot exists: ${snapshot.package_path}`, exists(packagePath));
+  if (exists(packagePath)) {
+    const packagedText = read(packagePath);
+    check(`manju packaged snapshot SHA: ${snapshot.package_path}`, gitBlobSha(packagedText) === snapshot.git_blob_sha);
+    check(`manju packaged snapshot character count: ${snapshot.package_path}`, packagedText.length === snapshot.characters);
+  }
+  check(`manju source snapshot exists: ${snapshot.source_path}`, exists(snapshot.source_path));
+  if (exists(snapshot.source_path)) {
+    const sourceText = read(snapshot.source_path);
+    check(`manju source snapshot SHA: ${snapshot.source_path}`, gitBlobSha(sourceText) === snapshot.git_blob_sha);
+    check(`manju source snapshot character count: ${snapshot.source_path}`, sourceText.length === snapshot.characters);
+  }
+}
 
 const specialists = [
   "scene-realism-director-cn",
