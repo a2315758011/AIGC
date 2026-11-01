@@ -58,9 +58,9 @@ const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演�
 const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
 check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
-check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.0"/.test(frontmatter[1])) && lock.version === "1.4.0");
+check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.1"/.test(frontmatter[1])) && lock.version === "1.4.0");
 check("source lock targets current branch", lock.branch === "main");
-check("source lock pins reviewed main commit", lock.verified_main_commit === "c281194f1cca561825323b4ba48395de86d1fa52");
+check("source lock pins reviewed main commit", lock.verified_main_commit === "48a7f15bc333b889e9670f8b8ab36dc0e2287bfe");
 const cameraFrontmatter = cameraSkillText.match(/^---\n([\s\S]*?)\n---/);
 check("camera skill metadata matches source lock 1.1.1", Boolean(cameraFrontmatter && /version:\s*"1\.1\.1"/.test(cameraFrontmatter[1])) && cameraLock.version === "1.1.1");
 const manjuFrontmatter = manjuSkillText.match(/^---\n([\s\S]*?)\n---/);
@@ -95,7 +95,7 @@ const specialists = [
 ];
 check("all four specialist routes exist", specialists.every(name => skillText.includes(name)));
 const dependencyByName = Object.fromEntries((lock.local_dependencies || []).map(item => [item.package, item]));
-check("scene realism dependency is current", dependencyByName["scene-realism-director-cn"]?.version === "1.4.0");
+check("scene realism dependency is current", dependencyByName["scene-realism-director-cn"]?.version === "1.10.0");
 check("storyboard dependency is current", dependencyByName["storyboard-director-cn"]?.version === "1.3.4");
 check("positioning rules are current", dependencyByName["storyboard-positioning-rules"]?.version === "1.9.0");
 check("camera motion dependency is current", dependencyByName["camera-motion-director-cn"]?.version === "1.1.1");
