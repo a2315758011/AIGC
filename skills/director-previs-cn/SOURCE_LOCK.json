@@ -73,10 +73,10 @@
       "package": "scene-realism-director-cn",
       "version": "1.10.0",
       "path": "skills/scene-realism-director-cn/SKILL.md",
-      "git_blob_sha": "038c00ecfdba36116a12d912e6293077dfb39478",
+      "git_blob_sha": "aa4793860777bd7b3b68a3654a5d91b5218fbb51",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
       "source_lock_version": "1.10.0",
-      "source_lock_git_blob_sha": "8073267197902bddabbddc861459434980340f9d",
+      "source_lock_git_blob_sha": "ddab90c683a25402d0f198387e1cf25bcd0ab5f2",
       "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
       "status": "conditional"
     },
