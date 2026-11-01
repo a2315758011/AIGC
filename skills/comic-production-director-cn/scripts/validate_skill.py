@@ -35,6 +35,7 @@ SOURCE_REFERENCES = (
     "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
     "docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
     "docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md",
+    "docs/专业欧美漫画排字与页面阅读规则-V1.md",
     "平台导出配置登记表-V1.json",
 )
 
