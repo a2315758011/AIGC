@@ -95,7 +95,7 @@ const specialists = [
 ];
 check("all four specialist routes exist", specialists.every(name => skillText.includes(name)));
 const dependencyByName = Object.fromEntries((lock.local_dependencies || []).map(item => [item.package, item]));
-check("scene realism dependency is current", dependencyByName["scene-realism-director-cn"]?.version === "1.4.0");
+check("scene realism dependency is current", dependencyByName["scene-realism-director-cn"]?.version === "1.10.0");
 check("storyboard dependency is current", dependencyByName["storyboard-director-cn"]?.version === "1.3.4");
 check("positioning rules are current", dependencyByName["storyboard-positioning-rules"]?.version === "1.9.0");
 check("camera motion dependency is current", dependencyByName["camera-motion-director-cn"]?.version === "1.1.1");
