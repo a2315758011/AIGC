@@ -42,6 +42,16 @@ for (const id of ["WALL-FRONT","WALL-LEFT","WALL-RIGHT","DOOR-FRONT-RIGHT","BLAC
   check(factIds.has(id), `缺少固定空间事实：${id}`);
 }
 const zones = new Map(data.clearance_zones.map(x => [x.id, x.bounds]));
+const facts = new Map(data.fixed_facts.map(x => [x.id, x]));
+const door = facts.get("DOOR-FRONT-RIGHT");
+const board = facts.get("BLACKBOARD-01");
+const podium = facts.get("PODIUM-01");
+const leftWall = facts.get("WALL-LEFT");
+const rightWall = facts.get("WALL-RIGHT");
+check(door?.location?.wall === "right" && near(door.location.position_y, 0.14), "教室门必须位于右侧前段");
+check(board?.location?.wall === "front" && near(board.location.x, 0.5) && near(board.location.y, 0), "黑板必须位于前墙中央");
+check(near(podium?.location?.x, 0.5) && near(podium?.location?.y, 0.12), "讲台必须位于前墙中央前方");
+check(leftWall?.location?.wall === "left" && rightWall?.location?.wall === "right", "左右侧墙事实必须存在");
 const left = zones.get("CLEARANCE-1-2");
 const center = zones.get("CLEARANCE-CENTER");
 const right = zones.get("CLEARANCE-3-4");
@@ -63,7 +73,7 @@ const report = {
     rows: rows.length,
     unique_cells: new Set(cellKeys).size,
     paired_chairs: desks.filter(d => chairById.has(d.paired_with)).length,
-    central_aisle_wider: errors.every(e => !e.includes("中央通道"))
+    central_aisle_wider: centralAisleWider
   },
   boundary: "仅验证归一化网格、对象关系和通道逻辑区间；真实尺寸、桌椅占地、碰撞与通道净宽仍未验证。"
 };
