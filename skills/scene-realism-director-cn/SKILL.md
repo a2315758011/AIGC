@@ -191,3 +191,13 @@ node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG三维碰撞回归-V1.js
 - 新接触、继承接触、释放接触分别按 contact_begin / 同 contact_id / contact_end 表达。
 - 结构校验：`node tests/validate-scg-skeletal-contact.cjs tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json`。
 - 校验器通过仅代表 SCG 结构和时序符合契约。未运行 Blender / DirectorDesk IK、没有关键帧与视口证据时，必须标记真实骨骼接触为 NOT_RUN。
+
+
+## 跨镜骨骼接触连续性（V1.12）
+
+当人物坐下/起身、站立支撑、抓握、扶靠、跪地、跌倒或与其他角色接触时：
+- 必须使用 SCG 的 `entities[].attributes.skeletal_rig`、`skeletal_pose`、目标实体 `contact_anchors[]`，以及关系上的 `contact_constraint`。
+- 连续镜头中同一 contact_id 的人物、目标、末端、锚点和模式必须一致；新建和释放分别由 `contact_begin` / `contact_end` 事件表达。
+- 锚点缺少三维位置、坐标系或单位时，只允许结构检查，不得声称可执行 IK。
+- 运行 `tests/validate-scg-skeletal-contact.cjs tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json`。当前 11 组结构回归在 GitHub Actions 通过；这不是实际骨骼解算验收。
+- Blender / DirectorDesk 的 IK、脚底锁定、网格穿插、跨镜首尾帧与视口证据必须独立验收；未运行必须标记 NOT_RUN。

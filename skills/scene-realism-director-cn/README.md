@@ -1,4 +1,4 @@
-# 场景真实性导演与独立质检 Skill V1.11.0
+# 场景真实性导演与独立质检 Skill V1.12.0
 
 本技能用于控制 AIGC 场景图的建筑拓扑、空间功能、家具布局、透视尺度、物理接触、光照、色彩、材质和跨镜场景连续性。
 
@@ -18,7 +18,7 @@
 - `references/教室空间权威布局基准-3列5排-V1.json`：15 张桌子、15 把椅子及建筑锚点的归一化逻辑基准。
 - `references/漫剧场景空间数据库_SCHEMA_V1.json`、`references/漫剧场景空间数据库模板_V1.json`：通用场景数据库结构和空白模板。
 - `projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json`：教室实例。家具 footprint 当前为 null，真实尺寸和通道净宽仍未知。
-- `references/SCG三维预演与碰撞检查扩展契约-V1.md`：XYZ 坐标、人物/摄影机代理和 AABB 碰撞边界。
+- `references/SCG三维预演与碰撞检查扩展契约-V1.md`：XYZ 坐标、人物/摄影机代理和 AABB 碰撞边界。\n- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`：骨骼绑定、接触锚点、跨镜接触生命周期。\n- `tests/validate-scg-skeletal-contact.cjs` 与对应 11 组回归：结构/时序校验，不替代真实 IK。
 - `references/DirectorDesk三维白模预演适配规范-V1.md`：场景数据库/SCG 到 DirectorDesk 的坐标映射与预演流程。
 - `scripts/export-directordesk-neutral.cjs`、`tests/test-directordesk-neutral.cjs`：中立预演包导出和坐标转换门禁。
 - `tests/validate-scene-database.cjs`：场景数据库结构、对象配对、占地重叠和通道侵入检查。
