@@ -4,7 +4,7 @@
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "6996a9c7c62c0d75219e52163ea62924c249c43a",
+  "verified_main_commit": "7454c7e929aa50addc83d28a7fc7e6caac937218",
   "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
@@ -192,23 +192,24 @@
     "licenses_checked": true,
     "local_dependencies_read": true,
     "local_dependency_blob_shas_pinned": true,
-    "main_commit": "6996a9c7c62c0d75219e52163ea62924c249c43a",
+    "main_commit": "7454c7e929aa50addc83d28a7fc7e6caac937218",
     "orchestrator_regression_cases": 11,
     "fight_impact_skill_status": "authored_pending_review",
     "manju_director_status": "V2.10.5_snapshot_SHA_and_character_counts_verified_against_main_and_packaged_copy",
     "automated_static_regression": {
       "status": "passed",
-      "run_id": 41272617359,
-      "tested_commit": "6996a9c7c62c0d75219e52163ea62924c249c43a",
-      "pass_count": 181,
+      "run_id": 41293255055,
+      "run_number": 268,
+      "tested_commit": "7454c7e929aa50addc83d28a7fc7e6caac937218",
+      "pass_count": 185,
       "fail_count": 0,
       "breakdown": {
-        "director_previs_contract": 145,
-        "director_ab_protocol": 36
+        "director_previs_contract": 148,
+        "director_ab_protocol": 37
       },
       "workflow": "director-previs-regression",
-      "scope": "GitHub Actions 实际执行：导演统筹与交接回归145项、导演工作流A/B协议回归36项。验证仓库合同、依赖锁、路由、教室夹具、A/B协议和结果模板；不验证目标模型真实图片/视频行为。",
-      "note": "Run 41272617359 已在 main 6996a9c7c62c0d75219e52163ea62924c249c43a 上通过181项静态回归；真实工作流A/B、真实图像/视频A/B仍NOT_RUN。"
+      "scope": "GitHub Actions 实际执行：导演统筹与交接回归148项、导演工作流A/B协议回归37项，以及教室空间数据库、镜头连续性、SCG运动/接触与DirectorDesk适配回归。",
+      "note": "Run 41293255055 在 main 7454c7e929aa50addc83d28a7fc7e6caac937218 上通过185 PASS / 0 FAIL。真实导演工作流A/B、真实图像/视频A/B仍NOT_RUN。"
     },
     "manual_route_dry_run": {
       "status": "passed",
@@ -257,7 +258,7 @@
     "scg_data_contract": "reused_as_authority_no_duplicate_schema",
     "event_time_contract": "reused_as_authority"
   },
-  "note": "导演共享事实与SCG交接规范 V1.0.0 已加入；真实工作流A/B及真实图片/视频A/B尚未执行。静态回归181 PASS / 0 FAIL仅证明仓库合同与测试通过，不代表模型真实生成质量已通过。",
+  "note": "导演共享事实与SCG交接规范 V1.0.0 已加入；版本同步与回归断言已修复。GitHub Actions 运行 41293255055：185 PASS / 0 FAIL。真实工作流A/B及真实图片/视频A/B尚未执行。静态回归只证明仓库合同与测试通过，不代表模型真实生成质量已通过。",
   "cross_skill_refs": {
     "scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md": "d85741572d8de2f0610394530ad99703ce5296f3"
   }
