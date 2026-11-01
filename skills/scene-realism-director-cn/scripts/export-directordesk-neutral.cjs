@@ -57,6 +57,12 @@ function convert(db,scg,manifest){
   if(!size){unresolved.push({id:o.id,reason:"固定对象缺少完整三维尺寸"});continue;}
   objects.push({id:o.id,kind:o.kind,position_m:point(o.position,mv),size_m:size,mobility:o.mobility,source_status:o.status});
  }
+ const cameras=[];
+ for(const cam of db.camera_views||[]){
+  const valid=v=>obj(v)&&["x","y","z"].every(k=>finite(v[k]));
+  if(!valid(cam.camera_position)||!valid(cam.look_at)){unresolved.push({id:cam.view_id||"CAMERA-UNKNOWN",reason:"摄影机预设缺少完整位置或注视点"});continue;}
+  cameras.push({id:cam.view_id,position_m:point(cam.camera_position,mv),look_at_m:point(cam.look_at,mv),projection:cam.projection,output_contract:cam.output_contract});
+ }
  const shots=[];
  for(const shot of scg.shots||[]){
   const entities=[];
@@ -85,7 +91,7 @@ function convert(db,scg,manifest){
   native_directordesk_project:false,
   scene:{id:db.scene_id,name:db.scene_name,status:db.status},
   transform:{source_units:manifest.source_units,target_units:"meter",source_axis_positive:manifest.source_axis_positive,target_axis_positive:manifest.target_axis_positive,target_axis_from_source:manifest.target_axis_from_source,source_handedness:manifest.source_handedness,target_handedness:manifest.target_handedness,origin_offset_m:mv.offset,approval:manifest.approval,determinant:mv.determinant},
-  fixed_objects:objects,shots,unresolved,
+  fixed_objects:objects,camera_presets:cameras,shots,unresolved,
   release_ready:unresolved.length===0,
   limitation:"中立交换包，不是DirectorDesk原生工程；导入前仍需按已安装版本的原生项目接口适配并做实际视口验收。"
  };
