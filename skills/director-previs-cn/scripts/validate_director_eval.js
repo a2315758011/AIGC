@@ -2,7 +2,7 @@
 "use strict";
 const fs = require("node:fs");
 const path = require("node:path");
-const root = path.resolve(__dirname, "../..");
+const root = path.resolve(__dirname, "../../..");
 let passed = 0, failed = 0;
 function check(name, ok) {
   if (ok) { passed++; console.log("PASS " + name); }
