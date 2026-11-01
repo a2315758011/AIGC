@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.0.1",
   "scale": {
-    "0": "失败/不可用：严重违背要求或存在明显结构错误",
-    "1": "较差：多处明显缺陷，必须重做",
-    "2": "部分满足：主要目标可辨认，但有显著缺陷",
-    "3": "良好：主要约束满足，仅有局部轻微问题",
-    "4": "优秀：约束完整、逻辑清楚、无明显缺陷"
+    "1": "失败/不可用：严重违背要求或存在明显结构错误",
+    "2": "较差：多处明显缺陷，必须重做",
+    "3": "部分满足：主要目标可辨认，但有显著缺陷",
+    "4": "良好：主要约束满足，仅有局部轻微问题",
+    "5": "优秀：约束完整、逻辑清楚、无明显缺陷"
   },
   "p0_hard_gates": [
     {
@@ -15,7 +15,7 @@
         "classroom_video"
       ],
       "criterion": "桌椅为4列×6排，共24套；不得增删、合并或突兀混排",
-      "evidence": "俯视/全景中逐一计数；无法看清时标记UNVERIFIABLE，不得默认通过"
+      "evidence": "俯视/全景中逐一计数；无法看清时标记UNVERIFIABLE"
     },
     {
       "id": "HG-02",
@@ -23,7 +23,7 @@
         "classroom_still",
         "classroom_video"
       ],
-      "criterion": "所有学生桌椅朝向黑板，走道和间距保持合理",
+      "criterion": "所有学生桌椅朝向黑板，走道和间距合理",
       "evidence": "平面/全景位置关系"
     },
     {
@@ -68,7 +68,7 @@
         "classroom_still",
         "classroom_video"
       ],
-      "criterion": "未获授权时，不得重排建筑、家具、人物或添加不合理固定设施",
+      "criterion": "未获授权时不得重排建筑、家具、人物或添加不合理固定设施",
       "evidence": "与唯一布局真值及固定锚点对照"
     },
     {
@@ -81,99 +81,111 @@
       "evidence": "局部放大或逐帧检查"
     }
   ],
-  "still_image_weights": [
+  "base_visual_dimensions": [
     {
-      "id": "SI-01",
-      "name": "空间拓扑与建筑结构",
-      "weight": 25,
-      "description": "墙体、门窗、讲台、黑板、走廊、窗户及通道连接关系正确"
+      "id": "VD-01",
+      "name": "对象数量与属性",
+      "description": "对象是否齐全，数量、类别、属性与事实底稿一致"
     },
     {
-      "id": "SI-02",
-      "name": "布局与数量准确",
-      "weight": 20,
-      "description": "桌椅数量、行列、朝向、间距和位置与唯一真值一致"
+      "id": "VD-02",
+      "name": "空间关系",
+      "description": "相邻、远近、前后、内外、左右、连接关系正确"
     },
     {
-      "id": "SI-03",
-      "name": "人物调度可读性",
-      "weight": 15,
-      "description": "人物世界位置、身体/头部/视线、入场终态能被清楚读懂"
+      "id": "VD-03",
+      "name": "布局与可通行性",
+      "description": "家具/人物布置合理，入口、通道和操作空间可用"
     },
     {
-      "id": "SI-04",
-      "name": "物理合理性",
-      "weight": 15,
-      "description": "比例、支撑、遮挡、接触、重力和透视合理"
+      "id": "VD-04",
+      "name": "遮挡与前后关系",
+      "description": "遮挡顺序、深度层次和可见性合理"
     },
     {
-      "id": "SI-05",
-      "name": "参考素材保真",
-      "weight": 10,
-      "description": "角色外观、服装、教室风格及已批准锚点一致"
+      "id": "VD-05",
+      "name": "透视与尺度",
+      "description": "相机透视、消失方向、物体比例和尺度可信"
     },
     {
-      "id": "SI-06",
-      "name": "真实感与伪影控制",
-      "weight": 10,
-      "description": "材质、光照、阴影、纹理和细节没有明显塑料感/AI伪影"
+      "id": "VD-06",
+      "name": "支撑、接触与碰撞",
+      "description": "支撑面、脚底接触、物体接触、碰撞和重力关系成立"
     },
     {
-      "id": "SI-07",
-      "name": "构图与信息可读性",
-      "weight": 5,
-      "description": "关键动作可见，画面不被无关道具/文字/遮挡破坏"
+      "id": "VD-07",
+      "name": "光照、阴影与反射",
+      "description": "光源方向、阴影、接触阴影、反射逻辑一致"
+    },
+    {
+      "id": "VD-08",
+      "name": "材质与纹理",
+      "description": "木、金属、布、玻璃等材质特征与纹理尺度合理"
+    },
+    {
+      "id": "VD-09",
+      "name": "场景事实保真",
+      "description": "参考图和用户锁定事实未被擅自改造"
+    },
+    {
+      "id": "VD-10",
+      "name": "AI 痕迹",
+      "description": "无明显纹理融化、重复结构、伪文字、边缘融并等伪影"
     }
   ],
-  "video_weights": [
+  "video_additional_checks": [
     {
-      "id": "VI-01",
-      "name": "空间与布局连续性",
-      "weight": 20,
-      "description": "建筑、24套桌椅和人物世界坐标跨帧稳定"
+      "id": "MV-01",
+      "name": "根节点路径与身体动作分离",
+      "description": "人物世界位移路径与身体动作/姿态分别定义并同步"
     },
     {
-      "id": "VI-02",
-      "name": "动作因果与人物调度",
-      "weight": 20,
-      "description": "女主入场、停步、男主转头/视线变化动作顺序正确"
+      "id": "MV-02",
+      "name": "路径时间与形状保真",
+      "description": "路径含起终点/途经点/时间；距离定时；简化不抹掉台阶、急转角、闭环和终点"
     },
     {
-      "id": "VI-03",
-      "name": "运动连续性",
-      "weight": 20,
-      "description": "人物运动无瞬移、肢体抖动、形变或不合理速度变化"
+      "id": "MV-03",
+      "name": "脚底防穿地（grounding）",
+      "description": "脚部几何不穿入地面或支撑面"
     },
     {
-      "id": "VI-04",
-      "name": "摄影机运动执行",
-      "weight": 15,
-      "description": "摄影机轨迹、速度、起止状态符合运镜方案，不破坏空间关系"
+      "id": "MV-04",
+      "name": "支撑脚锁定（foot planting）",
+      "description": "支撑期脚掌保持世界空间接触锚点；摆动期不错误锁地"
     },
     {
-      "id": "VI-05",
-      "name": "物理合理性",
-      "weight": 10,
-      "description": "人物与门、地面、桌椅接触和遮挡关系正确"
+      "id": "MV-05",
+      "name": "关键帧速度连续性",
+      "description": "动作关键帧、拼接点、循环接缝无无故停顿或速度突变"
     },
     {
-      "id": "VI-06",
-      "name": "视觉真实感",
-      "weight": 10,
-      "description": "材质、光照、角色外观和场景细节跨帧稳定"
+      "id": "MV-06",
+      "name": "摄影机位置与视线轨迹分离",
+      "description": "相机位置路径和注视点/视线目标路径分别检查时间、端点和过冲"
     },
     {
-      "id": "VI-07",
-      "name": "剪辑/时间信息可读性",
-      "weight": 5,
-      "description": "时长、动作节奏和镜头信息符合任务目的"
+      "id": "MV-07",
+      "name": "群演个体一致性",
+      "description": "共享/实例化后每名群演身份、布局、朝向、动作和相位保持"
+    },
+    {
+      "id": "MV-08",
+      "name": "跨镜状态连续性",
+      "description": "镜头切点人物位置、姿态、持物、支撑和场景状态正确继承"
     }
   ],
   "scoring": {
-    "formula": "weighted_score = sum(weight * rating_0_to_4 / 4)",
-    "hard_gate_rule": "任一适用P0硬门禁FAIL，则该样本总体验收FAIL；加权分不得覆盖P0失败",
-    "unknown_rule": "证据不足时标记UNVERIFIABLE，不计为PASS；需补充视角/素材后复测",
-    "pairwise_rule": "先分别评分，再随机左右顺序做A/B偏好判断；不得只用偏好票代替硬约束评分"
+    "method": "沿用 scene-realism-director-cn 的十维1—5分评分；逐项记录证据，不使用另一套加权总分",
+    "hard_gate_rule": "任一适用P0硬门禁FAIL，则该样本总体验收FAIL；审美评分不得覆盖P0/P1失败",
+    "defect_levels": [
+      "P0",
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "unknown_rule": "证据不足标记UNVERIFIABLE或N/A，不计为PASS",
+    "pairwise_rule": "先独立缺陷分级和逐项评分，再随机左右顺序做A/B偏好判断"
   },
   "reviewer_requirements": {
     "minimum_independent_human_reviewers": 2,
@@ -181,14 +193,15 @@
     "blind_to_arm": true,
     "randomize_pair_order": true,
     "preserve_individual_scores": true,
-    "model_judge_role": "辅助；必须与人工标签校准，不可单独放行"
+    "model_judge_role": "辅助；须与人工标签校准，不可单独放行"
   },
   "practical_decision_thresholds": {
     "minimum_reduction_in_critical_omissions_plus_conflicts": 0.2,
-    "minimum_weighted_score_gain_points_on_0_to_4": 0.5,
+    "minimum_average_gain_on_1_to_5_scale": 0.5,
     "max_acceptable_overhead_without_quality_gain": 0.25,
     "pilot_image_pairwise_win_count": 4,
     "pilot_image_pairwise_total_pairs": 5,
+    "scene_realism_prompt_ab_must_be_separate": true,
     "interpretation": "5组图像中至少4组B胜仅为初步偏好信号，不是统计显著性证据"
   }
 }
