@@ -89,7 +89,7 @@ metadata:
 node skills/director-previs-cn/scripts/validate_director_previs.js
 ```
 
-该检查器验证路由合同、来源锁、依赖文件 SHA、教室集成夹具和十项回归用例。fight-impact-vfx 当前自身状态为 `authored_pending_review`，使用时须遵守其验证边界。静态检查只证明仓库合同一致，不证明模型真实遵循提示词，也不证明图像/视频质量提升。
+该检查器验证路由合同、来源锁、依赖文件 SHA、教室集成夹具和十一项回归用例。fight-impact-vfx 当前自身状态为 `authored_pending_review`，使用时须遵守其验证边界。静态检查只证明仓库合同一致，不证明模型真实遵循提示词，也不证明图像/视频质量提升。
 
 当前权威依赖版本：scene-realism-director-cn V1.3.0；storyboard-director-cn V1.3.1；人物站位规则 V1.6.0。涉及动态走位时，必须读取站位规则中的路径时间、根节点/姿态分离、grounding/foot planting、关键帧速度连续性、群演个体一致性和相机位置/视线分轨要求；不得在本 Skill 里复制第二套参数规则。
 
