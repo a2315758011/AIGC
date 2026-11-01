@@ -44,7 +44,7 @@ function run(scene){
   }
   for(let x=0;x<wins.length;x++)for(let y=x+1;y<wins.length;y++){const a=wins[x],b=wins[y];if(a.actor===b.actor&&a.effector===b.effector&&a.target!==b.target&&Math.max(a.start,b.start)<Math.min(a.end,b.end))fail("CONTACT-DATA-25",a.id+" / "+b.id,"同一末端重叠约束到不同目标");}
   for(const[id,old]of prev){const ends=events.filter(e=>e&&e.action==="contact_end"&&e.contact_id===id);if(!curr.has(id)&&!ends.length)fail("CONTACT-DATA-26",id,"接触消失但没有 contact_end");if(curr.has(id)&&ends.length)fail("CONTACT-DATA-28",id,"接触仍持续却出现 contact_end");for(const e of ends)if(e.actor&&e.actor!==old.constraint.actor_id)fail("CONTACT-DATA-30",id,"contact_end 人物不匹配");}
-  for(const e of events){if(!e||!["contact_begin","contact_end"].includes(e.action))continue;if(e.action==="contact_begin"){if(!curr.has(e.contact_id)||prev.has(e.contact_id))fail("CONTACT-DATA-29",e.contact_id,"孤立或重复 contact_begin");}else if(!prev.has(e.contact_id)||curr.has(e.contact_id))fail("CONTACT-DATA-29",e.contact_id,"孤立或未释放 contact_end");}
+  for(const e of events){if(!e||!["contact_begin","contact_end"].includes(e.action))continue;if(e.action==="contact_begin"){if(!curr.has(e.contact_id)||prev.has(e.contact_id))fail("CONTACT-DATA-29",e.contact_id,"孤立或重复 contact_begin");}else if(!prev.has(e.contact_id))fail("CONTACT-DATA-29",e.contact_id,"孤立 contact_end");}
   prev=curr;
  }
  return{ok:!errors.length,errors,warnings};
