@@ -89,7 +89,7 @@ class SkillContractTests(unittest.TestCase):
     def test_invalid_frontmatter_fails(self):
         with tempfile.TemporaryDirectory() as tmp:
             skill = self.make_fixture(Path(tmp))
-            (skill / "SKILL.md").write_text(GOOD_SKILL.replace("version: 1.0.0", "version: latest"), encoding="utf-8")
+            (skill / "SKILL.md").write_text(GOOD_SKILL.replace("version: 1.2.0", "version: latest"), encoding="utf-8")
             self.assertIn("SKILL_VERSION_INVALID", validate(skill))
 
     def test_globalcomix_ai_monetization_blocked(self):
