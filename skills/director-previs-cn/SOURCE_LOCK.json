@@ -1,6 +1,6 @@
 {
   "package": "director-previs-cn",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
@@ -155,6 +155,27 @@
       "path": "docs/结构化3D导演台与多视角角色一致性研究_20261101_第六批.md",
       "git_blob_sha": "d151b072b105bf31505504fb7a2972dab89e412f",
       "authority": "结构化导演台稳定ID、人工锁定/撤销、静态场景与动态角色/相机分离、多视角身份锚点；仅静态源码与论文研究，未安装运行"
+    },
+    {
+      "package": "director-shared-facts-scg-handoff",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/references/导演共享事实与SCG交接规范-V1.md",
+      "git_blob_sha": "5cc2a98258bebbcca19527043229142e64f8960f",
+      "authority": "导演层剧本/项目资产/场景基线/角色道具/SCG逐镜状态/事件时码/摄影机轨迹统一交接；不另造分镜字段"
+    },
+    {
+      "package": "storyboard-scg-data-contract",
+      "version": "1.0.0",
+      "path": "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md",
+      "git_blob_sha": "016e8830ea1a6f5db590a4c591eb2912c6b126d0",
+      "authority": "逐镜完整世界状态、实体/关系/事件、来源和跨镜继承权威数据结构"
+    },
+    {
+      "package": "storyboard-event-time-contract",
+      "version": "1.0.0",
+      "path": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",
+      "git_blob_sha": "c21fa189e568a9026a1b2845d3ee89318291f142",
+      "authority": "统一项目时间基准、镜头区间、动作事件、前置依赖与互斥资源时码权威契约"
     }
   ],
   "excluded_candidates": [
@@ -232,6 +253,10 @@
     "generation_jobs_submitted": 0,
     "production_files_modified": false,
     "real_image_video_ab_blocker": "Generation Gateway SERVICE_NOT_RUNNING; provider executable last failed with STATUS_BREAKPOINT 0x80000003; no generation jobs submitted.",
-    "manju_snapshot_content_gates": "passed"
-  }
+    "manju_snapshot_content_gates": "passed",
+    "unified_handoff_contract": "added_and_pinned",
+    "scg_data_contract": "reused_as_authority_no_duplicate_schema",
+    "event_time_contract": "reused_as_authority"
+  },
+  "note": " Unified handoff V1.0.0 added: script provenance, project asset references, scene baseline, character/prop state, complete per-shot SCG snapshots, event timeline, and independent camera trajectory. Existing SCG and event-time contracts remain authoritative; no duplicate storyboard schema was created. Real target-model A/B remains NOT_RUN."
 }
