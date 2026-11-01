@@ -22,6 +22,8 @@ REQUIRED_RULES = (
     "双格式",
     "许可证",
     "NOT_RUN",
+    "重新生成无文字样稿",
+    "完整气泡/尾巴遮罩",
 )
 
 SOURCE_REFERENCES = (
