@@ -58,7 +58,7 @@ const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演�
 const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
 check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
-check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.1"/.test(frontmatter[1])) && lock.version === "1.4.0");
+check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.1"/.test(frontmatter[1])) && lock.version === "1.4.1");
 check("source lock targets current branch", lock.branch === "main");
 check("source lock pins reviewed main commit", lock.verified_main_commit === "48a7f15bc333b889e9670f8b8ab36dc0e2287bfe");
 const cameraFrontmatter = cameraSkillText.match(/^---\n([\s\S]*?)\n---/);
