@@ -3,7 +3,7 @@
 本技能是导演层的任务统筹入口，不重复开发已有专业规则。
 
 ## 当前权威专业技能版本
-- `scene-realism-director-cn` V1.12.0（conditional）：场景真实性、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真、俯视/全景。
+- `scene-realism-director-cn` V1.15.0（conditional）：场景真实性、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真、俯视/全景。
 - `storyboard-director-cn` V1.3.5 / source V2.10.5：正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性。
 - 人物站位与场景调度规则 V1.9.0：动态路径、foot grounding/foot planting、关键帧速度连续性、群演一致性、相机位置/视线轨迹分离。
 - `camera-motion-director-cn` V1.1.1：摄影机运动、位置/视线轨迹、模型适配和运镜审片。
