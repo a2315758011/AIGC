@@ -170,7 +170,7 @@
     "manju_director_status": "excluded_until_source_refresh",
     "automated_static_regression": {
       "status": "passed",
-      "run_id": 41260864054,
+      "run_id": 41260915659,
       "pass_count": 133,
       "fail_count": 0,
       "breakdown": {
@@ -178,7 +178,7 @@
         "ab_protocol": 36
       },
       "workflow": "director-previs-regression",
-      "scope": "PR #17 head commit 8bb1485968b95ea75dfeb33b17cefbc8cba80a45"
+      "scope": "PR #17 head commit 625d4de897ed5b85ca917663e0265cc90cb86ef3"
     },
     "manual_route_dry_run": {
       "status": "passed",
