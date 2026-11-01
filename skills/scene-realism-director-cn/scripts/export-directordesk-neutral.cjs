@@ -81,6 +81,10 @@ function convert(db,scg,manifest){
    if(m.from)motion.from_m=point(m.from,mv);
    if(m.to)motion.to_m=point(m.to,mv);
    if(Array.isArray(m.waypoints))motion.waypoints_m=m.waypoints.map(p=>point(p,mv));
+   // 摄影机注视点轨道是独立于光心位置轨道的方向目标通道。
+   if(m.look_at_from)motion.look_at_from_m=point(m.look_at_from,mv);
+   if(m.look_at_to)motion.look_at_to_m=point(m.look_at_to,mv);
+   if(Array.isArray(m.look_at_waypoints))motion.look_at_waypoints_m=m.look_at_waypoints.map(p=>point(p,mv));
    motion.start_ms=m.start_ms;motion.end_ms=m.end_ms;
    events.push({id:ev.id,source_id:ev.source_id,action:ev.action,motion});
   }
