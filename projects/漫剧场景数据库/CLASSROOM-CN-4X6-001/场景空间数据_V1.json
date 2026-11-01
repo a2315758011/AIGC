@@ -1,0 +1,995 @@
+{
+  "schema_version": "1.0",
+  "scene_id": "CLASSROOM-CN-4X6-001",
+  "scene_name": "用户参考教室（4列6排，24套桌椅）",
+  "status": "reviewed",
+  "source_of_truth": {
+    "source_type": "user_reference",
+    "reference": "用户资料库原图：阳光洒落的整洁教室.png；本实例只把可见布局结构化，坐标为逻辑相对值而非实测。"
+  },
+  "coordinate_system": {
+    "origin": "房间前墙左侧地面角",
+    "x_axis": "左至右",
+    "y_axis": "前墙至后墙",
+    "z_axis": "地面至顶棚",
+    "units": "normalized_0_to_1"
+  },
+  "fixed_facts": [
+    {
+      "id": "WALL-FRONT",
+      "category": "architecture",
+      "description": "教室前墙，黑板与教师讲台位于此墙",
+      "location": {
+        "wall": "front",
+        "y": 0
+      },
+      "authority": "reference_observed"
+    },
+    {
+      "id": "WALL-LEFT",
+      "category": "architecture",
+      "description": "左侧墙设置多扇采光窗",
+      "location": {
+        "wall": "left",
+        "x": 0
+      },
+      "authority": "reference_observed"
+    },
+    {
+      "id": "WALL-RIGHT",
+      "category": "architecture",
+      "description": "右侧墙设置多扇采光窗，前段另有教室门",
+      "location": {
+        "wall": "right",
+        "x": 1
+      },
+      "authority": "reference_observed"
+    },
+    {
+      "id": "DOOR-FRONT-RIGHT",
+      "category": "opening",
+      "description": "右前侧教室门，连接教学楼走廊；门扇开启方向未测量",
+      "location": {
+        "wall": "right",
+        "position_y": 0.14
+      },
+      "authority": "reference_observed"
+    },
+    {
+      "id": "BLACKBOARD-01",
+      "category": "fixed_equipment",
+      "description": "黑板位于前墙中央",
+      "location": {
+        "x": 0.5,
+        "y": 0
+      },
+      "authority": "reference_observed"
+    },
+    {
+      "id": "PODIUM-01",
+      "category": "fixed_furniture",
+      "description": "教师讲台位于黑板前方中央",
+      "location": {
+        "x": 0.5,
+        "y": 0.12
+      },
+      "authority": "reference_observed"
+    },
+    {
+      "id": "PASSAGE-1-2",
+      "category": "layout_rule",
+      "description": "第1列与第2列之间连续通道",
+      "location": {
+        "x_range": [
+          0.28,
+          0.33
+        ],
+        "y_range": [
+          0.18,
+          0.9
+        ]
+      },
+      "authority": "reference_observed"
+    },
+    {
+      "id": "PASSAGE-CENTER",
+      "category": "layout_rule",
+      "description": "第2列与第3列之间中央通道，视觉上宽于两侧列间通道",
+      "location": {
+        "x_range": [
+          0.48,
+          0.52
+        ],
+        "y_range": [
+          0.18,
+          0.9
+        ]
+      },
+      "authority": "reference_observed"
+    },
+    {
+      "id": "PASSAGE-3-4",
+      "category": "layout_rule",
+      "description": "第3列与第4列之间连续通道",
+      "location": {
+        "x_range": [
+          0.67,
+          0.72
+        ],
+        "y_range": [
+          0.18,
+          0.9
+        ]
+      },
+      "authority": "reference_observed"
+    }
+  ],
+  "objects": [
+    {
+      "id": "DESK-01",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.22
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-01",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-02",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.22
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-02",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-03",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.22
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-03",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-04",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.22
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-04",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-05",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.34
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-05",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-06",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.34
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-06",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-07",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.34
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-07",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-08",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.34
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-08",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-09",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.46
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-09",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-10",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.46
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-10",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-11",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.46
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-11",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-12",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.46
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-12",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-13",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.58
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-13",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-14",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.58
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-14",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-15",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.58
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-15",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-16",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.58
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-16",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-17",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.7
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-17",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-18",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.7
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-18",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-19",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.7
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-19",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-20",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.7
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-20",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-21",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.82
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-21",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-22",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.82
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-22",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-23",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.82
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-23",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "DESK-24",
+      "kind": "student_desk",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.82
+      },
+      "orientation": "front_faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "CHAIR-24",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-01",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.265
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-01",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-02",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.265
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-02",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-03",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.265
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-03",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-04",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.265
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-04",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-05",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.385
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-05",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-06",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.385
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-06",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-07",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.385
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-07",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-08",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.385
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-08",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-09",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.505
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-09",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-10",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.505
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-10",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-11",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.505
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-11",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-12",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.505
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-12",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-13",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.625
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-13",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-14",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.625
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-14",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-15",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.625
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-15",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-16",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.625
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-16",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-17",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.745
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-17",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-18",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.745
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-18",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-19",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.745
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-19",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-20",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.745
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-20",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-21",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.18,
+        "y": 0.865
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-21",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-22",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.38,
+        "y": 0.865
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-22",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-23",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.62,
+        "y": 0.865
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-23",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    },
+    {
+      "id": "CHAIR-24",
+      "kind": "student_chair",
+      "count": 1,
+      "position": {
+        "x": 0.82,
+        "y": 0.865
+      },
+      "orientation": "faces_front_wall",
+      "mobility": "movable",
+      "status": "confirmed",
+      "paired_with": "DESK-24",
+      "support_surface": "floor",
+      "clearance_required": true,
+      "footprint": null
+    }
+  ],
+  "unknowns": [
+    "房间真实长宽高",
+    "桌椅真实尺寸",
+    "所有通道的米制净宽及规范合规性",
+    "门扇合页和开启方向",
+    "走廊门外完整几何",
+    "女主具体座位编号：现有生成式图板存在第4排第2列/第3列冲突，须核对原始剧本"
+  ],
+  "camera_views": [
+    {
+      "view_id": "CAM-TOPDOWN",
+      "camera_position": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 1.2
+      },
+      "look_at": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0
+      },
+      "projection": "orthographic",
+      "output_contract": "one_image_one_camera"
+    },
+    {
+      "view_id": "CAM-REAR",
+      "camera_position": {
+        "x": 0.5,
+        "y": 0.97,
+        "z": 0.7
+      },
+      "look_at": {
+        "x": 0.5,
+        "y": 0,
+        "z": 0.3
+      },
+      "projection": "perspective",
+      "output_contract": "one_image_one_camera"
+    }
+  ],
+  "prohibited_inferences": [
+    "不得将归一化坐标当作米制测量",
+    "不得从单张照片推断不可见的完整走廊结构",
+    "不得把不同独立生图声称为同一3D场景的多视角",
+    "不得擅自锁定女主座位冲突项"
+  ],
+  "clearance_zones": [
+    {
+      "id": "CLEARANCE-LEFT-SIDE",
+      "purpose": "左侧墙与第1列之间的边缘通行区域",
+      "bounds": {
+        "x_min": 0.08,
+        "x_max": 0.13,
+        "y_min": 0.18,
+        "y_max": 0.9
+      }
+    },
+    {
+      "id": "CLEARANCE-1-2",
+      "purpose": "第1列与第2列之间通道",
+      "bounds": {
+        "x_min": 0.28,
+        "x_max": 0.33,
+        "y_min": 0.18,
+        "y_max": 0.9
+      }
+    },
+    {
+      "id": "CLEARANCE-CENTER",
+      "purpose": "第2列与第3列之间中央通道",
+      "bounds": {
+        "x_min": 0.48,
+        "x_max": 0.52,
+        "y_min": 0.18,
+        "y_max": 0.9
+      }
+    },
+    {
+      "id": "CLEARANCE-3-4",
+      "purpose": "第3列与第4列之间通道",
+      "bounds": {
+        "x_min": 0.67,
+        "x_max": 0.72,
+        "y_min": 0.18,
+        "y_max": 0.9
+      }
+    },
+    {
+      "id": "CLEARANCE-RIGHT-SIDE",
+      "purpose": "第4列与右侧墙之间的边缘通行区域",
+      "bounds": {
+        "x_min": 0.87,
+        "x_max": 0.92,
+        "y_min": 0.18,
+        "y_max": 0.9
+      }
+    }
+  ]
+}
