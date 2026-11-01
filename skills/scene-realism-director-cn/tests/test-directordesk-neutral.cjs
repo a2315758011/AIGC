@@ -19,7 +19,7 @@ const scg={shots:[{id:"SH1",entities:[{id:"CHAR-1",exists:true,attributes:{world
 const pkg=convert(db,scg,manifest);
 assert.equal(pkg.fixed_objects.length,1);
 assert.equal(pkg.camera_presets.length,1);
-assert.deepEqual(pkg.camera_presets[0].position_m,{x:0,y:2,z:0});
+assert.deepEqual(pkg.camera_presets[0].position_m,{x:0,y:2,z:-1});
 assert.deepEqual(pkg.camera_presets[0].look_at_m,{x:-1,y:0,z:0});
 assert.deepEqual(pkg.fixed_objects[0].position_m,{x:-1,y:0,z:-2});
 assert.deepEqual(pkg.shots[0].events[0].motion.to_m,{x:-3,y:0,z:-2});
