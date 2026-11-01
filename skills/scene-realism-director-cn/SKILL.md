@@ -176,3 +176,6 @@ node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG三维碰撞回归-V1.js
 
 
 动态摄影机事件现在支持独立的 look-at 起点、途经点和终点坐标导出；仍是中立数据，不是原生摄影机动画轨道。
+
+
+导出器现保留 pose_state、support_state，并独立转换 body_forward/head_forward 朝向向量；不生成骨骼动画或真实接触解算。
