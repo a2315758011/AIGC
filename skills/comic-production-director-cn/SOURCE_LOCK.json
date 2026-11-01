@@ -1,0 +1,30 @@
+{
+  "skill": "comic-production-director-cn",
+  "version": "1.0.0",
+  "authoritative_sources": [
+    {
+      "path": "docs/漫画专业制作与出版总规范-V1.md",
+      "git_blob_sha": "7280c19057b9bd28cc985da2ad8196b5e9cd371f"
+    },
+    {
+      "path": "docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
+      "status": "created_commit_5c8ca193053da0c3d17e2f87ca447c227ec4c78d",
+      "sha": "pending_fetch"
+    }
+  ],
+  "external_projects_reviewed": [
+    "pr0h0/OpenManga",
+    "Saeyeon-developer/agent-comic-kit",
+    "Arybil/manga-text-removal",
+    "adachi0130/comic-pipeline",
+    "new-sankaku/manga-editor-desu",
+    "Es00bac/sloom-studio"
+  ],
+  "tests": {
+    "skill_structure": "pending",
+    "local_installation": "NOT_RUN",
+    "tool_runtime": "NOT_RUN",
+    "comic_artifact_e2e": "NOT_RUN"
+  },
+  "note": "Source lock records reviewed inputs; do not infer local installation or runtime validation."
+}
