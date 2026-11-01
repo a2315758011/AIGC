@@ -35,3 +35,8 @@
 - references/SCG空间运动与道具状态扩展契约-V1.md：沿用分镜 SCG 数据结构，补充角色移动路径和道具持有约束。
 - tests/validate-scg-spatial-motion.cjs：检查二维地面路径与已知障碍相交、普通道具多持有人。
 - tests/fixtures/SCG空间运动与道具状态回归-V1.json：包含可通行、穿桌路径和道具双持有人三类回归样例。
+
+- references/SCG三维预演与碰撞检查扩展契约-V1.md：定义人物/摄影机三维代理、XYZ 坐标和碰撞验收边界。
+- tests/validate-scg-3d-motion.cjs：无第三方依赖的 SCG 三维代理碰撞检查器。
+- tests/fixtures/SCG三维碰撞回归-V1.json：人物地面通行、桌子碰撞、越过低障碍、摄影机穿墙四类回归。
+- 场景数据库的固定家具/建筑几何与 SCG 的逐镜动态状态分权威管理，避免重复事实源。
