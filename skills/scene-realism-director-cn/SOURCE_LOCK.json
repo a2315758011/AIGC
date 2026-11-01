@@ -51,9 +51,11 @@
     "physical_edit_regression_cases": "5",
     "object_centric_realism": "added",
     "lighting_color_physics_runtime_tests": "not_run",
-    "shared_generation_gateway_current_lock": "held_by_other_agent_no_interference"
+    "shared_generation_gateway_current_lock": "held_by_other_agent_no_interference",
+    "supplementary_research_sha_verified": true,
+    "supplementary_research_sha_previous": "88b3ab6ffa40e96fcf0b6ee46179100e754430d6"
   },
-  "note": "v1.4.0 adds evidence-based photometric, color-fidelity, object-centric and physical-edit tests. Research and regression definitions are committed; no target-model image generation or runtime evaluation was performed. Do not promote status from conditional until real outputs and blind-review evidence exist. The shared Generation Gateway is currently locked by another agent; this agent did not touch the protected service or submit generation jobs.",
+  "note": "v1.4.0 adds evidence-based photometric, color-fidelity, object-centric and physical-edit tests. Research and regression definitions are committed; no target-model image generation or runtime evaluation was performed. Do not promote status from conditional until real outputs and blind-review evidence exist. The shared Generation Gateway is currently locked by another agent; this agent did not touch the protected service or submit generation jobs. SOURCE_LOCK元数据核对：补充研究文件当前Git Blob SHA已校正为96bf464077b91879a0c5e90715abe91f997284c6；原登记值88b3ab6ffa40e96fcf0b6ee46179100e754430d6与当前文件不一致，现已修正。",
   "supplementary_research": "docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md",
-  "supplementary_research_git_blob_sha": "88b3ab6ffa40e96fcf0b6ee46179100e754430d6"
+  "supplementary_research_git_blob_sha": "96bf464077b91879a0c5e90715abe91f997284c6"
 }
