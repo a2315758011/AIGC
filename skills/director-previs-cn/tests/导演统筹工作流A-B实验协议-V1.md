@@ -2,7 +2,7 @@
 
 实验编号：DIRECTOR-PREVIS-EVAL-20261101
 适用技能：director-previs-cn V1.3.1
-权威专业依赖：scene-realism-director-cn V1.4.0；storyboard-director-cn V1.3.4 / 站位规则 V1.9.0；camera-motion-director-cn；fight-impact-vfx-cn（待独立评审）
+权威专业依赖：scene-realism-director-cn V1.4.0；storyboard-director-cn V1.3.4 / 站位规则 V1.9.0；camera-motion-director-cn V1.1.1；fight-impact-vfx-cn V1.0.0（待独立评审）
 状态：实验协议已准备；真实工作流与图像/视频 A/B 尚未运行。
 
 ## 1. 实验目的与变量隔离
