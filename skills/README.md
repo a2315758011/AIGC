@@ -12,16 +12,18 @@
 
 - [scene-realism-director-cn](./scene-realism-director-cn/)：场景图真实性控制、建筑拓扑、功能布局、透视尺度、接触遮挡、光照/色彩/曝光、物体级形状纹理、局部编辑物理副作用、参考图保真、全景检查与独立质检；包含 8 场景空间基准和 5 项光色物理专项回归。
 
-## 漫剧专项
 ## 专业漫画制作专项
 
 - [comic-production-director-cn](./comic-production-director-cn/)：独立漫画生产总控，覆盖漫画脚本、页面节奏、分格、角色/场景连续性、逐格返工、去字修复、独立排字、网漫与分页出版。
 - [漫画专业制作与出版总规范](../docs/漫画专业制作与出版总规范-V1.md)：漫画生产权威规范。
 - [外部专业漫画项目研究](../docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md)：OpenManga、agent-comic-kit、manga-text-removal、Comic Pipeline、Manga Editor Desu、Sloom Studio 等外部来源审查与许可证记录。
+- [第二批上色/翻译/排字研究](../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md)：Comtexia、MangaColorAI、Speech Bubble Editor、Free Comic Panel Maker 等工具的授权和适用性审查。
 
+- [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，保留原有版本和程序校验资产。
+
+## 漫剧专项
 
 - [manju-director-cn](./manju-director-cn/)：AI 漫剧专用，剧本转分镜、独立自检、自动修复、重新输出完整修订终稿及人物/场景/道具资产规则。
-- [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，保留原有版本和程序校验资产。
 
 ## 跨专业导演与制作能力
 
