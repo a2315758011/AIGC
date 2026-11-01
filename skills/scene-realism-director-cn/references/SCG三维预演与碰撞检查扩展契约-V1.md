@@ -11,7 +11,7 @@
 
 ## 一、统一坐标定义
 
-场景坐标统一为右手坐标系：X 左右、Y 前后、Z 高度；单位由场景数据库 coordinate_system.units 指定。SCG 中所有 world_position 和路径点必须使用同一单位与原点。
+场景坐标采用右手坐标系，轴的语义为 X 左右、Y 前后、Z 高度；但“左右/前后/高度”不等于正方向定义。每个场景必须额外声明 source_axis_positive（例如 x=right、y=backward、z=up），不得默认 Y 正向就是前。单位由场景数据库 coordinate_system.units 指定。SCG 中所有 world_position 和路径点必须使用同一单位与原点。
 
 - 固定家具/建筑障碍的 world_position 定义为底面中心。
 - 人物胶囊体的 world_position 定义为脚底中心。
