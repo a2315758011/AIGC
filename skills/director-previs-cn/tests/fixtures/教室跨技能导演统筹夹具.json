@@ -6,9 +6,9 @@
     "现代高中课堂剧照参考板.png"
   ],
   "reference_roles": {
-    "阳光洒落的整洁教室.png": "本轮桌椅布局唯一真值：4列×6排、24套桌椅；所有桌椅朝向黑板",
-    "教室俯视图与全景机位示意.png": "建筑边界、门窗、约数尺寸和机位说明；该图自身含桌椅布局和机位标记，但不得覆盖桌椅唯一真值",
-    "现代高中课堂剧照参考板.png": "人物身份、服装、教室风格和讲台/道具外观参考；该多面板拼图中的座位示意缩略图仅作辅助，不得覆盖4列×6排唯一桌椅真值或本次锁定的男主座位"
+    "阳光洒落的整洁教室.png": "本轮桌椅布局唯一真值：4列×5排、20套桌椅；所有桌椅朝向黑板。原图不含人物，不用于推断人物具体列号。",
+    "教室俯视图与全景机位示意.png": "建筑边界、门窗、估算尺寸和机位辅助参考；如与原始桌椅照片计数冲突，以原始照片为准。",
+    "现代高中课堂剧照参考板.png": "人物身份、服装、教室风格和讲台/道具外观参考；拼图中的座位缩略图不得覆盖原始照片4列×5排真值，也不得据此锁定人物列号。"
   },
   "scene_truth": {
     "dimensions_m": {
@@ -20,10 +20,11 @@
     "layout_source": "阳光洒落的整洁教室.png",
     "desks": {
       "columns": 4,
-      "rows": 6,
-      "count": 24,
+      "rows": 5,
+      "count": 20,
       "all_face": "blackboard",
-      "one_chair_per_desk": true
+      "one_chair_per_desk": true,
+      "layout_authority": "阳光洒落的整洁教室.png"
     },
     "door": {
       "location": "front_right",
@@ -39,20 +40,25 @@
     ]
   },
   "dramatic_intent": {
-    "scene_goal": "转校生进入教室，男主注意到她",
+    "scene_goal": "老师在讲台介绍转校生；女主从门口经讲台走到男主旁边的空桌坐下并交谈；女2先来打扰，女3随后打扰。",
     "audience_information": "观众看到女主入场，并能读懂男主注意到她",
-    "visible_event": "女主从校园走廊经前右门进入并在门内停留；男主身体继续朝向黑板，只转头和视线看向女主",
-    "end_state": "女主在门内，男主仍坐在既定座位，教师留在讲台"
+    "visible_event": "女主经右前侧门进入，老师在讲台介绍；女主走到男主相邻空桌坐下；男主与女主交谈；女2从邻桌过来打扰，女3随后介入。",
+    "end_state": "老师留在讲台；男主位于第3排但列号未知；女主坐在同排相邻桌但具体列号未知；女2与女3按剧情事件介入，不预先编造座位编号。"
   },
   "blocking_constraints": {
     "female_transfer_student": {
       "entry": "front_right_door",
-      "path": "corridor_to_inside",
-      "end_state": "pause_just_inside"
+      "path": "door_to_teacher_podium_then_to_adjacent_desk",
+      "end_state": "seated_at_desk_adjacent_to_male_lead",
+      "seat_row_from_front": 3,
+      "seat_column_from_left": null,
+      "seat_column_status": "unresolved_until_original_script_or_explicit_blocking_source"
     },
     "male_lead": {
-      "seat_row_from_front": 4,
-      "seat_column_from_left": 4,
+      "seat_row_from_front": 3,
+      "seat_row_from_rear": 3,
+      "seat_column_from_left": null,
+      "seat_column_status": "unresolved_from_reference_image",
       "body_facing": "blackboard",
       "head_and_gaze_target": "female_transfer_student"
     },
@@ -62,19 +68,35 @@
     },
     "other_students": {
       "movement": "none_without_story_authorization"
-    }
+    },
+    "female_classmates": [
+      {
+        "role": "female_classmate_2",
+        "entry": "from_adjacent_desk",
+        "event": "approaches_and_interrupts_female_lead_and_male_lead",
+        "seat_position": "not_fixed_until_original_script_confirms"
+      },
+      {
+        "role": "female_classmate_3",
+        "entry": "from_student_desk_area",
+        "event": "later_interrupts_the_conversation",
+        "seat_position": "not_fixed_until_original_script_confirms"
+      }
+    ]
   },
   "specialist_handoffs": {
     "scene_realism": [
       "确认门外走廊与门洞关系",
-      "锁定4列×6排桌椅真值",
-      "保持建筑与家具锚点"
+      "锁定4列×5排、20套桌椅真值",
+      "保持建筑与家具锚点",
+      "人物列号未知时保持未知，不从无人物参考图推断"
     ],
     "storyboard": [
-      "锁定男主第4排第4列",
-      "身体/头部/视线分开",
-      "女主入场动作链",
-      "跨镜连续性"
+      "男主第3排，具体列号待原始剧本/权威站位资料确认",
+      "女主第3排坐男主相邻桌，具体列号和左右侧待确认",
+      "老师固定在讲台介绍转校生",
+      "女2先打扰、女3随后打扰；按动作事件推进人物位置",
+      "身体/头部/视线分开并维持跨镜连续性"
     ],
     "camera_motion": [
       "本场基线为固定机位",
@@ -91,6 +113,8 @@
     "运镜技能不改变人物世界位置",
     "门外是校园走廊，不是草地",
     "无打斗动作时不调用打斗特效技能",
-    "没有真实生成图像/视频时不得报告视觉验收通过"
+    "没有真实生成图像/视频时不得报告视觉验收通过",
+    "当前教室桌椅唯一真值为4列×5排、20套桌椅；禁止回退到4列×6排",
+    "男主第3排、女主相邻桌；具体列号/左右侧未有权威来源时必须保持 unresolved"
   ]
 }
