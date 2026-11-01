@@ -52,7 +52,7 @@ jobs:
         run: node --check skills/scene-realism-director-cn/tests/validate-scene-database.cjs
       - name: Validate authoritative classroom scene database
         run: node skills/scene-realism-director-cn/tests/validate-scene-database.cjs projects/漫剧场景数据库/CLASSROOM-CN-4X5-001/场景空间数据_V1.json
-      - name: Validate user classroom 4x6 grid and aisle invariants
+      - name: Validate user classroom 4x5 grid and aisle invariants
         run: node skills/scene-realism-director-cn/tests/validate-classroom-layout.cjs projects/漫剧场景数据库/CLASSROOM-CN-4X5-001/场景空间数据_V1.json
       - name: Validate original Chinese scene benchmark
         run: node skills/scene-realism-director-cn/tests/validate-scene-benchmark.cjs
