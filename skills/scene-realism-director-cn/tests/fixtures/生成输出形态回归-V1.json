@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "场景生成输出形态回归夹具",
+  "cases": [
+    {
+      "id": "single-scene-photo-valid",
+      "request": {
+        "mode": "single_scene_image",
+        "explicitUserRequest": false,
+        "allowText": false
+      },
+      "actual": {
+        "mode": "single_scene_image",
+        "imageCount": 1,
+        "viewCount": 1,
+        "panelCount": 1,
+        "containsText": false,
+        "containsScoreboard": false,
+        "containsSelfCertification": false
+      },
+      "promptBinding": "auditable",
+      "expected": {
+        "status": "PASS",
+        "severity": "none"
+      }
+    },
+    {
+      "id": "single-orthographic-plan-valid",
+      "request": {
+        "mode": "single_orthographic_plan",
+        "explicitUserRequest": true,
+        "allowText": false
+      },
+      "actual": {
+        "mode": "single_orthographic_plan",
+        "projection": "orthographic",
+        "imageCount": 1,
+        "viewCount": 1,
+        "panelCount": 1,
+        "containsText": false,
+        "containsScoreboard": false
+      },
+      "promptBinding": "auditable",
+      "expected": {
+        "status": "PASS",
+        "severity": "none"
+      }
+    },
+    {
+      "id": "explicit-multi-panel-valid",
+      "request": {
+        "mode": "multi_panel_infographic",
+        "explicitUserRequest": true,
+        "allowText": true
+      },
+      "actual": {
+        "mode": "multi_panel_infographic",
+        "imageCount": 1,
+        "viewCount": 4,
+        "panelCount": 4,
+        "containsText": true,
+        "containsScoreboard": true
+      },
+      "promptBinding": "auditable",
+      "expected": {
+        "status": "PASS",
+        "severity": "none"
+      }
+    },
+    {
+      "id": "unsolicited-infographic-for-scene",
+      "request": {
+        "mode": "single_scene_image",
+        "explicitUserRequest": false,
+        "allowText": false
+      },
+      "actual": {
+        "mode": "multi_panel_infographic",
+        "imageCount": 1,
+        "viewCount": 5,
+        "panelCount": 5,
+        "containsText": true,
+        "containsScoreboard": true
+      },
+      "promptBinding": "auditable",
+      "expected": {
+        "status": "FAIL",
+        "severity": "P0"
+      }
+    },
+    {
+      "id": "photo-and-plan-combined",
+      "request": {
+        "mode": "single_scene_image",
+        "explicitUserRequest": false,
+        "allowText": false
+      },
+      "actual": {
+        "mode": "combined_scene_and_plan",
+        "imageCount": 1,
+        "viewCount": 2,
+        "panelCount": 2,
+        "containsPlanView": true
+      },
+      "promptBinding": "auditable",
+      "expected": {
+        "status": "FAIL",
+        "severity": "P0"
+      }
+    },
+    {
+      "id": "model-self-scoreboard",
+      "request": {
+        "mode": "single_scene_image",
+        "explicitUserRequest": false,
+        "allowText": false
+      },
+      "actual": {
+        "mode": "single_scene_image",
+        "imageCount": 1,
+        "viewCount": 1,
+        "panelCount": 1,
+        "containsScoreboard": true,
+        "containsSelfCertification": true
+      },
+      "promptBinding": "auditable",
+      "expected": {
+        "status": "FAIL",
+        "severity": "P1"
+      }
+    },
+    {
+      "id": "multiview-without-shared-reference",
+      "request": {
+        "mode": "multi_view_set",
+        "explicitUserRequest": true,
+        "allowText": false
+      },
+      "actual": {
+        "mode": "multi_view_set",
+        "imageCount": 3,
+        "viewCount": 3,
+        "panelCount": 1,
+        "sharedSceneReference": false
+      },
+      "promptBinding": "auditable",
+      "expected": {
+        "status": "FAIL",
+        "severity": "P0"
+      }
+    },
+    {
+      "id": "retry-after-first-mismatch",
+      "request": {
+        "mode": "single_scene_image",
+        "explicitUserRequest": false,
+        "allowText": false
+      },
+      "actual": {
+        "mode": "multi_panel_infographic",
+        "imageCount": 1,
+        "viewCount": 4,
+        "panelCount": 4
+      },
+      "promptBinding": "auditable",
+      "firstMismatch": true,
+      "retrySameCall": true,
+      "expected": {
+        "status": "FAIL",
+        "severity": "P1"
+      }
+    },
+    {
+      "id": "unbound-prompt-no-verifiable-output",
+      "request": {
+        "mode": "single_scene_image",
+        "explicitUserRequest": false,
+        "allowText": false
+      },
+      "actual": {
+        "mode": null,
+        "imageCount": 0,
+        "viewCount": 0,
+        "panelCount": 0
+      },
+      "promptBinding": "unknown",
+      "expected": {
+        "status": "BLOCKED",
+        "severity": "none"
+      }
+    }
+  ]
+}
