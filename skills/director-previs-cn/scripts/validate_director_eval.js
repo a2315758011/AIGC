@@ -55,7 +55,7 @@ check("classroom unique layout truth preserved",dataset.classroom_assets.layout_
 check("composite seating thumbnail is non-authoritative",dataset.classroom_assets.authority_rules.some(x=>x.includes("拼图内嵌座位示意不得覆盖")));
 check("reference assets remain outside public repository",dataset.classroom_assets.asset_storage.includes("Library")&&protocol.includes("不复制到公开仓库"));
 check("source lock records A/B as not run",lock.verification.workflow_integration_ab==="not_run"&&lock.verification.real_image_video_ab==="not_run");
-check("source lock pins latest main commit",lock.verified_main_commit==="c281194f1cca561825323b4ba48395de86d1fa52" && lock.branch==="main");
+check("source lock pins latest main commit",lock.verified_main_commit==="48a7f15bc333b889e9670f8b8ab36dc0e2287bfe" && lock.branch==="main");
 check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version==="1.10.0")&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.4"));
 console.log("\n结果："+passed+" PASS / "+failed+" FAIL");
 if(failed) process.exitCode=1;
