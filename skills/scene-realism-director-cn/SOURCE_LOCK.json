@@ -46,7 +46,7 @@
     "references/SCG骨骼姿态与接触约束扩展契约-V1.md": "e6ae50e4b7348c8fd548127d641d27ba8c1fc531",
     "tests/validate-scg-skeletal-contact.cjs": "68c0dd55a8bdfafea33b5164e9500dfc66ff83d6",
     "tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json": "675e352d1e11066df4de691b5c5f7615a78f6e9f",
-    ".github/workflows/director-previs-regression.yml": "768d6700f8616982455de74b5c73a94d51765fb7",
+    ".github/workflows/director-previs-regression.yml": "d49ae760a9613456e187e5a2b68af3a8db6f0c28",
     "tests/evidence/SCG骨骼接触Blender运行验收-20261101.json": "3a38c75e1768e330c511d515bca20cfa4368edb2",
     "references/教室空间权威布局基准-4列6排-V1.json": "147316419fab9b124e8423b6db8758416fc83266",
     "projects/漫剧场景数据库/CLASSROOM-CN-4X6-001/场景空间数据_V1.json": "9b474e216a115d7e753b1bbf1f6655539baf26b9",
@@ -212,7 +212,7 @@
     "classroom_grid_contract": "4_columns_5_rows_20_unique_cells_20_paired_chairs",
     "classroom_central_aisle_logic": "0.46..0.54 wider than adjacent 0.28..0.33 and 0.67..0.72",
     "classroom_scene_database_validator": "windows_node_exit_0_passed_with_warnings_49",
-    "github_actions_classroom_grid_job": "configured_for_4x5_pending_successful_run",
+    "github_actions_classroom_grid_job": "4x5_step_configured_waiting_latest_run",
     "classroom_specific_grid_validator_cases": "20_unique_desk_cells_20_chair_pairs_4_columns_5_rows",
     "classroom_specific_grid_assertions": "4_columns_5_rows_20_unique_cells_20_paired_chairs_right_front_door_front_center_board_and_podium_both_side_walls_central_aisle_wider_male_row3_female_adjacent_unresolved_columns",
     "authoritative_classroom_layout_4x5": "user_original_reference_observed_4_columns_5_rows_20_desks_20_chairs"
