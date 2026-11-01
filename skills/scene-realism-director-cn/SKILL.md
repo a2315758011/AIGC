@@ -156,3 +156,10 @@ description: 面向 AIGC 静态场景图、室内外环境图和漫剧背景的�
 node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG三维碰撞回归-V1.json
 ```
 可选传入固定场景数据库 JSON，补充固定障碍物几何。校验器使用 AABB 近似；结果仅能证明已提供代理体积和静态障碍下的路径检查，不证明骨骼姿态、脚底接触、动态人群、网格碰撞或视频模型服从性。出现 UNRESOLVED 时不得放行。
+
+
+## 复用现有三维导演台
+
+当任务涉及复杂人物走位、多机位运动、家具避障或关键动作接触，且当前工作站安装 DirectorDesk 时，必须先读取 `references/DirectorDesk三维白模预演适配规范-V1.md`，优先复用现有导演台，不另建重复三维编辑器/模型库/碰撞服务。AIGC 场景数据库仍管理固定空间事实，SCG 仍管理逐镜动态状态，DirectorDesk 只作为预演执行器。
+
+特别注意：AIGC 场景数据库与 DirectorDesk 的坐标轴定义不同，导出必须建立显式轴映射、单位与原点转换；不得直接复制 XYZ。DirectorDesk 的自动避障仅覆盖同高度地面和静态障碍；物理为近似模拟，不证明复杂骨骼接触、动态群体或视频模型服从性。当前对话没有 DirectorDesk 专用 MCP 工具时，不得声称已操作导演台或完成真实渲染。
