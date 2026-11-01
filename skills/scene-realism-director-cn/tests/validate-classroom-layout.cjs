@@ -56,9 +56,11 @@ const left = zones.get("CLEARANCE-1-2");
 const center = zones.get("CLEARANCE-CENTER");
 const right = zones.get("CLEARANCE-3-4");
 check(!!left && !!center && !!right, "必须存在左右相邻通道与中央通道");
+let centralAisleWider = false;
 if (left && center && right) {
   const widths = [left.x_max-left.x_min, center.x_max-center.x_min, right.x_max-right.x_min];
-  check(widths[1] > widths[0] && widths[1] > widths[2], "中央通道逻辑宽度必须大于两侧列间通道");
+  centralAisleWider = widths[1] > widths[0] && widths[1] > widths[2];
+  check(centralAisleWider, "中央通道逻辑宽度必须大于两侧列间通道");
   check(near(center.x_min, 0.46) && near(center.x_max, 0.54), "中央通道逻辑边界必须为0.46..0.54");
 }
 const report = {
