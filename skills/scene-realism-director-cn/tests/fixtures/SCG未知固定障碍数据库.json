@@ -1,0 +1,16 @@
+{
+  "coordinate_system": {
+    "units": "meter"
+  },
+  "objects": [
+    {
+      "id": "WALL-UNKNOWN",
+      "kind": "wall",
+      "count": 1,
+      "position": null,
+      "orientation": null,
+      "mobility": "fixed",
+      "status": "unknown"
+    }
+  ]
+}
