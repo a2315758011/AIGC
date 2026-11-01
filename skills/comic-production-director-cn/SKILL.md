@@ -59,6 +59,11 @@ P0/P1 缺陷为零；英文校对、素材/字体授权、AI 披露、平台规�
 - manga-text-removal：文字检测、掩码、LaMa 补全和 OCR 验收。
 - Comic Pipeline：版本血缘、页面编辑、候选比较、导出。
 - Manga Editor Desu / Sloom Studio：专业格框、气泡、文字和印前排版。
+- Speech Bubble Editor：桌面人工调整气泡、尾巴、字体和图层；先核对字体独立许可证与可编辑源文件。
+- Free Comic Panel Maker：SVG 单格气泡/尾巴/文字/SFX 编辑；仅作单格排字备选。
+- Comtexia：仅借鉴 OCR、翻译记忆、掩码修正和人工重排字流程；未声明许可证，禁止复制代码或商业部署。
+- MangaColorAI / Manga Colorizer：仅供黑白画格参考上色研究；许可证未明确，不复制代码/模型；不得对已批准彩色原画批量上色。
+- AskAillex/comic-maker：只借鉴本地流水线与程序排字；其早期版本的气泡位置和多人尾巴限制不满足正式页面验收。
 按需使用，不得因功能描述就宣称安装或运行通过。GPL 项目优先独立运行或通过文件接口使用，不复制其代码进入商业仓库，除非已完成许可证评估。
 
 ## 输出要求
