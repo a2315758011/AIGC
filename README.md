@@ -8,6 +8,7 @@
 
 ## 入口
 ## 专业漫画制作（独立于漫剧分镜）
+- [第二批漫画专业工具研究与工作流验证](./docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md)：TT_AutoManga、ComfyUI Comic Creator、Manhwa Studio、WakuWaku 等源码/许可证/工作流审查。
 
 - [漫画专业制作 Skill](./skills/comic-production-director-cn/)：漫画脚本、页面节奏、分格、角色/场景连续性、逐格修复、对白排字和双格式出版。
 - [漫画专业制作与出版总规范](./docs/漫画专业制作与出版总规范-V1.md)：漫画专属制作、修复、排字、出版和验收规则。
