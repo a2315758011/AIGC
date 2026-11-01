@@ -116,7 +116,7 @@ check("director contract reuses authoritative SCG", handoffContract.includes("�
 check("director contract reuses event time contract", handoffContract.includes("分镜事件时间数据契约-V1.md") && eventTimeContract.includes("time_start_ms"));
 check("director contract prohibits parallel schema", handoffContract.includes("不另造一套分镜 JSON"));
 check("director contract requires stable IDs and asset references", handoffContract.includes("稳定 ID") && handoffContract.includes("canonical_asset"));
-check("director contract preserves full world state across shots", handoffContract.includes("完整世界状态快照") && handoffContract.includes("出画/遮挡不删除实体"));
+check("director contract preserves full world state across shots", handoffContract.includes("完整世界状态快照") && handoffContract.includes("出画、遮挡不等于实体消失"));
 check("director contract separates camera and actor channels", handoffContract.includes("摄影机位置") && handoffContract.includes("人物根节点位移"));
 
 check("changelog records 1.4.0", changelogText.includes("## 1.4.0"));
