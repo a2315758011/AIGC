@@ -1,0 +1,66 @@
+{
+  "schema": "comic-page-qc-cases-v1",
+  "purpose": "Skill正反向边界回归用例；不包含任何用户私有漫画素材。",
+  "cases": [
+    {
+      "id": "POS-001",
+      "type": "positive",
+      "input": {
+        "reading_direction": "ltr",
+        "speaker_visible": true,
+        "bubble_tail_target": "speaker_1",
+        "dialogue_overflow": false,
+        "character_reference_approved": true,
+        "continuity_match": true,
+        "export_reopens": true
+      },
+      "expected": "PASS",
+      "reason": "阅读方向明确、角色参考已批准、气泡归属正确、文字不溢出且导出可重新打开。"
+    },
+    {
+      "id": "NEG-001",
+      "type": "negative",
+      "input": {
+        "reading_direction": "unknown",
+        "speaker_visible": false,
+        "bubble_tail_target": "none",
+        "dialogue_overflow": true,
+        "character_reference_approved": false,
+        "continuity_match": false,
+        "export_reopens": true
+      },
+      "expected": "BLOCKED",
+      "reason": "阅读方向未知、角色未批准、气泡无归属且文字溢出；不能进入出版候选。"
+    },
+    {
+      "id": "NEG-002",
+      "type": "negative",
+      "input": {
+        "reading_direction": "ltr",
+        "speaker_visible": true,
+        "bubble_tail_target": "speaker_2",
+        "dialogue_overflow": false,
+        "character_reference_approved": true,
+        "continuity_match": true,
+        "export_reopens": false
+      },
+      "expected": "BLOCKED",
+      "reason": "最终导出无法重新打开，出版预检必须阻断。"
+    },
+    {
+      "id": "REG-001",
+      "type": "regression",
+      "input": {
+        "reading_direction": "ltr",
+        "speaker_visible": true,
+        "bubble_tail_target": "speaker_1",
+        "dialogue_overflow": false,
+        "character_reference_approved": true,
+        "continuity_match": false,
+        "export_reopens": true
+      },
+      "expected": "REWORK_PANEL",
+      "reason": "连续性缺陷应只返工受影响画格，不重做已批准的整页。"
+    }
+  ]
+}
