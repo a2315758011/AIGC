@@ -1,7 +1,7 @@
 {
   "package": "storyboard-director-cn",
   "date": "2026-11-01",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
   "source_version": "V2.10.5",
@@ -63,9 +63,9 @@
     {
       "package_path": "references/人物站位与场景调度规则-V1.md",
       "source_path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
-      "git_blob_sha": "0bdac34090778d426f4f2ea5ca875256c541bdb0",
-      "characters": 9521
+      "git_blob_sha": "a16a61dd6f1f922d01de0a581ca144dd26eecfff",
+      "characters": 11044
     }
   ],
-  "source_rule_revision": "V1.4.0 adds structured-director input vs prompt responsibility, per-character action decomposition, actor-count validation tiers, static blocking vs motion-path acceptance, and A/B gate for omitting duplicated position text."
+  "source_rule_revision": "V1.5.0 adds static-to-dynamic workflow, separate body-action and root-motion tracks, timed path contract, support/contact/collision checks, multi-actor path conflict and staggered crowd movement, independent camera tracks, reference-video responsibility, and tool evidence boundaries."
 }
