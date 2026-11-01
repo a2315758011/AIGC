@@ -128,3 +128,15 @@ description: 面向 AIGC 静态场景图、室内外环境图和漫剧背景的�
 - 通过样例：`tests/fixtures/镜头连续性_通过样例.json`；负向样例：`tests/fixtures/镜头连续性_瞬移失败样例.json`。
 - 执行命令：`node tests/validate-scene-database.cjs <场景JSON>`；`node tests/validate-shot-continuity.cjs <镜头序列JSON>`。
 - 仅有静态文件和样例不代表工作站已运行通过。报告必须区分代码已提交、沙箱测试、Windows 工作站测试和真实分镜系统集成。
+
+
+## 与现有 SCG / 人物站位系统协作（禁止重复造账本）
+
+- 权威镜头世界状态必须复用 `skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md` 的 `scene.shots[].entities/relations/events`，不得另建一套平行的实体/关系事实源。
+- 人物世界位置、走位路径、姿态、朝向、支撑、轴线和摄影机分层，遵循 `skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md`。
+- SCG 时间轴遵循 `skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md`。普通中文分镜稿不能直接冒充结构化事件账本。
+- 本 Skill 只补充静态空间、几何占地、障碍区域与视觉真实性；其 SCG 空间运动扩展见 `references/SCG空间运动与道具状态扩展契约-V1.md`。
+- SCG 原有校验器继续负责实体/关系/事件前置条件/跨镜硬关系；本 Skill 的 `tests/validate-scg-spatial-motion.cjs` 只补充二维路径与已知障碍碰撞、道具单一持有人检查，不替代原校验器。
+- 道具持有事实统一使用 SCG `held_by` 关系；禁止另建 holder 字段成为第二权威来源。拾取、放下、交接、销毁必须用 SCG event effects 表达。
+- 只有真实占地宽深和世界坐标已知时才能进行数值碰撞判断；缺少几何数据时必须报告 UNRESOLVED/WARN。
+- 负向样例被检测器识别代表校验器行为符合预期，不代表镜头或图片本身通过。
