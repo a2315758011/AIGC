@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0.0",
+  "repository": "a2315758011/AIGC",
+  "updated": "2026-11-01",
+  "purpose": "将具体知识条目按可信度评级，供AI剧本分析、导演预演和分镜创作按证据强度调用。",
+  "rating_legend": {
+    "高": "目标范围内已有可核验结果和复核；优先调用，但不能超出验证范围。",
+    "中": "多源支持或方法可复现，但目标工作流的独立实测/盲评尚不充分；优先候选。",
+    "低": "单源、推断、作者自述、规则草稿或尚未执行验证；仅探索参考。"
+  },
+  "default_policy": {
+    "order": [
+      "高",
+      "中",
+      "低"
+    ],
+    "low_must_not_override_higher": true,
+    "current_script_and_user_locked_facts_override_general_knowledge": true,
+    "unregistered_items": "不得默认视为高级；首次调用前按本规范评估。",
+    "require_scope_match": true,
+    "disclose_unverified": true
+  },
+  "items": [
+    {
+      "id": "AIGC-DIR-STATIC-001",
+      "name": "导演统筹静态合同与自动回归",
+      "domain": "导演统筹/工作流",
+      "rating": "高",
+      "evidence_level": "E4（仅限静态合同/校验器范围）",
+      "claim": "导演统筹路由合同、专业依赖锁、A/B协议静态合同可由自动化回归检查。",
+      "basis": "GitHub Actions run 41261038369 记录 133 PASS / 0 FAIL；范围为导演合同97项+A/B协议36项。",
+      "verified_scope": "仓库静态合同、规则结构与校验器覆盖项。",
+      "not_verified_scope": "真实独立导演评审、真实图像/视频A/B、模型服从率、最终成片质量。",
+      "sources": [
+        "skills/director-previs-cn/tests/执行记录_20261101.md",
+        "skills/director-previs-cn/tests/导演统筹回归用例.md",
+        "skills/director-previs-cn/tests/导演统筹工作流A-B实验协议-V1.md"
+      ],
+      "usage": "用于检查工作流输入/交接/路由合同；不得把静态PASS表述为视觉质量通过。"
+    },
+    {
+      "id": "AIGC-SCENE-SPATIAL-001",
+      "name": "场景空间关系必须独立建模和验收",
+      "domain": "场景真实性",
+      "rating": "中",
+      "evidence_level": "E2（多项独立研究/基准支持；目标模型A/B未运行）",
+      "claim": "对象相对位置、方向参照、遮挡、可通行/交互关系、尺度与空间因果应作为独立约束和验收项，不能只罗列物体名词。",
+      "basis": "SpatialT2I、SpatialGenEval、GenSpace等研究分别从空间关系、空间忠实度和几何评估揭示生成模型的空间弱点；仓库已建立中文配对基准与A/B规程。",
+      "verified_scope": "文献/基准结论与本地规则设计的相互支持。",
+      "not_verified_scope": "用户当前图像模型上的效果提升比例、真实生成稳定性。",
+      "sources": [
+        "docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md",
+        "docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md",
+        "skills/scene-realism-director-cn/tests/场景真实性A-B测试执行规程-V1.md",
+        "skills/scene-realism-director-cn/references/场景真实性原创中文配对基准集-V1.json"
+      ],
+      "usage": "场景构建和分镜预演前优先建立空间基线；真实生成效果仍需配对测试。"
+    },
+    {
+      "id": "AIGC-SCENE-PHYS-002",
+      "name": "场景真实性需拆分空间、物理、光照和色彩维度",
+      "domain": "场景真实性",
+      "rating": "中",
+      "evidence_level": "E2",
+      "claim": "整体真实感不能只凭单一总分判断；空间结构、物理接触、光照方向、材质和色彩需要分项核查。",
+      "basis": "光照探针、Color Fidelity Dataset、PICAEval等不同评估路线支持分项评估；仓库已形成十维评分和缺陷记录要求。",
+      "verified_scope": "研究方法和评估维度的交叉支持。",
+      "not_verified_scope": "目标图像平台的A/B改善效果、评测器在本机的部署运行。",
+      "sources": [
+        "docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md",
+        "docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md",
+        "skills/scene-realism-director-cn/tests/场景真实性配对盲评记录模板-V1.1.md"
+      ],
+      "usage": "用于场景审查清单和缺陷分类；不能用整体审美分掩盖P0/P1硬伤。"
+    },
+    {
+      "id": "AIGC-BLOCKING-001",
+      "name": "人物站位、朝向、视线和摄影机轨迹分轨管理",
+      "domain": "人物调度/分镜",
+      "rating": "中",
+      "evidence_level": "E2（多源方法支持，目标视频生成服从性未验证）",
+      "claim": "人物世界位置、身体姿态、头部朝向、视线、路径和摄影机位置/视线应作为不同状态通道管理。",
+      "basis": "多批创作者研究、官方导演台流程、开源工程测试设计和仓库站位规则在状态分离/动态路径检查上相互支持；公开演示不等于独立复现。",
+      "verified_scope": "方法来源交叉支持、规则化和测试设计。",
+      "not_verified_scope": "指定视频模型的实际人物站位锁定成功率、跨模型泛化。",
+      "sources": [
+        "docs/平台创作者人物站位实战研究_20261101.md",
+        "docs/平台创作者人物站位实战研究_20261101_第二批.md",
+        "docs/平台创作者人物动态走位与导演预演研究_20261101_第三批.md",
+        "docs/AI漫剧动态预演控制与生成服从性验证研究_20261101_第四批.md",
+        "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md"
+      ],
+      "usage": "剧本预演和多人分镜默认采用分轨状态表；生成视频后逐帧复核。"
+    },
+    {
+      "id": "AIGC-DYNAMIC-002",
+      "name": "动态走位必须检查路径时间、支撑面和多人避让",
+      "domain": "人物调度/动态预演",
+      "rating": "中",
+      "evidence_level": "E2/E3（源码与测试设计已审查，未安装运行）",
+      "claim": "动态路径需要起止点、时间、关键姿态、脚底支撑/接触和多人路径冲突检查。",
+      "basis": "创作者动态预演案例与开源工程测试源码提供互补依据；仓库已将检查项写入测试夹具。",
+      "verified_scope": "静态方法审查与规则/测试设计。",
+      "not_verified_scope": "外部工程本机运行、生成视频实际服从。",
+      "sources": [
+        "docs/平台创作者人物动态走位与导演预演研究_20261101_第三批.md",
+        "docs/AI漫剧动态预演控制与生成服从性验证研究_20261101_第四批.md",
+        "skills/director-previs-cn/tests/执行记录_20261101.md"
+      ],
+      "usage": "复杂走位先做白模/关键帧预演；无视频结果时只标记为预演方案。"
+    },
+    {
+      "id": "AIGC-DIRECTOR-WF-002",
+      "name": "导演工作流A/B与场景提示策略A/B必须隔离变量",
+      "domain": "导演统筹/实验设计",
+      "rating": "中",
+      "evidence_level": "E3（实验协议和机器可读测试集已建立，真实工作流A/B未运行）",
+      "claim": "比较是否调用导演统筹时，必须固定专业技能版本、场景提示策略、参考素材和生成参数；场景提示策略比较则单独实验。",
+      "basis": "仓库已有明确实验协议、机器可读数据集、评分量表和结果模板；静态协议测试通过，但真实工作流实验尚未运行。",
+      "verified_scope": "实验设计规范和静态协议合同。",
+      "not_verified_scope": "导演统筹实际减少返工或提高画面质量的效果。",
+      "sources": [
+        "skills/director-previs-cn/tests/导演统筹工作流A-B实验协议-V1.md",
+        "skills/director-previs-cn/tests/fixtures/导演统筹A-B实验数据集-V1.json",
+        "skills/director-previs-cn/tests/执行记录_20261101.md"
+      ],
+      "usage": "未来评估流程优化时使用；不得引用为已证明导演统筹提高质量。"
+    },
+    {
+      "id": "AIGC-FIGHT-001",
+      "name": "打击感规则包（动作因果、受击反馈、特效和声画）",
+      "domain": "动作/打斗特效",
+      "rating": "低",
+      "evidence_level": "E1（开源来源已审查，技能未完成独立评审）",
+      "claim": "攻击路径、接触、受力、受击状态、特效生命周期和声音同步可作为打击感设计候选维度。",
+      "basis": "已研究多个开源仓库并形成原创技能草案，但SOURCE_LOCK标记authored_pending_review；未运行视频模型或后期软件。",
+      "verified_scope": "来源/许可证审查和规则草案。",
+      "not_verified_scope": "真实视频打击感改善、自动特效检测、端到端后期效果。",
+      "sources": [
+        "Deepresearch/2026-11-01_打斗特效与打击感仓库技能调研.md",
+        "skills/fight-impact-vfx-cn/SOURCE_LOCK.json",
+        "skills/fight-impact-vfx-cn/tests/打击感回归样例.md"
+      ],
+      "usage": "允许导演预演提出候选动作/特效设计；必须标注待评审，不得作为已验证硬规则。"
+    },
+    {
+      "id": "AIGC-VIDEO-COMPLIANCE-001",
+      "name": "导演台预演能否提升目标视频模型服从性",
+      "domain": "视频生成/模型控制",
+      "rating": "低",
+      "evidence_level": "E1-E2（案例/研究线索，缺目标模型复测）",
+      "claim": "白模、轨迹、关键帧和参考视频可能帮助传递导演意图，但不能保证生成模型遵守空间和动作约束。",
+      "basis": "创作者案例含自述对照，工具资料解释输入能力；仓库明确未取得用户目标视频模型A/B视频。",
+      "verified_scope": "已识别的风险和待测假设。",
+      "not_verified_scope": "任何特定模型的服从率提升幅度和稳定性。",
+      "sources": [
+        "docs/AI漫剧动态预演控制与生成服从性验证研究_20261101_第四批.md",
+        "skills/director-previs-cn/tests/执行记录_20261101.md"
+      ],
+      "usage": "预演作为生成输入准备；不得承诺模型一定服从，必须抽检关键帧和成片。"
+    },
+    {
+      "id": "AIGC-MANJU-SNAPSHOT-001",
+      "name": "漫剧导演离线技能快照",
+      "domain": "漫剧工作流",
+      "rating": "低",
+      "evidence_level": "E1（版本状态已核实，内容完整性待刷新）",
+      "claim": "当前离线包锁定的分镜源规则版本落后于仓库主线。",
+      "basis": "SOURCE_LOCK显示source_version V2.10.1，当前主线分镜规则V2.10.5；此前已明确暂不纳入活动路由。",
+      "verified_scope": "版本差异和活动路由排除决定。",
+      "not_verified_scope": "刷新后的完整兼容性和端到端创作质量。",
+      "sources": [
+        "skills/manju-director-cn/SOURCE_LOCK.json",
+        "分镜规则清单.json"
+      ],
+      "usage": "暂不作为活动分镜入口；刷新并完成一致性测试后重新评级。"
+    }
+  ]
+}
