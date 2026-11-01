@@ -1,6 +1,6 @@
 {
   "skill": "comic-production-director-cn",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "authoritative_sources": [
     {
       "path": "docs/漫画专业制作与出版总规范-V1.md",
@@ -29,16 +29,20 @@
     {
       "path": "docs/专业欧美漫画排字与页面阅读规则-V1.md",
       "git_blob_sha": "e1a9e7aa3cf0994220077186336bbbf63b23b18a"
+    },
+    {
+      "path": "docs/Deepresearch/2026-11-02_TT_AutoManga源码安全与本地兼容性审查.md",
+      "git_blob_sha": "d9b48bf43cd335b9b8fe11546aebd7bf370d07c5"
     }
   ],
   "skill_files": [
     {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha": "73fd2fcd885619bdd6d4cb9d6904f4c7a72b825d"
+      "git_blob_sha": "fdfc51ca0bffa2ef2aeffac78c6211993d1974ae"
     },
     {
       "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
-      "git_blob_sha": "41556228e22c90de4a6718cfdc00e8783d671ff1"
+      "git_blob_sha": "ce6c87ebe65293d885cb5bbd181abb002e3a8f3c"
     },
     {
       "path": "skills/comic-production-director-cn/references/读者测试与页面质检清单-V1.md",
@@ -74,7 +78,11 @@
     },
     {
       "path": "skills/comic-production-director-cn/ARTIFACT_MANIFEST.json",
-      "git_blob_sha": "f6233d462bae36081fbcddbebcdbaeb916c51a05"
+      "git_blob_sha": "7d0ab96247b14afc551fd0372e1cfdb15c3ffaea"
+    },
+    {
+      "path": "skills/comic-production-director-cn/references/TT_AutoManga安全隔离审查-V1.md",
+      "git_blob_sha": "d9b48bf43cd335b9b8fe11546aebd7bf370d07c5"
     }
   ],
   "external_projects_reviewed": [
@@ -176,7 +184,9 @@
     "skill_contract_unittest": "PASS_8_OF_8_ISOLATED_PYTHON_AFTER_FIX",
     "github_readback": "PASS_ALL_REQUIRED_FILES",
     "committed_github_actions": "NOT_RUN",
-    "source_references": "PASS_STATIC_AFTER_FIX"
+    "source_references": "PASS_STATIC_AFTER_FIX",
+    "external_tool_security_review": "PASS_STATIC_SOURCE_REVIEW",
+    "tt_automanga_runtime": "BLOCKED_MISSING_MCP_SDK_PYTEST_SWARMUI"
   },
-  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted. Additional independent test execution found a stale negative-test fixture targeting version 1.0.0 while the skill was 1.2.0; corrected to target 1.2.0. Isolated Python unittest then passed 8/8. QC cases passed 4/4 in isolated Python. Windows PC MCP write channel failed during temporary test-file staging; no local external tools were installed or run. V1.2.1 fixes the missing explicit reference to the first-batch external research document discovered by independently re-running the source-reference validator. Skill manifest and source lock updated. All required references now pass static checks."
+  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted. Additional independent test execution found a stale negative-test fixture targeting version 1.0.0 while the skill was 1.2.0; corrected to target 1.2.0. Isolated Python unittest then passed 8/8. QC cases passed 4/4 in isolated Python. Windows PC MCP write channel failed during temporary test-file staging; no local external tools were installed or run. V1.2.1 fixes the missing explicit reference to the first-batch external research document discovered by independently re-running the source-reference validator. Skill manifest and source lock updated. All required references now pass static checks. V1.2.2 adds TT_AutoManga source security review. Identified startup orphan-asset deletion risk and unauthenticated loopback API; do not expose 5180 via public/Tailscale MCP and do not connect to MOONKEEP data. Workstation Python 3.11 has FastAPI/Pydantic/httpx/Pillow/torch but lacks pytest and MCP SDK; SwarmUI 7801 and ComfyUI 8188 did not respond. No dependencies installed or model downloads performed."
 }
