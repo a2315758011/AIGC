@@ -103,3 +103,18 @@
 7. 目标视频模型输出必须与预演逐镜对照；白模通过不代表生成模型服从。
 
 任何一项缺失都必须标记未验证/阻塞，不能把结构化数据通过升级成实际视频质量通过。
+
+
+## 七、场景数据库联合测试
+
+固定几何与 SCG 同 ID 实体合并的回归：
+```bash
+node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG场景数据库几何合并测试.json tests/fixtures/SCG场景数据库几何合并数据库.json
+```
+
+未知固定障碍必须阻止“无碰撞通过”：
+```bash
+node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG未知固定障碍阻断测试.json tests/fixtures/SCG未知固定障碍数据库.json
+```
+
+SCG 中同 ID 家具实体即使没有重复碰撞体积，也必须继承场景数据库中的固定几何；固定障碍缺少位置/高度/体积时必须输出 UNRESOLVED，不能静默跳过。
