@@ -4,7 +4,7 @@
   "status": "NOT_RUN",
   "blocked_reason": "尚未执行；运行时填写具体阻塞原因。",
   "environment": {
-    "workflow_version": "director-previs-cn@1.3.0",
+    "workflow_version": "director-previs-cn@1.4.0",
     "specialist_versions": {
       "scene-realism-director-cn": "1.3.0",
       "storyboard-director-cn": "1.3.1",

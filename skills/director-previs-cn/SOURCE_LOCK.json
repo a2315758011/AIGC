@@ -1,10 +1,10 @@
 {
   "package": "director-previs-cn",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "3593d91897c6913b6e1f4b1306e1d104888a5c43",
+  "verified_main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
   "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
@@ -71,12 +71,12 @@
   "local_dependencies": [
     {
       "package": "scene-realism-director-cn",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "path": "skills/scene-realism-director-cn/SKILL.md",
-      "git_blob_sha": "4a177d7a8682c49cdef49887f09dce59466e206c",
+      "git_blob_sha": "b27560d127ce8e9508ffbb0589ad865cb45ed794",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.3.0",
-      "source_lock_git_blob_sha": "ba2f877b44a27d8b2d03046147a4b45f18b8839d",
+      "source_lock_version": "1.4.0",
+      "source_lock_git_blob_sha": "3c39af7b812adefefe78b3b5092db3e1a6302972",
       "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
       "status": "conditional"
     },
@@ -84,7 +84,7 @@
       "package": "scene-realism-rules",
       "version": "1.0.0",
       "path": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
-      "git_blob_sha": "cf821882dbe75b43161cf5372c90a9faf0531e66",
+      "git_blob_sha": "2a18a092c747d584eb2e4371372654781b40cbcc",
       "authority": "场景空间世界模型、建筑拓扑、俯视/全景、布局与功能常识"
     },
     {
@@ -99,25 +99,25 @@
       "package": "scene-realism-evaluator-deployment-gate",
       "version": "1.0.0",
       "path": "skills/scene-realism-director-cn/references/第三方评测器部署门槛-V1.md",
-      "git_blob_sha": "7187e74c7ca1d1886045afacd02ed3973e04149d",
+      "git_blob_sha": "eaef08f3a633f6905ef593a049df743ca0c1d0de",
       "authority": "第三方评测器硬件/依赖/费用门禁；禁止未经核验部署大型评测器"
     },
     {
       "package": "storyboard-director-cn",
-      "version": "1.3.1",
+      "version": "1.3.4",
       "source_version": "V2.10.5",
       "path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "8ed62d873612322aa1aea639e87a9112f1a40e12",
+      "git_blob_sha": "6c79be5cee5966428a6cf31ab8e21c448ad4d69b",
       "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.3.1",
-      "source_lock_git_blob_sha": "9ad090ca3829c68050143c7526171b1c96b81d22",
+      "source_lock_version": "1.3.4",
+      "source_lock_git_blob_sha": "9af716a3b36255a45a70ee8bbabc2e96dd044445",
       "authority": "正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性"
     },
     {
       "package": "storyboard-positioning-rules",
-      "version": "1.6.0",
+      "version": "1.9.0",
       "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
-      "git_blob_sha": "978af056a9b24d5e5e0dfb95354c3d7748245864",
+      "git_blob_sha": "435d7b10c2bf4f75f19fb643547121bebf371f78",
       "authority": "人物世界位置、身体/头部/视线、路径关键帧、支撑接触、grounding/foot planting、多人避障与相机视线分轨"
     },
     {
@@ -136,7 +136,7 @@
       "source_lock_version": "1.1.1",
       "source_lock_git_blob_sha": "5e6102a843c1b132d4e3b8dac86c1dbe2c941e2c",
       "authority": "摄影机位置/视线轨迹、运动设计、视频模型适配与运镜审片",
-      "note": "SKILL frontmatter reports 1.0.0 while SOURCE_LOCK reports 1.1.1; both pinned separately."
+      "note": "SKILL frontmatter 1.0.0 与 SOURCE_LOCK 1.1.1 不一致；此为未解决版本元数据漂移，已显式记录。"
     },
     {
       "package": "fight-impact-vfx-cn",
@@ -148,6 +148,62 @@
       "source_lock_git_blob_sha": "0b71d6146e8940ca5d4a85cc663fc20724d755d8",
       "authority": "打斗动作因果、受力/接触、打击节奏、命中特效、环境反馈与声画同步",
       "status": "authored_pending_review"
+    },
+    {
+      "package": "director-world-state-handoff-contract",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/references/导演世界状态交接数据契约-V1.md",
+      "git_blob_sha": "bbb66c1943a0c319b5804cedd7c3985d19295242",
+      "authority": "导演层场景/世界版本、资产引用、参考图职责、锁定事实和镜头链交接；不重复SCG状态"
+    },
+    {
+      "package": "director-world-state-handoff-fixture",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/tests/fixtures/导演世界状态交接基准-V1.json",
+      "git_blob_sha": "47912299d234c7b236726204aac22454389a74c0",
+      "authority": "教室有效交接包与八项负向变异回归"
+    },
+    {
+      "package": "director-world-state-handoff-validator",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/scripts/validate_world_state_handoff.js",
+      "git_blob_sha": "2e29553efb1964c0a6f3b520056834f4cf93b4c8",
+      "authority": "无第三方依赖的世界状态交接合同结构校验器"
+    },
+    {
+      "package": "director-ab-protocol",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/tests/导演统筹工作流A-B实验协议-V1.md",
+      "git_blob_sha": "7887510aef268abed0269f566b2ddaae9e4c3f71",
+      "authority": "导演统筹工作流A/B实验设计与变量隔离"
+    },
+    {
+      "package": "director-ab-rubric",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/tests/导演统筹视觉评分量表-V1.json",
+      "git_blob_sha": "98b2fefbd120ea571eb11b8ae8e615b67f5f64da",
+      "authority": "P0硬门禁、十维视觉评分和动态视频检查"
+    },
+    {
+      "package": "director-ab-dataset",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/tests/fixtures/导演统筹A-B实验数据集-V1.json",
+      "git_blob_sha": "09c9b8b8a4c41ab9cfc7f58ace6866cdcc36c862",
+      "authority": "11项导演统筹工作流A/B数据集"
+    },
+    {
+      "package": "director-ab-result-template",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/tests/templates/导演统筹实验结果模板-V1.json",
+      "git_blob_sha": "8b27bd78b4a6cd8970515e026647870afe816852",
+      "authority": "真实实验结果记录模板，默认NOT_RUN"
+    },
+    {
+      "package": "director-ab-validator",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/scripts/validate_director_eval.js",
+      "git_blob_sha": "620a58ad24207ff2983fc658cd6814a673ccac92",
+      "authority": "导演统筹A/B协议、评分量表、数据集和实验状态静态校验"
     }
   ],
   "excluded_candidates": [
@@ -164,7 +220,7 @@
     "licenses_checked": true,
     "local_dependencies_read": true,
     "local_dependency_blob_shas_pinned": true,
-    "main_commit": "3593d91897c6913b6e1f4b1306e1d104888a5c43",
+    "main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
     "orchestrator_regression_cases": 11,
     "fight_impact_skill_status": "authored_pending_review",
     "manju_director_status": "excluded_until_source_refresh",
@@ -189,7 +245,7 @@
     },
     "workflow_integration_ab": "not_run",
     "real_image_video_ab": "not_run",
-    "note": "Static checks verify repository contracts and pinned dependencies only. Scene-realism A/B tests prompt strategy separately from director workflow A/B; do not combine these variables. Dynamic movement research is a static source review, not an installed runtime. No real image/video A/B or Windows Gateway test is claimed.",
+    "note": "V1.4.0刷新scene-realism/storyboard/positioning依赖SHA，新增导演层世界状态交接合同。SCG仍是每镜entities/relations/events唯一事实源；交接包只保存场景/资产/参考图/锁定事实/镜头引用。新结构回归需由本PR GitHub Actions实际执行后更新。真实白模、目标图像/视频模型A/B和独立审片仍未运行。camera-motion frontmatter 1.0.0 / SOURCE_LOCK 1.1.1版本漂移继续显式警告；fight-impact-vfx仍authored_pending_review。",
     "independent_route_review": "not_run",
     "workflow_ab_protocol": "prepared_not_run",
     "visual_scoring_protocol": "aligned_to_scene_realism_10_dimensions_1_to_5",
@@ -200,17 +256,21 @@
       "layout_truth": "阳光洒落的整洁教室.png",
       "note": "复合参考图内嵌座位缩略图不得覆盖唯一桌椅布局真值"
     },
-    "pc_mcp_connection": "unavailable: UNAVAILABLE: Connection failed",
+    "pc_mcp_connection": "connected_2026-11-01_read_only_bootstrap",
     "scene_realism_skill_status": "conditional",
     "scene_realism_prompt_ab": "separate_protocol_added_target_model_ab_not_run",
-    "storyboard_skill_version": "1.3.1",
-    "storyboard_positioning_rules_version": "1.6.0",
+    "storyboard_skill_version": "1.3.4",
+    "storyboard_positioning_rules_version": "1.9.0",
     "dynamic_movement_research": "reviewed_static_only_not_installed",
     "third_party_evaluator": "not_installed_hardware_and_cost_gate",
     "pull_request_merge": {
       "number": 17,
       "state": "merged",
       "merge_commit_sha": "68e5e2a320667a1216ce0d61991e34af9c3c2e6a"
-    }
+    },
+    "scene_realism_skill_version": "1.4.0",
+    "director_world_state_handoff_contract": "added_static_contract",
+    "world_state_handoff_regression": "pending_github_actions",
+    "current_pull_request_ci": "pending"
   }
 }

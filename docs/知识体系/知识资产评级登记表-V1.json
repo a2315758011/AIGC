@@ -591,20 +591,73 @@
       ],
       "usage": "用于设计静态场景/动态角色/摄影机分轨数据合同和大角度环绕风险测试；不作为普通提示词已经具备3D记忆或多视角身份硬约束的证明。",
       "status": "RESEARCH_CANDIDATE_TARGET_MODEL_NOT_RUN"
+    },
+    {
+      "id": "AIGC-CONTINUITY-MEMORY-001",
+      "name": "多镜头持久场景记忆与角色/背景/道具锚点",
+      "domain": "跨镜头连续性/世界状态",
+      "rating": "低",
+      "evidence_level": "E1-E2（CVPR/ECCV/预印本论文公开可查；未在用户目标模型复现）",
+      "claim": "将持续场景资产与逐镜变化分开，以持久背景锚点、角色多参考和上一镜状态续接来减少跨镜头漂移，是多镜头故事板研究的重要方向。",
+      "basis": "StoryBlender（ECCV 2026）使用连续性记忆图和统一坐标系；DreamShot（CVPR 2026）使用多参考角色条件和前序帧续接；CANVAS（arXiv 2604.13452）规划角色连续性、持久背景锚点和位置感知场景。",
+      "verified_scope": "论文方法与公开摘要/项目介绍交叉审查；方法方向与仓库现有SCG/站位/场景版本设计相容。",
+      "not_verified_scope": "当前消费级视频模型是否具备相同内部控制能力；本机真实图像/视频服从率；论文指标能否迁移到用户生产工作流。",
+      "sources": [
+        "docs/多镜头连续性记忆与导演交接研究_20261101_第七批.md"
+      ],
+      "source_refs": [
+        {
+          "path": "docs/多镜头连续性记忆与导演交接研究_20261101_第七批.md",
+          "git_blob_sha": "517ed2812176b9fc295ec00d56cef236a83740e2"
+        }
+      ],
+      "external_sources": [
+        "https://1fwang.github.io/storyblender2026/",
+        "https://openaccess.thecvf.com/content/CVPR2026/html/Huang_DreamShot_Personalized_Storyboard_Synthesis_with_Video_Diffusion_Prior_CVPR_2026_paper.html",
+        "https://arxiv.org/abs/2604.13452"
+      ],
+      "usage": "用于设计跨镜头场景/角色/道具锚点与上一镜末态继承机制；不把研究模型能力宣称为目标生成平台已具备。",
+      "status": "RESEARCH_CANDIDATE_TARGET_MODEL_NOT_RUN"
+    },
+    {
+      "id": "AIGC-APPROVED-ENDSTATE-001",
+      "name": "已批准镜头末态传递为下一镜起始状态",
+      "domain": "镜头连续性/生产流程",
+      "rating": "低",
+      "evidence_level": "E1（开源生产软件公开文档与测试路径静态审查；未安装运行）",
+      "claim": "生成镜头的结果不应自动成为下一镜的连续性真值；只有人工批准的End State才应传递为下一镜Start State，并保留拒绝记录和历史版本。",
+      "basis": "Continuity Studio README公开描述approved End State自动传递、拒绝样片不更新永久连续性、审批锁与版本历史；crashtestoz/storyboard README描述上一镜末帧作为下一镜起点和用户确认编辑。前者Apache-2.0，后者CC BY-NC-SA 4.0非商业许可。",
+      "verified_scope": "仓库README、许可证、固定commit和功能边界静态审查。",
+      "not_verified_scope": "本机安装、真实生成链路、状态数据库一致性、目标视频模型效果及生产成本。",
+      "sources": [
+        "docs/多镜头连续性记忆与导演交接研究_20261101_第七批.md"
+      ],
+      "source_refs": [
+        {
+          "path": "docs/多镜头连续性记忆与导演交接研究_20261101_第七批.md",
+          "git_blob_sha": "517ed2812176b9fc295ec00d56cef236a83740e2"
+        }
+      ],
+      "external_sources": [
+        "https://github.com/momorzq-oss/Continuity-Studio",
+        "https://github.com/crashtestoz/storyboard"
+      ],
+      "usage": "采用“生成尝试→人工审批→批准末态继承”的数据流程思想；拒绝样片不得修改连续性事实。第三方代码未集成，且Storyboard仓库仅非商业许可。",
+      "status": "STATIC_SOURCE_REVIEW_NOT_INSTALLED_NOT_RUN"
     }
   ],
   "audit_snapshot": {
-    "main_head": "bcc7d1ce8a7641126e1a7c281b7b99b8f1a6f4ed",
-    "repository_file_count": 114,
-    "method_entry_count": 15,
-    "scope": "本轮聚焦剧本理解、世界状态、场景真实性、人物调度、运镜、导演统筹与打击感等直接服务预演/分镜的高价值方法；不是全仓库逐文件穷尽审计。",
+    "main_head": "c281194f1cca561825323b4ba48395de86d1fa52",
+    "repository_file_count": 153,
+    "method_entry_count": 19,
+    "scope": "本轮新增跨镜头连续性记忆、持久场景锚点、人工批准末态继承和导演交接数据合同研究；对照现有SCG，避免重复建设第二套世界状态账本。",
     "rule": "评级按具体主张及其验证范围，不按整个 Skill 一刀切；静态测试不代表目标模型生成效果。"
   },
   "version_drifts": [
     {
       "id": "DRIFT-DIRECTOR-PREVIS-001",
       "severity": "high",
-      "status": "stale_dependency_lock",
+      "status": "resolved_in_director_previs_1.4.0",
       "path": "skills/director-previs-cn/SOURCE_LOCK.json",
       "pinned_versions": {
         "scene_realism": "1.3.0",
@@ -613,11 +666,11 @@
       },
       "current_main_versions": {
         "scene_realism": "1.4.0",
-        "storyboard": "1.3.2",
-        "blocking_rules": "V1.7.0"
+        "storyboard": "1.3.4",
+        "blocking_rules": "V1.9.0"
       },
-      "impact": "导演统筹锁定的专业依赖不是当前主线最新版本，离线快照可能遗漏最新场景真实性、站位与动态走位规则。",
-      "action": "依赖锁刷新并回归前，仅把 director-previs 用作统筹/路由参考；专业规则从当前 main 分别读取。"
+      "impact": "历史版本漂移已通过刷新依赖锁修复；当前PR静态回归待执行。",
+      "action": "已更新director-previs V1.4.0并同步SHA；合并前等待GitHub Actions回归。"
     },
     {
       "id": "DRIFT-CAMERA-MOTION-001",
@@ -651,7 +704,7 @@
   "audit_summary": {
     "high": 2,
     "medium": 9,
-    "low": 6,
+    "low": 8,
     "note": "等级是本轮已登记的具体方法条目数量，不是整个仓库知识占比；后续新增证据或版本漂移时应重新评级。"
   }
 }

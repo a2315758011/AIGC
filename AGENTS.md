@@ -29,7 +29,7 @@
 5. 使用结构化镜头状态或高风险事件时间核查时，读取 [分镜导演 Skill](./skills/storyboard-director-cn/SKILL.md)、`references/`、`scripts/` 与 `tests/` 并运行对应校验。
 6. 多人站位、场景调度、走位路径、摄影机轴线或双人近景，必须读取 `skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md`。
 7. **涉及摄影机运镜时**，读取 [中文运镜导演 Skill](./skills/camera-motion-director-cn/SKILL.md)，按需加载其 references；图生视频须先评估源画面景深、边缘余量、遮挡和隐藏表面。运镜设计不得改变分镜既定人物世界坐标、站位、距离、朝向、视线、轴线或道具状态。存在结构化运镜计划时运行 `skills/camera-motion-director-cn/scripts/validate_camera_move.py`。
-8. 参考各平台主播/创作者的站位方法时，读取 `docs/平台创作者人物站位实战研究_20261101.md` 与 `docs/平台创作者人物站位实战研究_20261101_第二批.md` 与 `docs/平台创作者人物动态走位与导演预演研究_20261101_第三批.md` 与 `docs/AI漫剧动态预演控制与生成服从性验证研究_20261101_第四批.md` 与 `docs/多平台人物站位图方法与开源导演台代码审查_20261101_第五批.md` 与 `docs/结构化3D导演台与多视角角色一致性研究_20261101_第六批.md`；仅将有复现证据的方法升级为强制规则。
+8. 参考各平台主播/创作者的站位方法时，读取 `docs/平台创作者人物站位实战研究_20261101.md` 与 `docs/平台创作者人物站位实战研究_20261101_第二批.md` 与 `docs/平台创作者人物动态走位与导演预演研究_20261101_第三批.md` 与 `docs/AI漫剧动态预演控制与生成服从性验证研究_20261101_第四批.md` 与 `docs/多平台人物站位图方法与开源导演台代码审查_20261101_第五批.md` 与 `docs/结构化3D导演台与多视角角色一致性研究_20261101_第六批.md`、`docs/多镜头连续性记忆与导演交接研究_20261101_第七批.md`；仅将有复现证据的方法升级为强制规则。
 9. 不联网的学员使用 [完整双规则离线文件](./学员分镜双规则完整版.md) 或完整下载对应 Skill 文件夹。
 
 ## 权威版本与验收
@@ -54,9 +54,10 @@
 
 ## 跨技能依赖版本一致性门禁
 
-每次调用导演统筹或预演技能前，先比较 `SOURCE_LOCK.json` 中锁定的依赖与当前 `main` 权威文件：
-- 当前 `director-previs-cn` V1.3.0 的锁仍指向 `scene-realism-director-cn` 1.3.0、`storyboard-director-cn` 1.3.1、站位规则 V1.6.0；当前主线已分别更新为 1.4.0、1.3.2、V1.7.0。
-- `camera-motion-director-cn/SKILL.md` 元数据为 1.0.0，而其 `SOURCE_LOCK.json` 为 1.1.1，版本标识尚未统一。
-- `manju-director-cn` 离线快照仍为分镜规则 V2.10.1，落后主线 V2.10.5，继续排除活动路由。
-
-在这些差异修复并重新运行相应回归前：`director-previs-cn` 只可作为统筹/路由参考；必须直接读取当前主线的专业 Skill、references、scripts、tests，不得把旧锁定快照当作最新规则。`fight-impact-vfx-cn` 仍为 `authored_pending_review`，仅作为中级候选方法，不得声称真实视频或后期验收通过。
+每次调用导演统筹或预演技能前，核对对应 SOURCE_LOCK.json 与当前 main：
+- director-previs-cn V1.4.0 已刷新 scene-realism-director-cn V1.4.0、storyboard-director-cn V1.3.4 / source V2.10.5、人物站位规则 V1.9.0。
+- camera-motion-director-cn 的 Skill frontmatter 仍为 1.0.0、SOURCE_LOCK 为 1.1.1；版本元数据漂移尚未解决，使用时直接读取两份权威文件，不得误报统一版本。
+- fight-impact-vfx-cn 仍为 authored_pending_review，不得声称真实视频/后期验收通过。
+- manju-director-cn 离线快照仍引用 V2.10.1，落后当前分镜主线 V2.10.5，继续排除活动路由。
+- 多镜头连续性必须读取 skills/director-previs-cn/references/导演世界状态交接数据契约-V1.md；交接包只引用 SCG shot snapshot，不复制 entities/relations/events。SCG、事件时间、人物站位和运镜分别由各自专业规则校验。
+- 当前主线导演统筹静态回归以 validate_director_previs.js、validate_world_state_handoff.js 和 GitHub Actions 结果为准；静态通过不等于目标模型视频通过。
