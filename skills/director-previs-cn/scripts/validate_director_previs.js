@@ -110,11 +110,11 @@ check("all specialist handoffs exist", ["scene_realism", "storyboard", "camera_m
 check("classroom correctly skips fight skill", classroom.specialist_handoffs.fight_impact_vfx.some(item => item.includes("不调用")));
 check("visual acceptance is a hard invariant", classroom.integration_invariants.some(item => item.includes("不得报告视觉验收通过")));
 
-check("ten route regression cases exist", routes.cases.length === 10);
+check("eleven route regression cases exist", routes.cases.length === 11);
 check("source lock regression count matches fixture", lock.verification.orchestrator_regression_cases === routes.cases.length);
 const ids = routes.cases.map(test => test.id);
 check("route regression IDs are unique", new Set(ids).size === ids.length);
-check("route regression IDs cover DO-01..DO-10", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10"].every(id => ids.includes(id)));
+check("route regression IDs cover DO-01..DO-11", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10","DO-11"].every(id => ids.includes(id)));
 const byId = Object.fromEntries(routes.cases.map(test => [test.id, test]));
 check("DO-01 routes only to scene realism", JSON.stringify(byId["DO-01"].expected_route) === JSON.stringify(["scene-realism-director-cn"]));
 check("DO-02 routes only to storyboard", JSON.stringify(byId["DO-02"].expected_route) === JSON.stringify(["storyboard-director-cn"]));
@@ -127,7 +127,8 @@ check("DO-08 text-only task routes director only", JSON.stringify(byId["DO-08"].
 check("DO-08 visual acceptance remains NOT_RUN", byId["DO-08"].visual_acceptance === "NOT_RUN");
 check("DO-09 fight-only task routes directly", JSON.stringify(byId["DO-09"].expected_route) === JSON.stringify(["fight-impact-vfx-cn"]));
 check("DO-10 cross-domain fight route is ordered", JSON.stringify(byId["DO-10"].expected_route) === JSON.stringify(["director-previs-cn","scene-realism-director-cn","fight-impact-vfx-cn","storyboard-director-cn","camera-motion-director-cn"]));
-check("markdown covers all ten IDs", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10"].every(id => regressionText.includes(id)));
+check("DO-11 dynamic movement route separates storyboard and camera", JSON.stringify(byId["DO-11"].expected_route) === JSON.stringify(["director-previs-cn","scene-realism-director-cn","storyboard-director-cn","camera-motion-director-cn"]));
+check("markdown covers all eleven IDs", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10","DO-11"].every(id => regressionText.includes(id)));
 check("integration test contains controlled A/B", integrationText.includes("A组") && integrationText.includes("B组") && integrationText.includes("A/B 变量隔离"));
 check("classroom integration skips non-applicable fight skill", integrationText.includes("fight-impact-vfx-cn` 明确跳过"));
 check("visual A/B is not falsely marked complete", lock.verification.real_image_video_ab === "not_run");
