@@ -60,7 +60,7 @@ check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
 check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.0"/.test(frontmatter[1])) && lock.version === "1.4.0");
 check("source lock targets current branch", lock.branch === "main");
-check("source lock pins reviewed main commit", lock.verified_main_commit === "c281194f1cca561825323b4ba48395de86d1fa52");
+check("source lock pins reviewed main commit", lock.verified_main_commit === "be1d349b6a40e75169c69275be1228bb7b690361");
 const cameraFrontmatter = cameraSkillText.match(/^---\n([\s\S]*?)\n---/);
 check("camera skill metadata matches source lock 1.1.1", Boolean(cameraFrontmatter && /version:\s*"1\.1\.1"/.test(cameraFrontmatter[1])) && cameraLock.version === "1.1.1");
 const manjuFrontmatter = manjuSkillText.match(/^---\n([\s\S]*?)\n---/);
