@@ -46,3 +46,5 @@ jobs:
         run: node skills/director-previs-cn/scripts/validate_director_previs.js
       - name: Validate director A-B evaluation protocol
         run: node skills/director-previs-cn/scripts/validate_director_eval.js
+      - name: Validate scene generation output contract
+        run: node skills/scene-realism-director-cn/tests/validate-generation-output-contract.cjs
