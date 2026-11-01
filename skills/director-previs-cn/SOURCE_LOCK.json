@@ -4,7 +4,7 @@
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
+  "verified_main_commit": "be1d349b6a40e75169c69275be1228bb7b690361",
   "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
@@ -192,24 +192,21 @@
     "licenses_checked": true,
     "local_dependencies_read": true,
     "local_dependency_blob_shas_pinned": true,
-    "main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
+    "main_commit": "be1d349b6a40e75169c69275be1228bb7b690361",
     "orchestrator_regression_cases": 11,
     "fight_impact_skill_status": "authored_pending_review",
     "manju_director_status": "V2.10.5_snapshot_SHA_and_character_counts_verified_against_main_and_packaged_copy",
     "automated_static_regression": {
       "status": "passed",
-      "run_id": 41271164151,
-      "run_number": 92,
-      "tested_commit": "9e36397684323afe624531edc1e4ef8740a8fcba",
-      "pass_count": 164,
+      "run_id": 41283479634,
+      "pass_count": 181,
       "fail_count": 0,
       "breakdown": {
-        "director_previs_contract": 128,
+        "director_previs_contract": 145,
         "director_ab_protocol": 36
       },
-      "workflow": "director-previs-regression",
-      "scope": "GitHub Actions static contract, dependency blob SHA, route regression, classroom fixture, A/B protocol and exact manju V2.10.5 source/package SHA and character counts. Does not verify target model image/video behavior.",
-      "note": "Run 41271164151 passed the complete current branch including the V2.10.5 snapshot content gates; target-model A/B and real image/video remain NOT_RUN."
+      "tested_commit": "71bc3e43dbcc35ac6b1b0609a5f7ab14df080e40",
+      "scope": "GitHub Actions static director contract, dependency SHA, route fixtures, A/B protocol; scene database, benchmark, continuity, SCG 2D/3D and DirectorDesk adapter are recorded in latest_regression."
     },
     "manual_route_dry_run": {
       "status": "passed",
@@ -257,9 +254,25 @@
     "unified_handoff_contract": "added_and_pinned",
     "scg_data_contract": "reused_as_authority_no_duplicate_schema",
     "event_time_contract": "reused_as_authority",
-    "scene_database_validator_ci": "passed_github_actions_run_41283011268",
-    "scene_regression_suite": "14_of_14_steps_passed_github_actions_run_41283011268",
-    "gpt_native_latest_output_form": "two_invalid_infographic_outputs; fabricated A-B scores rejected; zero valid samples"
+    "scene_database_validator_ci": "passed_github_actions_run_41283479634",
+    "scene_regression_suite": "14_of_14_steps_passed_github_actions_run_41283479634",
+    "gpt_native_latest_output_form": "two_invalid_infographic_outputs; fabricated A-B scores rejected; zero valid samples",
+    "latest_regression": {
+      "run_id": 41283479634,
+      "status": "success",
+      "workflow_steps_passed": 14,
+      "workflow_steps_failed": 0,
+      "scene_database": "PASSED_WITH_WARNINGS",
+      "continuity": "positive_pass_negative_rejected",
+      "scg_2d": "passed",
+      "directordesk_adapter": "7_of_7_pass",
+      "scg_3d": "4_of_4_pass",
+      "geometry_merge": "2_of_2_pass",
+      "unknown_obstacle": "blocked_as_expected",
+      "windows_node": "not_run",
+      "director_desk_viewport": "not_run",
+      "target_model_ab": "not_run"
+    }
   },
   "note": " Unified handoff V1.0.0 added: script provenance, project asset references, scene baseline, character/prop state, complete per-shot SCG snapshots, event timeline, and independent camera trajectory. Existing SCG and event-time contracts remain authoritative; no duplicate storyboard schema was created. Real target-model A/B remains NOT_RUN."
 }
