@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "experiment_id": "WHITEBOX-PREVIS-COMPLIANCE-20261101",
+  "status": "NOT_RUN",
+  "blocked_reason": "当前共享Generation Gateway provider EXE普通启动与--disable-gpu探测均以0x80000003退出，根因unknown；未提交生成任务。",
+  "environment": {
+    "model_provider": null,
+    "model_name": null,
+    "exact_model_version": null,
+    "generation_gateway_version": null,
+    "image_assets": null,
+    "character_assets": null,
+    "whitebox_video": null,
+    "prompt_version": null,
+    "resolution": null,
+    "duration_seconds": null,
+    "fps": null,
+    "sampler": null,
+    "steps": null,
+    "cfg": null,
+    "seed": null,
+    "upload_order": null,
+    "run_date": null
+  },
+  "reviewers": [],
+  "scenarios": [
+    {
+      "scenario": "单人直线路径",
+      "selected": false,
+      "runs_A": [],
+      "runs_B": [],
+      "scores_A": [],
+      "scores_B": [],
+      "timestamps_and_frames": [],
+      "hard_defects": []
+    },
+    {
+      "scenario": "单人绕障碍",
+      "selected": false,
+      "runs_A": [],
+      "runs_B": [],
+      "scores_A": [],
+      "scores_B": [],
+      "timestamps_and_frames": [],
+      "hard_defects": []
+    },
+    {
+      "scenario": "双人交汇",
+      "selected": false,
+      "runs_A": [],
+      "runs_B": [],
+      "scores_A": [],
+      "scores_B": [],
+      "timestamps_and_frames": [],
+      "hard_defects": []
+    },
+    {
+      "scenario": "三人打断",
+      "selected": false,
+      "runs_A": [],
+      "runs_B": [],
+      "scores_A": [],
+      "scores_B": [],
+      "timestamps_and_frames": [],
+      "hard_defects": []
+    },
+    {
+      "scenario": "人物按时出画",
+      "selected": false,
+      "runs_A": [],
+      "runs_B": [],
+      "scores_A": [],
+      "scores_B": [],
+      "timestamps_and_frames": [],
+      "hard_defects": []
+    },
+    {
+      "scenario": "相机升降+前进",
+      "selected": false,
+      "runs_A": [],
+      "runs_B": [],
+      "scores_A": [],
+      "scores_B": [],
+      "timestamps_and_frames": [],
+      "hard_defects": []
+    },
+    {
+      "scenario": "相机环绕+人物移动",
+      "selected": false,
+      "runs_A": [],
+      "runs_B": [],
+      "scores_A": [],
+      "scores_B": [],
+      "timestamps_and_frames": [],
+      "hard_defects": []
+    },
+    {
+      "scenario": "四机位连续剪辑",
+      "selected": false,
+      "runs_A": [],
+      "runs_B": [],
+      "scores_A": [],
+      "scores_B": [],
+      "timestamps_and_frames": [],
+      "hard_defects": []
+    }
+  ],
+  "aggregate": {
+    "compliance_rate_A": null,
+    "compliance_rate_B": null,
+    "event_timing_error_A": null,
+    "event_timing_error_B": null,
+    "trajectory_deviation_A": null,
+    "trajectory_deviation_B": null,
+    "identity_drift_rate_A": null,
+    "identity_drift_rate_B": null,
+    "action_defect_rate_A": null,
+    "action_defect_rate_B": null,
+    "rework_cost_A": null,
+    "rework_cost_B": null,
+    "mean_score_0_to_4_A": null,
+    "mean_score_0_to_4_B": null,
+    "inter_rater_agreement": null
+  },
+  "decision": "NOT_EVALUATED",
+  "decision_notes": "白模服从性A/B只改变B组是否额外加入白模动态参考视频；与导演工作流A/B和场景提示策略A/B分开。"
+}
