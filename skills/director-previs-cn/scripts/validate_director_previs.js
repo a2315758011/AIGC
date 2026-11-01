@@ -101,7 +101,7 @@ check("scene realism dependency is current", dependencyByName["scene-realism-dir
 check("scene realism skill blob is current", dependencyByName["scene-realism-director-cn"]?.git_blob_sha === sceneRealismLock.files?.["SKILL.md"]);
 check("scene realism source lock blob is current", dependencyByName["scene-realism-director-cn"]?.source_lock_version === sceneRealismLock.version && dependencyByName["scene-realism-director-cn"]?.source_lock_git_blob_sha === gitBlobSha(sceneRealismLockText));
 check("skeletal contact contract is pinned", Boolean(lock.cross_skill_refs?.["scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md"]) && exists("skills/scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md"));
-check("storyboard dependency is current", dependencyByName["storyboard-director-cn"]?.version === "1.3.4");
+check("storyboard dependency is current", dependencyByName["storyboard-director-cn"]?.version === "1.3.5");
 check("positioning rules are current", dependencyByName["storyboard-positioning-rules"]?.version === "1.9.0");
 check("camera motion dependency is current", dependencyByName["camera-motion-director-cn"]?.version === "1.1.1");
 check("sixth-batch structured previs research is pinned", dependencyByName["structured-previs-research-sixth-batch"]?.git_blob_sha === "d151b072b105bf31505504fb7a2972dab89e412f");
