@@ -49,6 +49,9 @@ const lock = JSON.parse(read("skills/director-previs-cn/SOURCE_LOCK.json"));
 const sceneRealismLock = JSON.parse(read("skills/scene-realism-director-cn/SOURCE_LOCK.json"));
 const sceneRealismLockText = read("skills/scene-realism-director-cn/SOURCE_LOCK.json");
 const classroom = JSON.parse(read("skills/director-previs-cn/tests/fixtures/教室跨技能导演统筹夹具.json"));
+const classroomLayoutPath = "skills/scene-realism-director-cn/references/教室空间权威布局基准-4列5排-V1.json";
+const classroomLayoutText = read(classroomLayoutPath);
+const classroomLayout = JSON.parse(classroomLayoutText);
 const cameraSkillText = read("skills/camera-motion-director-cn/SKILL.md");
 const cameraLock = JSON.parse(read("skills/camera-motion-director-cn/SOURCE_LOCK.json"));
 const manjuSkillText = read("skills/manju-director-cn/SKILL.md");
@@ -158,6 +161,9 @@ for (const dep of lock.local_dependencies || []) {
 
 check("classroom has exactly 3 reference assets", classroom.source_assets.length === 3);
 check("desk grid is 4x5=20 from original image", classroom.scene_truth.desks.columns === 4 && classroom.scene_truth.desks.rows === 5 && classroom.scene_truth.desks.count === 20);
+check("authoritative classroom baseline is 4x5=20", classroomLayout.scene_id === "CLASSROOM-CN-4X5-001" && classroomLayout.furniture.columns === 4 && classroomLayout.furniture.rows === 5 && classroomLayout.furniture.desk_count === 20 && classroomLayout.furniture.chair_count === 20 && classroomLayout.furniture.desk_centers.length === 20);
+check("authoritative classroom baseline has no stale 4x6 wording", !/4 columns and 6 rows|four columns by six rows|4列×6排|4列6排/.test(classroomLayoutText));
+check("authoritative classroom baseline SHA matches cross-skill lock", lock.cross_skill_refs[classroomLayoutPath.replace("skills/", "scene-realism-director-cn/").replace("scene-realism-director-cn/", "scene-realism-director-cn/")] === gitBlobSha(classroomLayoutText));
 check("desk layout source is unique", classroom.scene_truth.layout_source === "阳光洒落的整洁教室.png");
 check("room measurements are marked estimates", classroom.scene_truth.dimensions_m.measurement_status === "reference_estimate_not_survey");
 check("classroom door connects to corridor", classroom.scene_truth.door.connects_to === "school_corridor");
