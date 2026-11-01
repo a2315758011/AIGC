@@ -6,7 +6,8 @@
     "node_runtime": "local Node.js via Windows MCP",
     "validator": "skills/scene-realism-director-cn/tests/validate-scene-database.cjs",
     "classroom_specific_validator": "skills/scene-realism-director-cn/tests/validate-classroom-layout.cjs",
-    "classroom_specific_validator_git_blob_sha": "aea65c7c7ead93076565e44c480a1f168738bdca"
+    "classroom_specific_validator_git_blob_sha": "aea65c7c7ead93076565e44c480a1f168738bdca",
+    "node_version": "v24.13.0"
   },
   "input": {
     "scene_id": "CLASSROOM-CN-4X6-001",
@@ -75,5 +76,5 @@
     "门扇开启方向",
     "女主具体座位列号"
   ],
-  "boundary": "本证据证明该场景 JSON 通过现有 Node 结构/引用/ID/配对校验；49条警告明确保留了家具占地未知和非米制坐标限制，不代表真实物理净空通过。 中央通道逻辑区域为x=0.46..0.54，宽于两侧列间通道x=0.28..0.33和0.67..0.72；这是归一化逻辑区域，不是实测净宽。 专用校验器 validate-classroom-layout.cjs 已在 Windows Node 环境实际运行，退出码0，0错误；独立确认4列×6排、24个唯一桌位、24把配对椅子及中央通道逻辑宽度大于两侧通道。 专用校验器同时核验右前侧门、前墙中央黑板、前方中央讲台及左右侧墙事实。"
+  "boundary": "本证据证明该场景 JSON 通过现有 Node 结构/引用/ID/配对校验；49条警告明确保留了家具占地未知和非米制坐标限制，不代表真实物理净空通过。 中央通道逻辑区域为x=0.46..0.54，宽于两侧列间通道x=0.28..0.33和0.67..0.72；这是归一化逻辑区域，不是实测净宽。 专用校验器 validate-classroom-layout.cjs 已在 Windows Node 环境实际运行，退出码0，0错误；独立确认4列×6排、24个唯一桌位、24把配对椅子及中央通道逻辑宽度大于两侧通道。 专用校验器同时核验右前侧门、前墙中央黑板、前方中央讲台及左右侧墙事实。 Windows Node 实际版本为 v24.13.0；专用校验器最终版检查右前侧门、前墙中央黑板、前方中央讲台及左右侧墙事实，退出码0。"
 }
