@@ -1,6 +1,6 @@
 {
   "skill": "comic-production-director-cn",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "authoritative_sources": [
     {
       "path": "docs/漫画专业制作与出版总规范-V1.md",
@@ -34,7 +34,7 @@
   "skill_files": [
     {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha": "530d56605e60202240aa29cad2e48805d7000c36"
+      "git_blob_sha": "73fd2fcd885619bdd6d4cb9d6904f4c7a72b825d"
     },
     {
       "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
@@ -74,7 +74,7 @@
     },
     {
       "path": "skills/comic-production-director-cn/ARTIFACT_MANIFEST.json",
-      "git_blob_sha": "e77f86b248c138e395855d50485646946ea6ad60"
+      "git_blob_sha": "f6233d462bae36081fbcddbebcdbaeb916c51a05"
     }
   ],
   "external_projects_reviewed": [
@@ -175,7 +175,8 @@
     "comic_artifact_e2e": "NOT_RUN",
     "skill_contract_unittest": "PASS_8_OF_8_ISOLATED_PYTHON_AFTER_FIX",
     "github_readback": "PASS_ALL_REQUIRED_FILES",
-    "committed_github_actions": "NOT_RUN"
+    "committed_github_actions": "NOT_RUN",
+    "source_references": "PASS_STATIC_AFTER_FIX"
   },
-  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted. Additional independent test execution found a stale negative-test fixture targeting version 1.0.0 while the skill was 1.2.0; corrected to target 1.2.0. Isolated Python unittest then passed 8/8. QC cases passed 4/4 in isolated Python. Windows PC MCP write channel failed during temporary test-file staging; no local external tools were installed or run."
+  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted. Additional independent test execution found a stale negative-test fixture targeting version 1.0.0 while the skill was 1.2.0; corrected to target 1.2.0. Isolated Python unittest then passed 8/8. QC cases passed 4/4 in isolated Python. Windows PC MCP write channel failed during temporary test-file staging; no local external tools were installed or run. V1.2.1 fixes the missing explicit reference to the first-batch external research document discovered by independently re-running the source-reference validator. Skill manifest and source lock updated. All required references now pass static checks."
 }
