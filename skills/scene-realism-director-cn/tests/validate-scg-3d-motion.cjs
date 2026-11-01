@@ -32,7 +32,7 @@ function movingBoundsAtRoot(root,v){
 }
 function expandedObstacle(o,v){
  if(v.shape==="sphere")return {minX:o.minX-v.x,maxX:o.maxX+v.x,minY:o.minY-v.y,maxY:o.maxY+v.y,minZ:o.minZ-v.z,maxZ:o.maxZ+v.z};
- return {minX:o.minX-v.x,maxX:o.maxX+v.x,minY:o.minY-v.y,maxY:o.maxY+v.y,minZ:o.minZ-v.z,maxZ:o.maxZ+v.z};
+ return {minX:o.minX-v.x,maxX:o.maxX+v.x,minY:o.minY-v.y,maxY:o.maxY+v.y,minZ:o.minZ-v.z,maxZ:o.maxZ};
 }
 function equal(a,b){return xyz(a)&&xyz(b)&&Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z)<1e-6;}
 function run(doc,sceneDb){
