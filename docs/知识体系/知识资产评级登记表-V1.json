@@ -65,7 +65,7 @@
       "rating": "中",
       "evidence_level": "E2（多项独立研究/基准支持；目标模型A/B未运行）",
       "claim": "对象相对位置、方向参照、遮挡、可通行/交互关系、尺度与空间因果应作为独立约束和验收项，不能只罗列物体名词。",
-      "basis": "SpatialT2I、SpatialGenEval、GenSpace等研究分别从空间关系、空间忠实度和几何评估揭示生成模型的空间弱点；仓库已建立中文配对基准与A/B规程。",
+      "basis": "SpatialGenEval、GenSpace 和 Microsoft VISOR 等独立研究/基准分别从复杂空间推理、3D空间忠实度和对象空间关系评测揭示生成模型的空间弱点；仓库已建立中文配对基准与A/B规程。",
       "verified_scope": "文献/基准结论与本地规则设计的相互支持。",
       "not_verified_scope": "用户当前图像模型上的效果提升比例、真实生成稳定性。",
       "sources": [
@@ -340,7 +340,7 @@
       "rating": "高",
       "evidence_level": "E3（12/12 Node.js 原型回归；仅限已实现的12类案例）",
       "claim": "剧本事实、实体实例、关系、事件状态变化与镜头/可见性必须分层；遮挡/出画不等于实体消失，世界状态变化必须有来源事件。",
-      "basis": "TSG Bench、GEST、GraphVid、WROP、OpenUSD 与 W3C SHACL 提供独立概念支撑；仓库 SCG 原型记录 12/12 Node.js 回归通过。",
+      "basis": "TSG Bench、GEST、GraphVid、WROP、OpenUSD 与 W3C SHACL 提供独立概念支撑；仓库研究记录报告 SCG 原型 Node.js 回归 12/12 PASS，原始执行日志和本轮 Windows 重跑仍待补齐。",
       "verified_scope": "已记录的12个正反例覆盖容器内可读、对象重复、投影载体、无来源群体动作、遮挡后实体消失等特定规则。",
       "not_verified_scope": "全部 E01-E25 规则的完整覆盖、当前 Windows 工作站重跑、目标图像/视频模型实际服从和完整物理引擎。",
       "sources": [
@@ -543,7 +543,7 @@
   "audit_snapshot": {
     "main_head": "bcc7d1ce8a7641126e1a7c281b7b99b8f1a6f4ed",
     "repository_file_count": 114,
-    "method_entry_count": 14,
+    "method_entry_count": 15,
     "scope": "本轮聚焦剧本理解、世界状态、场景真实性、人物调度、运镜、导演统筹与打击感等直接服务预演/分镜的高价值方法；不是全仓库逐文件穷尽审计。",
     "rule": "评级按具体主张及其验证范围，不按整个 Skill 一刀切；静态测试不代表目标模型生成效果。"
   },
