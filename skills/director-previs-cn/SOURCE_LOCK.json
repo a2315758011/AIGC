@@ -169,6 +169,41 @@
       "path": "skills/director-previs-cn/scripts/validate_world_state_handoff.js",
       "git_blob_sha": "2e29553efb1964c0a6f3b520056834f4cf93b4c8",
       "authority": "无第三方依赖的世界状态交接合同结构校验器"
+    },
+    {
+      "package": "director-ab-protocol",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/tests/导演统筹工作流A-B实验协议-V1.md",
+      "git_blob_sha": "7887510aef268abed0269f566b2ddaae9e4c3f71",
+      "authority": "导演统筹工作流A/B实验设计与变量隔离"
+    },
+    {
+      "package": "director-ab-rubric",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/tests/导演统筹视觉评分量表-V1.json",
+      "git_blob_sha": "98b2fefbd120ea571eb11b8ae8e615b67f5f64da",
+      "authority": "P0硬门禁、十维视觉评分和动态视频检查"
+    },
+    {
+      "package": "director-ab-dataset",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/tests/fixtures/导演统筹A-B实验数据集-V1.json",
+      "git_blob_sha": "09c9b8b8a4c41ab9cfc7f58ace6866cdcc36c862",
+      "authority": "11项导演统筹工作流A/B数据集"
+    },
+    {
+      "package": "director-ab-result-template",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/tests/templates/导演统筹实验结果模板-V1.json",
+      "git_blob_sha": "8b27bd78b4a6cd8970515e026647870afe816852",
+      "authority": "真实实验结果记录模板，默认NOT_RUN"
+    },
+    {
+      "package": "director-ab-validator",
+      "version": "1.0.0",
+      "path": "skills/director-previs-cn/scripts/validate_director_eval.js",
+      "git_blob_sha": "26c623051bf1e6d684537e6326c5b4a5043dd850",
+      "authority": "导演统筹A/B协议、评分量表、数据集和实验状态静态校验"
     }
   ],
   "excluded_candidates": [
