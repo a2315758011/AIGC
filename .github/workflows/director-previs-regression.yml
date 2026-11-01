@@ -69,6 +69,10 @@ jobs:
         run: node skills/scene-realism-director-cn/tests/validate-scg-spatial-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG空间运动与道具状态回归-V1.json
       - name: Validate DirectorDesk neutral 3D adapter
         run: node skills/scene-realism-director-cn/tests/test-directordesk-neutral.cjs
+      - name: Validate SCG skeletal contact validator syntax
+        run: node --check skills/scene-realism-director-cn/tests/validate-scg-skeletal-contact.cjs
+      - name: Validate SCG skeletal contact positive and negative cases
+        run: node skills/scene-realism-director-cn/tests/validate-scg-skeletal-contact.cjs skills/scene-realism-director-cn/tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json
       - name: Validate SCG 3D proxy collision regression
         run: node skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG三维碰撞回归-V1.json
       - name: Validate SCG and static scene database geometry merge

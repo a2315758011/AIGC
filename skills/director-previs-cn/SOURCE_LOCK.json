@@ -71,12 +71,12 @@
   "local_dependencies": [
     {
       "package": "scene-realism-director-cn",
-      "version": "1.10.0",
+      "version": "1.11.0",
       "path": "skills/scene-realism-director-cn/SKILL.md",
-      "git_blob_sha": "aa4793860777bd7b3b68a3654a5d91b5218fbb51",
+      "git_blob_sha": "5bf4258129a121c9128f9a77a549490cd25def3b",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.10.0",
-      "source_lock_git_blob_sha": "e1ccd37538dab877b985c269afddf5cda3591bbd",
+      "source_lock_version": "1.11.0",
+      "source_lock_git_blob_sha": "b15f76cec8fb04e406195c22eed2b2b7db4d3b80",
       "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
       "status": "conditional"
     },
@@ -258,5 +258,8 @@
     "scg_data_contract": "reused_as_authority_no_duplicate_schema",
     "event_time_contract": "reused_as_authority"
   },
-  "note": " Unified handoff V1.0.0 added: script provenance, project asset references, scene baseline, character/prop state, complete per-shot SCG snapshots, event timeline, and independent camera trajectory. Existing SCG and event-time contracts remain authoritative; no duplicate storyboard schema was created. Real target-model A/B remains NOT_RUN."
+  "note": " Unified handoff V1.0.0 added: script provenance, project asset references, scene baseline, character/prop state, complete per-shot SCG snapshots, event timeline, and independent camera trajectory. Existing SCG and event-time contracts remain authoritative; no duplicate storyboard schema was created. Real target-model A/B remains NOT_RUN.",
+  "cross_skill_refs": {
+    "scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md": "d85741572d8de2f0610394530ad99703ce5296f3"
+  }
 }

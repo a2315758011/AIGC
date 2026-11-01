@@ -47,7 +47,7 @@ description: 面向 AIGC 静态场景图、室内外环境图和漫剧背景的�
 2. `references/场景真实性检查表.md`：逐项验收。
 3. `references/开源仓库研究与采纳记录_20261031.md`：来源、版本、许可证与采纳边界。
 4. `references/可控生成与诊断工具.md`：工具适用范围和限制。
-5. `references/场景图真实性质检与回归样例-V1.json` 与 `tests/场景真实性回归样例.md`：按目标场景选择回归样例。\n6. `references/场景真实性原创中文配对基准集-V1.json`：使用原创 A/B 场景题和可判定问题。\n7. `tests/场景真实性配对盲评记录模板-V1.1.md`：真实模型对照与盲评。\n8. `docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md`：SpatialGenEval、GenSpace、InSpace 的来源与采纳边界。
+5. `references/场景图真实性质检与回归样例-V1.json` 与 `tests/场景真实性回归样例.md`：按目标场景选择回归样例。\n6. `references/场景真实性原创中文配对基准集-V1.json`：使用原创 A/B 场景题和可判定问题。\n7. `tests/场景真实性配对盲评记录模板-V1.1.md`：真实模型对照与盲评。\n8. `docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md`：SpatialGenEval、GenSpace、InSpace 的来源与采纳边界。\n9. `references/SCG骨骼姿态与接触约束扩展契约-V1.md`：人物骨骼绑定、末端映射、支撑/抓握/扶靠、跨镜接触生命周期与真实三维验收边界。
 
 当任务同时涉及人物站位、走位或摄影机运动时，继续读取现有 storyboard/camera-motion Skill；本 Skill 不覆盖这些技能的职责。
 
@@ -179,3 +179,15 @@ node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG三维碰撞回归-V1.js
 
 
 导出器现保留 pose_state、support_state，并独立转换 body_forward/head_forward 朝向向量；不生成骨骼动画或真实接触解算。
+
+
+## 人物骨骼姿态与接触约束
+
+当镜头涉及坐下/起身、脚底支撑、抓握、扶靠、跪地、摔倒或人物身体接触时，必须读取 `references/SCG骨骼姿态与接触约束扩展契约-V1.md`。
+
+- 复用 SCG entity / relation / event，不建立平行人物状态账本。
+- 角色必须声明 rig_id、skeleton_profile、末端映射、pose_id、clip_id 和 root_motion_separate。
+- 接触必须引用目标实体 contact_anchors；仅靠近不等于接触成立。
+- 新接触、继承接触、释放接触分别按 contact_begin / 同 contact_id / contact_end 表达。
+- 结构校验：`node tests/validate-scg-skeletal-contact.cjs tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json`。
+- 校验器通过仅代表 SCG 结构和时序符合契约。未运行 Blender / DirectorDesk IK、没有关键帧与视口证据时，必须标记真实骨骼接触为 NOT_RUN。

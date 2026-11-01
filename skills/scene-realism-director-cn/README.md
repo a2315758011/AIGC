@@ -1,4 +1,4 @@
-# 场景真实性导演与独立质检 Skill V1.10.0
+# 场景真实性导演与独立质检 Skill V1.11.0
 
 本技能用于控制 AIGC 场景图的建筑拓扑、空间功能、家具布局、透视尺度、物理接触、光照、色彩、材质和跨镜场景连续性。
 
@@ -24,7 +24,7 @@
 - `tests/validate-scene-database.cjs`：场景数据库结构、对象配对、占地重叠和通道侵入检查。
 - `tests/validate-shot-continuity.cjs`：逐镜状态继承和瞬移检查。
 - `tests/validate-scg-spatial-motion.cjs`：二维地面路径/障碍和道具持有人检查。
-- `tests/validate-scg-3d-motion.cjs`：三维代理路径、固定几何合并和未知障碍闭锁。
+- `tests/validate-scg-3d-motion.cjs`：三维代理路径、固定几何合并和未知障碍闭锁。\n- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`、`tests/validate-scg-skeletal-contact.cjs`：骨骼绑定、末端映射、支撑/抓握/扶靠、时间冲突和跨镜接触生命周期。
 - `tests/validate-scene-benchmark.cjs`：原创中文配对基准结构检查。
 - `tests/场景真实性配对盲评记录模板-V1.1.md`、`tests/场景真实性A-B测试执行规程-V1.md`：真实生成对照和独立评审规程。
 
@@ -37,10 +37,10 @@ node skills/scene-realism-director-cn/tests/validate-scene-database.cjs projects
 node skills/scene-realism-director-cn/tests/validate-scene-benchmark.cjs
 node skills/scene-realism-director-cn/tests/validate-shot-continuity.cjs skills/scene-realism-director-cn/tests/fixtures/镜头连续性_通过样例.json
 node skills/scene-realism-director-cn/tests/validate-scg-spatial-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG空间运动与道具状态回归-V1.json
-node skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG三维碰撞回归-V1.json
+node skills/scene-realism-director-cn/tests/validate-scg-skeletal-contact.cjs skills/scene-realism-director-cn/tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json\nnode skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG三维碰撞回归-V1.json
 ```
 
-## 验收边界
+## 人物骨骼与接触约束\n\n- 接触约束作为 SCG relation.contact_constraint，引用人物 skeletal_rig / skeletal_pose 与目标实体 contact_anchors。\n- 结构回归覆盖 7 个正向/负向案例；planned 仅表示约束已定义，不代表 IK 或骨骼接触通过。\n- Blender / DirectorDesk 实际骨骼求解、脚底锁定、坐姿接触与视口验收仍需独立执行。\n\n## 验收边界
 
 - 当前三维代理碰撞与场景数据库几何合并共 6/6 个回归样例在 Node.js v22.16.0 隔离环境符合预期；DirectorDesk 中立坐标适配自动回归 7/7 通过 GitHub Actions。
 - AABB 是保守代理，不是精确网格/骨骼物理；未知几何必须输出 UNRESOLVED，不能当作无碰撞。
