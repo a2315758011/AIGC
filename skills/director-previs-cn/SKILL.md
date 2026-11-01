@@ -90,3 +90,5 @@ node skills/director-previs-cn/scripts/validate_director_previs.js
 ```
 
 该检查器验证路由合同、来源锁、依赖文件 SHA、教室集成夹具和十项回归用例。fight-impact-vfx 当前自身状态为 `authored_pending_review`，使用时须遵守其验证边界。静态检查只证明仓库合同一致，不证明模型真实遵循提示词，也不证明图像/视频质量提升。
+
+开展导演统筹效果对比时，必须先读取 `tests/导演统筹工作流A-B实验协议-V1.md`、`tests/导演统筹视觉评分量表-V1.json` 和 `tests/fixtures/导演统筹A-B实验数据集-V1.json`。实验结果必须写入 `tests/templates/导演统筹实验结果模板-V1.json` 的副本；没有真实运行数据时保持 NOT_RUN。
