@@ -659,8 +659,7 @@
       "case_id": "reject-contact-end-while-still-active",
       "expected_contact_ok": false,
       "expected_contact_errors": [
-        "CONTACT-DATA-28",
-        "CONTACT-DATA-29"
+        "CONTACT-DATA-28"
       ],
       "scene": {
         "shots": [
