@@ -1,6 +1,9 @@
 # 更新记录
 
 ## 1.4.0 — 2026-11-01
+- 同步 scene-realism-director-cn V1.10.0、storyboard-director-cn V1.3.4、站位规则 V1.9.0、camera-motion-director-cn V1.1.1；SOURCE_LOCK 精确 SHA 与 main 审计基线已刷新。
+- A/B 协议、实验结果模板与校验器统一锁定 director-previs-cn@1.4.0；禁止实验记录继续使用 1.3.1 旧版本。
+- GitHub Actions run 41283479634：145 项导演合同、36 项 A/B 协议及 14 步场景/连续性/2D/3D/DirectorDesk 回归通过。该证据不代表目标模型视觉效果已通过。
 - 新增导演共享事实与 SCG 交接规范，明确剧本来源、项目隔离、权威资产、静态场景基线、人物/道具状态、逐镜完整世界状态、事件时间轴和摄影机独立轨迹的交接顺序。
 - 明确复用 storyboard 现有 SCG 与事件时间数据契约，不另造并行分镜 JSON；增加读取门禁和证据追溯要求。
 - 修复上一轮 CI 发现的 README 转义换行和 scene-realism SOURCE_LOCK SHA 失配；回归通过后再扩展数据交接规则。
