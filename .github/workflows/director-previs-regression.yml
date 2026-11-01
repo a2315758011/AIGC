@@ -48,3 +48,9 @@ jobs:
         run: node skills/director-previs-cn/scripts/validate_director_eval.js
       - name: Validate DirectorDesk neutral 3D adapter
         run: node skills/scene-realism-director-cn/tests/test-directordesk-neutral.cjs
+      - name: Validate SCG 3D proxy collision regression
+        run: node skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG三维碰撞回归-V1.json
+      - name: Validate SCG and static scene database geometry merge
+        run: node skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG场景数据库几何合并测试.json skills/scene-realism-director-cn/tests/fixtures/SCG场景数据库几何合并数据库.json
+      - name: Validate unknown fixed obstacle blocks release
+        run: node skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG未知固定障碍阻断测试.json skills/scene-realism-director-cn/tests/fixtures/SCG未知固定障碍数据库.json
