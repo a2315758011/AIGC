@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "checked_at": "2026-11-02",
+  "note": "平台规格与政策会变化；状态不是已开户、已上传或已获商业批准。导出前必须重新核对官方来源和上传后台。",
+  "profiles": {
+    "globalcomix": {
+      "official_source": "https://globalcomix.com/support/faq",
+      "formats": [
+        "jpg",
+        "png",
+        "pdf",
+        "zip",
+        "cbz"
+      ],
+      "max_pixel_width_single_page": 1280,
+      "max_pixel_width_double_page": 1920,
+      "max_pixel_size_policy": "平台会对超过上述宽度的页图按比例缩小；无固定最大像素要求",
+      "ai_disclosure_required": true,
+      "ai_art_monetization_allowed": false,
+      "ai_text_monetization_allowed": false,
+      "monetization_status": "BLOCKED_FOR_AI_CONTENT",
+      "payout_methods": [
+        "PayPal"
+      ],
+      "payout_min_usd": 30,
+      "status": "VERIFIED_OFFICIAL_FAQ"
+    },
+    "tapas": {
+      "official_sources": [
+        "https://www.creators.tapas.io/file-size-guide",
+        "https://help.tapas.io/hc/en-us/articles/1260802028970-Series-Basics-to-publish-a-comic-episode-on-Tapas",
+        "https://www.creators.tapas.io/earning-money",
+        "https://www.creators.tapas.io/content-and-community-guidelines"
+      ],
+      "page_width_px": 940,
+      "page_height_limit": null,
+      "formats": [
+        "png",
+        "jpg",
+        "gif"
+      ],
+      "per_file_limit_mb": 2,
+      "episode_total_limit_mb": 20,
+      "upload_size_status": "CONFLICT",
+      "conflict_note": "Creator File Size Guide states <20MB total and <2MB per file; older Help Center tutorial states 10MB. Confirm in current creator dashboard.",
+      "ai_policy_status": "UNVERIFIED_GENERAL_POLICY",
+      "award_policy_note": "2026 Inkies award rules exclude generative AI content; this is not a blanket platform-wide AI ban.",
+      "monetization_thresholds": {
+        "ad_revenue_min_series_subscribers": 100,
+        "support_program_min_series_subscribers": 250,
+        "early_access_min_series_subscribers": 5000
+      },
+      "status": "PARTIALLY_VERIFIED_CONFLICT_ON_FILE_SIZE"
+    },
+    "webtoon_canvas": {
+      "official_sources": [
+        "https://help.line.me/LINE_WEBTOON/web?lang=en",
+        "https://www.webtoons.com/en/terms/canvasPolicy",
+        "https://www.webtoons.com/en/terms/canvasTermsOfUsePolicy",
+        "https://m.webtoons.com/en/notice/detail?noticeNo=3568"
+      ],
+      "official_page_dimensions": null,
+      "creator_reported_dimensions": {
+        "width_px": 800,
+        "height_px": 1280,
+        "per_file_mb": 2,
+        "episode_total_mb": 20,
+        "formats": [
+          "jpg"
+        ]
+      },
+      "upload_spec_status": "UNVERIFIED_OFFICIAL_SPEC",
+      "thumbnail": {
+        "square": {
+          "width_px": 1080,
+          "height_px": 1080,
+          "max_mb": 0.5
+        },
+        "vertical": {
+          "width_px": 1080,
+          "height_px": 1920,
+          "max_mb": 0.7
+        },
+        "formats": [
+          "jpg",
+          "jpeg",
+          "png"
+        ]
+      },
+      "ai_policy_status": "UNVERIFIED_NOT_FOUND_IN_CURRENT_CANVAS_TERMS",
+      "monetization_payout_thresholds": {
+        "paypal_id_min_usd": 25,
+        "patreon_id_min_usd": 100
+      },
+      "status": "PARTIAL_OFFICIAL_POLICY_NO_OFFICIAL_PAGE_DIMENSIONS_FOUND"
+    },
+    "amazon_kdp": {
+      "official_sources": [
+        "https://kdp.amazon.com/en_US/help/topic/GJMRD9F78MS9F43R",
+        "https://kdp.amazon.com/en_US/help/topic/GVBQ3CMEQW3W2VL6",
+        "https://kdp.amazon.com/en_US/help/topic/G202169030",
+        "https://kdp.amazon.com/en_US/help/topic/G200672390"
+      ],
+      "ebook": {
+        "formats": [
+          "pdf",
+          "png",
+          "jpeg"
+        ],
+        "fixed_layout": true,
+        "guided_view": true,
+        "reading_direction": [
+          "ltr",
+          "rtl"
+        ],
+        "facing_pages": true
+      },
+      "print": {
+        "recommended_image_dpi": 300,
+        "bleed_inches": 0.125,
+        "standard_color_min_pages": 72,
+        "premium_color_min_pages": 24
+      },
+      "ai_disclosure": {
+        "generated_text": true,
+        "generated_images": true,
+        "generated_translations": true,
+        "ai_assisted_editing": false
+      },
+      "status": "VERIFIED_OFFICIAL_KDP_HELP"
+    }
+  }
+}
