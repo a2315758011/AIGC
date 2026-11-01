@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "scene_id": "CLASSROOM-CN-3X5-001",
-  "title": "普通中国中学教室空间权威布局基准",
-  "status": "logical_layout_baseline_not_measured",
+  "title": "历史通用逻辑布局样例（3列×5排；非当前用户教室真值）",
+  "status": "legacy_generic_example_not_authoritative_for_user_classroom",
   "units": "normalized_0_to_1_coordinates",
   "coordinate_system": {
     "origin": "room_front_left_floor_corner",
@@ -286,6 +286,7 @@
     "本基准是3列×5排的逻辑布局样例，不代表通用教室法定标准。",
     "三列桌椅中心分别位于x=0.23、0.50、0.77；因此两条列间通道位于相邻桌列之间，不存在一条穿过中央桌列的中央通道。",
     "此前版本把中央通道定义为x=0.43..0.57，与中央列桌椅中心x=0.50重叠，属于内部空间冲突；本版本已删除该错误定义。",
-    "桌椅实际占地宽度未知，因此通道是否具有真实净宽仍未验证。"
+    "桌椅实际占地宽度未知，因此通道是否具有真实净宽仍未验证。",
+    "2026-11-01纠错：此文件仅保留为历史通用逻辑样例，不适用于用户资料库《阳光洒落的整洁教室.png》所示课堂。当前用户教室真值为4列×6排、24套桌椅，使用教室空间权威布局基准-4列6排-V1.json。"
   ]
 }
