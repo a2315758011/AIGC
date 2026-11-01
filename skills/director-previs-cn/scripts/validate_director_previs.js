@@ -49,9 +49,9 @@ const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演�
 const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
 check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
-check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.2\.0"/.test(frontmatter[1])) && lock.version === "1.2.0");
-check("source lock targets current branch", lock.branch === "feat/director-orchestration-cn-20261101-v3");
-check("source lock pins reviewed main commit", lock.verified_main_commit === "5170ef3fba501bf08fd7dd628cc15bcd20234ec6");
+check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.2\.0"/.test(frontmatter[1])) && lock.version === "1.3.0");
+check("source lock targets current branch", lock.branch === "main");
+check("source lock pins reviewed main commit", lock.verified_main_commit === "3593d91897c6913b6e1f4b1306e1d104888a5c43");
 
 const specialists = [
   "scene-realism-director-cn",
@@ -62,6 +62,7 @@ const specialists = [
 check("all four specialist routes exist", specialists.every(name => skillText.includes(name)));
 check("single-domain task bypasses orchestrator", skillText.includes("单一专业任务直接调用对应技能"));
 check("cross-domain task uses orchestrator", skillText.includes("同时跨越两个或多个专业领域"));
+check("dynamic movement channels are separated", skillText.includes("人物根节点路径与身体动作/姿态分开") && skillText.includes("摄影机位置路径与注视点/视线目标路径分开"));
 check("root README exposes orchestrator", rootReadme.includes("./skills/director-previs-cn/SKILL.md"));
 check("root AGENTS routes orchestrator", rootAgents.includes("./skills/director-previs-cn/SKILL.md"));
 check("root README exposes fight specialist", rootReadme.includes("./skills/fight-impact-vfx-cn/"));
@@ -69,7 +70,7 @@ check("root AGENTS routes fight specialist", rootAgents.includes("直接调用 `
 check("director skill flags fight skill review status", skillText.includes("authored_pending_review"));
 check("PR workflow watches fight skill", workflowText.includes("skills/fight-impact-vfx-cn/**"));
 check("skill README documents all specialists", specialists.every(name => readmeText.includes(name)));
-check("changelog records 1.2.0", changelogText.includes("## 1.2.0"));
+check("changelog records 1.2.0", changelogText.includes("## 1.3.0"));
 check("root README has no escaped newline corruption", !rootReadme.includes("\\n- ["));
 
 check("three upstream sources are pinned", Array.isArray(lock.upstream_references) && lock.upstream_references.length === 3);
@@ -80,7 +81,7 @@ for (const source of lock.upstream_references || []) {
   check(`upstream file SHAs valid: ${source.repository}`, (source.files_reviewed || []).every(file => /^[0-9a-f]{40}$/.test(file.blob_sha || "")));
 }
 
-check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 6);
+check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 9);
 for (const dep of lock.local_dependencies || []) {
   check(`dependency exists: ${dep.package}`, exists(dep.path));
   if (exists(dep.path)) {
