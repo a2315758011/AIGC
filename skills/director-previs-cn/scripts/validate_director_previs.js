@@ -100,11 +100,11 @@ for (const dep of lock.local_dependencies || []) {
 
 
 const dependencyByPackage = Object.fromEntries((lock.local_dependencies || []).map(dep => [dep.package, dep]));
-const sceneSkill = read("skills/scene-realism-director-cn/SKILL.md");
+const sceneLock = JSON.parse(read("skills/scene-realism-director-cn/SOURCE_LOCK.json"));
 const storyboardSkill = read("skills/storyboard-director-cn/SKILL.md");
 const positioningRules = read("skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md");
 const cameraLock = JSON.parse(read("skills/camera-motion-director-cn/SOURCE_LOCK.json"));
-check("scene realism dependency refreshed to 1.4.0", dependencyByPackage["scene-realism-director-cn"]?.version === "1.4.0" && /version: "1.4.0"/.test(sceneSkill));
+check("scene realism dependency refreshed to 1.4.0", dependencyByPackage["scene-realism-director-cn"]?.version === "1.4.0" && sceneLock.version === "1.4.0");
 check("storyboard dependency refreshed to 1.3.4", dependencyByPackage["storyboard-director-cn"]?.version === "1.3.4" && /version: "1.3.4"/.test(storyboardSkill));
 check("positioning rules refreshed to V1.9.0", dependencyByPackage["storyboard-positioning-rules"]?.version === "1.9.0" && positioningRules.includes("版本：V1.9.0"));
 check("camera metadata drift is explicit", dependencyByPackage["camera-motion-director-cn"]?.version === "1.0.0" && cameraLock.version === "1.1.1");
