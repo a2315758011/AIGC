@@ -1,14 +1,14 @@
 {
   "schema": "skill-artifact-manifest-v1",
   "skill": "comic-production-director-cn",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "generated_from": "GitHub main; all listed files fetched and checked by GitHub Contents API",
   "files": [
     {
       "path": "SKILL.md",
       "required": true,
-      "git_blob_sha": "530d56605e60202240aa29cad2e48805d7000c36",
-      "character_count": 4004
+      "git_blob_sha": "73fd2fcd885619bdd6d4cb9d6904f4c7a72b825d",
+      "character_count": 4056
     },
     {
       "path": "references/外部项目采纳矩阵-V1.md",
@@ -83,7 +83,8 @@
     "committed_github_actions": "NOT_RUN",
     "local_installation": "NOT_RUN",
     "external_tool_runtime": "NOT_RUN",
-    "comic_artifact_e2e": "NOT_RUN"
+    "comic_artifact_e2e": "NOT_RUN",
+    "source_references": "PASS_STATIC_AFTER_FIX"
   },
   "packaging": {
     "zip_created": false,
