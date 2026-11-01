@@ -100,6 +100,18 @@
       ],
       "orchestration_required": true,
       "expected_result": "先锁场景，再设计动作受力链，随后完成分镜和运镜交接"
+    },
+    {
+      "id": "DO-11",
+      "input": "多人物动态走位需要按时间标记路径交错通行，并分别控制人物根节点、身体动作、脚底支撑、摄影机位置和注视点轨迹",
+      "expected_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn",
+        "storyboard-director-cn",
+        "camera-motion-director-cn"
+      ],
+      "orchestration_required": true,
+      "expected_result": "先锁静态空间，再分别交接人物根节点路径/姿态动作/grounding/foot planting/多人错峰，最后独立定义摄影机位置与视线轨迹"
     }
   ]
 }
