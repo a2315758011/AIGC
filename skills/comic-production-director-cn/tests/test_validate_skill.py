@@ -11,7 +11,7 @@ GOOD_SKILL = """---
 name: comic-production-director-cn
 version: 1.0.0
 ---
-用户锁定字段不得修改。单格失败只返工该格。OCR。英文必须人工终校。双格式。许可证。NOT_RUN。
+用户锁定字段不得修改。单格失败只返工该格。OCR。英文必须人工终校。双格式。许可证。NOT_RUN。重新生成无文字样稿与源图修复必须区分。删除整个气泡必须使用完整气泡/尾巴遮罩。
 漫画专业制作与出版总规范-V1.md
 2026-11-02_专业漫画制作外部项目与技能研究.md
 2026-11-02_漫画上色翻译与排字工具第二批.md
@@ -60,6 +60,20 @@ class SkillContractTests(unittest.TestCase):
             (skill / "SKILL.md").write_text(GOOD_SKILL.replace("用户锁定字段不得修改。", ""), encoding="utf-8")
             errors = validate(skill)
             self.assertIn("REQUIRED_RULE_MISSING:用户锁定字段不得修改", errors)
+
+    def test_missing_source_reference_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = self.make_fixture(Path(tmp))
+            (skill / "SKILL.md").write_text(GOOD_SKILL.replace("2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md", ""), encoding="utf-8")
+            errors = validate(skill)
+            self.assertTrue(any(x.startswith("SKILL_SOURCE_NOT_REFERENCED:") for x in errors))
+
+    def test_missing_balloon_mask_rule_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = self.make_fixture(Path(tmp))
+            (skill / "SKILL.md").write_text(GOOD_SKILL.replace("完整气泡/尾巴遮罩", ""), encoding="utf-8")
+            errors = validate(skill)
+            self.assertIn("REQUIRED_RULE_MISSING:完整气泡/尾巴遮罩", errors)
 
     def test_invalid_frontmatter_fails(self):
         with tempfile.TemporaryDirectory() as tmp:
