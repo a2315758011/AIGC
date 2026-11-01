@@ -685,8 +685,8 @@
       "scope": "GitHub Actions 静态合同、依赖SHA、路由、教室事实夹具、A/B协议与当前专业版本；不代表目标模型生成质量。"
     },
     "version_alignment": {
-      "director_previs": "1.3.1",
-      "scene_realism": "1.4.0",
+      "director_previs": "1.4.0",
+      "scene_realism": "1.10.0",
       "storyboard": "1.3.4",
       "positioning_rules": "V1.9.0",
       "camera_motion": "1.1.1",
@@ -721,6 +721,12 @@
         "unknown_fixed_obstacle": "blocked_as_expected"
       },
       "scope": "GitHub Actions Node runtime. Classroom footprint and real physical dimensions remain unknown; Windows and native DirectorDesk viewport not run."
+    },
+    "latest_merged_pull_request": {
+      "number": 25,
+      "url": "https://github.com/a2315758011/AIGC/pull/25",
+      "merge_commit": "be1d349b6a40e75169c69275be1228bb7b690361",
+      "merged_at": "2026-11-01T07:02:15Z"
     }
   },
   "version_drifts": [
@@ -742,9 +748,9 @@
         "blocking_rules": "V1.9.0"
       },
       "impact": "导演统筹锁定的专业依赖不是当前主线最新版本，离线快照可能遗漏最新场景真实性、站位与动态走位规则。",
-      "action": "依赖锁刷新并回归前，仅把 director-previs 用作统筹/路由参考；专业规则从当前 main 分别读取。",
+      "action": "保持 SOURCE_LOCK 与当前 main 的 SKILL/SOURCE_LOCK Git Blob SHA 一致；每次更新专业技能后重新执行导演统筹回归。",
       "resolved_date": "2026-11-01",
-      "resolution": "director-previs-cn V1.4.0 SOURCE_LOCK 已同步 scene-realism V1.10.0 与最新共享事实/SCG交接 SHA；GitHub Actions run 41282691940 和后续 run 41283011268 均通过对应合同/回归。"
+      "resolution": "director-previs-cn V1.4.0 SOURCE_LOCK 已同步 scene-realism V1.10.0 与最新共享事实/SCG交接 SHA；GitHub Actions run 41282691940 的导演合同/A-B协议通过，run 41283011268 的全套 14 步场景/导演回归通过。"
     },
     {
       "id": "DRIFT-CAMERA-MOTION-001",
