@@ -44,19 +44,6 @@
       "clearance_required": false
     }
   ],
-  "dynamic_state": [
-    {
-      "entity_id": "CHAR-001",
-      "state": {
-        "position": null,
-        "pose": null,
-        "facing": null,
-        "held_props": []
-      },
-      "as_of": "shot-001",
-      "source_shot_id": "shot-001"
-    }
-  ],
   "unknowns": [
     "未测量的真实尺寸",
     "未确认的门扇开启方向"
