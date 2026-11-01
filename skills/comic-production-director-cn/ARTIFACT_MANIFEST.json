@@ -84,15 +84,23 @@
   "tests": {
     "source_readback": "PASS_ALL_REQUIRED_FILES",
     "frontmatter_and_reference_presence": "PASS_STATIC",
-    "skill_contract_unittest": "PASS_9_OF_9_ISOLATED_PYTHON",
+    "skill_contract_unittest": "PASS_9_OF_9_GITHUB_ACTIONS",
     "qc_case_execution": "PASS_4_OF_4_ISOLATED_PYTHON",
-    "committed_github_actions": "NOT_RUN",
+    "committed_github_actions": "PASS",
     "local_installation": "NOT_RUN",
     "external_tool_runtime": "NOT_RUN",
     "comic_artifact_e2e": "NOT_RUN",
     "source_references": "PASS_STATIC_V1_2_3",
     "external_tool_security_review": "PASS_STATIC_SOURCE_REVIEW",
-    "tt_automanga_runtime": "BLOCKED_MISSING_MCP_SDK_PYTEST_SWARMUI"
+    "tt_automanga_runtime": "BLOCKED_MISSING_MCP_SDK_PYTEST_SWARMUI",
+    "github_actions_run_id": 41331297738,
+    "github_actions_run_number": 80,
+    "github_actions_commit": "099ae1cba602867ef144403e88407721e171f4f1",
+    "github_actions_job": "validate",
+    "github_actions_steps": {
+      "source_contract": "PASS",
+      "positive_negative_contract_tests": "PASS"
+    }
   },
   "packaging": {
     "zip_created": false,
