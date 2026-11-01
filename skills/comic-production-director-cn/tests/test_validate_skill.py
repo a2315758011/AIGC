@@ -35,7 +35,6 @@ REQUIRED = (
     "SOURCE_LOCK.json",
     "references/外部项目采纳矩阵-V1.md",
     "references/平台导出配置登记表-V1.json",
-    "references/平台导出配置登记表-V1.json",
     "../../docs/漫画专业制作与出版总规范-V1.md",
     "../../docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
     "../../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
@@ -76,7 +75,7 @@ class SkillContractTests(unittest.TestCase):
     def test_missing_source_reference_fails(self):
         with tempfile.TemporaryDirectory() as tmp:
             skill = self.make_fixture(Path(tmp))
-            (skill / "SKILL.md").write_text(GOOD_SKILL.replace("2026-11-02_欧美漫画平台规格与AI商业化规则研究.md", ""), encoding="utf-8")
+            (skill / "SKILL.md").write_text(GOOD_SKILL.replace("平台导出配置登记表-V1.json", ""), encoding="utf-8")
             self.assertTrue(any(x.startswith("SKILL_SOURCE_NOT_REFERENCED:") for x in validate(skill)))
 
     def test_missing_balloon_mask_rule_fails(self):
