@@ -170,7 +170,7 @@
     "manju_director_status": "excluded_until_source_refresh",
     "automated_static_regression": {
       "status": "passed",
-      "run_id": 41260915659,
+      "run_id": 41261038369,
       "pass_count": 133,
       "fail_count": 0,
       "breakdown": {
@@ -178,7 +178,7 @@
         "ab_protocol": 36
       },
       "workflow": "director-previs-regression",
-      "scope": "PR #17 head commit 625d4de897ed5b85ca917663e0265cc90cb86ef3"
+      "scope": "PR #17 head commit 09b18847440f75c2858af7f405c91752a01a7c5f"
     },
     "manual_route_dry_run": {
       "status": "passed",
@@ -206,6 +206,11 @@
     "storyboard_skill_version": "1.3.1",
     "storyboard_positioning_rules_version": "1.6.0",
     "dynamic_movement_research": "reviewed_static_only_not_installed",
-    "third_party_evaluator": "not_installed_hardware_and_cost_gate"
+    "third_party_evaluator": "not_installed_hardware_and_cost_gate",
+    "pull_request_merge": {
+      "number": 17,
+      "state": "merged",
+      "merge_commit_sha": "68e5e2a320667a1216ce0d61991e34af9c3c2e6a"
+    }
   }
 }
