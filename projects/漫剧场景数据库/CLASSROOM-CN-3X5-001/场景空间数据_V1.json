@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "scene_id": "CLASSROOM-CN-3X5-001",
-  "scene_name": "普通中国中学教室（3列5排逻辑基准）",
-  "status": "reviewed",
+  "scene_name": "历史通用教室样例（3列5排，非当前用户课堂）",
+  "status": "deprecated",
   "source_of_truth": {
     "source_type": "logical_baseline",
     "reference": "skills/scene-realism-director-cn/references/教室空间权威布局基准-3列5排-V1.json"
@@ -588,7 +588,8 @@
     "两条列间通道的真实净宽及规范合规性",
     "门扇铰链侧与开启方向",
     "真实摄影机高度与焦距",
-    "每件桌椅的地面占地宽度和深度（footprint），当前均为 null，故碰撞与通道净宽尚不能判定"
+    "每件桌椅的地面占地宽度和深度（footprint），当前均为 null，故碰撞与通道净宽尚不能判定",
+    "该3列×5排场景不是用户当前课堂转校生实测真值；当前用户原图基准为4列×6排、24套桌椅，见 CLASSROOM-CN-4X6-001。"
   ],
   "camera_views": [
     {
