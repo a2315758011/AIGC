@@ -70,7 +70,7 @@ check("root AGENTS routes fight specialist", rootAgents.includes("直接调用 `
 check("director skill flags fight skill review status", skillText.includes("authored_pending_review"));
 check("PR workflow watches fight skill", workflowText.includes("skills/fight-impact-vfx-cn/**"));
 check("skill README documents all specialists", specialists.every(name => readmeText.includes(name)));
-check("changelog records 1.2.0", changelogText.includes("## 1.3.0"));
+check("changelog records 1.3.0", changelogText.includes("## 1.3.0"));
 check("root README has no escaped newline corruption", !rootReadme.includes("\\n- ["));
 
 check("three upstream sources are pinned", Array.isArray(lock.upstream_references) && lock.upstream_references.length === 3);
