@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
-// 用户课堂专用布局校验：4列×6排，24桌/24椅。
+// 用户课堂专用布局校验：4列×5排，20桌/20椅。
 // 只验证归一化逻辑布局，不把它解释为米制尺寸或真实净空。
 const fs = require("node:fs");
 const path = require("node:path");
@@ -19,14 +19,14 @@ const chairs = data.objects.filter(x => x.kind === "student_chair");
 const uniq = xs => [...new Set(xs.map(x => Number(x).toFixed(6)))].sort();
 const cols = uniq(desks.map(x => x.position?.x));
 const rows = uniq(desks.map(x => x.position?.y));
-check(data.scene_id === "CLASSROOM-CN-4X6-001", "scene_id 必须为 CLASSROOM-CN-4X6-001");
+check(data.scene_id === "CLASSROOM-CN-4X5-001", "scene_id 必须为 CLASSROOM-CN-4X5-001");
 check(data.coordinate_system?.units === "normalized_0_to_1", "坐标单位必须明确为归一化坐标");
-check(desks.length === 24, "必须恰好有24张学生桌");
-check(chairs.length === 24, "必须恰好有24把学生椅");
+check(desks.length === 20, "必须恰好有20张学生桌");
+check(chairs.length === 20, "必须恰好有20把学生椅");
 check(cols.length === 4, "桌子必须分布在恰好4列");
-check(rows.length === 6, "桌子必须分布在恰好5排");
+check(rows.length === 5, "桌子必须分布在恰好5排");
 const cellKeys = desks.map(x => `${Number(x.position.x).toFixed(6)}|${Number(x.position.y).toFixed(6)}`);
-check(new Set(cellKeys).size === 24, "每个行列单元格必须恰好一张桌子");
+check(new Set(cellKeys).size === 20, "每个行列单元格必须恰好一张桌子（20格）");
 const chairById = new Map(chairs.map(x => [x.id, x]));
 for (const d of desks) {
   const c = chairById.get(d.paired_with);
@@ -63,6 +63,10 @@ if (left && center && right) {
   check(centralAisleWider, "中央通道逻辑宽度必须大于两侧列间通道");
   check(near(center.x_min, 0.46) && near(center.x_max, 0.54), "中央通道逻辑边界必须为0.46..0.54");
 }
+const maleSeat = data.character_seat_constraints?.male_lead;
+const femaleSeat = data.character_seat_constraints?.female_lead;
+check(maleSeat?.row === 3 && maleSeat?.column === null, "男主应记录为第3排、列号未确定");
+check(femaleSeat?.row === 3 && femaleSeat?.column === null && femaleSeat?.seat_relation === "adjacent_desk_to_male_lead", "女主应记录为第3排相邻桌、列号未确定");
 const report = {
   scene_id: data.scene_id,
   status: errors.length ? "FAILED" : "PASSED",
@@ -73,6 +77,9 @@ const report = {
     chair_count: chairs.length,
     columns: cols.length,
     rows: rows.length,
+    male_row: maleSeat?.row ?? null,
+    male_column_unresolved: maleSeat?.column === null,
+    female_adjacent_seat_unresolved_column: femaleSeat?.column === null,
     unique_cells: new Set(cellKeys).size,
     paired_chairs: desks.filter(d => chairById.has(d.paired_with)).length,
     central_aisle_wider: centralAisleWider
