@@ -112,7 +112,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-01",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-02",
@@ -127,7 +128,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-02",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-03",
@@ -142,7 +144,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-03",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-04",
@@ -157,7 +160,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-04",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-05",
@@ -172,7 +176,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-05",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-06",
@@ -187,7 +192,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-06",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-07",
@@ -202,7 +208,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-07",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-08",
@@ -217,7 +224,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-08",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-09",
@@ -232,7 +240,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-09",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-10",
@@ -247,7 +256,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-10",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-11",
@@ -262,7 +272,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-11",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-12",
@@ -277,7 +288,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-12",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-13",
@@ -292,7 +304,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-13",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-14",
@@ -307,7 +320,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-14",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "DESK-15",
@@ -322,7 +336,8 @@
       "status": "confirmed",
       "paired_with": "CHAIR-15",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-01",
@@ -337,7 +352,8 @@
       "status": "confirmed",
       "paired_with": "DESK-01",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-02",
@@ -352,7 +368,8 @@
       "status": "confirmed",
       "paired_with": "DESK-02",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-03",
@@ -367,7 +384,8 @@
       "status": "confirmed",
       "paired_with": "DESK-03",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-04",
@@ -382,7 +400,8 @@
       "status": "confirmed",
       "paired_with": "DESK-04",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-05",
@@ -397,7 +416,8 @@
       "status": "confirmed",
       "paired_with": "DESK-05",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-06",
@@ -412,7 +432,8 @@
       "status": "confirmed",
       "paired_with": "DESK-06",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-07",
@@ -427,7 +448,8 @@
       "status": "confirmed",
       "paired_with": "DESK-07",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-08",
@@ -442,7 +464,8 @@
       "status": "confirmed",
       "paired_with": "DESK-08",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-09",
@@ -457,7 +480,8 @@
       "status": "confirmed",
       "paired_with": "DESK-09",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-10",
@@ -472,7 +496,8 @@
       "status": "confirmed",
       "paired_with": "DESK-10",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-11",
@@ -487,7 +512,8 @@
       "status": "confirmed",
       "paired_with": "DESK-11",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-12",
@@ -502,7 +528,8 @@
       "status": "confirmed",
       "paired_with": "DESK-12",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-13",
@@ -517,7 +544,8 @@
       "status": "confirmed",
       "paired_with": "DESK-13",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-14",
@@ -532,7 +560,8 @@
       "status": "confirmed",
       "paired_with": "DESK-14",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     },
     {
       "id": "CHAIR-15",
@@ -547,7 +576,8 @@
       "status": "confirmed",
       "paired_with": "DESK-15",
       "support_surface": "floor",
-      "clearance_required": true
+      "clearance_required": true,
+      "footprint": null
     }
   ],
   "dynamic_state": [],
@@ -557,7 +587,8 @@
     "桌椅真实宽度/深度/高度",
     "两条列间通道的真实净宽及规范合规性",
     "门扇铰链侧与开启方向",
-    "真实摄影机高度与焦距"
+    "真实摄影机高度与焦距",
+    "每件桌椅的地面占地宽度和深度（footprint），当前均为 null，故碰撞与通道净宽尚不能判定"
   ],
   "camera_views": [
     {
@@ -597,5 +628,47 @@
     "不得把两张独立生成图片认定为同一三维场景",
     "不得让生图模型自行增加或删除桌椅",
     "不得使用图内标签或自我评分作为验收证据"
+  ],
+  "clearance_zones": [
+    {
+      "id": "AISLE-LEFT",
+      "purpose": "左列与中列之间的连续通行区域",
+      "bounds": {
+        "x_min": 0.34,
+        "x_max": 0.39,
+        "y_min": 0.22,
+        "y_max": 0.94
+      }
+    },
+    {
+      "id": "AISLE-RIGHT",
+      "purpose": "中列与右列之间的连续通行区域",
+      "bounds": {
+        "x_min": 0.61,
+        "x_max": 0.66,
+        "y_min": 0.22,
+        "y_max": 0.94
+      }
+    },
+    {
+      "id": "SIDE-LEFT",
+      "purpose": "左侧边缘预留通行区域",
+      "bounds": {
+        "x_min": 0.08,
+        "x_max": 0.13,
+        "y_min": 0.22,
+        "y_max": 0.94
+      }
+    },
+    {
+      "id": "SIDE-RIGHT",
+      "purpose": "右侧边缘预留通行区域",
+      "bounds": {
+        "x_min": 0.87,
+        "x_max": 0.92,
+        "y_min": 0.22,
+        "y_max": 0.94
+      }
+    }
   ]
 }
