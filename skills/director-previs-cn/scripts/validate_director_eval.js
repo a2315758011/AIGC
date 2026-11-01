@@ -22,6 +22,7 @@ const template=parse(templatePath);
 const classroom=parse(classroomPath);
 const lock=parse("skills/director-previs-cn/SOURCE_LOCK.json");
 const sceneRealismLock=parse("skills/scene-realism-director-cn/SOURCE_LOCK.json");
+const sceneRealismLock=parse("skills/scene-realism-director-cn/SOURCE_LOCK.json");
 check("A/B protocol exists",protocol.length>1000);
 check("A/B defines both arms",protocol.includes("A 组：直接专业技能工作流")&&protocol.includes("B 组：导演统筹工作流"));
 check("A/B changes only orchestration",protocol.includes("唯一有意改变的变量是"));
@@ -57,6 +58,6 @@ check("composite seating thumbnail is non-authoritative",dataset.classroom_asset
 check("reference assets remain outside public repository",dataset.classroom_assets.asset_storage.includes("Library")&&protocol.includes("不复制到公开仓库"));
 check("source lock records A/B as not run",lock.verification.workflow_integration_ab==="not_run"&&lock.verification.real_image_video_ab==="not_run");
 check("source lock pins latest main commit",lock.verified_main_commit==="c281194f1cca561825323b4ba48395de86d1fa52" && lock.branch==="main");
-check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version==="1.10.0")&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.4"));
+check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version)&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.4"));
 console.log("\n结果："+passed+" PASS / "+failed+" FAIL");
 if(failed) process.exitCode=1;
