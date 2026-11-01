@@ -24,7 +24,7 @@ check(data.coordinate_system?.units === "normalized_0_to_1", "坐标单位必须
 check(desks.length === 24, "必须恰好有24张学生桌");
 check(chairs.length === 24, "必须恰好有24把学生椅");
 check(cols.length === 4, "桌子必须分布在恰好4列");
-check(rows.length === 6, "桌子必须分布在恰好6排");
+check(rows.length === 6, "桌子必须分布在恰好5排");
 const cellKeys = desks.map(x => `${Number(x.position.x).toFixed(6)}|${Number(x.position.y).toFixed(6)}`);
 check(new Set(cellKeys).size === 24, "每个行列单元格必须恰好一张桌子");
 const chairById = new Map(chairs.map(x => [x.id, x]));
