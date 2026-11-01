@@ -1,6 +1,6 @@
 ---
 name: comic-production-director-cn
-version: 1.2.2
+version: 1.2.3
 description: 面向欧美彩色漫画、数字漫画、网漫和分页出版的专业制作总控。负责漫画脚本、页面节奏、分格、角色与场景状态、单格生产/返工、去字修复、独立排字、双格式出版和逐格质检。用户要求制作/续作漫画、修复漫画原图、排版对白或准备出版时调用。
 ---
 
@@ -89,6 +89,14 @@ P0/P1 缺陷为零；英文校对、素材/字体授权、AI 披露、平台规�
 - MangaColorAI / Manga Colorizer：仅供黑白画格参考上色研究；许可证未明确，不复制代码/模型；不得对已批准彩色原画批量上色。
 - AskAillex/comic-maker：只借鉴本地流水线与程序排字；其早期版本的气泡位置和多人尾巴限制不满足正式页面验收。
 按需使用，不得因功能描述就宣称安装或运行通过。GPL 项目优先独立运行或通过文件接口使用，不复制其代码进入商业仓库，除非已完成许可证评估。
+
+## 外部漫画工具安全隔离门禁
+
+使用 TT_AutoManga 等外部本地工具前，必须读取对应源码安全审查：
+- TT_AutoManga 后端默认无用户身份认证，只能保持 127.0.0.1 loopback；**不得通过公网/Tailscale 暴露 5180 API**，也不得把它接入共享公网 MCP 网关。
+- TT_AutoManga 启动时存在孤儿资产自动清理；必须先使用独立数据目录并备份资产清单，**启动孤儿资产清理前必须确认所有候选资产均已登记/引用**。
+- 不得把 MOONKEEP 原始素材、遮罩、未批准候选和批准资产放入外部工具默认 data 目录。
+- 目标工作站缺少运行依赖或图像后端未响应时标记 BLOCKED；不得自动安装大量依赖、下载大模型或切换付费 API。
 
 ## 静态验证
 运行 `python skills/comic-production-director-cn/scripts/validate_skill.py`；运行 `python -m unittest discover -s skills/comic-production-director-cn/tests -v`。静态验证只证明技能合同和路径，不代表图像生成、外部软件或商业出版端到端通过。
