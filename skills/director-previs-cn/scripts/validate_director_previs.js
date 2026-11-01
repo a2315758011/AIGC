@@ -49,7 +49,7 @@ const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演�
 const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
 check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
-check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.2\.0"/.test(frontmatter[1])) && lock.version === "1.3.0");
+check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.3\.0"/.test(frontmatter[1])) && lock.version === "1.3.0");
 check("source lock targets current branch", lock.branch === "main");
 check("source lock pins reviewed main commit", lock.verified_main_commit === "3593d91897c6913b6e1f4b1306e1d104888a5c43");
 
