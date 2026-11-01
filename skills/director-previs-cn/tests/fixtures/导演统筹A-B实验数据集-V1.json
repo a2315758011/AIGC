@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "experiment_id": "DIRECTOR-PREVIS-EVAL-20261101",
-  "baseline_branch_commit": "3593d91897c6913b6e1f4b1306e1d104888a5c43",
+  "baseline_branch_commit": "28b02ae55eaca1a1416c32ba84913af723c44824",
   "arms": {
     "A": {
       "name": "直接专业技能工作流",
@@ -21,7 +21,8 @@
       "桌椅布局唯一真值只来自阳光洒落的整洁教室.png：4列×6排=24套",
       "教室俯视图与全景机位示意.png只用于建筑、门窗、估算尺寸、机位信息；其内嵌桌椅布局不得覆盖唯一真值",
       "现代高中课堂剧照参考板.png只用于角色/服装/风格/道具参考；拼图内嵌座位示意不得覆盖唯一真值或本次男主座位",
-      "男主座位由本次锁定事实指定为第4排第4列"
+      "男主座位由本次锁定事实指定为第4排第4列",
+      "教室俯视图与全景机位示意.png的内嵌桌椅示意与4×6/24套唯一真值不一致时，必须保留唯一真值并记录冲突；禁止融合出折中排布。"
     ]
   },
   "cases": [
@@ -88,7 +89,8 @@
         "HG-05",
         "HG-06",
         "HG-07",
-        "HG-08"
+        "HG-08",
+        "HG-09"
       ],
       "scene_realism_prompt_mode": "same_fixed_approved_prompt_strategy_in_A_and_B"
     },
@@ -120,7 +122,8 @@
         "HG-05",
         "HG-06",
         "HG-07",
-        "HG-08"
+        "HG-08",
+        "HG-09"
       ],
       "scene_realism_prompt_mode": "same_fixed_approved_prompt_strategy_in_A_and_B",
       "motion_constraints": [
@@ -219,18 +222,102 @@
         "多人错峰与碰撞检查",
         "跨镜状态继承"
       ]
+    },
+    {
+      "id": "EVAL-12",
+      "route_case": "DO-12",
+      "category": "multi_source_reference_authority_conflict",
+      "task": "三张教室参考图分别提供布局、建筑/机位和角色/风格信息；辅助平面图内嵌桌椅示意与唯一4×6布局不一致，要求按来源职责保留事实并显式记录冲突",
+      "gold_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn",
+        "storyboard-director-cn"
+      ],
+      "orchestration_required": true,
+      "scope": "workflow_only",
+      "visual_eval": "not_required",
+      "reference_conflict": {
+        "authoritative_layout": "阳光洒落的整洁教室.png",
+        "conflicting_secondary": "教室俯视图与全景机位示意.png",
+        "expected_resolution": "只采纳辅助图中的建筑边界/门窗/机位/估算尺寸；桌椅数量和排布只服从唯一布局真值；不平均、不融合、不静默改写"
+      }
+    },
+    {
+      "id": "EVAL-13",
+      "route_case": "DO-13",
+      "category": "whitebox_previs_compliance_ab",
+      "task": "复杂多人走位与相机升降/跟随/多机位切换场面，使用白模动态参考并验证模型是否遵循人物路径、动作时序、机位高度、注视点和切点",
+      "gold_route": [
+        "director-previs-cn",
+        "scene-realism-director-cn",
+        "storyboard-director-cn",
+        "camera-motion-director-cn"
+      ],
+      "orchestration_required": true,
+      "scope": "workflow_and_video",
+      "visual_eval": "whitebox_previs_ab_separate_protocol",
+      "experiment_type": "whitebox_previs_compliance_ab",
+      "route_case_id": "DO-13",
+      "replicates_per_arm": 3,
+      "only_variable": "B组额外加入白模动态参考视频",
+      "motion_scenarios": [
+        "单人直线路径",
+        "单人绕障碍",
+        "双人交汇",
+        "三人打断",
+        "人物按时出画",
+        "相机升降+前进",
+        "相机环绕+人物移动",
+        "四机位连续剪辑"
+      ],
+      "motion_constraints": [
+        "基础动作姿态与根节点路径匹配",
+        "顶视地面路径与相机XYZ高度分离",
+        "一次性LookAt与持续跟随分别核验",
+        "当前机位监视器导出并关闭UI标签",
+        "白模/场景/角色/动作/音频素材职责隔离",
+        "切点与跨镜末态连续"
+      ]
     }
   ],
   "specialist_versions": {
-    "scene-realism-director-cn": "1.3.0",
-    "storyboard-director-cn": "1.3.1",
-    "storyboard-positioning-rules": "1.6.0",
-    "camera-motion-director-cn": "1.0.0",
+    "scene-realism-director-cn": "1.4.0",
+    "storyboard-director-cn": "1.3.2",
+    "storyboard-positioning-rules": "1.7.0",
+    "camera-motion-director-cn": "1.0.0 (SOURCE_LOCK 1.1.1)",
     "fight-impact-vfx-cn": "1.0.0 (authored_pending_review)"
   },
   "scene_realism_prompt_ab": {
     "status": "separate_experiment_not_combined",
     "protocol": "skills/scene-realism-director-cn/tests/场景真实性A-B测试执行规程-V1.md",
     "rule": "导演工作流A/B必须固定相同的场景提示策略；不得同时切换基础语义提示A/空间约束提示B"
+  },
+  "experiment_separation": {
+    "director_workflow_ab": {
+      "status": "prepared_not_run",
+      "only_variable": "是否先调用director-previs-cn"
+    },
+    "scene_realism_prompt_ab": {
+      "status": "separate_experiment_not_combined",
+      "only_variable": "基础语义提示或空间约束提示"
+    },
+    "whitebox_previs_ab": {
+      "status": "prepared_not_run",
+      "only_variable": "B组额外加入白模动态参考视频"
+    }
+  },
+  "whitebox_previs_ab": {
+    "protocol": "skills/director-previs-cn/tests/导演意图服从性白模A-B协议-V1.md",
+    "result_template": "skills/director-previs-cn/tests/templates/白模服从性A-B结果模板-V1.json",
+    "status": "prepared_not_run",
+    "arms": {
+      "A": "场景参考图+角色参考图+固定文字提示，不输入白模动态参考",
+      "B": "与A完全相同的素材/提示/模型/参数/时长/画幅，唯一增加白模动态参考视频"
+    },
+    "minimum_replicates_per_arm": 3,
+    "pilot_scenarios_minimum": 3,
+    "full_scenario_suite": 8,
+    "scoring": "导演意图服从性0—4分，逐项附时间戳/帧号；硬性错误单独判FAIL",
+    "note": "不与导演工作流A/B或scene-realism提示策略A/B合并"
   }
 }
