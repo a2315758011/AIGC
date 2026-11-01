@@ -16,7 +16,7 @@
 - 单独拳脚/兵器/能量战斗、命中/受击、打击节奏和特效：直接调用 `fight-impact-vfx-cn`。
 - 跨域打斗任务按需调用：场景真实性→打斗动作因果/特效→正式分镜→摄影机运镜；不需要的技能跳过。
 - `fight-impact-vfx-cn` 当前 SOURCE_LOCK 为 `authored_pending_review`，不得把规则设计说成真实视频验收通过。
-- `manju-director-cn` 当前离线规则源版本落后 main 的分镜规则，本轮不作为导演统筹活动路由，待独立刷新后再接入。
+- `manju-director-cn` 离线快照已同步至 V2.10.5；它保留为独立的漫剧资产+分镜完整闭环，不加入 `director-previs-cn` 默认核心路由，避免重复承担 `storyboard-director-cn` 的分镜职责。用户明确要求完整漫剧资产与分镜闭环时才单独调用。
 - 共享同一份场景/人物/道具事实；不得让下游技能无理由重置用户已锁定事实。
 - 文字方案、静态结构检查、白模预演、真实图像/视频和成片验收分别报告。
 
@@ -54,9 +54,11 @@
 
 ## 跨技能依赖版本一致性门禁
 
-每次调用导演统筹或预演技能前，先比较 `SOURCE_LOCK.json` 中锁定的依赖与当前 `main` 权威文件：
-- 当前 `director-previs-cn` V1.3.0 的锁仍指向 `scene-realism-director-cn` 1.3.0、`storyboard-director-cn` 1.3.1、站位规则 V1.6.0；当前主线已分别更新为 1.4.0、1.3.2、V1.7.0。
-- `camera-motion-director-cn/SKILL.md` 元数据为 1.0.0，而其 `SOURCE_LOCK.json` 为 1.1.1，版本标识尚未统一。
-- `manju-director-cn` 离线快照仍为分镜规则 V2.10.1，落后主线 V2.10.5，继续排除活动路由。
+每次调用导演统筹或预演技能前，先比较 `SOURCE_LOCK.json` 中锁定的依赖与当前 `main` 权威文件，不得只依赖历史版本号。
+本次同步基线为 main `c281194f1cca561825323b4ba48395de86d1fa52`：
+- `director-previs-cn` 已更新至 V1.3.1，依赖锁定 `scene-realism-director-cn` V1.4.0、`storyboard-director-cn` V1.3.4、站位规则 V1.9.0、`camera-motion-director-cn` V1.1.1。
+- `camera-motion-director-cn` 的 SKILL frontmatter、README 与 SOURCE_LOCK 已统一为 V1.1.1。
+- `manju-director-cn` 离线规则已刷新至 V2.10.5；仍为独立漫剧闭环，不加入导演统筹默认路由，以免与分镜专业技能重复。
+- 结构化导演台/多视角身份锚点仅有源码与论文静态证据；目标工作站未安装运行，消费级视频模型支持情况未验证。
 
-在这些差异修复并重新运行相应回归前：`director-previs-cn` 只可作为统筹/路由参考；必须直接读取当前主线的专业 Skill、references、scripts、tests，不得把旧锁定快照当作最新规则。`fight-impact-vfx-cn` 仍为 `authored_pending_review`，仅作为中级候选方法，不得声称真实视频或后期验收通过。
+每次实际调用仍须回读当前 main 的专业 Skill、references、scripts、tests 并核对 Git Blob SHA；发现版本漂移时停止使用陈旧摘要。共享 Generation Gateway 当前 `SERVICE_NOT_RUNNING`，提供程序最近启动状态为 `0x80000003`；真实图像/视频 A/B 仍为 NOT_RUN。`fight-impact-vfx-cn` 仍为 `authored_pending_review`，不得声称真实视频或后期验收通过。
