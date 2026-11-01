@@ -57,10 +57,10 @@ check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-
 check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.3\.0"/.test(frontmatter[1])) && lock.version === "1.3.1");
 check("source lock targets current branch", lock.branch === "main");
 check("source lock pins reviewed main commit", lock.verified_main_commit === "c281194f1cca561825323b4ba48395de86d1fa52");
-const cameraFrontmatter = cameraSkillText.match(/^---\\n([\\s\\S]*?)\\n---/);
-check("camera skill metadata matches source lock 1.1.1", Boolean(cameraFrontmatter && /version:\\s*"1\\.1\\.1"/.test(cameraFrontmatter[1])) && cameraLock.version === "1.1.1");
-const manjuFrontmatter = manjuSkillText.match(/^---\\n([\\s\\S]*?)\\n---/);
-check("manju skill and source lock versions align", Boolean(manjuFrontmatter && /version:\\s*"1\\.1\\.1"/.test(manjuFrontmatter[1]) && /source_version:\\s*"V2\\.10\\.5"/.test(manjuFrontmatter[1])) && manjuLock.version === "1.1.1");
+const cameraFrontmatter = cameraSkillText.match(/^---\n([\s\S]*?)\n---/);
+check("camera skill metadata matches source lock 1.1.1", Boolean(cameraFrontmatter && /version:\s*"1\.1\.1"/.test(cameraFrontmatter[1])) && cameraLock.version === "1.1.1");
+const manjuFrontmatter = manjuSkillText.match(/^---\n([\s\S]*?)\n---/);
+check("manju skill and source lock versions align", Boolean(manjuFrontmatter && /version:\s*"1\.1\.1"/.test(manjuFrontmatter[1]) && /source_version:\s*"V2\.10\.5"/.test(manjuFrontmatter[1])) && manjuLock.version === "1.1.1");
 check("manju offline snapshot matches current main rule index", manjuLock.source_version === storyboardRuleIndex.source_version && manjuLock.source_version === "V2.10.5");
 const writingSource = storyboardRuleIndex.rules.find(item => item.path === "剧本转分镜指令");
 const selfCheckSource = storyboardRuleIndex.rules.find(item => item.path === "剧本转分镜自检指令");
