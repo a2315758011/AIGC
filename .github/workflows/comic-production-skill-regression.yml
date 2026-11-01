@@ -1,0 +1,34 @@
+name: Comic Production Skill Regression
+
+on:
+  push:
+    paths:
+      - "skills/comic-production-director-cn/**"
+      - "docs/漫画专业制作与出版总规范-V1.md"
+      - "docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md"
+      - "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md"
+      - ".github/workflows/comic-production-skill-regression.yml"
+  pull_request:
+    paths:
+      - "skills/comic-production-director-cn/**"
+      - "docs/漫画专业制作与出版总规范-V1.md"
+      - "docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md"
+      - "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md"
+      - ".github/workflows/comic-production-skill-regression.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate skill source contract
+        run: python skills/comic-production-director-cn/scripts/validate_skill.py
+      - name: Run positive and negative contract tests
+        run: python -m unittest discover -s skills/comic-production-director-cn/tests -v
