@@ -1,68 +1,36 @@
 {
   "skill": "comic-production-director-cn",
-  "version": "1.2.0",
+  "version": "1.1.0",
   "authoritative_sources": [
     {
       "path": "docs/漫画专业制作与出版总规范-V1.md",
-      "git_blob_sha1": "5c3abf8a53349508767921baa7865b27ef5bb0fc"
+      "git_blob_sha": "7280c19057b9bd28cc985da2ad8196b5e9cd371f"
     },
     {
       "path": "docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
-      "git_blob_sha1": "45cb9556626f6cd37c8021be614d5f1c6370e04e"
+      "git_blob_sha": "0c7a256885e8786c2bbba8e57643b78f38b5df95"
     },
     {
-      "path": "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
-      "git_blob_sha1": "f4c1c259b361f2a5898f2d29ae00c6793945f651"
-    },
-    {
-      "path": "docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
-      "git_blob_sha1": "4141b42d27a9f50832bdac37dc4931e6054a8f07"
-    },
-    {
-      "path": "docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md",
-      "git_blob_sha1": "d29bf549dc207c7de65a794f6bbe4add584abf9e"
-    },
-    {
-      "path": "docs/专业欧美漫画排字与页面阅读规则-V1.md",
-      "git_blob_sha1": "e1a9e7aa3cf0994220077186336bbbf63b23b18a"
+      "path": "docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md",
+      "git_blob_sha": "d23dccf6b4553c1da574a3d0e2d50712f52180ea"
     }
   ],
   "skill_files": [
     {
-      "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
-      "git_blob_sha1": "547367bee0cf76cd0986cdbb9e2883d5ee61b24a"
-    },
-    {
-      "path": ".github/workflows/comic-production-skill-regression.yml",
-      "git_blob_sha1": "807d2abb8dbd82129b61dd70bb12d6d5a767f574"
-    },
-    {
-      "path": "AGENTS.md",
-      "git_blob_sha1": "f55b497419284d8a30b5016f1862c4426f19482b"
-    },
-    {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha1": "274201ae945d3d08a32ae82c2a887fda46933c38"
+      "git_blob_sha": "78670b17740dc499ba9fa7affe704b4a542f9bb2"
     },
     {
-      "path": "skills/comic-production-director-cn/references/平台导出配置登记表-V1.json",
-      "git_blob_sha1": "1b1646b74281339d73ded763a580d9db521b524a"
+      "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
+      "git_blob_sha": "41556228e22c90de4a6718cfdc00e8783d671ff1"
     },
     {
-      "path": "skills/comic-production-director-cn/scripts/validate_skill.py",
-      "git_blob_sha1": "18f2797c3300a0f26bddad17113c86b1fecba3c6"
+      "path": "skills/comic-production-director-cn/references/读者测试与页面质检清单-V1.md",
+      "git_blob_sha": "27cee268464d662b3f0ba6b955848d37561ed473"
     },
     {
-      "path": "skills/comic-production-director-cn/tests/test_validate_skill.py",
-      "git_blob_sha1": "f535fb4d11da119331dfa782509b3610d98626b9"
-    },
-    {
-      "path": "README.md",
-      "git_blob_sha1": "0d0940f507f485e2da3d0b87714132c7994ff66b"
-    },
-    {
-      "path": "skills/README.md",
-      "git_blob_sha1": "5018a1e488acb66f8c6bee53c8376a48ef6e5965"
+      "path": "skills/comic-production-director-cn/tests/漫画页面质检正反例-V1.json",
+      "git_blob_sha": "8749410865a4592de02c451ceacc7658b0f05d13"
     }
   ],
   "external_projects_reviewed": [
@@ -127,7 +95,14 @@
       "repo": "scenecraft-ai/free-comic-strip-panel-maker",
       "license": "MIT",
       "commit": "5f683ac1c42b557b8a56bc97bd3e84a68e56ef98"
-    }
+    },
+    "TTDiang2/TT_AutoManga",
+    "ketle-man/comfyui-comic-creator",
+    "akiratrann/manhwa-studio",
+    "izag8216/wakuwaku",
+    "komiq-cc/manga-typesetter",
+    "scenecraft-ai/free-comic-strip-panel-maker",
+    "Absirkhan/ComicCrafter"
   ],
   "benchmark_evidence": {
     "archive_v1_0": {
@@ -147,28 +122,13 @@
     "agent_comic_kit_runtime": "NOT_RUN"
   },
   "tests": {
-    "repository_files": "PASS_FETCH_ALL_REQUIRED_FILES",
-    "archive_integrity_v1_0": "PASS_97_OF_97_SHA256",
-    "archive_integrity_v1_1": "PASS_8_OF_8_SHA256",
-    "source_vs_clean_dimensions": "6_OF_6_DIFFERENT",
-    "source_p01_semantic_comparison": "MISMATCH",
-    "ocr_and_manual_mask_preflight": "6_PANELS_INSPECTED",
-    "contract_logic_replicated": "PASS_8_OF_8",
-    "committed_validator_runtime": "NOT_RUN",
-    "committed_unittest_runtime": "NOT_RUN",
-    "github_actions_run": "NO_STATUS_REPORTED_FOR_PUSH_COMMIT",
-    "ctd_lama_runtime": "NOT_RUN",
-    "agent_comic_kit_runtime": "NOT_RUN",
+    "frontmatter": "PASS_STATIC",
+    "reference_paths": "PASS_STATIC",
+    "qc_cases": "PENDING_EXECUTION",
+    "source_lock": "PENDING_FINAL_SHA",
     "local_installation": "NOT_RUN",
-    "comic_artifact_e2e": "NOT_RUN",
-    "package_staging_and_zip": "NOT_RUN",
-    "platform_specs_research": "PASS_OFFICIAL_SOURCES_REVIEWED",
-    "globalcomix_ai_monetization": "BLOCKED_AI_CONTENT_NOT_MONETIZABLE",
-    "tapas_upload_size": "CONFLICT_OFFICIAL_CREATOR_GUIDES",
-    "webtoon_upload_dimensions": "UNVERIFIED_OFFICIAL_SPEC_NOT_FOUND",
-    "kdp_ai_disclosure": "PASS_POLICY_REVIEWED",
-    "platform_profile_policy_guards": "PASS_4_PLATFORM_PROFILES",
-    "professional_lettering_rules": "PASS_SOURCE_REVIEWED_AND_REGISTERED"
+    "tool_runtime": "NOT_RUN",
+    "comic_artifact_e2e": "NOT_RUN"
   },
   "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted."
 }
