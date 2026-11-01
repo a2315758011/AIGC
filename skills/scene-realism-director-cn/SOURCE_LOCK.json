@@ -1,12 +1,12 @@
 {
   "skill": "scene-realism-director-cn",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "status": "conditional",
   "date": "2026-11-01",
   "authority": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
   "files": {
-    "README.md": "107feedd28601102492573051aa53cb710154a0d",
-    "SKILL.md": "c698b9312bd647ac10a9188aef2afb799ab5bec9",
+    "README.md": "1d11379fde73366141210490b15612fb983c4ce5",
+    "SKILL.md": "0757ec0e4f7ece5701252af38eb8a89c262ffe2c",
     "references/可控生成与诊断工具.md": "0659e2690e47ccd0a780147b030d7d64b4337c57",
     "references/场景图真实性质检与回归样例-V1.json": "d7a2c0bc42ccb189444ceb3a18cfbeaf3003cac8",
     "references/场景真实性原创中文配对基准集-V1.json": "6e6f34101af0622a0e1e20771f63498dd5ef5d0c",
@@ -19,7 +19,11 @@
     "tests/场景真实性A-B测试执行规程-V1.md": "cace91c47eeffed9ca8517a506f1be4dea3f575a",
     "tests/场景真实性回归样例.md": "2824424223edd6fec8d33fc7dadfc38139c625bf",
     "tests/场景真实性配对盲评记录模板-V1.1.md": "ad73a3769a5bda8969870561205d0d818b6c116a",
-    "references/教室空间权威布局基准-3列5排-V1.json": "be12fdabd5ceeace56db6a167b9430e7f33fe6bd"
+    "references/教室空间权威布局基准-3列5排-V1.json": "eb393ab5ba7239d83536ef4e13de1f00d86017ca",
+    "references/漫剧场景空间数据库_SCHEMA_V1.json": "d214d0321cb695191a12b18c727fa1c4d0895566",
+    "references/漫剧场景空间数据库模板_V1.json": "7e31f4671cda901d671fe8205274a625cde3c64c",
+    "tests/validate-scene-database.cjs": "63983aae15b16d832c784f7dae09bc10045af4ce",
+    "projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json": "da47469c7da3f6c1e945d215f83295fef439abc6"
   },
   "external_research": "docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md",
   "validation": {
@@ -74,12 +78,25 @@
     "gpt_multiview_composite_output": "failed_output_form_deviation",
     "gpt_multiview_verified_pairs": 0,
     "single_view_per_generation": "mandatory",
-    "same_scene_3d_render": "not_implemented"
+    "same_scene_3d_render": "not_implemented",
+    "scene_database_schema_added": true,
+    "scene_database_template_added": true,
+    "classroom_scene_instance_objects": 30,
+    "classroom_scene_instance_fixed_facts": 7,
+    "scene_database_node_validator": "added_not_executed",
+    "classroom_layout_internal_conflict": "found_and_corrected_previous_main_aisle_overlapped_middle_desk_column",
+    "classroom_inter_column_aisles": "2_continuous_relative_regions",
+    "physical_dimensions": "unknown_not_inferred",
+    "gpt_native_image_output_this_round": "failed_infographic_instead_of_single_scene_photo",
+    "gpt_native_valid_scene_image_this_round": 0,
+    "gpt_native_same_scene_multiview": "not_verified"
   },
-  "note": "v1.4.0 adds evidence-based photometric, color-fidelity, object-centric and physical-edit tests. Research and regression definitions are committed; no target-model image generation or runtime evaluation was performed. Do not promote status from conditional until real outputs and blind-review evidence exist. The shared Generation Gateway is currently locked by another agent; this agent did not touch the protected service or submit generation jobs. Fourth follow-up on 2026-11-01: PC MCP restored; workstation bootstrap and project memory reviewed. 4173/4174 healthy, Funnel online, no active locks at inspection. Generation provider process absent, no 18130-18140 listener, stale runtime PID from 2026-10-28; no recent matching WER event. EXE 0.2.9 and app.asar metadata read only. No duplicate launch test, no job submitted, no production files changed. Root cause remains unknown. GPT-native image generation smoke test completed on 2026-11-01 with four single-view scenes (classroom, office, school corridor, U-shaped kitchen). All four passed basic visible scene-logic review with minor issues; no paired A/B, seed/model-version controls, blind review, or multiview checks. Report is committed; binary images are not yet uploaded to repository. No claim of skill effectiveness. GPT-native image generation smoke test completed on 2026-11-01 with four single-view scenes (classroom, office, school corridor, U-shaped kitchen). All four passed basic visible scene-logic review with minor issues; no paired A/B, seed/model-version controls, blind review, or multiview checks. Report is committed; binary images are not yet uploaded to repository. No claim of skill effectiveness. Seventh-round GPT-native classroom image achieved a visually coherent 3-column x approximately 5-row single-desk layout with continuous aisles. One sample only; exact physical dimensions/count not measured, top-down verification and paired A/B remain pending. v1.5.0 introduces an authoritative normalized classroom layout JSON (3 columns x 5 rows, 15 desk centers, fixed architectural anchors, camera presets, invariants, unknown dimensions) and hard gates for one image/one camera and independent review. This is a logical layout baseline only; no physical dimensions or 3D geometry are measured. Latest multi-view image generation again returned a composite infographic and failed output-form compliance; no verified multi-view pair. Do not claim same-scene consistency.",
+  "note": "v1.4.0 adds evidence-based photometric, color-fidelity, object-centric and physical-edit tests. Research and regression definitions are committed; no target-model image generation or runtime evaluation was performed. Do not promote status from conditional until real outputs and blind-review evidence exist. The shared Generation Gateway is currently locked by another agent; this agent did not touch the protected service or submit generation jobs. Fourth follow-up on 2026-11-01: PC MCP restored; workstation bootstrap and project memory reviewed. 4173/4174 healthy, Funnel online, no active locks at inspection. Generation provider process absent, no 18130-18140 listener, stale runtime PID from 2026-10-28; no recent matching WER event. EXE 0.2.9 and app.asar metadata read only. No duplicate launch test, no job submitted, no production files changed. Root cause remains unknown. GPT-native image generation smoke test completed on 2026-11-01 with four single-view scenes (classroom, office, school corridor, U-shaped kitchen). All four passed basic visible scene-logic review with minor issues; no paired A/B, seed/model-version controls, blind review, or multiview checks. Report is committed; binary images are not yet uploaded to repository. No claim of skill effectiveness. GPT-native image generation smoke test completed on 2026-11-01 with four single-view scenes (classroom, office, school corridor, U-shaped kitchen). All four passed basic visible scene-logic review with minor issues; no paired A/B, seed/model-version controls, blind review, or multiview checks. Report is committed; binary images are not yet uploaded to repository. No claim of skill effectiveness. Seventh-round GPT-native classroom image achieved a visually coherent 3-column x approximately 5-row single-desk layout with continuous aisles. One sample only; exact physical dimensions/count not measured, top-down verification and paired A/B remain pending. v1.5.0 introduces an authoritative normalized classroom layout JSON (3 columns x 5 rows, 15 desk centers, fixed architectural anchors, camera presets, invariants, unknown dimensions) and hard gates for one image/one camera and independent review. This is a logical layout baseline only; no physical dimensions or 3D geometry are measured. Latest multi-view image generation again returned a composite infographic and failed output-form compliance; no verified multi-view pair. Do not claim same-scene consistency. v1.6.0 adds a reusable scene database JSON Schema, blank template, classroom instance with 15 individual desk objects and 15 paired chair objects, and a dependency-free Node validator (not yet executed on workstation). During a critical consistency review, found previous central aisle x=0.43..0.57 overlapped the middle desk column center x=0.50; removed the invalid central aisle and defined two inter-column passages plus side clearances. Dimensions remain unknown. GPT-native image generation in this round produced a multi-panel infographic rather than one scene photo; rejected as invalid, zero image samples. No multi-view consistency claim.",
   "supplementary_research": "docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md",
   "supplementary_research_git_blob_sha": "6a19b71b6afebf13ebf8c43f65e7ec5420e97ab3",
   "gpt_native_smoke_test_report": "docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md",
   "gpt_native_smoke_test_commit": "a862bde293028b385afa688d516512d14d0c55ed",
-  "gpt_native_smoke_test_report_git_blob_sha": "25c671d08b78f562734200bc55d2ea512d885477"
+  "gpt_native_smoke_test_report_git_blob_sha": "25c671d08b78f562734200bc55d2ea512d885477",
+  "engineering_report": "docs/Deepresearch/2026-11-01_场景数据库工程化与布局冲突复核.md",
+  "engineering_report_git_blob_sha": "3596769e0a05092c5bf97577286977a43485892d"
 }
