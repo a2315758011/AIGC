@@ -4,7 +4,7 @@
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
+  "verified_main_commit": "6996a9c7c62c0d75219e52163ea62924c249c43a",
   "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
@@ -192,24 +192,23 @@
     "licenses_checked": true,
     "local_dependencies_read": true,
     "local_dependency_blob_shas_pinned": true,
-    "main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
+    "main_commit": "6996a9c7c62c0d75219e52163ea62924c249c43a",
     "orchestrator_regression_cases": 11,
     "fight_impact_skill_status": "authored_pending_review",
     "manju_director_status": "V2.10.5_snapshot_SHA_and_character_counts_verified_against_main_and_packaged_copy",
     "automated_static_regression": {
       "status": "passed",
-      "run_id": 41271164151,
-      "run_number": 92,
-      "tested_commit": "9e36397684323afe624531edc1e4ef8740a8fcba",
-      "pass_count": 164,
+      "run_id": 41272617359,
+      "tested_commit": "6996a9c7c62c0d75219e52163ea62924c249c43a",
+      "pass_count": 181,
       "fail_count": 0,
       "breakdown": {
-        "director_previs_contract": 128,
+        "director_previs_contract": 145,
         "director_ab_protocol": 36
       },
       "workflow": "director-previs-regression",
-      "scope": "GitHub Actions static contract, dependency blob SHA, route regression, classroom fixture, A/B protocol and exact manju V2.10.5 source/package SHA and character counts. Does not verify target model image/video behavior.",
-      "note": "Run 41271164151 passed the complete current branch including the V2.10.5 snapshot content gates; target-model A/B and real image/video remain NOT_RUN."
+      "scope": "GitHub Actions 实际执行：导演统筹与交接回归145项、导演工作流A/B协议回归36项。验证仓库合同、依赖锁、路由、教室夹具、A/B协议和结果模板；不验证目标模型真实图片/视频行为。",
+      "note": "Run 41272617359 已在 main 6996a9c7c62c0d75219e52163ea62924c249c43a 上通过181项静态回归；真实工作流A/B、真实图像/视频A/B仍NOT_RUN。"
     },
     "manual_route_dry_run": {
       "status": "passed",
@@ -234,7 +233,7 @@
     "pc_mcp_connection": "connected_2026-11-01",
     "scene_realism_skill_status": "conditional",
     "scene_realism_prompt_ab": "separate_protocol_added_target_model_ab_not_run",
-    "storyboard_skill_version": "1.3.4",
+    "storyboard_skill_version": "1.3.5",
     "storyboard_positioning_rules_version": "1.9.0",
     "dynamic_movement_research": "reviewed_static_only_not_installed",
     "third_party_evaluator": "not_installed_hardware_and_cost_gate",
@@ -243,7 +242,7 @@
       "state": "merged",
       "merge_commit_sha": "68e5e2a320667a1216ce0d61991e34af9c3c2e6a"
     },
-    "scene_realism_skill_version": "1.4.0",
+    "scene_realism_skill_version": "1.12.0",
     "camera_motion_skill_version": "1.1.1",
     "windows_pc_mcp": "connected_2026-11-01",
     "generation_gateway_health": "failed_SERVICE_NOT_RUNNING",
@@ -258,7 +257,7 @@
     "scg_data_contract": "reused_as_authority_no_duplicate_schema",
     "event_time_contract": "reused_as_authority"
   },
-  "note": " Unified handoff V1.0.0 added: script provenance, project asset references, scene baseline, character/prop state, complete per-shot SCG snapshots, event timeline, and independent camera trajectory. Existing SCG and event-time contracts remain authoritative; no duplicate storyboard schema was created. Real target-model A/B remains NOT_RUN.",
+  "note": "导演共享事实与SCG交接规范 V1.0.0 已加入；真实工作流A/B及真实图片/视频A/B尚未执行。静态回归181 PASS / 0 FAIL仅证明仓库合同与测试通过，不代表模型真实生成质量已通过。",
   "cross_skill_refs": {
     "scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md": "d85741572d8de2f0610394530ad99703ce5296f3"
   }
