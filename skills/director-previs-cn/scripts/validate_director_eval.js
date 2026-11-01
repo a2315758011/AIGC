@@ -29,7 +29,7 @@ check("protocol requires blind randomized review",protocol.includes("随机化�
 check("protocol separates process and visual metrics",protocol.includes("流程指标（主要）")&&protocol.includes("视觉指标（次要）"));
 check("protocol forbids false visual acceptance",protocol.includes("真实工作流、图像/视频 A/B 仍为 NOT_RUN"));
 check("director A/B is isolated from scene prompt A/B",protocol.includes("两类实验必须分开") && dataset.scene_realism_prompt_ab.status === "separate_experiment_not_combined");
-check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V1.10.0") && protocol.includes("storyboard-director-cn V1.3.4") && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
+check("protocol pins current director and specialist versions",protocol.includes("director-previs-cn V1.4.0") && protocol.includes("scene-realism-director-cn V1.10.0") && protocol.includes("storyboard-director-cn V1.3.4") && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
 check("protocol contains dynamic movement controls",protocol.includes("foot planting") && protocol.includes("摄影机位置路径与注视点/视线目标路径"));
 check("protocol includes source research",["developers.openai.com","anthropic.com/research","proceedings.neurips.cc","proceedings.iclr.cc"].every(x=>protocol.includes(x)));
 check("rubric has 8 P0 gates",rubric.p0_hard_gates.length===8);
@@ -49,6 +49,9 @@ check("video test is gated after still phase",dataset.cases.find(x=>x.id==="EVAL
 check("fight visual tests blocked until skill review",dataset.cases.filter(x=>x.id==="EVAL-08"||x.id==="EVAL-09").every(x=>x.visual_eval==="not_allowed_until_skill_review"));
 check("result template remains NOT_RUN",template.status==="NOT_RUN"&&template.decision==="NOT_EVALUATED");
 check("result template pins director V1.4.0",template.environment.workflow_version==="director-previs-cn@1.4.0");
+check("result template pins current scene realism version",template.environment.specialist_versions["scene-realism-director-cn"]==="1.10.0");
+check("result template pins current storyboard version",template.environment.specialist_versions["storyboard-director-cn"]==="1.3.4");
+check("result template pins current positioning and camera versions",template.environment.specialist_versions["storyboard-positioning-rules"]==="1.9.0" && template.environment.specialist_versions["camera-motion-director-cn"]==="1.1.1");
 check("dynamic movement case is routed across required specialists",dataset.cases.find(x=>x.id==="EVAL-11").gold_route.join(",")==="director-previs-cn,scene-realism-director-cn,storyboard-director-cn,camera-motion-director-cn" && dataset.cases.find(x=>x.id==="EVAL-11").route_case==="DO-11");
 check("result template records PC blocker",template.blocked_reason.includes("运行时填写具体阻塞原因"));
 check("classroom unique layout truth preserved",dataset.classroom_assets.layout_truth==="阳光洒落的整洁教室.png"&&classroom.scene_truth.layout_source===dataset.classroom_assets.layout_truth);
