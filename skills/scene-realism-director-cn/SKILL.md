@@ -47,7 +47,11 @@ description: 面向 AIGC 静态场景图、室内外环境图和漫剧背景的�
 2. `references/场景真实性检查表.md`：逐项验收。
 3. `references/开源仓库研究与采纳记录_20261031.md`：来源、版本、许可证与采纳边界。
 4. `references/可控生成与诊断工具.md`：工具适用范围和限制。
-5. `references/场景图真实性质检与回归样例-V1.json` 与 `tests/场景真实性回归样例.md`：按目标场景选择回归样例。\n6. `references/场景真实性原创中文配对基准集-V1.json`：使用原创 A/B 场景题和可判定问题。\n7. `tests/场景真实性配对盲评记录模板-V1.1.md`：真实模型对照与盲评。\n8. `docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md`：SpatialGenEval、GenSpace、InSpace 的来源与采纳边界。\n9. `references/SCG骨骼姿态与接触约束扩展契约-V1.md`：人物骨骼绑定、末端映射、支撑/抓握/扶靠、跨镜接触生命周期与真实三维验收边界。
+5. `references/场景图真实性质检与回归样例-V1.json` 与 `tests/场景真实性回归样例.md`：按目标场景选择回归样例。
+6. `references/场景真实性原创中文配对基准集-V1.json`：使用原创 A/B 场景题和可判定问题。
+7. `tests/场景真实性配对盲评记录模板-V1.1.md`：真实模型对照与盲评。
+8. `docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md`：SpatialGenEval、GenSpace、InSpace 的来源与采纳边界。
+9. `references/SCG骨骼姿态与接触约束扩展契约-V1.md`：人物骨骼绑定、末端映射、支撑/抓握/扶靠、跨镜接触生命周期与真实三维验收边界。
 
 当任务同时涉及人物站位、走位或摄影机运动时，继续读取现有 storyboard/camera-motion Skill；本 Skill 不覆盖这些技能的职责。
 
@@ -104,7 +108,9 @@ description: 面向 AIGC 静态场景图、室内外环境图和漫剧背景的�
 - 空白场景模板：`references/漫剧场景空间数据库模板_V1.json`。
 - 教室实例数据：`projects/漫剧场景数据库/CLASSROOM-CN-4X6-001/场景空间数据_V1.json`。
 - 教室逻辑布局参考：`references/教室空间权威布局基准-4列6排-V1.json`。
-- 无第三方依赖的 Node 校验器：`tests/validate-scene-database.cjs`。执行：`node tests/validate-scene-database.cjs <场景JSON文件路径>`。
+- 无第三方依赖的 Node 校验器：`tests/validate-scene-database.cjs`；用户课堂专用网格校验器：`tests/validate-classroom-layout.cjs`。执行：`node tests/validate-scene-database.cjs <场景JSON文件路径>` 和 `node tests/validate-classroom-layout.cjs <场景JSON文件路径>`。
+
+当前用户课堂专用校验器必须确认4列×6排、24个唯一桌位、24把配对椅子及中央通道逻辑宽度大于两侧列间通道；校验只覆盖归一化布局，不替代物理尺寸/净空测量。
 
 场景数据库必须区分固定事实、物体实例、逐镜动态状态和未知项。位置数据使用归一化坐标时，不得宣称为真实尺寸。所有对象使用稳定 ID；配对关系必须引用存在对象；相机视角必须声明单图单机位输出。
 
