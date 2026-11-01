@@ -29,7 +29,7 @@ check("protocol requires blind randomized review",protocol.includes("随机化�
 check("protocol separates process and visual metrics",protocol.includes("流程指标（主要）")&&protocol.includes("视觉指标（次要）"));
 check("protocol forbids false visual acceptance",protocol.includes("真实工作流、图像/视频 A/B 仍为 NOT_RUN"));
 check("director A/B is isolated from scene prompt A/B",protocol.includes("两类实验必须分开") && dataset.scene_realism_prompt_ab.status === "separate_experiment_not_combined");
-check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V1.4.0") && protocol.includes("storyboard-director-cn V1.3.4") && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
+check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V1.10.0") && protocol.includes("storyboard-director-cn V1.3.4") && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
 check("protocol contains dynamic movement controls",protocol.includes("foot planting") && protocol.includes("摄影机位置路径与注视点/视线目标路径"));
 check("protocol includes source research",["developers.openai.com","anthropic.com/research","proceedings.neurips.cc","proceedings.iclr.cc"].every(x=>protocol.includes(x)));
 check("rubric has 8 P0 gates",rubric.p0_hard_gates.length===8);
@@ -48,7 +48,7 @@ check("still test has five replicates per arm",dataset.cases.find(x=>x.id==="EVA
 check("video test is gated after still phase",dataset.cases.find(x=>x.id==="EVAL-05").visual_eval==="required_after_still_phase");
 check("fight visual tests blocked until skill review",dataset.cases.filter(x=>x.id==="EVAL-08"||x.id==="EVAL-09").every(x=>x.visual_eval==="not_allowed_until_skill_review"));
 check("result template remains NOT_RUN",template.status==="NOT_RUN"&&template.decision==="NOT_EVALUATED");
-check("result template pins director V1.3.1",template.environment.workflow_version==="director-previs-cn@1.3.1");
+check("result template pins director V1.3.1",template.environment.workflow_version==="director-previs-cn@1.4.1");
 check("dynamic movement case is routed across required specialists",dataset.cases.find(x=>x.id==="EVAL-11").gold_route.join(",")==="director-previs-cn,scene-realism-director-cn,storyboard-director-cn,camera-motion-director-cn" && dataset.cases.find(x=>x.id==="EVAL-11").route_case==="DO-11");
 check("result template records PC blocker",template.blocked_reason.includes("运行时填写具体阻塞原因"));
 check("classroom unique layout truth preserved",dataset.classroom_assets.layout_truth==="阳光洒落的整洁教室.png"&&classroom.scene_truth.layout_source===dataset.classroom_assets.layout_truth);
@@ -56,6 +56,6 @@ check("composite seating thumbnail is non-authoritative",dataset.classroom_asset
 check("reference assets remain outside public repository",dataset.classroom_assets.asset_storage.includes("Library")&&protocol.includes("不复制到公开仓库"));
 check("source lock records A/B as not run",lock.verification.workflow_integration_ab==="not_run"&&lock.verification.real_image_video_ab==="not_run");
 check("source lock pins latest main commit",lock.verified_main_commit==="c281194f1cca561825323b4ba48395de86d1fa52" && lock.branch==="main");
-check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version==="1.4.0")&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.4"));
+check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version==="1.10.0")&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.4"));
 console.log("\n结果："+passed+" PASS / "+failed+" FAIL");
 if(failed) process.exitCode=1;
