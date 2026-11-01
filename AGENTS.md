@@ -54,11 +54,14 @@
 
 ## 跨技能依赖版本一致性门禁
 
-每次调用导演统筹或预演技能前，先比较 `SOURCE_LOCK.json` 中锁定的依赖与当前 `main` 权威文件，不得只依赖历史版本号。
-本次同步基线为 main `c281194f1cca561825323b4ba48395de86d1fa52`：
-- `director-previs-cn` 已更新至 V1.3.1，依赖锁定 `scene-realism-director-cn` V1.4.0、`storyboard-director-cn` V1.3.4、站位规则 V1.9.0、`camera-motion-director-cn` V1.1.1。
-- `camera-motion-director-cn` 的 SKILL frontmatter、README 与 SOURCE_LOCK 已统一为 V1.1.1。
-- `manju-director-cn` 离线规则已刷新至 V2.10.5；仍为独立漫剧闭环，不加入导演统筹默认路由，以免与分镜专业技能重复。
-- 结构化导演台/多视角身份锚点仅有源码与论文静态证据；目标工作站未安装运行，消费级视频模型支持情况未验证。
+每次调用导演统筹或预演技能前，必须比较 `SOURCE_LOCK.json` 与当前 main 的专业权威文件 SHA，不得只依赖版本号。
 
-每次实际调用仍须回读当前 main 的专业 Skill、references、scripts、tests 并核对 Git Blob SHA；发现版本漂移时停止使用陈旧摘要。共享 Generation Gateway 当前 `SERVICE_NOT_RUNNING`，提供程序最近启动状态为 `0x80000003`；真实图像/视频 A/B 仍为 NOT_RUN。`fight-impact-vfx-cn` 仍为 `authored_pending_review`，不得声称真实视频或后期验收通过。
+本次同步审计基线：main `48a7f15bc333b889e9670f8b8ab36dc0e2287bfe`：
+- `director-previs-cn` V1.4.1。
+- `scene-realism-director-cn` V1.10.0：场景数据库负责固定建筑/家具几何；SCG 负责逐镜人物/道具/摄影机动态状态；三维代理碰撞以稳定 ID 合并固定几何，未知障碍输出 UNRESOLVED。
+- `storyboard-director-cn` V1.3.4 / source V2.10.5；人物站位规则 V1.9.0；`camera-motion-director-cn` V1.1.1。
+- `manju-director-cn` 离线规则 V2.10.5，作为独立漫剧完整闭环按需调用，不加入默认核心路由。
+- DirectorDesk 适配目前是坐标映射/操作规范，不代表当前会话已连接其 MCP 或已完成真实白模预演。
+- 三维 AABB 回归 6/6 只证明对应代理/样例逻辑；归一化坐标不代表真实米制尺寸。Windows 实机、真实 3D 网格/骨骼物理、目标模型图像/视频 A/B 均须单独验收。
+
+历史 GitHub Actions run 41281964743 曾因 scene-realism 版本/SHA 与共享事实交接 SHA 漂移而出现 141 PASS / 4 FAIL；V1.4.1 的新回归必须通过后才能标记当前静态门禁通过。
