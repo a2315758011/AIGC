@@ -202,7 +202,7 @@
       "package": "director-ab-validator",
       "version": "1.0.0",
       "path": "skills/director-previs-cn/scripts/validate_director_eval.js",
-      "git_blob_sha": "26c623051bf1e6d684537e6326c5b4a5043dd850",
+      "git_blob_sha": "a9a348928f1fd04893beac8741cc6b638fa22878",
       "authority": "导演统筹A/B协议、评分量表、数据集和实验状态静态校验"
     }
   ],
