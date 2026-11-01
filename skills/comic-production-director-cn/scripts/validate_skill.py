@@ -53,9 +53,9 @@ def validate(root: Path) -> list[str]:
                 errors.append("FRONTMATTER_UNCLOSED")
             else:
                 front = match.group(1)
-                if not re.search(r"(?m)^name:\\s*comic-production-director-cn\\s*$", front):
+                if not re.search(r"(?m)^name:\s*comic-production-director-cn\s*$", front):
                     errors.append("SKILL_NAME_INVALID")
-                if not re.search(r"(?m)^version:\\s*\\d+\\.\\d+\\.\\d+\\s*$", front):
+                if not re.search(r"(?m)^version:\s*\d+\.\d+\.\d+\s*$", front):
                     errors.append("SKILL_VERSION_INVALID")
         for rule in REQUIRED_RULES:
             if rule not in content:
