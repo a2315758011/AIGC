@@ -31,7 +31,9 @@ function main() {
   if (!isObj(data.coordinate_system)) fail(errors, "coordinate_system 必须为对象");
   else if (!["meter","centimeter","normalized_0_to_1","unknown"].includes(data.coordinate_system.units)) fail(errors, "coordinate_system.units 不合法");
 
-  if ("dynamic_state" in data && !Array.isArray(data.dynamic_state)) fail(errors, "dynamic_state 若保留必须为数组（旧版兼容字段）");\n\n  for (const k of ["fixed_facts","objects","unknowns","camera_views"]) {
+  if ("dynamic_state" in data && !Array.isArray(data.dynamic_state)) fail(errors, "dynamic_state 若保留必须为数组（旧版兼容字段）");
+
+  for (const k of ["fixed_facts","objects","unknowns","camera_views"]) {
     if (!Array.isArray(data[k])) fail(errors, k + " 必须为数组");
   }
 
@@ -63,7 +65,8 @@ function main() {
     }
   });
 
-  if (Array.isArray(data.dynamic_state) && data.dynamic_state.length > 0) warnings.push("dynamic_state 是旧版兼容字段；逐镜动态状态请迁移至 SCG，不得作为第二权威事实源。");\n  if (Array.isArray(data.dynamic_state)) data.dynamic_state.forEach((x,i) => {
+  if (Array.isArray(data.dynamic_state) && data.dynamic_state.length > 0) warnings.push("dynamic_state 是旧版兼容字段；逐镜动态状态请迁移至 SCG，不得作为第二权威事实源。");
+  if (Array.isArray(data.dynamic_state)) data.dynamic_state.forEach((x,i) => {
     if (!isObj(x)) return fail(errors, "dynamic_state[" + i + "] 必须为对象");
     if (typeof x.entity_id !== "string" || !x.entity_id.trim()) fail(errors, "动态状态缺少 entity_id");
     if (!isObj(x.state)) fail(errors, "动态状态 state 必须为对象：" + x.entity_id);
