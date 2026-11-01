@@ -22,7 +22,7 @@
   "skill_files": [
     {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha1": "26771d9297379d4ee4237a3ad35bcef00dfe6ce3"
+      "git_blob_sha1": "e1cb4d71908751a235c043b758a16f7ee1f67c40"
     },
     {
       "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
@@ -30,11 +30,11 @@
     },
     {
       "path": "skills/comic-production-director-cn/scripts/validate_skill.py",
-      "git_blob_sha1": "4e8db83b808c68780be47bc10a559e2ae29ff24f"
+      "git_blob_sha1": "a00d45238c5ef0e336d0f2c382e38e1c6f846421"
     },
     {
       "path": "skills/comic-production-director-cn/tests/test_validate_skill.py",
-      "git_blob_sha1": "0d0919fa923602d3b82aeed693fc6b3d3bcd0ead"
+      "git_blob_sha1": "6b86e1f047800ef58811f6fee613a4d7349ce7d2"
     },
     {
       "path": ".github/workflows/comic-production-skill-regression.yml",
@@ -135,15 +135,21 @@
     "agent_comic_kit_runtime": "NOT_RUN"
   },
   "tests": {
-    "required_repository_files": "PASS_FETCH_ALL",
-    "contract_logic_replicated": "PASS_4_OF_4",
+    "repository_files": "PASS_FETCH_ALL_REQUIRED_FILES",
+    "archive_integrity_v1_0": "PASS_97_OF_97_SHA256",
+    "archive_integrity_v1_1": "PASS_8_OF_8_SHA256",
+    "source_vs_clean_dimensions": "6_OF_6_DIFFERENT",
+    "source_p01_semantic_comparison": "MISMATCH",
+    "ocr_and_manual_mask_preflight": "6_PANELS_INSPECTED",
+    "contract_logic_replicated": "PASS_6_OF_6",
     "committed_validator_runtime": "NOT_RUN",
     "committed_unittest_runtime": "NOT_RUN",
     "github_actions_run": "NOT_CONFIRMED",
+    "ctd_lama_runtime": "NOT_RUN",
+    "agent_comic_kit_runtime": "NOT_RUN",
     "local_installation": "NOT_RUN",
-    "tool_runtime": "NOT_RUN",
     "comic_artifact_e2e": "NOT_RUN",
     "package_staging_and_zip": "NOT_RUN"
   },
-  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed."
+  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run."
 }
