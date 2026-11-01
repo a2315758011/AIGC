@@ -45,3 +45,8 @@
 - tests/fixtures/SCG未知固定障碍阻断测试.json 与对应数据库：验证未知固定障碍会阻止“无碰撞通过”。
 
 - references/DirectorDesk三维白模预演适配规范-V1.md：复用现有导演台的场景、动作、相机和近似物理能力，并定义坐标映射与验收边界。
+
+- scripts/export-directordesk-neutral.cjs：坐标轴正方向/手性/单位门禁与中立预演包导出器。
+- tests/test-directordesk-neutral.cjs：坐标映射、单位、手性冲突及导出完整性回归。
+- references/DirectorDesk坐标转换清单模板-V1.json：每个场景必须经确认填写的轴向 manifest。
+- references/DirectorDesk坐标适配与中立预演包-V1.md：适配器使用边界及导出说明。
