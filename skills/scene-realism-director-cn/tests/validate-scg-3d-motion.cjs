@@ -37,7 +37,8 @@ function expandedObstacle(o,v){
 function equal(a,b){return xyz(a)&&xyz(b)&&Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z)<1e-6;}
 function run(doc,sceneDb){
  const errors=[],warnings=[];let previous=null;
- const fixed=new Map(),fixedUnknown=[];\n if(sceneDb&&sceneDb.coordinate_system&&sceneDb.coordinate_system.units==="normalized_0_to_1")warnings.push({code:"UNRESOLVED",message:"场景坐标为归一化值；仅能做相对碰撞检查，不能证明真实尺寸/净空"});
+ const fixed=new Map(),fixedUnknown=[];
+ if(sceneDb&&sceneDb.coordinate_system&&sceneDb.coordinate_system.units==="normalized_0_to_1")warnings.push({code:"UNRESOLVED",message:"场景坐标为归一化值；仅能做相对碰撞检查，不能证明真实尺寸/净空"});
  if(sceneDb&&Array.isArray(sceneDb.objects))for(const o of sceneDb.objects){
   if(!o||!o.id)continue;
   const p=o.position&&{x:o.position.x,y:o.position.y,z:o.position.z};
@@ -46,7 +47,7 @@ function run(doc,sceneDb){
    fixed.set(o.id,{id:o.id,exists:true,attributes:{world_position:p,collision_volume:cv,collision_role:"obstacle"}});
   }else if(xyz(p)&&obj(fp)&&n(fp.width)&&n(fp.depth)&&n(o.height)&&o.height>0){
    fixed.set(o.id,{id:o.id,exists:true,attributes:{world_position:p,collision_volume:{shape:"box",width:fp.width,depth:fp.depth,height:o.height},collision_role:"obstacle"}});
-  }
+  }else if(o.mobility==="fixed"||o.clearance_required===true)fixedUnknown.push(o.id);
  }
  for(const shot of doc.shots||[]){
   const entities=new Map((shot.entities||[]).map(e=>[e.id,e]));
@@ -66,6 +67,7 @@ function run(doc,sceneDb){
    const current=entities.get(id),cp=current&&current.attributes&&current.attributes.world_position;
    if(cp&&!equal(m.to,cp))errors.push({code:"3D-MOTION-06",shot:shot.id,message:id+" 终点与本镜位置不一致"});
    let unresolved=false;
+   for(const oid of fixedUnknown){warnings.push({code:"UNRESOLVED",shot:shot.id,message:"固定障碍 "+oid+" 缺少完整三维几何，不能证明路径无碰撞"});unresolved=true;}
    for(const [oid,ob] of entities){
     if(oid===id||!ob.exists||!(ob.attributes&&ob.attributes.collision_role==="obstacle"))continue;
     const box=obstacleBox(ob);if(!box){warnings.push({code:"UNRESOLVED",shot:shot.id,message:"障碍 "+oid+" 缺少完整XYZ/体积"});unresolved=true;continue;}
