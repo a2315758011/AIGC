@@ -1,0 +1,77 @@
+{
+  "evidence_id": "AIGC-WINDOWS-NODE-REGRESSION-20261101",
+  "date": "2026-11-01",
+  "environment": {
+    "os": "Windows workstation",
+    "runtime": "Node.js on Windows",
+    "execution_scope": "isolated temporary QA directory populated from exact GitHub main-branch files; repository working tree was not cloned or modified"
+  },
+  "summary": {
+    "test_groups": 9,
+    "expected_results_passed": 9,
+    "unexpected_results": 0,
+    "exit_code": 0
+  },
+  "tests": [
+    {
+      "id": "scene-benchmark",
+      "command": "node tests/validate-scene-benchmark.cjs",
+      "result": "PASS",
+      "cases": 8,
+      "questions": 64
+    },
+    {
+      "id": "shot-continuity-positive",
+      "result": "PASS",
+      "cases": 1,
+      "detail": "valid continuity accepted"
+    },
+    {
+      "id": "shot-continuity-negative",
+      "result": "PASS",
+      "cases": 1,
+      "detail": "teleport/state discontinuity rejected as expected; validator exit 1"
+    },
+    {
+      "id": "scg-spatial-motion",
+      "result": "PASS",
+      "cases": 3,
+      "detail": "clear path accepted; path through desk rejected; double prop holder rejected"
+    },
+    {
+      "id": "scg-skeletal-contact",
+      "result": "PASS",
+      "cases": 11,
+      "detail": "11/11 expected outcomes; unresolved anchor/solver warnings remain warnings, not IK success"
+    },
+    {
+      "id": "scg-3d-motion",
+      "result": "PASS",
+      "cases": 4,
+      "detail": "clear path, desk collision, elevated path and camera-through-wall matched expected results"
+    },
+    {
+      "id": "scg-3d-geometry-merge",
+      "result": "PASS",
+      "cases": 1,
+      "detail": "static scene database geometry merged and collision detected as expected"
+    },
+    {
+      "id": "scg-3d-unknown-obstacle",
+      "result": "PASS",
+      "cases": 1,
+      "detail": "unknown fixed obstacle emitted UNRESOLVED and blocked release; validator exit 0 because fixture expected this result"
+    },
+    {
+      "id": "directordesk-neutral-adapter",
+      "result": "PASS",
+      "cases": 7,
+      "detail": "coordinate/export adapter 7/7"
+    }
+  ],
+  "limits": [
+    "这批测试运行的是从 GitHub main 精确取回的脚本/夹具，置于本机隔离临时目录；不是本地完整 Git 工作树构建。",
+    "结构/碰撞代理测试不等于真实生产角色 IK、动态网格碰撞或目标视频模型服从性。",
+    "Gateway 当前仍停止；没有提交真实网页模型生图任务。"
+  ]
+}
