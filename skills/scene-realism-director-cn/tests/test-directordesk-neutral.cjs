@@ -11,7 +11,8 @@ const manifest={
 assert.equal(validateManifest(manifest).determinant,-1);
 assert.deepEqual(point({x:1,y:2,z:3},{...validateManifest(manifest),manifest}),{x:-1,y:3,z:-2});
 assert.deepEqual(dimensions({x:2,y:4,z:6},{...validateManifest(manifest),manifest}),{x:2,y:6,z:4});
-assert.deepEqual(direction({x:1,y:0,z:0},{...validateManifest(manifest),manifest}),{x:-1,y:0,z:0});
+assert.deepEqual(direction({x:2,y:0,z:0},{...validateManifest(manifest),manifest}),{x:-1,y:0,z:0});
+assert.throws(()=>direction({x:0,y:0,z:0},{...validateManifest(manifest),manifest}),e=>e.code==="DIRECTION_ZERO");
 assert.throws(()=>validateManifest({...manifest,source_units:"normalized_0_to_1"}),e=>e.code==="UNITS_UNSUPPORTED");
 assert.throws(()=>validateManifest({...manifest,target_axis_from_source:{...manifest.target_axis_from_source,z:{axis:"y",sign:1}}}),e=>e.code==="AXIS_SEMANTICS_CONFLICT"||e.code==="HANDEDNESS_MISMATCH");
 assert.throws(()=>validateManifest({...manifest,source_axis_positive:{x:"right",y:"front",z:"up"}}),e=>e.code==="AXIS_SEMANTICS_CONFLICT");
