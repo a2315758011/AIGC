@@ -48,3 +48,8 @@ node tests/test-directordesk-neutral.cjs
 ## 摄影机预设导出补充
 
 适配器现已读取场景数据库 `camera_views[]`，将 `camera_position` 与 `look_at` 分别转换为米制目标坐标，保留 view_id、projection 和 one_image_one_camera 输出契约。缺少完整位置或注视点时加入 unresolved 并阻止 release_ready。该实现只覆盖静态预设，不等同于逐镜动态摄影机轨迹、视锥遮挡或原生相机控制已完成。
+
+
+### 动态摄影机注视点轨道
+
+SCG 摄影机实体的 event.motion 可选携带 `look_at_from`、`look_at_waypoints[]`、`look_at_to`，它们与摄影机光心的 `from/waypoints/to` 是两条独立 XYZ 通道。中立导出器现分别转换为 `look_at_from_m`、`look_at_waypoints_m`、`look_at_to_m`。这只完成数据导出，不代表已生成 DirectorDesk 原生关键帧、平滑插值、视锥遮挡或实际镜头预览；缺少目标点时不得推断摄影机持续跟随。
