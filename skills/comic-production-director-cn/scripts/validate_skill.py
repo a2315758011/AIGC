@@ -16,6 +16,7 @@ REQUIRED_FILES = (
     "../../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
     "../../docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
     "../../docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md",
+    "../../docs/Deepresearch/2026-11-02_TT_AutoManga源码安全与本地兼容性审查.md",
     "../../docs/专业欧美漫画排字与页面阅读规则-V1.md",
 )
 REQUIRED_RULES = (
@@ -28,6 +29,8 @@ REQUIRED_RULES = (
     "NOT_RUN",
     "重新生成无文字样稿",
     "完整气泡/尾巴遮罩",
+    "不得通过公网/Tailscale 暴露 5180 API",
+    "启动孤儿资产清理前必须确认所有候选资产均已登记/引用",
 )
 SOURCE_REFERENCES = (
     "docs/漫画专业制作与出版总规范-V1.md",
@@ -35,6 +38,7 @@ SOURCE_REFERENCES = (
     "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
     "docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
     "docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md",
+    "docs/Deepresearch/2026-11-02_TT_AutoManga源码安全与本地兼容性审查.md",
     "docs/专业欧美漫画排字与页面阅读规则-V1.md",
     "平台导出配置登记表-V1.json",
 )
