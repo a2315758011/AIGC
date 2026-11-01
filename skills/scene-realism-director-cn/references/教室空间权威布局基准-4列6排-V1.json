@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "scene_id": "CLASSROOM-CN-4X6-001",
   "title": "用户参考教室空间基准（4列×6排）",
-  "status": "logical_layout_baseline_not_measured",
+  "status": "deprecated_superseded_wrong_row_count",
   "units": "normalized_0_to_1_coordinates",
   "source_of_truth": {
     "source_type": "user_reference",
@@ -336,6 +336,7 @@
     "前墙位于图像上方，黑板与讲台在前方；门位于右前侧；左、右两侧墙均可见窗户。",
     "桌椅之间有三条列间通行区域，中央通道较宽；两侧保留边缘净空。",
     "本文件的归一化坐标为结构化重建的相对坐标，不是对原图做建筑测量。",
-    "男主第4排第4列由多张连续性参考板重复标注；女主座位在现有板件中有冲突，保持未解决，不得自行固化。"
+    "男主第4排第4列由多张连续性参考板重复标注；女主座位在现有板件中有冲突，保持未解决，不得自行固化。",
+    "2026-11-01最终目视核验原始用户图片后作废：原图实际为4列×5排、20桌；此前4列×6排为执行方错误计数。"
   ]
 }
