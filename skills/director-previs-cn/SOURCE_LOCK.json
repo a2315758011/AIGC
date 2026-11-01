@@ -84,7 +84,7 @@
       "package": "scene-realism-rules",
       "version": "1.0.0",
       "path": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
-      "git_blob_sha": "cf821882dbe75b43161cf5372c90a9faf0531e66",
+      "git_blob_sha": "2a18a092c747d584eb2e4371372654781b40cbcc",
       "authority": "场景空间世界模型、建筑拓扑、俯视/全景、布局与功能常识"
     },
     {
@@ -99,7 +99,7 @@
       "package": "scene-realism-evaluator-deployment-gate",
       "version": "1.0.0",
       "path": "skills/scene-realism-director-cn/references/第三方评测器部署门槛-V1.md",
-      "git_blob_sha": "7187e74c7ca1d1886045afacd02ed3973e04149d",
+      "git_blob_sha": "eaef08f3a633f6905ef593a049df743ca0c1d0de",
       "authority": "第三方评测器硬件/依赖/费用门禁；禁止未经核验部署大型评测器"
     },
     {
