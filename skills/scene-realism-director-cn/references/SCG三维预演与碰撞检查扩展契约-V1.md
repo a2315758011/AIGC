@@ -118,3 +118,8 @@ node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG未知固定障碍阻断
 ```
 
 SCG 中同 ID 家具实体即使没有重复碰撞体积，也必须继承场景数据库中的固定几何；固定障碍缺少位置/高度/体积时必须输出 UNRESOLVED，不能静默跳过。
+
+
+### 动态摄影机注视点轨道
+
+SCG 摄影机实体的 event.motion 可选携带 `look_at_from`、`look_at_waypoints[]`、`look_at_to`，它们与摄影机光心的 `from/waypoints/to` 是两条独立 XYZ 通道。中立导出器现分别转换为 `look_at_from_m`、`look_at_waypoints_m`、`look_at_to_m`。这只完成数据导出，不代表已生成 DirectorDesk 原生关键帧、平滑插值、视锥遮挡或实际镜头预览；缺少目标点时不得推断摄影机持续跟随。
