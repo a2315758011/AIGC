@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0",
+  "plan_id": "CLASSROOM-CN-4X5-001-BLOCKING-PLAN-001",
+  "status": "blocking_sequence_draft_waiting_visual_and_script_validation",
+  "scene_id": "CLASSROOM-CN-4X5-001",
+  "source_fixture": "skills/director-previs-cn/tests/fixtures/教室跨技能导演统筹夹具.json",
+  "source_scene_data": "projects/漫剧场景数据库/CLASSROOM-CN-4X5-001/场景空间数据_V1.json",
+  "authority_rules": {
+    "room_layout": "4_columns_x_5_rows_20_desks",
+    "male_lead_seat": {
+      "row_from_front": 3,
+      "row_from_rear": 3,
+      "column_from_left": null,
+      "status": "confirmed_row_unresolved_column"
+    },
+    "female_lead_seat": {
+      "row": 3,
+      "adjacent_to": "male_lead",
+      "column_from_left": null,
+      "side_relative_to_male": null,
+      "status": "adjacent_relation_confirmed_exact_seat_unresolved"
+    },
+    "teacher_anchor": "PODIUM-01",
+    "door_anchor": "DOOR-FRONT-RIGHT",
+    "blackboard_anchor": "BLACKBOARD-01",
+    "no_unsourced_extras_move": true
+  },
+  "coordinate_policy": {
+    "system": "symbolic_waypoints_until_measured_world_coordinates_are_available",
+    "time_unit": "milliseconds",
+    "timecode_status": "NOT_ASSIGNED",
+    "reason": "原始剧本时长与实际人物动作时码尚未提供；只锁定有来源的先后关系，不编造秒数或世界坐标。",
+    "world_position_status": "symbolic_only",
+    "camera_path_status": "not_authored_camera_must_not_change_world_positions"
+  },
+  "actors": [
+    {
+      "id": "TEACHER",
+      "role": "teacher",
+      "asset_binding_status": "NOT_BOUND",
+      "initial_anchor": "PODIUM-01",
+      "movement": "stationary_during_introduction"
+    },
+    {
+      "id": "FEMALE_LEAD",
+      "role": "female_transfer_student",
+      "asset_binding_status": "NOT_BOUND",
+      "initial_anchor": "DOOR-FRONT-RIGHT",
+      "target": "desk_adjacent_to_MALE_LEAD_in_row_3"
+    },
+    {
+      "id": "MALE_LEAD",
+      "role": "male_lead",
+      "asset_binding_status": "NOT_BOUND",
+      "initial_anchor": "row_3_seat_column_unresolved",
+      "body_facing": "BLACKBOARD-01",
+      "head_gaze_event": "turn_toward_FEMALE_LEAD_after_entry"
+    },
+    {
+      "id": "FEMALE_CLASSMATE_2",
+      "role": "female_classmate_2",
+      "asset_binding_status": "NOT_BOUND",
+      "initial_anchor": "adjacent_desk_area_exact_seat_unresolved"
+    },
+    {
+      "id": "FEMALE_CLASSMATE_3",
+      "role": "female_classmate_3",
+      "asset_binding_status": "NOT_BOUND",
+      "initial_anchor": "student_desk_area_exact_seat_unresolved"
+    }
+  ],
+  "ordered_events": [
+    {
+      "event_id": "EV01",
+      "order": 1,
+      "source": "user_story_and_director_fixture",
+      "actor_ids": [
+        "TEACHER",
+        "FEMALE_LEAD"
+      ],
+      "action": "teacher_introduces_transfer_student",
+      "preconditions": [
+        "TEACHER_at_PODIUM-01",
+        "FEMALE_LEAD_entered_through_DOOR-FRONT-RIGHT"
+      ],
+      "effects": [
+        "audience_understands_transfer_student_introduction"
+      ],
+      "position_change": "none_for_teacher"
+    },
+    {
+      "event_id": "EV02",
+      "order": 2,
+      "source": "user_story_and_director_fixture",
+      "actor_ids": [
+        "FEMALE_LEAD"
+      ],
+      "action": "walk_from_door_via_podium_area_to_adjacent_desk",
+      "preconditions": [
+        "EV01_introduction_completed"
+      ],
+      "effects": [
+        "FEMALE_LEAD_reaches_desk_adjacent_to_MALE_LEAD_in_row_3"
+      ],
+      "route_constraints": [
+        "enter_from_front_right_door",
+        "pass_teacher_podium_area",
+        "do_not_cross_through_desks_or_chairs",
+        "do_not_block_central_aisle_with_unmotivated_props"
+      ],
+      "exact_path_status": "symbolic_pending_blender_collision_and_original_layout_review"
+    },
+    {
+      "event_id": "EV03",
+      "order": 3,
+      "source": "user_story_and_director_fixture",
+      "actor_ids": [
+        "FEMALE_LEAD"
+      ],
+      "action": "sit_at_adjacent_desk",
+      "preconditions": [
+        "EV02_female_lead_reaches_adjacent_desk"
+      ],
+      "effects": [
+        "FEMALE_LEAD_supported_by_assigned_chair",
+        "FEMALE_LEAD_seated_next_to_MALE_LEAD"
+      ],
+      "contact_validation": "NOT_RUN"
+    },
+    {
+      "event_id": "EV04",
+      "order": 4,
+      "source": "user_story_and_director_fixture",
+      "actor_ids": [
+        "MALE_LEAD",
+        "FEMALE_LEAD"
+      ],
+      "action": "conversation_and_mutual_attention",
+      "preconditions": [
+        "EV03_female_lead_seated"
+      ],
+      "effects": [
+        "MALE_LEAD_head_and_gaze_turn_toward_FEMALE_LEAD",
+        "both_remain_at_their_assigned_seats"
+      ],
+      "body_root_motion": "none_unless_original_script_requires"
+    },
+    {
+      "event_id": "EV05",
+      "order": 5,
+      "source": "user_story_and_director_fixture",
+      "actor_ids": [
+        "FEMALE_CLASSMATE_2",
+        "MALE_LEAD",
+        "FEMALE_LEAD"
+      ],
+      "action": "female_classmate_2_approaches_and_interrupts",
+      "preconditions": [
+        "EV04_conversation_started"
+      ],
+      "effects": [
+        "FEMALE_CLASSMATE_2_enters_conversation_space",
+        "conversation_is_interrupted"
+      ],
+      "start_seat": "unresolved_do_not_invent",
+      "route": "symbolic_from_adjacent_desk_area",
+      "avoidance": "must_not_pass_through_desk_chair_or_character_occupancy"
+    },
+    {
+      "event_id": "EV06",
+      "order": 6,
+      "source": "user_story_and_director_fixture",
+      "actor_ids": [
+        "FEMALE_CLASSMATE_3",
+        "MALE_LEAD",
+        "FEMALE_LEAD",
+        "FEMALE_CLASSMATE_2"
+      ],
+      "action": "female_classmate_3_later_interrupts",
+      "preconditions": [
+        "EV05_classmate_2_interruption_has_occurred"
+      ],
+      "effects": [
+        "FEMALE_CLASSMATE_3_enters_conversation_space",
+        "second_interruption_is_visibly_later_than_first"
+      ],
+      "start_seat": "unresolved_do_not_invent",
+      "route": "symbolic_from_student_desk_area"
+    }
+  ],
+  "invariants": [
+    "scene geometry remains 4 columns x 5 rows and exactly 20 desk-chair pairs",
+    "teacher remains anchored at the podium during the introduction",
+    "male lead remains in row 3; column remains unresolved until an authoritative source identifies it",
+    "female lead ends at a desk adjacent to the male lead in row 3; left/right side remains unresolved",
+    "classmate 2 interrupts before classmate 3",
+    "no extra student movement without story authorization",
+    "camera movement cannot modify character world coordinates",
+    "all character IDs remain stable across shots; no identity or clothing substitutions",
+    "seated characters must have valid chair support and grounded contact",
+    "unknown seat columns, exact paths, dimensions and timecodes remain unresolved rather than guessed"
+  ],
+  "open_items": [
+    "bind each role to approved character asset IDs and appearance versions",
+    "recover original script passage and exact dialogue/source IDs",
+    "confirm male lead's exact column and female lead's left/right adjacent seat from an authoritative blocking source",
+    "confirm classmate 2 and classmate 3 starting seats",
+    "measure Blender room/desk/chair dimensions and validate clearances and collision",
+    "assign event and shot timecodes from the approved script/performance timing",
+    "create SCG complete-state snapshots for every shot after approved shot breakdown",
+    "run real image pair A/B and video movement validation"
+  ],
+  "release_gates": {
+    "structural_validation": "NOT_RUN",
+    "blender_spatial_collision": "NOT_RUN",
+    "real_image_ab": "NOT_RUN",
+    "real_video_movement": "NOT_RUN",
+    "human_visual_review": "NOT_RUN",
+    "release": "BLOCKED_PENDING_GATES"
+  }
+}
