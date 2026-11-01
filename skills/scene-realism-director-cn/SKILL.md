@@ -168,3 +168,8 @@ node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG三维碰撞回归-V1.js
 ## DirectorDesk 坐标适配与中立预演包
 
 涉及从场景数据库/SCG 导出三维白模时，先读取 `references/DirectorDesk坐标适配与中立预演包-V1.md`，使用 `references/DirectorDesk坐标转换清单模板-V1.json` 并运行 `scripts/export-directordesk-neutral.cjs`。不得只按 XYZ 轴名称直接交换；必须确认正方向、手性、单位和原点。该适配器目前只生成中立 JSON，不得称为原生 DirectorDesk 工程或真实渲染验收。
+
+
+### 三维中立导出新增覆盖
+
+`export-directordesk-neutral.cjs` 除固定几何、实体及运动事件外，现可转换场景数据库 `camera_views[]` 的静态机位和 look_at 注视点；缺失字段进入 UNRESOLVED。动态摄影机轨迹、视锥遮挡和原生相机轨道尚未实现。
