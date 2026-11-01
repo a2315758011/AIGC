@@ -1,0 +1,45 @@
+{
+  "evidence_id": "CLASSROOM-CN-4X6-001-WINDOWS-NODE-VALIDATION-20261101",
+  "date": "2026-11-01",
+  "environment": {
+    "os": "Windows workstation",
+    "node_runtime": "local Node.js via Windows MCP",
+    "validator": "skills/scene-realism-director-cn/tests/validate-scene-database.cjs"
+  },
+  "input": {
+    "scene_id": "CLASSROOM-CN-4X6-001",
+    "scene_file": "projects/漫剧场景数据库/CLASSROOM-CN-4X6-001/场景空间数据_V1.json",
+    "scene_sha256": "7c5ab12e38331e13bc7490178e517a4b0126f9959421a84a8ed973eef25bbb66"
+  },
+  "result": {
+    "exit_code": 0,
+    "status": "PASSED_WITH_WARNINGS",
+    "error_count": 0,
+    "warning_count": 49,
+    "desk_objects": 24,
+    "chair_objects": 24,
+    "desk_chair_pairs": 24
+  },
+  "warning_breakdown": {
+    "unknown_footprints": 48,
+    "normalized_coordinates_not_metric": 1
+  },
+  "assertions": {
+    "four_columns": true,
+    "six_rows": true,
+    "twenty_four_desks": true,
+    "twenty_four_chairs": true,
+    "unique_ids": true,
+    "desk_chair_pairs_resolve": true,
+    "doors_windows_blackboard_podium_present": true,
+    "unknown_physical_dimensions_preserved": true
+  },
+  "not_verified": [
+    "实际米制尺寸",
+    "桌椅占地碰撞",
+    "通道净宽与规范合规性",
+    "门扇开启方向",
+    "女主具体座位列号"
+  ],
+  "boundary": "本证据证明该场景 JSON 通过现有 Node 结构/引用/ID/配对校验；49条警告明确保留了家具占地未知和非米制坐标限制，不代表真实物理净空通过。"
+}
