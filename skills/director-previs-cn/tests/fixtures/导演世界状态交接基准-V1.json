@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0.0",
+  "valid_handoff": {
+    "schema_version": "1.0.0",
+    "handoff_id": "HO-CLASSROOM-01",
+    "project_id": "DEMO-CLASSROOM",
+    "source_script": {
+      "script_id": "SCRIPT-01",
+      "revision": "R1",
+      "scene_source_ids": [
+        "SCENE-03"
+      ]
+    },
+    "scene": {
+      "scene_id": "SCN-CLASSROOM-01",
+      "world_revision": "WORLD-R1",
+      "static_world_revision": "STATIC-R1"
+    },
+    "timebase": {
+      "unit": "ms",
+      "origin": "scene_start",
+      "frame_rate": null
+    },
+    "canonical_assets": [
+      {
+        "asset_id": "ENV-CLASSROOM-01",
+        "asset_type": "scene",
+        "revision": "R1"
+      },
+      {
+        "asset_id": "CHAR-TEACHER",
+        "asset_type": "character",
+        "revision": "R1"
+      },
+      {
+        "asset_id": "CHAR-FEMALE-01",
+        "asset_type": "character",
+        "revision": "R1"
+      },
+      {
+        "asset_id": "CHAR-MALE-01",
+        "asset_type": "character",
+        "revision": "R1"
+      },
+      {
+        "asset_id": "PROP-PODIUM-01",
+        "asset_type": "prop",
+        "revision": "R1"
+      }
+    ],
+    "reference_map": [
+      {
+        "reference_id": "REF-LAYOUT-01",
+        "asset_id": "ENV-CLASSROOM-01",
+        "role": "layout_truth",
+        "authority_fields": [
+          "desk_layout",
+          "door_position",
+          "window_position"
+        ],
+        "priority": 1,
+        "may_override_fields": []
+      },
+      {
+        "reference_id": "REF-FEMALE-01",
+        "asset_id": "CHAR-FEMALE-01",
+        "role": "character_identity",
+        "authority_fields": [
+          "face_identity",
+          "hair",
+          "body_shape"
+        ],
+        "priority": 1,
+        "may_override_fields": []
+      },
+      {
+        "reference_id": "REF-MALE-01",
+        "asset_id": "CHAR-MALE-01",
+        "role": "character_identity",
+        "authority_fields": [
+          "face_identity",
+          "hair",
+          "body_shape"
+        ],
+        "priority": 1,
+        "may_override_fields": []
+      },
+      {
+        "reference_id": "REF-PODIUM-01",
+        "asset_id": "PROP-PODIUM-01",
+        "role": "prop_shape",
+        "authority_fields": [
+          "podium_shape"
+        ],
+        "priority": 1,
+        "may_override_fields": []
+      }
+    ],
+    "invariants": [
+      {
+        "invariant_id": "INV-DOOR-01",
+        "owner": "scene",
+        "field": "door_connects_to",
+        "value": "school_corridor",
+        "status": "locked",
+        "source_id": "SCRIPT-01"
+      },
+      {
+        "invariant_id": "INV-SEAT-01",
+        "owner": "character",
+        "field": "CHAR-MALE-01.seat",
+        "value": "row-4-column-4",
+        "status": "locked",
+        "source_id": "SCRIPT-01"
+      },
+      {
+        "invariant_id": "INV-BODY-01",
+        "owner": "character",
+        "field": "CHAR-MALE-01.body_facing",
+        "value": "blackboard",
+        "status": "locked",
+        "source_id": "SCRIPT-01"
+      }
+    ],
+    "shot_chain": [
+      {
+        "shot_id": "SHOT-001",
+        "scg_shot_id": "SCG-SHOT-001",
+        "predecessor_shot_id": null,
+        "order": 1,
+        "time_start_ms": 0,
+        "time_end_ms": 4000,
+        "camera_track_ref": "CAM-TRACK-001",
+        "scene_id": "SCN-CLASSROOM-01",
+        "static_world_revision": "STATIC-R1"
+      },
+      {
+        "shot_id": "SHOT-002",
+        "scg_shot_id": "SCG-SHOT-002",
+        "predecessor_shot_id": "SHOT-001",
+        "order": 2,
+        "time_start_ms": 4000,
+        "time_end_ms": 7000,
+        "camera_track_ref": null,
+        "scene_id": "SCN-CLASSROOM-01",
+        "static_world_revision": "STATIC-R1"
+      },
+      {
+        "shot_id": "SHOT-003",
+        "scg_shot_id": "SCG-SHOT-003",
+        "predecessor_shot_id": "SHOT-002",
+        "order": 3,
+        "time_start_ms": 7000,
+        "time_end_ms": 10000,
+        "camera_track_ref": "CAM-TRACK-003",
+        "scene_id": "SCN-CLASSROOM-01",
+        "static_world_revision": "STATIC-R1"
+      }
+    ],
+    "continuity_policy": {
+      "state_change_authority": "scg_events_only",
+      "static_world_change_requires_approved_revision": true,
+      "actor_and_camera_tracks_separate": true,
+      "locked_invariants_may_be_overridden": false
+    },
+    "unknowns": [
+      {
+        "unknown_id": "UNK-01",
+        "field": "classroom_exact_width_m",
+        "impact": "camera blocking precision",
+        "required_evidence": "measured floor plan or calibrated reference"
+      }
+    ]
+  },
+  "negative_cases": [
+    {
+      "id": "NEG-01-WORLD-REVISION-DRIFT",
+      "mutation": {
+        "type": "set",
+        "path": "shot_chain.1.static_world_revision",
+        "value": "STATIC-R2"
+      },
+      "expected_errors": [
+        "H07"
+      ]
+    },
+    {
+      "id": "NEG-02-SHOT-PREDECESSOR",
+      "mutation": {
+        "type": "set",
+        "path": "shot_chain.2.predecessor_shot_id",
+        "value": "SHOT-001"
+      },
+      "expected_errors": [
+        "H08"
+      ]
+    },
+    {
+      "id": "NEG-03-REFERENCE-AUTHORITY-CONFLICT",
+      "mutation": {
+        "type": "append",
+        "path": "reference_map",
+        "value": {
+          "reference_id": "REF-ALT-LAYOUT",
+          "asset_id": "ENV-CLASSROOM-01",
+          "role": "layout_truth",
+          "authority_fields": [
+            "desk_layout"
+          ],
+          "priority": 1,
+          "may_override_fields": []
+        }
+      },
+      "expected_errors": [
+        "H05"
+      ]
+    },
+    {
+      "id": "NEG-04-UNDECLARED-ASSET",
+      "mutation": {
+        "type": "set",
+        "path": "reference_map.0.asset_id",
+        "value": "MISSING-ASSET"
+      },
+      "expected_errors": [
+        "H04"
+      ]
+    },
+    {
+      "id": "NEG-05-STATE-MUTATION-BYPASS",
+      "mutation": {
+        "type": "set",
+        "path": "continuity_policy.state_change_authority",
+        "value": "prompt_text"
+      },
+      "expected_errors": [
+        "H09"
+      ]
+    },
+    {
+      "id": "NEG-06-CAMERA-ACTOR-MIX",
+      "mutation": {
+        "type": "set",
+        "path": "continuity_policy.actor_and_camera_tracks_separate",
+        "value": false
+      },
+      "expected_errors": [
+        "H10"
+      ]
+    },
+    {
+      "id": "NEG-07-DUPLICATE-SHOT-ID",
+      "mutation": {
+        "type": "set",
+        "path": "shot_chain.1.shot_id",
+        "value": "SHOT-001"
+      },
+      "expected_errors": [
+        "H06"
+      ]
+    },
+    {
+      "id": "NEG-08-DUPLICATED-SCG-STATE",
+      "mutation": {
+        "type": "set",
+        "path": "shot_chain.0.entities",
+        "value": []
+      },
+      "expected_errors": [
+        "H11"
+      ]
+    }
+  ]
+}
