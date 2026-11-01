@@ -15,7 +15,7 @@
 ## 专业漫画制作专项
 - 第二批外部工具与读者测试：见 [第二批研究](../docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md) 和 [读者测试/页面质检清单](./comic-production-director-cn/references/读者测试与页面质检清单-V1.md)。
 
-- [comic-production-director-cn](./comic-production-director-cn/)：独立漫画生产总控，覆盖漫画脚本、页面节奏、分格、角色/场景连续性、逐格返工、去字修复、独立排字、网漫与分页出版。
+- [comic-production-director-cn](./comic-production-director-cn/) V1.2.0：独立漫画生产总控，覆盖漫画脚本、页面节奏、分格、角色/场景连续性、逐格返工、源画格保真修复、独立排字、平台规则和网漫/分页出版。
 - [漫画专业制作与出版总规范](../docs/漫画专业制作与出版总规范-V1.md)：漫画生产权威规范。
 - [外部专业漫画项目研究](../docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md)：OpenManga、agent-comic-kit、manga-text-removal、Comic Pipeline、Manga Editor Desu、Sloom Studio 等外部来源审查与许可证记录。
 - [第二批上色/翻译/排字研究](../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md)：Comtexia、MangaColorAI、Speech Bubble Editor、Free Comic Panel Maker 等工具的授权和适用性审查。
