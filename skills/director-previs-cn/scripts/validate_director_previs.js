@@ -49,9 +49,9 @@ const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演�
 const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
 check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
-check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.3\.0"/.test(frontmatter[1])) && lock.version === "1.3.0");
+check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.3\.0"/.test(frontmatter[1])) && lock.version === "1.4.0");
 check("source lock targets current branch", lock.branch === "main");
-check("source lock pins reviewed main commit", lock.verified_main_commit === "3593d91897c6913b6e1f4b1306e1d104888a5c43");
+check("source lock pins reviewed main commit", lock.verified_main_commit === "28b02ae55eaca1a1416c32ba84913af723c44824");
 
 const specialists = [
   "scene-realism-director-cn",
@@ -70,7 +70,7 @@ check("root AGENTS routes fight specialist", rootAgents.includes("直接调用 `
 check("director skill flags fight skill review status", skillText.includes("authored_pending_review"));
 check("PR workflow watches fight skill", workflowText.includes("skills/fight-impact-vfx-cn/**"));
 check("skill README documents all specialists", specialists.every(name => readmeText.includes(name)));
-check("changelog records 1.3.0", changelogText.includes("## 1.3.0"));
+check("changelog records 1.4.0", changelogText.includes("## 1.4.0"));
 check("root README has no escaped newline corruption", !rootReadme.includes("\\n- ["));
 
 check("three upstream sources are pinned", Array.isArray(lock.upstream_references) && lock.upstream_references.length === 3);
@@ -81,7 +81,7 @@ for (const source of lock.upstream_references || []) {
   check(`upstream file SHAs valid: ${source.repository}`, (source.files_reviewed || []).every(file => /^[0-9a-f]{40}$/.test(file.blob_sha || "")));
 }
 
-check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 9);
+check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 12);
 for (const dep of lock.local_dependencies || []) {
   check(`dependency exists: ${dep.package}`, exists(dep.path));
   if (exists(dep.path)) {
@@ -99,6 +99,7 @@ for (const dep of lock.local_dependencies || []) {
 }
 
 check("classroom has exactly 3 reference assets", classroom.source_assets.length === 3);
+check("classroom has a machine-readable reference conflict", classroom.reference_conflicts.length === 1 && classroom.reference_conflicts[0].expected_resolution.includes("4×6/24套"));
 check("desk grid is 4x6=24", classroom.scene_truth.desks.columns * classroom.scene_truth.desks.rows === 24 && classroom.scene_truth.desks.count === 24);
 check("desk layout source is unique", classroom.scene_truth.layout_source === "阳光洒落的整洁教室.png");
 check("room measurements are marked estimates", classroom.scene_truth.dimensions_m.measurement_status === "reference_estimate_not_survey");
@@ -110,11 +111,11 @@ check("all specialist handoffs exist", ["scene_realism", "storyboard", "camera_m
 check("classroom correctly skips fight skill", classroom.specialist_handoffs.fight_impact_vfx.some(item => item.includes("不调用")));
 check("visual acceptance is a hard invariant", classroom.integration_invariants.some(item => item.includes("不得报告视觉验收通过")));
 
-check("eleven route regression cases exist", routes.cases.length === 11);
+check("thirteen route regression cases exist", routes.cases.length === 13);
 check("source lock regression count matches fixture", lock.verification.orchestrator_regression_cases === routes.cases.length);
 const ids = routes.cases.map(test => test.id);
 check("route regression IDs are unique", new Set(ids).size === ids.length);
-check("route regression IDs cover DO-01..DO-11", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10","DO-11"].every(id => ids.includes(id)));
+check("route regression IDs cover DO-01..DO-13", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10","DO-11","DO-12","DO-13"].every(id => ids.includes(id)));
 const byId = Object.fromEntries(routes.cases.map(test => [test.id, test]));
 check("DO-01 routes only to scene realism", JSON.stringify(byId["DO-01"].expected_route) === JSON.stringify(["scene-realism-director-cn"]));
 check("DO-02 routes only to storyboard", JSON.stringify(byId["DO-02"].expected_route) === JSON.stringify(["storyboard-director-cn"]));
@@ -128,13 +129,19 @@ check("DO-08 visual acceptance remains NOT_RUN", byId["DO-08"].visual_acceptance
 check("DO-09 fight-only task routes directly", JSON.stringify(byId["DO-09"].expected_route) === JSON.stringify(["fight-impact-vfx-cn"]));
 check("DO-10 cross-domain fight route is ordered", JSON.stringify(byId["DO-10"].expected_route) === JSON.stringify(["director-previs-cn","scene-realism-director-cn","fight-impact-vfx-cn","storyboard-director-cn","camera-motion-director-cn"]));
 check("DO-11 dynamic movement route separates storyboard and camera", JSON.stringify(byId["DO-11"].expected_route) === JSON.stringify(["director-previs-cn","scene-realism-director-cn","storyboard-director-cn","camera-motion-director-cn"]));
-check("markdown covers all eleven IDs", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10","DO-11"].every(id => regressionText.includes(id)));
-check("integration test contains controlled A/B", integrationText.includes("A组") && integrationText.includes("B组") && integrationText.includes("A/B 变量隔离"));
+check("DO-12 reference authority conflict uses director handoff", JSON.stringify(byId["DO-12"].expected_route) === JSON.stringify(["director-previs-cn","scene-realism-director-cn","storyboard-director-cn"]));
+check("DO-13 whitebox previs route includes camera motion", JSON.stringify(byId["DO-13"].expected_route) === JSON.stringify(["director-previs-cn","scene-realism-director-cn","storyboard-director-cn","camera-motion-director-cn"]));
+check("markdown covers all thirteen IDs", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10","DO-11","DO-12","DO-13"].every(id => regressionText.includes(id)));
+check("integration test contains controlled A/B", integrationText.includes("A组") && integrationText.includes("B组") && integrationText.includes("A/B实验隔离"));
+check("whitebox A/B protocol and template exist", exists("skills/director-previs-cn/tests/导演意图服从性白模A-B协议-V1.md") && exists("skills/director-previs-cn/tests/templates/白模服从性A-B结果模板-V1.json"));
+check("whitebox A/B remains prepared not run", lock.verification.whitebox_previs_ab_protocol === "prepared_not_run");
+check("current specialist versions are pinned", lock.verification.scene_realism_skill_version === "1.4.0" && lock.verification.storyboard_skill_version === "1.3.2" && lock.verification.storyboard_positioning_rules_version === "1.7.0");
+check("source lock records PC MCP recovery and Gateway crash", lock.verification.pc_mcp_connection === "reconnected" && lock.verification.generation_gateway_provider_start === "failed_STATUS_BREAKPOINT_0x80000003");
 check("classroom integration skips non-applicable fight skill", integrationText.includes("fight-impact-vfx-cn` 明确跳过"));
 check("visual A/B is not falsely marked complete", lock.verification.real_image_video_ab === "not_run");
 check("fight impact dependency remains pending review", lock.verification.fight_impact_skill_status === "authored_pending_review");
 check("stale manju package is explicitly excluded", Array.isArray(lock.excluded_candidates) && lock.excluded_candidates.some(item => item.package === "manju-director-cn" && item.source_version === "V2.10.1"));
-check("manual route dry run is 11/11 but not independent", lock.verification.manual_route_dry_run.status === "passed" && lock.verification.manual_route_dry_run.pass_count === 11 && lock.verification.independent_route_review === "not_run");
+check("manual route dry run is 13/13 but not independent", lock.verification.manual_route_dry_run.status === "passed" && lock.verification.manual_route_dry_run.pass_count === 13 && lock.verification.independent_route_review === "not_run");
 check("workflow A/B and real image/video A/B remain unrun", lock.verification.workflow_integration_ab === "not_run" && lock.verification.real_image_video_ab === "not_run");
 
 process.stdout.write(`\n结果：${passed} PASS / ${failed} FAIL\n`);
