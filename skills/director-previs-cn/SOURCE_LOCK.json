@@ -1,11 +1,11 @@
 {
   "package": "director-previs-cn",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
-  "branch": "feat/director-orchestration-cn-20261101-v3",
-  "verified_main_commit": "5170ef3fba501bf08fd7dd628cc15bcd20234ec6",
-  "scope": "导演意图、跨专业技能路由、共享事实底稿、跨技能整合与整体验收",
+  "branch": "main",
+  "verified_main_commit": "3593d91897c6913b6e1f4b1306e1d104888a5c43",
+  "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
     {
@@ -71,39 +71,61 @@
   "local_dependencies": [
     {
       "package": "scene-realism-director-cn",
-      "version": "1.2.1",
+      "version": "1.3.0",
       "path": "skills/scene-realism-director-cn/SKILL.md",
-      "git_blob_sha": "36a9c09061dfa69ab4c3c4bdaeb3f10694b2969c",
+      "git_blob_sha": "4a177d7a8682c49cdef49887f09dce59466e206c",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.2.1",
-      "source_lock_git_blob_sha": "8866c10dc819ae2b980f035c71021fd864cd6980",
-      "authority": "场景真实性、建筑拓扑、功能布局、透视尺度、物理接触、光材质、全景与参考图保真",
+      "source_lock_version": "1.3.0",
+      "source_lock_git_blob_sha": "ba2f877b44a27d8b2d03046147a4b45f18b8839d",
+      "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
       "status": "conditional"
     },
     {
       "package": "scene-realism-rules",
       "version": "1.0.0",
       "path": "skills/scene-realism-director-cn/references/场景真实性控制规则-V1.md",
-      "git_blob_sha": "54163775d985da52f388e881112f8c81e29dbd55",
+      "git_blob_sha": "cf821882dbe75b43161cf5372c90a9faf0531e66",
       "authority": "场景空间世界模型、建筑拓扑、俯视/全景、布局与功能常识"
     },
     {
+      "package": "scene-realism-ab-protocol",
+      "version": "1.0.0",
+      "path": "skills/scene-realism-director-cn/tests/场景真实性A-B测试执行规程-V1.md",
+      "git_blob_sha": "cace91c47eeffed9ca8517a506f1be4dea3f575a",
+      "authority": "场景提示策略A/B、固定参数、5样本配对、P0-P3和十维1—5盲评",
+      "status": "protocol_added_target_model_ab_not_run"
+    },
+    {
+      "package": "scene-realism-evaluator-deployment-gate",
+      "version": "1.0.0",
+      "path": "skills/scene-realism-director-cn/references/第三方评测器部署门槛-V1.md",
+      "git_blob_sha": "7187e74c7ca1d1886045afacd02ed3973e04149d",
+      "authority": "第三方评测器硬件/依赖/费用门禁；禁止未经核验部署大型评测器"
+    },
+    {
       "package": "storyboard-director-cn",
-      "version": "1.2.1",
+      "version": "1.3.1",
       "source_version": "V2.10.5",
       "path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "59aa29c843c6976269f3a9424c435636672c7438",
+      "git_blob_sha": "8ed62d873612322aa1aea639e87a9112f1a40e12",
       "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.2.1",
-      "source_lock_git_blob_sha": "2e537558f9b2c7090aaf61a9c09294f85db9337b",
-      "authority": "正式分镜、人物站位/朝向/视线、走位、轴线、连续性与SCG"
+      "source_lock_version": "1.3.1",
+      "source_lock_git_blob_sha": "9ad090ca3829c68050143c7526171b1c96b81d22",
+      "authority": "正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性"
     },
     {
       "package": "storyboard-positioning-rules",
-      "version": "1.4.0",
+      "version": "1.6.0",
       "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
-      "git_blob_sha": "0bdac34090778d426f4f2ea5ca875256c541bdb0",
-      "authority": "人物世界位置、身体/头部/视线、走位动作链和场景锚点"
+      "git_blob_sha": "978af056a9b24d5e5e0dfb95354c3d7748245864",
+      "authority": "人物世界位置、身体/头部/视线、路径关键帧、支撑接触、grounding/foot planting、多人避障与相机视线分轨"
+    },
+    {
+      "package": "dynamic-movement-research-third-batch",
+      "version": "2026-11-01",
+      "path": "docs/平台创作者人物动态走位与导演预演研究_20261101_第三批.md",
+      "git_blob_sha": "4e51c8713ad14a38c176623b86dcbd83da219fb9",
+      "authority": "创作者动态导演台、路径时间、动作/位移同步、脚底支撑、相机路径和群演一致性；仅静态研究，未安装运行"
     },
     {
       "package": "camera-motion-director-cn",
@@ -113,7 +135,7 @@
       "source_lock_path": "skills/camera-motion-director-cn/SOURCE_LOCK.json",
       "source_lock_version": "1.1.1",
       "source_lock_git_blob_sha": "5e6102a843c1b132d4e3b8dac86c1dbe2c941e2c",
-      "authority": "摄影机运动设计、轨迹/速度、视频模型适配与运镜审片",
+      "authority": "摄影机位置/视线轨迹、运动设计、视频模型适配与运镜审片",
       "note": "SKILL frontmatter reports 1.0.0 while SOURCE_LOCK reports 1.1.1; both pinned separately."
     },
     {
@@ -142,21 +164,48 @@
     "licenses_checked": true,
     "local_dependencies_read": true,
     "local_dependency_blob_shas_pinned": true,
-    "main_commit": "5170ef3fba501bf08fd7dd628cc15bcd20234ec6",
-    "orchestrator_regression_cases": 10,
+    "main_commit": "3593d91897c6913b6e1f4b1306e1d104888a5c43",
+    "orchestrator_regression_cases": 11,
     "fight_impact_skill_status": "authored_pending_review",
     "manju_director_status": "excluded_until_source_refresh",
-    "automated_static_regression": "configured; latest GitHub Actions PR check is the source of truth",
+    "automated_static_regression": {
+      "status": "passed",
+      "run_id": 41260915659,
+      "pass_count": 133,
+      "fail_count": 0,
+      "breakdown": {
+        "director_contract": 97,
+        "ab_protocol": 36
+      },
+      "workflow": "director-previs-regression",
+      "scope": "PR #17 head commit 625d4de897ed5b85ca917663e0265cc90cb86ef3"
+    },
     "manual_route_dry_run": {
       "status": "passed",
-      "pass_count": 10,
+      "pass_count": 11,
       "fail_count": 0,
-      "method": "same-assistant rule walkthrough against the machine-readable expected routes",
+      "method": "same-assistant rule walkthrough against the machine-readable expected routes DO-01..DO-11",
       "independent": false
     },
     "workflow_integration_ab": "not_run",
     "real_image_video_ab": "not_run",
-    "note": "Static checks verify repository contracts and pinned dependencies only. They do not prove specialist model compliance, fight-video quality or scene/video quality improvement.",
-    "independent_route_review": "not_run"
+    "note": "Static checks verify repository contracts and pinned dependencies only. Scene-realism A/B tests prompt strategy separately from director workflow A/B; do not combine these variables. Dynamic movement research is a static source review, not an installed runtime. No real image/video A/B or Windows Gateway test is claimed.",
+    "independent_route_review": "not_run",
+    "workflow_ab_protocol": "prepared_not_run",
+    "visual_scoring_protocol": "aligned_to_scene_realism_10_dimensions_1_to_5",
+    "reference_assets_review": {
+      "status": "retrieved_and_visually_inspected",
+      "assets": 3,
+      "public_repo_copy": false,
+      "layout_truth": "阳光洒落的整洁教室.png",
+      "note": "复合参考图内嵌座位缩略图不得覆盖唯一桌椅布局真值"
+    },
+    "pc_mcp_connection": "unavailable: UNAVAILABLE: Connection failed",
+    "scene_realism_skill_status": "conditional",
+    "scene_realism_prompt_ab": "separate_protocol_added_target_model_ab_not_run",
+    "storyboard_skill_version": "1.3.1",
+    "storyboard_positioning_rules_version": "1.6.0",
+    "dynamic_movement_research": "reviewed_static_only_not_installed",
+    "third_party_evaluator": "not_installed_hardware_and_cost_gate"
   }
 }

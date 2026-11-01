@@ -49,9 +49,9 @@ const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演�
 const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
 check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
-check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.2\.0"/.test(frontmatter[1])) && lock.version === "1.2.0");
-check("source lock targets current branch", lock.branch === "feat/director-orchestration-cn-20261101-v3");
-check("source lock pins reviewed main commit", lock.verified_main_commit === "5170ef3fba501bf08fd7dd628cc15bcd20234ec6");
+check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.3\.0"/.test(frontmatter[1])) && lock.version === "1.3.0");
+check("source lock targets current branch", lock.branch === "main");
+check("source lock pins reviewed main commit", lock.verified_main_commit === "3593d91897c6913b6e1f4b1306e1d104888a5c43");
 
 const specialists = [
   "scene-realism-director-cn",
@@ -62,6 +62,7 @@ const specialists = [
 check("all four specialist routes exist", specialists.every(name => skillText.includes(name)));
 check("single-domain task bypasses orchestrator", skillText.includes("单一专业任务直接调用对应技能"));
 check("cross-domain task uses orchestrator", skillText.includes("同时跨越两个或多个专业领域"));
+check("dynamic movement channels are separated", skillText.includes("人物根节点路径与身体动作/姿态分开") && skillText.includes("摄影机位置路径与注视点/视线目标路径分开"));
 check("root README exposes orchestrator", rootReadme.includes("./skills/director-previs-cn/SKILL.md"));
 check("root AGENTS routes orchestrator", rootAgents.includes("./skills/director-previs-cn/SKILL.md"));
 check("root README exposes fight specialist", rootReadme.includes("./skills/fight-impact-vfx-cn/"));
@@ -69,7 +70,7 @@ check("root AGENTS routes fight specialist", rootAgents.includes("直接调用 `
 check("director skill flags fight skill review status", skillText.includes("authored_pending_review"));
 check("PR workflow watches fight skill", workflowText.includes("skills/fight-impact-vfx-cn/**"));
 check("skill README documents all specialists", specialists.every(name => readmeText.includes(name)));
-check("changelog records 1.2.0", changelogText.includes("## 1.2.0"));
+check("changelog records 1.3.0", changelogText.includes("## 1.3.0"));
 check("root README has no escaped newline corruption", !rootReadme.includes("\\n- ["));
 
 check("three upstream sources are pinned", Array.isArray(lock.upstream_references) && lock.upstream_references.length === 3);
@@ -80,7 +81,7 @@ for (const source of lock.upstream_references || []) {
   check(`upstream file SHAs valid: ${source.repository}`, (source.files_reviewed || []).every(file => /^[0-9a-f]{40}$/.test(file.blob_sha || "")));
 }
 
-check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 6);
+check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 9);
 for (const dep of lock.local_dependencies || []) {
   check(`dependency exists: ${dep.package}`, exists(dep.path));
   if (exists(dep.path)) {
@@ -109,11 +110,11 @@ check("all specialist handoffs exist", ["scene_realism", "storyboard", "camera_m
 check("classroom correctly skips fight skill", classroom.specialist_handoffs.fight_impact_vfx.some(item => item.includes("不调用")));
 check("visual acceptance is a hard invariant", classroom.integration_invariants.some(item => item.includes("不得报告视觉验收通过")));
 
-check("ten route regression cases exist", routes.cases.length === 10);
+check("eleven route regression cases exist", routes.cases.length === 11);
 check("source lock regression count matches fixture", lock.verification.orchestrator_regression_cases === routes.cases.length);
 const ids = routes.cases.map(test => test.id);
 check("route regression IDs are unique", new Set(ids).size === ids.length);
-check("route regression IDs cover DO-01..DO-10", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10"].every(id => ids.includes(id)));
+check("route regression IDs cover DO-01..DO-11", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10","DO-11"].every(id => ids.includes(id)));
 const byId = Object.fromEntries(routes.cases.map(test => [test.id, test]));
 check("DO-01 routes only to scene realism", JSON.stringify(byId["DO-01"].expected_route) === JSON.stringify(["scene-realism-director-cn"]));
 check("DO-02 routes only to storyboard", JSON.stringify(byId["DO-02"].expected_route) === JSON.stringify(["storyboard-director-cn"]));
@@ -126,13 +127,14 @@ check("DO-08 text-only task routes director only", JSON.stringify(byId["DO-08"].
 check("DO-08 visual acceptance remains NOT_RUN", byId["DO-08"].visual_acceptance === "NOT_RUN");
 check("DO-09 fight-only task routes directly", JSON.stringify(byId["DO-09"].expected_route) === JSON.stringify(["fight-impact-vfx-cn"]));
 check("DO-10 cross-domain fight route is ordered", JSON.stringify(byId["DO-10"].expected_route) === JSON.stringify(["director-previs-cn","scene-realism-director-cn","fight-impact-vfx-cn","storyboard-director-cn","camera-motion-director-cn"]));
-check("markdown covers all ten IDs", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10"].every(id => regressionText.includes(id)));
-check("integration test contains controlled A/B", integrationText.includes("A组") && integrationText.includes("B组") && integrationText.includes("控制变量"));
+check("DO-11 dynamic movement route separates storyboard and camera", JSON.stringify(byId["DO-11"].expected_route) === JSON.stringify(["director-previs-cn","scene-realism-director-cn","storyboard-director-cn","camera-motion-director-cn"]));
+check("markdown covers all eleven IDs", ["DO-01","DO-02","DO-03","DO-04","DO-05","DO-06","DO-07","DO-08","DO-09","DO-10","DO-11"].every(id => regressionText.includes(id)));
+check("integration test contains controlled A/B", integrationText.includes("A组") && integrationText.includes("B组") && integrationText.includes("A/B 变量隔离"));
 check("classroom integration skips non-applicable fight skill", integrationText.includes("fight-impact-vfx-cn` 明确跳过"));
 check("visual A/B is not falsely marked complete", lock.verification.real_image_video_ab === "not_run");
 check("fight impact dependency remains pending review", lock.verification.fight_impact_skill_status === "authored_pending_review");
 check("stale manju package is explicitly excluded", Array.isArray(lock.excluded_candidates) && lock.excluded_candidates.some(item => item.package === "manju-director-cn" && item.source_version === "V2.10.1"));
-check("manual route dry run is 10/10 but not independent", lock.verification.manual_route_dry_run.status === "passed" && lock.verification.manual_route_dry_run.pass_count === 10 && lock.verification.independent_route_review === "not_run");
+check("manual route dry run is 11/11 but not independent", lock.verification.manual_route_dry_run.status === "passed" && lock.verification.manual_route_dry_run.pass_count === 11 && lock.verification.independent_route_review === "not_run");
 check("workflow A/B and real image/video A/B remain unrun", lock.verification.workflow_integration_ab === "not_run" && lock.verification.real_image_video_ab === "not_run");
 
 process.stdout.write(`\n结果：${passed} PASS / ${failed} FAIL\n`);
