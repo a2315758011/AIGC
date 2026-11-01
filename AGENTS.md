@@ -55,7 +55,7 @@
 ## 跨技能依赖版本一致性门禁
 
 每次调用导演统筹或预演技能前，先比较 `SOURCE_LOCK.json` 中锁定的依赖与当前 `main` 权威文件，不得只依赖历史版本号。
-本次同步基线为 main `6996a9c7c62c0d75219e52163ea62924c249c43a`：
+本次同步基线为 main `7454c7e929aa50addc83d28a7fc7e6caac937218`：
 - `director-previs-cn` 已更新至 V1.4.0，依赖锁定 `scene-realism-director-cn` V1.12.0、`storyboard-director-cn` V1.3.5、站位规则 V1.9.0、`camera-motion-director-cn` V1.1.1。
 - `camera-motion-director-cn` 的 SKILL frontmatter、README 与 SOURCE_LOCK 已统一为 V1.1.1。
 - `manju-director-cn` 离线规则已刷新至 V2.10.5；仍为独立漫剧闭环，不加入导演统筹默认路由，以免与分镜专业技能重复。
