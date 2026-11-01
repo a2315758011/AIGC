@@ -53,7 +53,7 @@ AIGC 场景数据库当前约定 X 左右、Y 前后、Z 高度；DirectorDesk �
 
 ### 摄影机
 
-- 摄影机位置 path 与 camera.targetPath（视线/注视点路径）是独立通道，必须分别定义和验收。
+- 场景数据库 camera_views 的静态 camera_position 与 look_at 现可导出为中立摄影机预设。逐镜摄影机位置 path 与 camera.targetPath（视线/注视点路径）仍是独立通道，必须分别定义和验收；当前适配器尚未把动态相机事件转换成 DirectorDesk 原生相机轨道。
 - 使用 DirectorDesk 实际预览焦距、景别、遮挡、轴线和完整相机轨迹；camera target path 不是持续绑定角色，除非工具明确设置目标跟随。
 - AIGC 的相机碰撞球代理只检查已知静态障碍，不检查视锥遮挡、FOV、画面主体构图；这些必须在实际机位预览中检查。
 
