@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "scene_id": "SCENE-EXAMPLE-001",
+  "scene_name": "场景名称",
+  "status": "draft",
+  "source_of_truth": {
+    "source_type": "logical_baseline",
+    "reference": "填写用户参考图/测量图/已批准3D场景/逻辑基准的路径或说明"
+  },
+  "coordinate_system": {
+    "origin": "房间左前地面角",
+    "x_axis": "左墙到右墙",
+    "y_axis": "前墙到后墙",
+    "z_axis": "地面到顶棚",
+    "units": "normalized_0_to_1"
+  },
+  "fixed_facts": [
+    {
+      "id": "ARCH-FRONT-001",
+      "category": "architecture",
+      "description": "前墙固定结构描述",
+      "location": null,
+      "authority": "logical_assumption"
+    },
+    {
+      "id": "OPEN-DOOR-001",
+      "category": "opening",
+      "description": "门的位置及连接空间；未知项明确写未知",
+      "location": null,
+      "authority": "logical_assumption"
+    }
+  ],
+  "objects": [
+    {
+      "id": "PROP-001",
+      "kind": "家具或道具类别",
+      "count": 1,
+      "position": null,
+      "orientation": null,
+      "mobility": "unknown",
+      "status": "provisional",
+      "paired_with": null,
+      "support_surface": null,
+      "clearance_required": false
+    }
+  ],
+  "dynamic_state": [
+    {
+      "entity_id": "CHAR-001",
+      "state": {
+        "position": null,
+        "pose": null,
+        "facing": null,
+        "held_props": []
+      },
+      "as_of": "shot-001",
+      "source_shot_id": "shot-001"
+    }
+  ],
+  "unknowns": [
+    "未测量的真实尺寸",
+    "未确认的门扇开启方向"
+  ],
+  "camera_views": [
+    {
+      "view_id": "CAM-REAR-001",
+      "camera_position": {
+        "x": null,
+        "y": null,
+        "z": null
+      },
+      "look_at": {
+        "x": null,
+        "y": null,
+        "z": null
+      },
+      "projection": "perspective",
+      "output_contract": "one_image_one_camera"
+    }
+  ],
+  "prohibited_inferences": [
+    "不得由生成图片编造真实尺寸",
+    "不得把独立生成的不同视角声称为同一3D场景"
+  ]
+}
