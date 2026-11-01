@@ -1,6 +1,6 @@
 {
   "skill": "comic-production-director-cn",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "authoritative_sources": [
     {
       "path": "docs/漫画专业制作与出版总规范-V1.md",
@@ -38,7 +38,7 @@
   "skill_files": [
     {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha": "fdfc51ca0bffa2ef2aeffac78c6211993d1974ae"
+      "git_blob_sha": "5d61ca4be392b58eb8c0a368734805f9cf4c729d"
     },
     {
       "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
@@ -62,11 +62,11 @@
     },
     {
       "path": "skills/comic-production-director-cn/scripts/validate_skill.py",
-      "git_blob_sha": "18f2797c3300a0f26bddad17113c86b1fecba3c6"
+      "git_blob_sha": "96057a84b57755f0946e0e494d7316f69d4ab188"
     },
     {
       "path": "skills/comic-production-director-cn/tests/test_validate_skill.py",
-      "git_blob_sha": "49525bcd2d75c52e7aaae3870bb679683e4e241f"
+      "git_blob_sha": "12c4a2cf947af647867b0002546b77edcbecbbe8"
     },
     {
       "path": "skills/comic-production-director-cn/tests/漫画页面质检正反例-V1.json",
@@ -78,7 +78,7 @@
     },
     {
       "path": "skills/comic-production-director-cn/ARTIFACT_MANIFEST.json",
-      "git_blob_sha": "7d0ab96247b14afc551fd0372e1cfdb15c3ffaea"
+      "git_blob_sha": "b3dc92b1aefb904962e34ca4997d490e99d6bb1b"
     },
     {
       "path": "skills/comic-production-director-cn/references/TT_AutoManga安全隔离审查-V1.md",
@@ -177,16 +177,16 @@
     "frontmatter": "PASS_STATIC",
     "reference_paths": "PASS_STATIC",
     "qc_cases": "PASS_4_OF_4_ISOLATED_PYTHON",
-    "source_lock": "PENDING_FINAL_SHA",
+    "source_lock": "PASS_JSON_READBACK_SELF_HASH_EXCLUDED",
     "local_installation": "NOT_RUN",
     "tool_runtime": "NOT_RUN",
     "comic_artifact_e2e": "NOT_RUN",
-    "skill_contract_unittest": "PASS_8_OF_8_ISOLATED_PYTHON_AFTER_FIX",
+    "skill_contract_unittest": "PASS_9_OF_9_ISOLATED_PYTHON",
     "github_readback": "PASS_ALL_REQUIRED_FILES",
     "committed_github_actions": "NOT_RUN",
-    "source_references": "PASS_STATIC_AFTER_FIX",
+    "source_references": "PASS_STATIC_V1_2_3",
     "external_tool_security_review": "PASS_STATIC_SOURCE_REVIEW",
     "tt_automanga_runtime": "BLOCKED_MISSING_MCP_SDK_PYTEST_SWARMUI"
   },
-  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted. Additional independent test execution found a stale negative-test fixture targeting version 1.0.0 while the skill was 1.2.0; corrected to target 1.2.0. Isolated Python unittest then passed 8/8. QC cases passed 4/4 in isolated Python. Windows PC MCP write channel failed during temporary test-file staging; no local external tools were installed or run. V1.2.1 fixes the missing explicit reference to the first-batch external research document discovered by independently re-running the source-reference validator. Skill manifest and source lock updated. All required references now pass static checks. V1.2.2 adds TT_AutoManga source security review. Identified startup orphan-asset deletion risk and unauthenticated loopback API; do not expose 5180 via public/Tailscale MCP and do not connect to MOONKEEP data. Workstation Python 3.11 has FastAPI/Pydantic/httpx/Pillow/torch but lacks pytest and MCP SDK; SwarmUI 7801 and ComfyUI 8188 did not respond. No dependencies installed or model downloads performed."
+  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted. Additional independent test execution found a stale negative-test fixture targeting version 1.0.0 while the skill was 1.2.0; corrected to target 1.2.0. Isolated Python unittest then passed 8/8. QC cases passed 4/4 in isolated Python. Windows PC MCP write channel failed during temporary test-file staging; no local external tools were installed or run. V1.2.1 fixes the missing explicit reference to the first-batch external research document discovered by independently re-running the source-reference validator. Skill manifest and source lock updated. All required references now pass static checks. V1.2.2 adds TT_AutoManga source security review. Identified startup orphan-asset deletion risk and unauthenticated loopback API; do not expose 5180 via public/Tailscale MCP and do not connect to MOONKEEP data. Workstation Python 3.11 has FastAPI/Pydantic/httpx/Pillow/torch but lacks pytest and MCP SDK; SwarmUI 7801 and ComfyUI 8188 did not respond. No dependencies installed or model downloads performed. V1.2.3 adds mandatory security boundary rules for external comic tools and regression tests. Independently executed isolated Python unit suite: 9/9 PASS. Static readback confirms required source references and platform policy guards. No external comic software installed or run."
 }
