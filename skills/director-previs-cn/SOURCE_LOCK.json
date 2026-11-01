@@ -76,7 +76,7 @@
       "git_blob_sha": "5bf4258129a121c9128f9a77a549490cd25def3b",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
       "source_lock_version": "1.11.0",
-      "source_lock_git_blob_sha": "b15f76cec8fb04e406195c22eed2b2b7db4d3b80",
+      "source_lock_git_blob_sha": "79cc279030485a7588b53341bd0c30550d933894",
       "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
       "status": "conditional"
     },
