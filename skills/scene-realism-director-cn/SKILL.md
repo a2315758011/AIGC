@@ -1,5 +1,6 @@
 ---
 name: scene-realism-director-cn
+version: "1.15.0"
 description: 面向 AIGC 静态场景图、室内外环境图和漫剧背景的真实性诊断、生成约束、局部修复与独立验收。用户提到场景假、空间不合理、塑料感、AI感、建筑穿帮、光影不一致、材质失真时触发。
 ---
 
