@@ -22,7 +22,6 @@ const template=parse(templatePath);
 const classroom=parse(classroomPath);
 const lock=parse("skills/director-previs-cn/SOURCE_LOCK.json");
 const sceneRealismLock=parse("skills/scene-realism-director-cn/SOURCE_LOCK.json");
-const sceneRealismLock=parse("skills/scene-realism-director-cn/SOURCE_LOCK.json");
 check("A/B protocol exists",protocol.length>1000);
 check("A/B defines both arms",protocol.includes("A 组：直接专业技能工作流")&&protocol.includes("B 组：导演统筹工作流"));
 check("A/B changes only orchestration",protocol.includes("唯一有意改变的变量是"));
