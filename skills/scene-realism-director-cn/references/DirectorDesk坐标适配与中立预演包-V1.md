@@ -53,3 +53,8 @@ node tests/test-directordesk-neutral.cjs
 ### 动态摄影机注视点轨道
 
 SCG 摄影机实体的 event.motion 可选携带 `look_at_from`、`look_at_waypoints[]`、`look_at_to`，它们与摄影机光心的 `from/waypoints/to` 是两条独立 XYZ 通道。中立导出器现分别转换为 `look_at_from_m`、`look_at_waypoints_m`、`look_at_to_m`。这只完成数据导出，不代表已生成 DirectorDesk 原生关键帧、平滑插值、视锥遮挡或实际镜头预览；缺少目标点时不得推断摄影机持续跟随。
+
+
+## 人物姿态与朝向数据导出补充
+
+SCG `entity.attributes` 可选提供 `pose_state`、`body_forward`、`head_forward`、`support_state`。导出器分别保留姿态/支撑状态，并将身体与头部朝向向量按已批准轴映射转换（方向向量不叠加原点偏移）。不得从身体朝向推断头部朝向，也不得从 pose_state 推断骨骼动作已执行。当前仅传递离散状态和方向向量；尚未生成骨骼关键帧、关节角、IK、脚底接触或坐姿网格，缺少这些证据时不能声称真实动作通过。
