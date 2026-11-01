@@ -134,7 +134,7 @@ check("classroom integration skips non-applicable fight skill", integrationText.
 check("visual A/B is not falsely marked complete", lock.verification.real_image_video_ab === "not_run");
 check("fight impact dependency remains pending review", lock.verification.fight_impact_skill_status === "authored_pending_review");
 check("stale manju package is explicitly excluded", Array.isArray(lock.excluded_candidates) && lock.excluded_candidates.some(item => item.package === "manju-director-cn" && item.source_version === "V2.10.1"));
-check("manual route dry run is 10/10 but not independent", lock.verification.manual_route_dry_run.status === "passed" && lock.verification.manual_route_dry_run.pass_count === 10 && lock.verification.independent_route_review === "not_run");
+check("manual route dry run is 11/11 but not independent", lock.verification.manual_route_dry_run.status === "passed" && lock.verification.manual_route_dry_run.pass_count === 11 && lock.verification.independent_route_review === "not_run");
 check("workflow A/B and real image/video A/B remain unrun", lock.verification.workflow_integration_ab === "not_run" && lock.verification.real_image_video_ab === "not_run");
 
 process.stdout.write(`\n结果：${passed} PASS / ${failed} FAIL\n`);
