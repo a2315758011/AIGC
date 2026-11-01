@@ -18,7 +18,7 @@
 - tests/validate-scene-benchmark.cjs：原创中文基准结构校验器。
 - docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md：SpatialGenEval、GenSpace、InSpace 和全景 3D 路线。
 - docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md：Shedding Light、CFM、PICABench、ImagenWorld 和物体级真实感研究。
-- docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md：GPT 原生生图四类场景的首轮人工检查、缺陷与后续配对实验计划。\n- references/教室空间权威布局基准-3列5排-V1.json：教室固定空间事实、15张桌椅归一化坐标、相机预设、不变量和未知尺寸边界。\n- references/漫剧场景空间数据库_SCHEMA_V1.json：通用场景数据库结构约束。\n- references/漫剧场景空间数据库模板_V1.json：新场景初始化模板。\n- projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json：15桌15椅的独立对象实例、配对关系、固定事实、动态状态和相机预设。\n- tests/validate-scene-database.cjs：无第三方依赖的 Node 场景数据库结构校验器。\n- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
+- docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md：GPT 原生生图四类场景的首轮人工检查、缺陷与后续配对实验计划。\n- references/教室空间权威布局基准-3列5排-V1.json：教室固定空间事实、15张桌椅归一化坐标、相机预设、不变量和未知尺寸边界。\n- references/漫剧场景空间数据库_SCHEMA_V1.json：通用场景数据库结构约束。\n- references/漫剧场景空间数据库模板_V1.json：新场景初始化模板。\n- projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json：15桌15椅的独立对象实例、配对关系、固定事实、动态状态和相机预设。\n- tests/validate-scene-database.cjs：无第三方依赖的 Node 场景数据库结构校验器（尚未在目标工作站执行）。\n- references/镜头场景状态交接规范_V1.md：逐镜继承人物、道具、门窗和动态状态，防止镜头间瞬移与状态丢失。\n- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
 
 ## 使用方式
 
