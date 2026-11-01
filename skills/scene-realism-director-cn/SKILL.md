@@ -173,3 +173,6 @@ node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG三维碰撞回归-V1.js
 ### 三维中立导出新增覆盖
 
 `export-directordesk-neutral.cjs` 除固定几何、实体及运动事件外，现可转换场景数据库 `camera_views[]` 的静态机位和 look_at 注视点；缺失字段进入 UNRESOLVED。动态摄影机轨迹、视锥遮挡和原生相机轨道尚未实现。
+
+
+动态摄影机事件现在支持独立的 look-at 起点、途经点和终点坐标导出；仍是中立数据，不是原生摄影机动画轨道。
