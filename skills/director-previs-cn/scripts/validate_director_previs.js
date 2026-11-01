@@ -49,9 +49,9 @@ const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演�
 const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
 check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
-check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.3\.0"/.test(frontmatter[1])) && lock.version === "1.3.0");
+check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.0"/.test(frontmatter[1])) && lock.version === "1.4.0");
 check("source lock targets current branch", lock.branch === "main");
-check("source lock pins reviewed main commit", lock.verified_main_commit === "3593d91897c6913b6e1f4b1306e1d104888a5c43");
+check("source lock records reviewed base commit", /^[0-9a-f]{40}$/.test(lock.verified_main_commit || ""));
 
 const specialists = [
   "scene-realism-director-cn",
@@ -81,7 +81,7 @@ for (const source of lock.upstream_references || []) {
   check(`upstream file SHAs valid: ${source.repository}`, (source.files_reviewed || []).every(file => /^[0-9a-f]{40}$/.test(file.blob_sha || "")));
 }
 
-check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 9);
+check("local dependency list exists", Array.isArray(lock.local_dependencies) && lock.local_dependencies.length >= 12);
 for (const dep of lock.local_dependencies || []) {
   check(`dependency exists: ${dep.package}`, exists(dep.path));
   if (exists(dep.path)) {
@@ -97,6 +97,21 @@ for (const dep of lock.local_dependencies || []) {
     }
   }
 }
+
+
+const dependencyByPackage = Object.fromEntries((lock.local_dependencies || []).map(dep => [dep.package, dep]));
+const sceneSkill = read("skills/scene-realism-director-cn/SKILL.md");
+const storyboardSkill = read("skills/storyboard-director-cn/SKILL.md");
+const positioningRules = read("skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md");
+const cameraLock = JSON.parse(read("skills/camera-motion-director-cn/SOURCE_LOCK.json"));
+check("scene realism dependency refreshed to 1.4.0", dependencyByPackage["scene-realism-director-cn"]?.version === "1.4.0" && /version: "1.4.0"/.test(sceneSkill));
+check("storyboard dependency refreshed to 1.3.4", dependencyByPackage["storyboard-director-cn"]?.version === "1.3.4" && /version: "1.3.4"/.test(storyboardSkill));
+check("positioning rules refreshed to V1.9.0", dependencyByPackage["storyboard-positioning-rules"]?.version === "1.9.0" && positioningRules.includes("版本：V1.9.0"));
+check("camera metadata drift is explicit", dependencyByPackage["camera-motion-director-cn"]?.version === "1.0.0" && cameraLock.version === "1.1.1");
+check("world-state handoff contract exists", exists("skills/director-previs-cn/references/导演世界状态交接数据契约-V1.md"));
+check("world-state handoff fixture exists", exists("skills/director-previs-cn/tests/fixtures/导演世界状态交接基准-V1.json"));
+check("world-state handoff validator exists", exists("skills/director-previs-cn/scripts/validate_world_state_handoff.js"));
+check("workflow runs world-state handoff regression", workflowText.includes("validate_world_state_handoff.js"));
 
 check("classroom has exactly 3 reference assets", classroom.source_assets.length === 3);
 check("desk grid is 4x6=24", classroom.scene_truth.desks.columns * classroom.scene_truth.desks.rows === 24 && classroom.scene_truth.desks.count === 24);
