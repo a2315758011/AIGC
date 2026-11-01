@@ -1,8 +1,8 @@
 {
   "schema": "skill-artifact-manifest-v1",
   "skill": "comic-production-director-cn",
-  "version": "1.1.0",
-  "generated_from": "GitHub main branch; source tree verified by fetch_file",
+  "version": "1.2.0",
+  "generated_from": "GitHub main; all listed files fetched and checked by GitHub Contents API",
   "files": [
     {
       "path": "SKILL.md",
@@ -35,6 +35,24 @@
       "character_count": 4881
     },
     {
+      "path": "references/平台导出配置登记表-V1.json",
+      "required": true,
+      "git_blob_sha": "1b1646b74281339d73ded763a580d9db521b524a",
+      "character_count": 4210
+    },
+    {
+      "path": "scripts/validate_skill.py",
+      "required": true,
+      "git_blob_sha": "18f2797c3300a0f26bddad17113c86b1fecba3c6",
+      "character_count": 4250
+    },
+    {
+      "path": "tests/test_validate_skill.py",
+      "required": true,
+      "git_blob_sha": "49525bcd2d75c52e7aaae3870bb679683e4e241f",
+      "character_count": 4906
+    },
+    {
       "path": "tests/漫画页面质检正反例-V1.json",
       "required": true,
       "git_blob_sha": "8749410865a4592de02c451ceacc7658b0f05d13",
@@ -50,7 +68,7 @@
   "excluded_from_file_hash_list": [
     {
       "path": "SOURCE_LOCK.json",
-      "reason": "contains source/manifest verification metadata; listing its own hash here would create a circular update dependency"
+      "reason": "source and manifest metadata; excluded to avoid circular hash dependency"
     },
     {
       "path": "ARTIFACT_MANIFEST.json",
@@ -60,11 +78,16 @@
   "tests": {
     "source_readback": "PASS_ALL_REQUIRED_FILES",
     "frontmatter_and_reference_presence": "PASS_STATIC",
-    "qc_case_execution": "PASS_4_OF_4_ISOLATED_PYTHON"
+    "skill_contract_unittest": "PASS_8_OF_8_ISOLATED_PYTHON_AFTER_FIX",
+    "qc_case_execution": "PASS_4_OF_4_ISOLATED_PYTHON",
+    "committed_github_actions": "NOT_RUN",
+    "local_installation": "NOT_RUN",
+    "external_tool_runtime": "NOT_RUN",
+    "comic_artifact_e2e": "NOT_RUN"
   },
   "packaging": {
     "zip_created": false,
     "staging_created": false,
-    "reason": "No ZIP package was requested; repository Skill directory is the delivered artifact."
+    "reason": "No ZIP package requested; repository Skill directory is the delivered artifact."
   }
 }
