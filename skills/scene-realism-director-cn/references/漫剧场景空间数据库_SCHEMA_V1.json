@@ -221,6 +221,39 @@
               "depth"
             ],
             "additionalProperties": false
+          },
+          "collision_volume": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "可选三维碰撞代理；底面中心锚定在 position，尺寸使用 coordinate_system.units。未知时省略或 null。",
+            "properties": {
+              "shape": {
+                "enum": [
+                  "box"
+                ]
+              },
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "depth": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "shape",
+              "width",
+              "depth",
+              "height"
+            ],
+            "additionalProperties": false
           }
         },
         "additionalProperties": false
@@ -253,7 +286,8 @@
           }
         },
         "additionalProperties": false
-      }
+      },
+      "description": "兼容旧项目的迁移/展示快照；逐镜人物、道具和事件的权威动态状态必须存放在 storyboard SCG scene.shots[].entities/relations/events，不得将此字段作为第二权威事实源。"
     },
     "unknowns": {
       "type": "array",
