@@ -25,7 +25,7 @@
     "static_structure_review": "passed",
     "structured_manual_cases": 12,
     "manual_scenario_protocols": 3,
-    "target_model_ab_test": "not_run",
+    "target_model_ab_test": "not_run_provider_unavailable",
     "comfyui_runtime_test": "not_run",
     "platform_skill_install_test": "not_run",
     "paired_blind_review_template": "added",
@@ -38,9 +38,15 @@
     "pc_mcp_after_startup": "UNAVAILABLE",
     "paired_ab_execution_protocol": "added",
     "evaluator_deployment_gate": "added",
-    "windows_mcp": "unavailable_connection_failed"
+    "windows_mcp": "unavailable_connection_failed",
+    "windows_pc_mcp": "reconnected",
+    "generation_gateway_health": "failed_SERVICE_NOT_RUNNING",
+    "generation_gateway_autostart": "failed_SERVICE_START_TIMEOUT",
+    "provider_executable_start": "failed_STATUS_BREAKPOINT_0x80000003",
+    "provider_crash_root_cause": "unknown",
+    "provider_process": "not_running"
   },
-  "note": "Git blob SHAs identify exact committed file versions. Conditional status must not be promoted to verified without target-environment tests. The original Chinese benchmark is repository-authored and structurally checked in memory; its Windows validator, target model A/B image generation, and human blind review remain not run because the shared Generation Gateway failed to start and PC MCP disconnected. No generation job was submitted. Depth, segmentation, normal, relighting and InSpace are documented as candidates only; none is claimed installed or executed on the user's workstation.",
+  "note": "Git blob SHAs identify exact committed file versions. Conditional status must not be promoted to verified without target-environment tests. The original Chinese benchmark is repository-authored and structurally checked in memory; its Windows validator, target model A/B image generation, and human blind review remain not run because the shared Generation Gateway failed to start and PC MCP disconnected. No generation job was submitted. Depth, segmentation, normal, relighting and InSpace are documented as candidates only; none is claimed installed or executed on the user's workstation. Second recovery attempt on 2026-11-01 restored PC MCP, verified 4173/4174 healthy, but provider EXE exited rapidly with status 0x80000003 both with and without --disable-gpu; no matching recent WER/Application Error event or fresh dump. Historical GPU-fatal logs are dated 2026-10-26 and are not confirmed as current root cause. No generation job submitted and no production files modified.",
   "supplementary_research": "docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md",
-  "supplementary_research_git_blob_sha": "cbfa7052d13a282bcf75f8e933af0e997a95c1d3"
+  "supplementary_research_git_blob_sha": "88b3ab6ffa40e96fcf0b6ee46179100e754430d6"
 }
