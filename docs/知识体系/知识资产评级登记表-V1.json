@@ -27,9 +27,9 @@
       "name": "导演统筹静态合同与自动回归",
       "domain": "导演统筹/工作流",
       "rating": "高",
-      "evidence_level": "E3（164项自动静态回归：导演统筹合同128项 + A/B协议36项；不是目标模型E4）",
+      "evidence_level": "E3（164项自动静态回归；主分支合并后复验，非目标模型E4）",
       "claim": "导演统筹路由合同、专业依赖锁、A/B协议静态合同可由自动化回归检查。",
-      "basis": "GitHub Actions run 41271282478（run #93）记录 164 PASS / 0 FAIL；导演统筹合同与依赖/快照校验128项，A/B评测协议36项。",
+      "basis": "主分支 GitHub Actions run 41271402723（run #95）记录 164 PASS / 0 FAIL；导演统筹合同与依赖/快照校验128项，A/B评测协议36项。",
       "verified_scope": "仓库静态合同、专业依赖文件SHA、路由回归、教室事实夹具、漫剧V2.10.5离线源/包SHA与字符数、A/B协议结构。",
       "not_verified_scope": "独立路由复核、真实导演工作流A/B、真实图像/视频A/B、模型服从率和最终成片质量。",
       "sources": [
@@ -639,18 +639,18 @@
     }
   ],
   "audit_snapshot": {
-    "main_head": "c281194f1cca561825323b4ba48395de86d1fa52",
+    "main_head": "23aaee54a276d46209c6cd4986a257e940ae513a",
     "repository_file_count": 116,
     "method_entry_count": 17,
     "scope": "本轮审计聚焦剧本理解、世界状态、场景真实性、人物调度、运镜、导演统筹、打击感与结构化预演；不是全仓库逐文件穷尽审计。",
     "rule": "评级按具体主张及其验证范围，不按整个 Skill 一刀切；静态测试不代表目标模型生成效果。",
     "pc_mcp_reconnected": true,
     "generation_gateway_status": "SERVICE_NOT_RUNNING; provider start last reported STATUS_BREAKPOINT_0x80000003; no generation jobs submitted.",
-    "latest_pr_head": "636efe34797b4318906176c5e52bd0440f53d0cf",
+    "latest_pr_head": "23aaee54a276d46209c6cd4986a257e940ae513a",
     "static_ci": {
       "workflow": "director-previs-regression",
-      "run_id": 41271282478,
-      "run_number": 93,
+      "run_id": 41271402723,
+      "run_number": 95,
       "status": "success",
       "pass_count": 164,
       "fail_count": 0,
@@ -658,8 +658,8 @@
         "director_previs_contract": 128,
         "director_ab_protocol": 36
       },
-      "tested_commit": "636efe34797b4318906176c5e52bd0440f53d0cf",
-      "scope": "静态技能合同、依赖文件SHA、路由、教室夹具、漫剧离线快照内容/字符数、导演A/B协议；不包含目标模型生成质量"
+      "tested_commit": "23aaee54a276d46209c6cd4986a257e940ae513a",
+      "scope": "主分支合并后 GitHub Actions 静态技能合同、依赖SHA、路由、教室事实夹具、漫剧V2.10.5源/包SHA与字符数、导演A/B协议；不包含目标模型生成质量"
     },
     "version_alignment": {
       "director_previs": "1.3.1",
@@ -672,6 +672,12 @@
         "source_version": "V2.10.5",
         "routing": "standalone_not_core_route"
       }
+    },
+    "merged_pull_request": {
+      "number": 23,
+      "url": "https://github.com/a2315758011/AIGC/pull/23",
+      "merge_commit": "23aaee54a276d46209c6cd4986a257e940ae513a",
+      "merged_at": "2026-11-01T04:01:00Z"
     }
   },
   "version_drifts": [
@@ -723,7 +729,7 @@
   "validation_gaps": [
     "场景真实性原创中文基准为8个场景/64个问题；Windows校验器本轮未运行，目标模型A/B与双人盲评未执行。",
     "场景真实性 V1.4.0 的光照/色彩/物体/物理编辑专项回归已定义5项，但没有目标模型输出或运行结果。",
-    "导演统筹当前 PR GitHub Actions run 41271282478（run #93）已通过 164/164（128+36）；该证据仅覆盖仓库静态合同、依赖/快照指纹和评测协议。导演工作流A/B、场景提示策略A/B与真实图像/视频效果仍未运行。",
+    "导演统筹已合并至 main；主分支 GitHub Actions run 41271402723（run #95）通过 164/164。该证据只覆盖仓库静态合同、依赖/快照指纹和评测协议；导演工作流A/B、场景提示策略A/B与真实图像/视频效果仍未运行。",
     "人物动态走位研究含创作者自述和官方工具说明；尚无目标视频模型上的独立复现结果。",
     "打击感技能仍为 authored_pending_review，未运行视频模型、EffectCraft或Impact端到端流程。",
     "Windows PC MCP 已于 2026-11-01 重新连接；共享资源锁检查为空，但 Generation Gateway 仍为 SERVICE_NOT_RUNNING，提供程序启动最近报 STATUS_BREAKPOINT 0x80000003，根因尚未确认。本轮尚未提交生图任务；真实图像/视频 A/B 与双人盲评未执行。"
