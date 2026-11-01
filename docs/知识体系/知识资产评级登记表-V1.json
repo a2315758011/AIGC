@@ -538,6 +538,59 @@
       ],
       "usage": "仅作为候选工具列表；未运行前不得推荐为可用/免费生产工具。",
       "status": "NOT_INSTALLED_NOT_RUN"
+    },
+    {
+      "id": "AIGC-STRUCTURED-PREVIS-001",
+      "name": "结构化3D导演工程的稳定ID、人工锁定与可撤销验证",
+      "domain": "导演预演/人物调度/工程控制",
+      "rating": "低",
+      "evidence_level": "E1-E2（开源仓库源码与测试定义已静态审查；本轮未运行）",
+      "claim": "结构化导演台可将人物、道具、镜头、动作和关键帧绑定稳定ID，并通过工程状态读取、人工锁定、逐步编辑、校验和局部撤销降低AI静默改写站位的风险。",
+      "basis": "Kunpeng Director固定commit 1c629c943f533271ba64a9c13437b23ab65ce6c9；已读取SKILL、MCP工具Schema、Service实现、Project/Playback实现、Repository原子保存与Service测试。测试定义覆盖稳定角色ID、24fps关键帧、人工锁定拒绝Agent修改、人工修改允许和局部撤销。未克隆/安装/运行npm run check；仓库未发现GitHub Actions workflow，缺少本轮CI运行证据。",
+      "verified_scope": "源码结构、工具接口、测试用例意图与许可证静态审查。",
+      "not_verified_scope": "目标工作站安装运行、MCP客户端接入、实际3D预演、导出视频、测试套件执行、与用户视频生成模型集成及成片服从率。",
+      "sources": [
+        "docs/结构化3D导演台与多视角角色一致性研究_20261101_第六批.md"
+      ],
+      "source_refs": [
+        {
+          "path": "docs/结构化3D导演台与多视角角色一致性研究_20261101_第六批.md",
+          "git_blob_sha": "d151b072b105bf31505504fb7a2972dab89e412f"
+        }
+      ],
+      "external_sources": [
+        "https://github.com/pengfeiqiao/kunpeng-director"
+      ],
+      "usage": "作为结构化导演台选型与工作流设计候选；只有在实际工具已授权、工程可读取且测试通过时才按其能力执行。不得把源码测试定义视为已运行测试，也不得把24fps推广到其他工具。",
+      "status": "STATIC_SOURCE_AUDIT_NOT_INSTALLED_NOT_RUN"
+    },
+    {
+      "id": "AIGC-WORLD-STATE-MULTIVIEW-001",
+      "name": "静态场景几何与动态角色分离、多视角身份锚点",
+      "domain": "场景连续性/人物身份/摄影机控制",
+      "rating": "低",
+      "evidence_level": "E1-E2（ICLR论文、研究论文与开源项目交叉支持；用户目标模型未复现）",
+      "claim": "将静态场景几何、动态角色动作和摄影机运动分开建模，并在大角度视角变化时使用多视角角色锚点，有助于研究场景空间连续性和角色身份保持。",
+      "basis": "3DScenePrompt（ICLR 2026）提出静态3D场景记忆与动态遮罩；MoCa（ICLR 2026）研究摄影机/物体运动解耦；ActCam研究相机对齐姿态/深度条件；WorldCast提供点云几何引导和1-4张角色视角锚点的代码与权重。均未在用户目标模型或普通工作流中复现。",
+      "verified_scope": "论文方法、项目代码/模型发布状态、硬件和数据许可边界审查。",
+      "not_verified_scope": "Seedance/即梦/小云雀等消费级模型是否接受等价控制信号；提示词工作流能否实现相同效果；商用成本和用户硬件适配。",
+      "sources": [
+        "docs/结构化3D导演台与多视角角色一致性研究_20261101_第六批.md"
+      ],
+      "source_refs": [
+        {
+          "path": "docs/结构化3D导演台与多视角角色一致性研究_20261101_第六批.md",
+          "git_blob_sha": "d151b072b105bf31505504fb7a2972dab89e412f"
+        }
+      ],
+      "external_sources": [
+        "https://arxiv.org/abs/2610.33135",
+        "https://arxiv.org/abs/2605.06667",
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/77f2e9559888c4ebf794dc0e3b0e5da6-Abstract-Conference.html",
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/f73c04538a5e1cad40ba5586b4b517d3-Abstract-Conference.html"
+      ],
+      "usage": "用于设计静态场景/动态角色/摄影机分轨数据合同和大角度环绕风险测试；不作为普通提示词已经具备3D记忆或多视角身份硬约束的证明。",
+      "status": "RESEARCH_CANDIDATE_TARGET_MODEL_NOT_RUN"
     }
   ],
   "audit_snapshot": {
@@ -598,7 +651,7 @@
   "audit_summary": {
     "high": 2,
     "medium": 9,
-    "low": 4,
+    "low": 6,
     "note": "等级是本轮已登记的具体方法条目数量，不是整个仓库知识占比；后续新增证据或版本漂移时应重新评级。"
   }
 }
