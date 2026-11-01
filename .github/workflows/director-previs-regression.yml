@@ -51,7 +51,7 @@ jobs:
       - name: Validate scene database validator syntax
         run: node --check skills/scene-realism-director-cn/tests/validate-scene-database.cjs
       - name: Validate authoritative classroom scene database
-        run: node skills/scene-realism-director-cn/tests/validate-scene-database.cjs projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json
+        run: node skills/scene-realism-director-cn/tests/validate-scene-database.cjs projects/漫剧场景数据库/CLASSROOM-CN-4X6-001/场景空间数据_V1.json
       - name: Validate original Chinese scene benchmark
         run: node skills/scene-realism-director-cn/tests/validate-scene-benchmark.cjs
       - name: Validate shot continuity positive fixture
