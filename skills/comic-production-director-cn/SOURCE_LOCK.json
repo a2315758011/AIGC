@@ -4,15 +4,31 @@
   "authoritative_sources": [
     {
       "path": "docs/漫画专业制作与出版总规范-V1.md",
-      "git_blob_sha": "7280c19057b9bd28cc985da2ad8196b5e9cd371f"
+      "git_blob_sha": "5c3abf8a53349508767921baa7865b27ef5bb0fc"
     },
     {
       "path": "docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
-      "git_blob_sha": "0c7a256885e8786c2bbba8e57643b78f38b5df95"
+      "git_blob_sha": "45cb9556626f6cd37c8021be614d5f1c6370e04e"
     },
     {
       "path": "docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md",
       "git_blob_sha": "d23dccf6b4553c1da574a3d0e2d50712f52180ea"
+    },
+    {
+      "path": "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
+      "git_blob_sha": "f4c1c259b361f2a5898f2d29ae00c6793945f651"
+    },
+    {
+      "path": "docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
+      "git_blob_sha": "4141b42d27a9f50832bdac37dc4931e6054a8f07"
+    },
+    {
+      "path": "docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md",
+      "git_blob_sha": "d29bf549dc207c7de65a794f6bbe4add584abf9e"
+    },
+    {
+      "path": "docs/专业欧美漫画排字与页面阅读规则-V1.md",
+      "git_blob_sha": "e1a9e7aa3cf0994220077186336bbbf63b23b18a"
     }
   ],
   "skill_files": [
