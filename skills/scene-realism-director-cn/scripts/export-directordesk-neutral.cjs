@@ -40,7 +40,7 @@ function point(p,mv){
 }
 function direction(v,mv){
  if(!obj(v)||!["x","y","z"].every(k=>finite(v[k])))fail("DIRECTION_INVALID","朝向向量必须包含有限 XYZ");
- const out={};for(const t of ["x","y","z"]){const r=mv.manifest.target_axis_from_source[t];const n=r.sign*v[r.axis];out[t]=Object.is(n,-0)?0:n;}return out;
+ const raw={};for(const t of ["x","y","z"]){const r=mv.manifest.target_axis_from_source[t];const n=r.sign*v[r.axis];raw[t]=Object.is(n,-0)?0:n;}const len=Math.hypot(raw.x,raw.y,raw.z);if(!Number.isFinite(len)||len<1e-9)fail("DIRECTION_ZERO","朝向向量不能为零向量");return {x:raw.x/len,y:raw.y/len,z:raw.z/len};
 }
 function dimensions(d,mv){
  if(!obj(d)||!["x","y","z"].every(k=>finite(d[k])&&d[k]>0))return null;
