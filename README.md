@@ -16,6 +16,7 @@
 - [MOONKEEP 第一话去字与排字实物基准](./docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md)：对两个真实归档包、六格源图、遮罩、OCR 和重新生成样稿进行只读验证，明确源图修复与重新生成的区别。
 - [欧美漫画平台规格与 AI 商业化规则](./docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md)：核对 Tapas、WEBTOON、GlobalComix、KDP 的上传规格、AI 披露、变现和提现限制。
 - [平台导出配置登记表](./skills/comic-production-director-cn/references/平台导出配置登记表-V1.json)：机器可读的平台输出规格与政策状态，显式保留冲突和未验证字段。
+- [专业欧美漫画排字与页面阅读规则](./docs/专业欧美漫画排字与页面阅读规则-V1.md)：参考 Clip Studio Paint、Blambot 等专业资料，规范对白顺序、气泡尾巴、密度、字体与移动端阅读。
 
 
 - [剧本转分镜指令](./剧本转分镜指令)：主编写规则（V2.10.5）。
