@@ -1,52 +1,49 @@
 # 场景真实性导演与独立质检 Skill V1.10.0
 
-本技能处理 AIGC 场景图的空间假感、建筑结构错误、透视比例异常、家具悬浮/穿插、光影不一致、颜色过艳、材质塑料感、物体局部失真和全景不连续。
+本技能用于控制 AIGC 场景图的建筑拓扑、空间功能、家具布局、透视尺度、物理接触、光照、色彩、材质和跨镜场景连续性。
 
-## 包含内容
+## 权威数据分工
 
-- SKILL.md：触发条件、执行顺序、缺陷分级和验收边界。
-- references/场景真实性控制规则-V1.md：权威方法规则，覆盖空间拓扑、功能布局、摄影几何、物理接触、光照、颜色、材质和局部编辑副作用。
-- references/场景真实性检查表.md：独立逐项质检，包含空间、光色、物体级和局部编辑检查。
-- references/可控生成与诊断工具.md：深度估计、控制图、PBR 和色彩管理的适用边界。
-- references/场景图真实性质检与回归样例-V1.json：12 个结构化人工回归用例。
-- references/场景真实性原创中文配对基准集-V1.json：8 类场景、64 条可判定问题的原创 A/B 基准。
-- references/第三方评测器部署门槛-V1.md：SpatialGenEval、Qwen-Image-Bench、Shedding Light、CFM、PICABench 等工具的资源、许可和费用边界。
-- tests/场景真实性回归样例.md：基础场景人工回归。
-- tests/场景真实性配对盲评记录模板-V1.1.md：配对盲评、十维评分和结论门槛。
-- tests/场景真实性A-B测试执行规程-V1.md：固定参数、盲评、缺陷分级、通过门槛和费用门禁。
-- tests/光色物理真实性专项回归-V1.md：光照、颜色、物体级形状纹理和物理编辑副作用测试。
-- tests/validate-scene-benchmark.cjs：原创中文基准结构校验器。
-- docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md：SpatialGenEval、GenSpace、InSpace 和全景 3D 路线。
-- docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md：Shedding Light、CFM、PICABench、ImagenWorld 和物体级真实感研究。
-- docs/Deepresearch/2026-11-01_GPT原生生图场景真实性首轮实测.md：GPT 原生生图四类场景的首轮人工检查、缺陷与后续配对实验计划。\n- references/教室空间权威布局基准-3列5排-V1.json：教室固定空间事实、15张桌椅归一化坐标、相机预设、不变量和未知尺寸边界。\n- references/漫剧场景空间数据库_SCHEMA_V1.json：通用场景数据库结构约束。\n- references/漫剧场景空间数据库模板_V1.json：新场景初始化模板。\n- tests/validate-scene-database.cjs：无第三方依赖的 Node 场景数据库结构校验器（尚未在目标工作站执行）。\n- references/镜头场景状态交接规范_V1.md：逐镜继承人物、道具、门窗和动态状态，防止镜头间瞬移与状态丢失。\n- tests/validate-shot-continuity.cjs：逐镜状态继承自动检查器，附通过/瞬移失败样例。\n- tests/validate-scene-database.cjs：新增物体占地重叠与通道侵入检查；占地尺寸未知时明确警告。\n- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
+- 场景数据库：固定建筑、门窗、家具、稳定 ID、坐标单位、占地和碰撞体积。
+- 分镜 SCG：逐镜人物/道具/摄影机状态、关系、事件和运动路径。
+- GPT 原生生图：负责视觉外观与摄影表现，不作为精确几何建模器。
+- DirectorDesk：仅在已授权工具可用时用于白模预演；导入前必须做坐标轴、单位、原点和手性转换，不得直接复制归一化坐标当米制坐标。
 
-## 使用方式
+## 主要文件
 
-将整个 scene-realism-director-cn 文件夹导入支持本地 Skill 的 AI 客户端。只导入 SKILL.md 不完整；必须同时提供 references、tests 和 SOURCE_LOCK。
+- `SKILL.md`：触发条件、执行顺序、缺陷分级和验收边界。
+- `SOURCE_LOCK.json`：文件级 Git Blob SHA、依赖版本和验证状态。
+- `references/场景真实性控制规则-V1.md`：空间拓扑、功能布局、摄影几何、物理接触、光材质和局部编辑副作用。
+- `references/场景真实性检查表.md`：独立质检清单。
+- `references/教室空间权威布局基准-3列5排-V1.json`：15 张桌子、15 把椅子及建筑锚点的归一化逻辑基准。
+- `references/漫剧场景空间数据库_SCHEMA_V1.json`、`references/漫剧场景空间数据库模板_V1.json`：通用场景数据库结构和空白模板。
+- `projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json`：教室实例。家具 footprint 当前为 null，真实尺寸和通道净宽仍未知。
+- `references/SCG三维预演与碰撞检查扩展契约-V1.md`：XYZ 坐标、人物/摄影机代理和 AABB 碰撞边界。
+- `references/DirectorDesk三维白模预演适配规范-V1.md`：场景数据库/SCG 到 DirectorDesk 的坐标映射与预演流程。
+- `scripts/export-directordesk-neutral.cjs`、`tests/test-directordesk-neutral.cjs`：中立预演包导出和坐标转换门禁。
+- `tests/validate-scene-database.cjs`：场景数据库结构、对象配对、占地重叠和通道侵入检查。
+- `tests/validate-shot-continuity.cjs`：逐镜状态继承和瞬移检查。
+- `tests/validate-scg-spatial-motion.cjs`：二维地面路径/障碍和道具持有人检查。
+- `tests/validate-scg-3d-motion.cjs`：三维代理路径、固定几何合并和未知障碍闭锁。
+- `tests/validate-scene-benchmark.cjs`：原创中文配对基准结构检查。
+- `tests/场景真实性配对盲评记录模板-V1.1.md`、`tests/场景真实性A-B测试执行规程-V1.md`：真实生成对照和独立评审规程。
 
-## 适用场景
+## 常用回归命令
 
-教室、办公室、住宅、医院、商铺、街道、建筑外观、自然环境、正交俯视、轴测、参考图修复、360/720 全景、漫剧背景和影视场景母版。
+在仓库根目录执行：
+
+```bash
+node skills/scene-realism-director-cn/tests/validate-scene-database.cjs projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json
+node skills/scene-realism-director-cn/tests/validate-scene-benchmark.cjs
+node skills/scene-realism-director-cn/tests/validate-shot-continuity.cjs skills/scene-realism-director-cn/tests/fixtures/镜头连续性_通过样例.json
+node skills/scene-realism-director-cn/tests/validate-scg-spatial-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG空间运动与道具状态回归-V1.json
+node skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG三维碰撞回归-V1.json
+```
 
 ## 验收边界
 
-当前状态为 conditional：研究、规则和测试定义已建立；GPT 原生生图已完成四类场景单样本冒烟测试，但严格 A/B 配对、双人盲评、同一权威场景数据驱动的跨视角一致性、光色物理专项盲评和 Windows 运行时验收尚未完成。不得把文档检查或论文结果说成用户模型效果提升。
-
-- references/SCG空间运动与道具状态扩展契约-V1.md：沿用分镜 SCG 数据结构，补充角色移动路径和道具持有约束。
-- tests/validate-scg-spatial-motion.cjs：检查二维地面路径与已知障碍相交、普通道具多持有人。
-- tests/fixtures/SCG空间运动与道具状态回归-V1.json：包含可通行、穿桌路径和道具双持有人三类回归样例。
-
-- references/SCG三维预演与碰撞检查扩展契约-V1.md：定义人物/摄影机三维代理、XYZ 坐标和碰撞验收边界。
-- tests/validate-scg-3d-motion.cjs：无第三方依赖的 SCG 三维代理碰撞检查器。
-- tests/fixtures/SCG三维碰撞回归-V1.json：人物地面通行、桌子碰撞、越过低障碍、摄影机穿墙四类回归。
-- 场景数据库的固定家具/建筑几何与 SCG 的逐镜动态状态分权威管理，避免重复事实源。
-
-- tests/fixtures/SCG场景数据库几何合并测试.json 与对应数据库：验证固定家具几何从场景数据库合并进同 ID 的 SCG 实体。
-- tests/fixtures/SCG未知固定障碍阻断测试.json 与对应数据库：验证未知固定障碍会阻止“无碰撞通过”。
-
-- references/DirectorDesk三维白模预演适配规范-V1.md：复用现有导演台的场景、动作、相机和近似物理能力，并定义坐标映射与验收边界。
-
-- scripts/export-directordesk-neutral.cjs：坐标轴正方向/手性/单位门禁与中立预演包导出器。
-- tests/test-directordesk-neutral.cjs：坐标映射、单位、手性冲突及导出完整性回归。
-- references/DirectorDesk坐标转换清单模板-V1.json：每个场景必须经确认填写的轴向 manifest。
-- references/DirectorDesk坐标适配与中立预演包-V1.md：适配器使用边界及导出说明。
+- 当前三维代理碰撞与场景数据库几何合并共 6/6 个回归样例在 Node.js v22.16.0 隔离环境符合预期；DirectorDesk 中立坐标适配自动回归 7/7 通过 GitHub Actions。
+- AABB 是保守代理，不是精确网格/骨骼物理；未知几何必须输出 UNRESOLVED，不能当作无碰撞。
+- 教室使用 normalized_0_to_1 归一化坐标，不代表真实米制尺寸。家具 footprint 为 null 时，碰撞和净空仍未验证。
+- GPT 原生生图四类场景首轮为探索性单样本冒烟测试；严格 A/B、双人盲评、同一三维场景跨视角渲染和目标视频模型服从性尚未完成。
+- Windows 工作站 Node 运行、DirectorDesk 实际白模视口、真实图像/视频 A/B 仍需单独验收。不得把 GitHub Actions 或单张图的可见检查说成成片通过。

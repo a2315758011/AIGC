@@ -13,6 +13,7 @@ on:
       - "skills/camera-motion-director-cn/**"
       - "skills/fight-impact-vfx-cn/**"
       - "skills/manju-director-cn/**"
+      - "projects/漫剧场景数据库/**"
       - "分镜规则清单.json"
       - "剧本转分镜指令"
       - "剧本转分镜自检指令"
@@ -27,6 +28,7 @@ on:
       - "skills/storyboard-director-cn/**"
       - "skills/camera-motion-director-cn/**"
       - "skills/fight-impact-vfx-cn/**"
+      - "projects/漫剧场景数据库/**"
       - ".github/workflows/director-previs-regression.yml"
 
 permissions:
@@ -46,6 +48,25 @@ jobs:
         run: node skills/director-previs-cn/scripts/validate_director_previs.js
       - name: Validate director A-B evaluation protocol
         run: node skills/director-previs-cn/scripts/validate_director_eval.js
+      - name: Validate scene database validator syntax
+        run: node --check skills/scene-realism-director-cn/tests/validate-scene-database.cjs
+      - name: Validate authoritative classroom scene database
+        run: node skills/scene-realism-director-cn/tests/validate-scene-database.cjs projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json
+      - name: Validate original Chinese scene benchmark
+        run: node skills/scene-realism-director-cn/tests/validate-scene-benchmark.cjs
+      - name: Validate shot continuity positive fixture
+        run: node skills/scene-realism-director-cn/tests/validate-shot-continuity.cjs skills/scene-realism-director-cn/tests/fixtures/镜头连续性_通过样例.json
+      - name: Ensure shot continuity checker rejects teleport fixture
+        shell: bash
+        run: |
+          if node skills/scene-realism-director-cn/tests/validate-shot-continuity.cjs skills/scene-realism-director-cn/tests/fixtures/镜头连续性_瞬移失败样例.json; then
+            echo "Teleport fixture unexpectedly passed"
+            exit 1
+          else
+            echo "Expected teleport/state-discontinuity rejection observed"
+          fi
+      - name: Validate SCG 2D spatial movement regression
+        run: node skills/scene-realism-director-cn/tests/validate-scg-spatial-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG空间运动与道具状态回归-V1.json
       - name: Validate DirectorDesk neutral 3D adapter
         run: node skills/scene-realism-director-cn/tests/test-directordesk-neutral.cjs
       - name: Validate SCG 3D proxy collision regression
