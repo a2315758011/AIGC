@@ -9,7 +9,7 @@
   "input": {
     "scene_id": "CLASSROOM-CN-4X6-001",
     "scene_file": "projects/漫剧场景数据库/CLASSROOM-CN-4X6-001/场景空间数据_V1.json",
-    "scene_sha256": "7c5ab12e38331e13bc7490178e517a4b0126f9959421a84a8ed973eef25bbb66"
+    "scene_sha256": "931e77e72dcc07dc0a27dbf30f52b2c0db698d46edc9d68ff8dfd54016e0a5f5"
   },
   "result": {
     "exit_code": 0,
@@ -32,7 +32,22 @@
     "unique_ids": true,
     "desk_chair_pairs_resolve": true,
     "doors_windows_blackboard_podium_present": true,
-    "unknown_physical_dimensions_preserved": true
+    "unknown_physical_dimensions_preserved": true,
+    "central_aisle_wider_than_adjacent_passages": true,
+    "central_aisle_bounds": [
+      0.46,
+      0.54
+    ],
+    "adjacent_aisle_bounds": [
+      [
+        0.28,
+        0.33
+      ],
+      [
+        0.67,
+        0.72
+      ]
+    ]
   },
   "not_verified": [
     "实际米制尺寸",
@@ -41,5 +56,5 @@
     "门扇开启方向",
     "女主具体座位列号"
   ],
-  "boundary": "本证据证明该场景 JSON 通过现有 Node 结构/引用/ID/配对校验；49条警告明确保留了家具占地未知和非米制坐标限制，不代表真实物理净空通过。"
+  "boundary": "本证据证明该场景 JSON 通过现有 Node 结构/引用/ID/配对校验；49条警告明确保留了家具占地未知和非米制坐标限制，不代表真实物理净空通过。 中央通道逻辑区域为x=0.46..0.54，宽于两侧列间通道x=0.28..0.33和0.67..0.72；这是归一化逻辑区域，不是实测净宽。"
 }
