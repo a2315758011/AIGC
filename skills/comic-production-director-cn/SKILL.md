@@ -13,6 +13,7 @@ description: 面向欧美彩色漫画、数字漫画、网漫和分页出版的�
 - `docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md`
 - `docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md`
 - `docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md`
+- `skills/comic-production-director-cn/references/平台导出配置登记表-V1.json`
 
 本 Skill 负责漫画专属生产链，不替代影视导演、漫剧、场景真实性和人物站位技能。跨域时调用相应技能并共享锁定事实，不重复创建角色/场景规则。
 
