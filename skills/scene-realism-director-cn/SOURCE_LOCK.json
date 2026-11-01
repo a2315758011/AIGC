@@ -39,7 +39,7 @@
     "tests/fixtures/SCG未知固定障碍数据库.json": "15e5d649a1077764029de651c178cd3b424e0ca4",
     "docs/Deepresearch/2026-11-01_场景数据库工程化与布局冲突复核.md": "0626edad3481a4b6655e18de41c5707522de53e3",
     "references/DirectorDesk三维白模预演适配规范-V1.md": "316532a63ba941889eaa6f036213e87d86210a53",
-    "scripts/export-directordesk-neutral.cjs": "9e79476f08695bc1449b27d339743597916737e9",
+    "scripts/export-directordesk-neutral.cjs": "daff9206a414e7fd4e18d2323e5d8aebe8072bbf",
     "tests/test-directordesk-neutral.cjs": "64a988ca328bc15fc4db61cf7ee5d471a6cb2d56",
     "references/DirectorDesk坐标转换清单模板-V1.json": "1ac2fa51692e956a350f8e7e9504da38a43f798a",
     "references/DirectorDesk坐标适配与中立预演包-V1.md": "766de463ed0fda8edf8f46e59239ede87ebf0ee4"
