@@ -201,3 +201,11 @@ node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG三维碰撞回归-V1.js
 - 锚点缺少三维位置、坐标系或单位时，只允许结构检查，不得声称可执行 IK。
 - 运行 `tests/validate-scg-skeletal-contact.cjs tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json`。当前 11 组结构回归在 GitHub Actions 通过；这不是实际骨骼解算验收。
 - Blender / DirectorDesk 的 IK、脚底锁定、网格穿插、跨镜首尾帧与视口证据必须独立验收；未运行必须标记 NOT_RUN。
+
+
+## Blender 真实约束运行烟测（2026-11-01）
+
+- 已在 Windows 的 Blender 5.2.1 LTS 中，对隔离生成的合成骨架执行真实约束求解。
+- 右手→笔握持锚点、左脚→地面锚点、骨盆→椅面支撑锚点，3/3 PASS；误差均小于 0.02 m。
+- 证据：`tests/evidence/SCG骨骼接触Blender运行验收-20261101.json`。
+- 此结果只验证合成骨架和当前约束链。生产角色骨架导入、DirectorDesk 原生工程、动画脚底锁定、网格碰撞、跨镜首尾帧连续性仍须单独验收；不得把烟测扩大解释为生产角色已通过。

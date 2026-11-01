@@ -44,3 +44,16 @@ start_ms/end_ms 使用项目统一毫秒时间轴，end 大于 start；镜头有
 - contact_end 只能在上一镜存在、本镜已释放时出现；仍持续的接触不得提前结束。
 - contact_begin/contact_end 的 actor（如有）必须与接触人物一致；孤立事件不得通过。
 - 交给真实 IK 的锚点必须提供 transform.position（三维坐标）、coordinate_space（local/world）和 unit（m/cm/mm/normalized）。缺少变换只能做结构检查，不能声称可执行骨骼求解。
+
+
+## 8. Blender 真实约束烟测记录（2026-11-01）
+
+Windows / Blender 5.2.1 LTS，隔离白模场景，生成合成骨架并执行约束：
+- 右手末端→笔握持锚点：误差 1.8431718463976653e-7 m，PASS。
+- 左脚末端→地面锚点：误差 5.587935447692871e-8 m，PASS。
+- 骨盆根节点→椅面支撑锚点：误差 0 m，PASS。
+- 容差：每项 0.02 m；结果 3/3 PASS。
+
+机器可读证据：`tests/evidence/SCG骨骼接触Blender运行验收-20261101.json`。
+
+边界：本次使用合成骨架与代理几何，不是生产角色骨架导入，不是 DirectorDesk 原生工程，不包含动态脚底锁定、网格碰撞或跨镜动画连续性验收。生产级状态仍应按 NOT_RUN 管理。

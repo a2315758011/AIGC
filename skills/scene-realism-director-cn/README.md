@@ -18,13 +18,17 @@
 - `references/教室空间权威布局基准-3列5排-V1.json`：15 张桌子、15 把椅子及建筑锚点的归一化逻辑基准。
 - `references/漫剧场景空间数据库_SCHEMA_V1.json`、`references/漫剧场景空间数据库模板_V1.json`：通用场景数据库结构和空白模板。
 - `projects/漫剧场景数据库/CLASSROOM-CN-3X5-001/场景空间数据_V1.json`：教室实例。家具 footprint 当前为 null，真实尺寸和通道净宽仍未知。
-- `references/SCG三维预演与碰撞检查扩展契约-V1.md`：XYZ 坐标、人物/摄影机代理和 AABB 碰撞边界。\n- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`：骨骼绑定、接触锚点、跨镜接触生命周期。\n- `tests/validate-scg-skeletal-contact.cjs` 与对应 11 组回归：结构/时序校验，不替代真实 IK。
+- `references/SCG三维预演与碰撞检查扩展契约-V1.md`：XYZ 坐标、人物/摄影机代理和 AABB 碰撞边界。
+- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`：骨骼绑定、接触锚点、跨镜接触生命周期。
+- `tests/validate-scg-skeletal-contact.cjs` 与对应 11 组回归：结构/时序校验，不替代真实 IK。
+- `tests/evidence/SCG骨骼接触Blender运行验收-20261101.json`：Blender 5.2.1 合成骨架运行烟测 3/3 PASS；生产角色与 DirectorDesk 仍未验收。
 - `references/DirectorDesk三维白模预演适配规范-V1.md`：场景数据库/SCG 到 DirectorDesk 的坐标映射与预演流程。
 - `scripts/export-directordesk-neutral.cjs`、`tests/test-directordesk-neutral.cjs`：中立预演包导出和坐标转换门禁。
 - `tests/validate-scene-database.cjs`：场景数据库结构、对象配对、占地重叠和通道侵入检查。
 - `tests/validate-shot-continuity.cjs`：逐镜状态继承和瞬移检查。
 - `tests/validate-scg-spatial-motion.cjs`：二维地面路径/障碍和道具持有人检查。
-- `tests/validate-scg-3d-motion.cjs`：三维代理路径、固定几何合并和未知障碍闭锁。\n- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`、`tests/validate-scg-skeletal-contact.cjs`：骨骼绑定、末端映射、支撑/抓握/扶靠、时间冲突和跨镜接触生命周期。
+- `tests/validate-scg-3d-motion.cjs`：三维代理路径、固定几何合并和未知障碍闭锁。
+- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`、`tests/validate-scg-skeletal-contact.cjs`：骨骼绑定、末端映射、支撑/抓握/扶靠、时间冲突和跨镜接触生命周期。
 - `tests/validate-scene-benchmark.cjs`：原创中文配对基准结构检查。
 - `tests/场景真实性配对盲评记录模板-V1.1.md`、`tests/场景真实性A-B测试执行规程-V1.md`：真实生成对照和独立评审规程。
 
@@ -37,10 +41,17 @@ node skills/scene-realism-director-cn/tests/validate-scene-database.cjs projects
 node skills/scene-realism-director-cn/tests/validate-scene-benchmark.cjs
 node skills/scene-realism-director-cn/tests/validate-shot-continuity.cjs skills/scene-realism-director-cn/tests/fixtures/镜头连续性_通过样例.json
 node skills/scene-realism-director-cn/tests/validate-scg-spatial-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG空间运动与道具状态回归-V1.json
-node skills/scene-realism-director-cn/tests/validate-scg-skeletal-contact.cjs skills/scene-realism-director-cn/tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json\nnode skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG三维碰撞回归-V1.json
+node skills/scene-realism-director-cn/tests/validate-scg-skeletal-contact.cjs skills/scene-realism-director-cn/tests/fixtures/SCG骨骼姿态与接触约束回归-V1.json
+node skills/scene-realism-director-cn/tests/validate-scg-3d-motion.cjs skills/scene-realism-director-cn/tests/fixtures/SCG三维碰撞回归-V1.json
 ```
 
-## 人物骨骼与接触约束\n\n- 接触约束作为 SCG relation.contact_constraint，引用人物 skeletal_rig / skeletal_pose 与目标实体 contact_anchors。\n- 结构回归覆盖 7 个正向/负向案例；planned 仅表示约束已定义，不代表 IK 或骨骼接触通过。\n- Blender / DirectorDesk 实际骨骼求解、脚底锁定、坐姿接触与视口验收仍需独立执行。\n\n## 验收边界
+## 人物骨骼与接触约束
+
+- 接触约束作为 SCG relation.contact_constraint，引用人物 skeletal_rig / skeletal_pose 与目标实体 contact_anchors。
+- 结构回归覆盖 11 个正向/负向案例；planned 仅表示约束已定义，不代表 IK 或骨骼接触通过。
+- Blender 5.2.1 已完成隔离合成骨架烟测：右手抓握、左脚地面接触、骨盆椅面支撑 3/3 PASS；生产角色导入、DirectorDesk 原生工程、动画脚底锁定、网格碰撞与跨镜连续性仍需独立验收。
+
+## 验收边界
 
 - 当前三维代理碰撞与场景数据库几何合并共 6/6 个回归样例在 Node.js v22.16.0 隔离环境符合预期；DirectorDesk 中立坐标适配自动回归 7/7 通过 GitHub Actions。
 - AABB 是保守代理，不是精确网格/骨骼物理；未知几何必须输出 UNRESOLVED，不能当作无碰撞。

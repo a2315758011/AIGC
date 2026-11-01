@@ -1,0 +1,44 @@
+{
+  "evidence_id": "SCG-BLENDER-IK-20261101-01",
+  "tested_on": "2026-11-01",
+  "environment": {
+    "application": "Blender",
+    "version": "5.2.1 LTS",
+    "platform": "Windows"
+  },
+  "test_scene": "whitebox classroom desk/chair/pen contact proxy",
+  "rig": "generated synthetic humanoid armature; 2-bone right-arm IK and 3-bone left-leg/foot IK; armature root seat offset",
+  "root_support": "armature root offset aligned to chair seat before IK solve",
+  "constraints": [
+    "SCG_CONTACT_RIGHT_HAND_IK",
+    "SCG_CONTACT_LEFT_FOOT_IK"
+  ],
+  "tolerance_m": 0.02,
+  "checks": [
+    {
+      "id": "right_hand_to_pen_grip",
+      "measured_error_m": 1.8431718463976653e-7,
+      "tolerance_m": 0.02,
+      "pass": true
+    },
+    {
+      "id": "left_foot_to_floor",
+      "measured_error_m": 5.587935447692871e-8,
+      "tolerance_m": 0.02,
+      "pass": true
+    },
+    {
+      "id": "pelvis_to_chair_seat",
+      "measured_error_m": 0,
+      "tolerance_m": 0.02,
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "scope": "Actual Blender constraint evaluation on an isolated synthetic rig. Not a production character rig import, not DirectorDesk native project execution, not animation continuity or mesh collision certification.",
+  "artifacts": [
+    "blender-skeletal-contact-qa.blend",
+    "blender-skeletal-contact-qa.png"
+  ],
+  "note": "本证据只证明隔离合成骨架中的手部、脚部末端与骨盆支撑锚点可在 Blender 5.2.1 中完成约束求解；不代表生产角色骨骼导入、DirectorDesk 原生工程执行、动态脚底锁定、网格碰撞或跨镜动画连续性已通过。"
+}
