@@ -97,8 +97,8 @@
       "description": "第2列与第3列之间中央通道，视觉上宽于两侧列间通道",
       "location": {
         "x_range": [
-          0.48,
-          0.52
+          0.46,
+          0.54
         ],
         "y_range": [
           0.18,
@@ -965,8 +965,8 @@
       "id": "CLEARANCE-CENTER",
       "purpose": "第2列与第3列之间中央通道",
       "bounds": {
-        "x_min": 0.48,
-        "x_max": 0.52,
+        "x_min": 0.46,
+        "x_max": 0.54,
         "y_min": 0.18,
         "y_max": 0.9
       }
