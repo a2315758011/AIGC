@@ -28,6 +28,7 @@ on:
       - "skills/storyboard-director-cn/**"
       - "skills/camera-motion-director-cn/**"
       - "skills/fight-impact-vfx-cn/**"
+      - "projects/漫剧场景数据库/**"
       - ".github/workflows/director-previs-regression.yml"
 
 permissions:
