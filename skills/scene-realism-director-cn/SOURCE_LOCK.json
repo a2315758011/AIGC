@@ -26,7 +26,7 @@
     "static_structure_review": "passed",
     "structured_manual_cases": 12,
     "manual_scenario_protocols": 3,
-    "target_model_ab_test": "not_run",
+    "target_model_ab_test": "not_run_provider_unavailable",
     "comfyui_runtime_test": "not_run",
     "platform_skill_install_test": "not_run",
     "paired_blind_review_template": "added",
@@ -40,7 +40,7 @@
     "paired_ab_execution_protocol": "added",
     "evaluator_deployment_gate": "added",
     "windows_mcp": "unavailable_connection_failed",
-    "windows_pc_mcp": "reconnected",
+    "windows_pc_mcp": "connected_2026-11-01",
     "generation_gateway_health": "failed_SERVICE_NOT_RUNNING",
     "generation_gateway_autostart": "failed_SERVICE_START_TIMEOUT",
     "provider_executable_start": "failed_STATUS_BREAKPOINT_0x80000003",
@@ -51,9 +51,16 @@
     "physical_edit_regression_cases": "5",
     "object_centric_realism": "added",
     "lighting_color_physics_runtime_tests": "not_run",
-    "shared_generation_gateway_current_lock": "held_by_other_agent_no_interference"
+    "shared_generation_gateway_current_lock": "held_by_other_agent_no_interference",
+    "coordination_gateway_4174": "healthy",
+    "primary_mcp_4173": "healthy",
+    "tailscale_funnel": "online",
+    "generation_gateway": "not_running_SERVICE_NOT_RUNNING",
+    "generation_runtime_discovery": "stale_pid_68096_port_18131_from_2026-10-28",
+    "generation_executable": "present_version_0.2.9",
+    "generation_executable_root_cause": "unknown"
   },
-  "note": "v1.4.0 adds evidence-based photometric, color-fidelity, object-centric and physical-edit tests. Research and regression definitions are committed; no target-model image generation or runtime evaluation was performed. Do not promote status from conditional until real outputs and blind-review evidence exist. The shared Generation Gateway is currently locked by another agent; this agent did not touch the protected service or submit generation jobs.",
+  "note": "v1.4.0 adds evidence-based photometric, color-fidelity, object-centric and physical-edit tests. Research and regression definitions are committed; no target-model image generation or runtime evaluation was performed. Do not promote status from conditional until real outputs and blind-review evidence exist. The shared Generation Gateway is currently locked by another agent; this agent did not touch the protected service or submit generation jobs. Fourth follow-up on 2026-11-01: PC MCP restored; workstation bootstrap and project memory reviewed. 4173/4174 healthy, Funnel online, no active locks at inspection. Generation provider process absent, no 18130-18140 listener, stale runtime PID from 2026-10-28; no recent matching WER event. EXE 0.2.9 and app.asar metadata read only. No duplicate launch test, no job submitted, no production files changed. Root cause remains unknown.",
   "supplementary_research": "docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md",
-  "supplementary_research_git_blob_sha": "88b3ab6ffa40e96fcf0b6ee46179100e754430d6"
+  "supplementary_research_git_blob_sha": "6a19b71b6afebf13ebf8c43f65e7ec5420e97ab3"
 }
