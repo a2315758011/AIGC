@@ -31,7 +31,7 @@ function main() {
   if (!isObj(data.coordinate_system)) fail(errors, "coordinate_system 必须为对象");
   else if (!["meter","centimeter","normalized_0_to_1","unknown"].includes(data.coordinate_system.units)) fail(errors, "coordinate_system.units 不合法");
 
-  for (const k of ["fixed_facts","objects","unknowns","camera_views"]) {
+  if ("dynamic_state" in data && !Array.isArray(data.dynamic_state)) fail(errors, "dynamic_state 若保留必须为数组（旧版兼容字段）");\n\n  for (const k of ["fixed_facts","objects","unknowns","camera_views"]) {
     if (!Array.isArray(data[k])) fail(errors, k + " 必须为数组");
   }
 
