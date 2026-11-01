@@ -1,10 +1,10 @@
 {
   "package": "director-previs-cn",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "date": "2026-11-01",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
+  "verified_main_commit": "48a7f15bc333b889e9670f8b8ab36dc0e2287bfe",
   "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
@@ -71,13 +71,13 @@
   "local_dependencies": [
     {
       "package": "scene-realism-director-cn",
-      "version": "1.4.0",
+      "version": "1.10.0",
       "path": "skills/scene-realism-director-cn/SKILL.md",
-      "git_blob_sha": "b27560d127ce8e9508ffbb0589ad865cb45ed794",
+      "git_blob_sha": "ec3f2327414ded2830526142a53e31bb263e2c3b",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.4.0",
-      "source_lock_git_blob_sha": "c772b347fb220e2de6a442ef7338507e7fca886d",
-      "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、全景与参考图保真",
+      "source_lock_version": "1.10.0",
+      "source_lock_git_blob_sha": "b3d59af6eb5794a678d777fe37312fe3b2c4bc99",
+      "authority": "场景真实性、建筑拓扑、功能布局、透视、物理接触、光材质、场景数据库、SCG三维代理碰撞、未知障碍阻断与DirectorDesk适配规范",
       "status": "conditional"
     },
     {
@@ -160,7 +160,7 @@
       "package": "director-shared-facts-scg-handoff",
       "version": "1.0.0",
       "path": "skills/director-previs-cn/references/导演共享事实与SCG交接规范-V1.md",
-      "git_blob_sha": "5cc2a98258bebbcca19527043229142e64f8960f",
+      "git_blob_sha": "6cd621046e2b57e86deb43b2ef7fe5f4714076e2",
       "authority": "导演层剧本/项目资产/场景基线/角色道具/SCG逐镜状态/事件时码/摄影机轨迹统一交接；不另造分镜字段"
     },
     {
@@ -192,24 +192,27 @@
     "licenses_checked": true,
     "local_dependencies_read": true,
     "local_dependency_blob_shas_pinned": true,
-    "main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
+    "main_commit": "48a7f15bc333b889e9670f8b8ab36dc0e2287bfe",
     "orchestrator_regression_cases": 11,
     "fight_impact_skill_status": "authored_pending_review",
     "manju_director_status": "V2.10.5_snapshot_SHA_and_character_counts_verified_against_main_and_packaged_copy",
     "automated_static_regression": {
-      "status": "passed",
-      "run_id": 41271164151,
-      "run_number": 92,
-      "tested_commit": "9e36397684323afe624531edc1e4ef8740a8fcba",
-      "pass_count": 164,
-      "fail_count": 0,
-      "breakdown": {
-        "director_previs_contract": 128,
-        "director_ab_protocol": 36
+      "status": "latest_attempt_failed_due_stale_dependency_lock; fix_pending_ci",
+      "last_passed_run_id": 41271164151,
+      "last_passed_run_number": 92,
+      "last_passed_commit": "9e36397684323afe624531edc1e4ef8740a8fcba",
+      "last_passed_count": 164,
+      "last_failed_run_id": 41281964743,
+      "last_failed_commit": "48a7f15bc333b889e9670f8b8ab36dc0e2287bfe",
+      "last_failed_count": {
+        "pass": 141,
+        "fail": 4
       },
-      "workflow": "director-previs-regression",
-      "scope": "GitHub Actions static contract, dependency blob SHA, route regression, classroom fixture, A/B protocol and exact manju V2.10.5 source/package SHA and character counts. Does not verify target model image/video behavior.",
-      "note": "Run 41271164151 passed the complete current branch including the V2.10.5 snapshot content gates; target-model A/B and real image/video remain NOT_RUN."
+      "last_failed_causes": [
+        "scene-realism-director-cn skill SHA and SOURCE_LOCK version drifted from 1.4.0 to 1.10.0",
+        "director shared facts/SCG handoff contract SHA changed"
+      ],
+      "scope": "GitHub Actions static contract and dependency SHA validation only; no visual quality or target-model generation claim."
     },
     "manual_route_dry_run": {
       "status": "passed",
@@ -243,7 +246,7 @@
       "state": "merged",
       "merge_commit_sha": "68e5e2a320667a1216ce0d61991e34af9c3c2e6a"
     },
-    "scene_realism_skill_version": "1.4.0",
+    "scene_realism_skill_version": "1.10.0",
     "camera_motion_skill_version": "1.1.1",
     "windows_pc_mcp": "connected_2026-11-01",
     "generation_gateway_health": "failed_SERVICE_NOT_RUNNING",
@@ -256,7 +259,15 @@
     "manju_snapshot_content_gates": "passed",
     "unified_handoff_contract": "added_and_pinned",
     "scg_data_contract": "reused_as_authority_no_duplicate_schema",
-    "event_time_contract": "reused_as_authority"
+    "event_time_contract": "reused_as_authority",
+    "director_previs_version": "1.4.1",
+    "scene_database_3d_validation": {
+      "status": "6_of_6_expected_in_node_v22.16.0_isolated_runtime",
+      "windows_workstation": "not_run",
+      "director_desk_runtime": "not_run",
+      "target_model_image_video_ab": "not_run",
+      "limits": "AABB proxy only; normalized classroom coordinates do not prove real meter dimensions or building clearance."
+    }
   },
-  "note": " Unified handoff V1.0.0 added: script provenance, project asset references, scene baseline, character/prop state, complete per-shot SCG snapshots, event timeline, and independent camera trajectory. Existing SCG and event-time contracts remain authoritative; no duplicate storyboard schema was created. Real target-model A/B remains NOT_RUN."
+  "note": "V1.4.1 synchronizes director-previs dependency pins to scene-realism-director-cn V1.10.0 and the current shared facts/SCG handoff file SHA. Scene realism V1.10.0 adds fixed scene database geometry, SCG 3D proxy collision, stable-ID geometry merge and unresolved-obstacle release blocking. Six isolated Node.js v22.16.0 regression cases matched expected results; Windows workstation, DirectorDesk runtime, true metric geometry and target-model image/video A/B remain NOT_RUN. A previous GitHub Actions run failed with 141 PASS / 4 FAIL solely at stale dependency/contract hashes; this update must pass a new run before being called verified."
 }
