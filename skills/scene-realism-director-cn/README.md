@@ -1,29 +1,33 @@
-# 场景真实性导演与独立质检 Skill V1.0.0
+# 场景真实性导演与独立质检 Skill V1.4.0
 
-本技能专门处理 AIGC 场景图“看起来假、不符合常识、空间关系不成立、建筑结构错误、透视比例异常、家具悬浮/穿插、光影材质塑料感”等问题。
+本技能处理 AIGC 场景图的空间假感、建筑结构错误、透视比例异常、家具悬浮/穿插、光影不一致、颜色过艳、材质塑料感、物体局部失真和全景不连续。
 
 ## 包含内容
-- `SKILL.md`：触发条件、执行顺序、缺陷分级与验收边界。
-- `references/场景真实性控制规则-V1.md`：权威方法规则，覆盖空间拓扑、功能布局、相机透视、物理接触、光照材质、全景和迭代。
-- `references/开源仓库研究与采纳记录_20261031.md`：第三方开源来源、版本/提交、采纳与排除理由、许可证边界。
-- `references/场景真实性检查表.md`：逐项独立质检。
-- `references/可控生成与诊断工具.md`：深度估计、控制图、PBR 与色彩管理的适用边界。
-- `references/场景图真实性质检与回归样例-V1.json`：12 个结构化人工回归用例。
-- `tests/场景真实性回归样例.md`：可复现人工回归场景。
-- `tests/场景真实性配对盲评记录模板-V1.1.md`：配对盲评、十维评分与结论门槛。
-- `references/场景真实性原创中文配对基准集-V1.json`：8 类场景、64 条可判定问题的原创 A/B 基准。
-- `tests/validate-scene-benchmark.cjs`：基准集结构校验器。
-- `docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md`：新增空间智能基准和 360°全景 3D 研究。
-- `SOURCE_LOCK.json`：文件级 Git Blob SHA 与验证状态。
 
-- `references/场景真实性原创中文配对基准集-V1.json`：8 类场景、64 条可判定问题，含 A/B 提示词。
-- `tests/validate-scene-benchmark.cjs`：原创基准集结构校验器（尚待 Windows 实际运行）。
-- `tests/场景真实性A-B测试执行规程-V1.md`：固定参数、盲评、缺陷分级、通过门槛与费用门禁。
+- SKILL.md：触发条件、执行顺序、缺陷分级和验收边界。
+- references/场景真实性控制规则-V1.md：权威方法规则，覆盖空间拓扑、功能布局、摄影几何、物理接触、光照、颜色、材质和局部编辑副作用。
+- references/场景真实性检查表.md：独立逐项质检，包含空间、光色、物体级和局部编辑检查。
+- references/可控生成与诊断工具.md：深度估计、控制图、PBR 和色彩管理的适用边界。
+- references/场景图真实性质检与回归样例-V1.json：12 个结构化人工回归用例。
+- references/场景真实性原创中文配对基准集-V1.json：8 类场景、64 条可判定问题的原创 A/B 基准。
+- references/第三方评测器部署门槛-V1.md：SpatialGenEval、Qwen-Image-Bench、Shedding Light、CFM、PICABench 等工具的资源、许可和费用边界。
+- tests/场景真实性回归样例.md：基础场景人工回归。
+- tests/场景真实性配对盲评记录模板-V1.1.md：配对盲评、十维评分和结论门槛。
+- tests/场景真实性A-B测试执行规程-V1.md：固定参数、盲评、缺陷分级、通过门槛和费用门禁。
+- tests/光色物理真实性专项回归-V1.md：光照、颜色、物体级形状纹理和物理编辑副作用测试。
+- tests/validate-scene-benchmark.cjs：原创中文基准结构校验器。
+- docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md：SpatialGenEval、GenSpace、InSpace 和全景 3D 路线。
+- docs/Deepresearch/2026-11-01_场景真实性光照色彩与物理真实性补充研究.md：Shedding Light、CFM、PICABench、ImagenWorld 和物体级真实感研究。
+- SOURCE_LOCK.json：文件级 Git Blob SHA 与验证状态。
+
 ## 使用方式
-把整个 `scene-realism-director-cn` 文件夹导入支持本地 Skill 的 AI 客户端。只导入 SKILL.md 不完整；需要一并提供 references、tests 和 SOURCE_LOCK。
+
+将整个 scene-realism-director-cn 文件夹导入支持本地 Skill 的 AI 客户端。只导入 SKILL.md 不完整；必须同时提供 references、tests 和 SOURCE_LOCK。
 
 ## 适用场景
-教室、办公室、住宅、医院、商铺、街道、建筑外观、自然环境、正交俯视、轴测、参考图修复、360/720 全景和影视场景母版。
+
+教室、办公室、住宅、医院、商铺、街道、建筑外观、自然环境、正交俯视、轴测、参考图修复、360/720 全景、漫剧背景和影视场景母版。
 
 ## 验收边界
-`conditional`：研究与规则已整理，静态目录和文档已核对；尚未接入自动图像评分模型，也没有在用户当前 ComfyUI/图像生成模型上完成真实 A/B 测试。不得把静态文档检查说成生成效果验证。
+
+当前状态为 conditional：研究、规则和测试定义已建立；目标模型真实 A/B 生图、光色物理专项盲评和 Windows 运行时验收尚未完成。不得把文档检查或论文结果说成用户模型效果提升。
