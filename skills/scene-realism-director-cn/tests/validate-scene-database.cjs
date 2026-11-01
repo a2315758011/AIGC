@@ -83,6 +83,44 @@ function main() {
     if (x && x.paired_with && !objectIds.has(x.paired_with)) fail(errors, "paired_with 指向不存在对象：" + x.id + " -> " + x.paired_with);
   }
 
+  // 占地碰撞：只有明确提供 footprint 时才进行几何判断；未知尺寸绝不猜测。
+  const placed = (data.objects || []).filter(x => x && isObj(x.position) && isObj(x.footprint) &&
+    finite(x.footprint.width) && finite(x.footprint.depth) &&
+    finite(x.position.x) && finite(x.position.y));
+  const rectOf = x => ({
+    minX: x.position.x - x.footprint.width / 2,
+    maxX: x.position.x + x.footprint.width / 2,
+    minY: x.position.y - x.footprint.depth / 2,
+    maxY: x.position.y + x.footprint.depth / 2
+  });
+  const overlaps = (a,b) => a.minX < b.maxX && a.maxX > b.minX && a.minY < b.maxY && a.maxY > b.minY;
+  if (Array.isArray(data.objects)) data.objects.forEach(x => {
+    if (x && x.clearance_required && (!isObj(x.footprint) ||
+      !finite(x.footprint.width) || !finite(x.footprint.depth))) {
+      warnings.push("占地尺寸未知，无法验证碰撞/通道净空：" + x.id);
+    }
+  });
+  for (let i=0;i<placed.length;i++) for (let j=i+1;j<placed.length;j++) {
+    const a=placed[i], b=placed[j];
+    if (a.paired_with === b.id || b.paired_with === a.id) continue;
+    if (overlaps(rectOf(a),rectOf(b))) fail(errors,"物体占地发生重叠："+a.id+" 与 "+b.id);
+  }
+  if (Array.isArray(data.clearance_zones)) {
+    for (const zone of data.clearance_zones) {
+      if (!isObj(zone) || !isObj(zone.bounds)) { fail(errors,"通行区域定义无效"); continue; }
+      const b=zone.bounds;
+      if (![b.x_min,b.x_max,b.y_min,b.y_max].every(finite) ||
+          b.x_min>=b.x_max || b.y_min>=b.y_max) {
+        fail(errors,"通行区域边界无效："+zone.id); continue;
+      }
+      for (const obj of placed) {
+        if (overlaps(rectOf(obj),{minX:b.x_min,maxX:b.x_max,minY:b.y_min,maxY:b.y_max})) {
+          fail(errors,"物体占地侵入通行区域："+obj.id+" -> "+zone.id);
+        }
+      }
+    }
+  }
+
   if (data.coordinate_system && data.coordinate_system.units === "normalized_0_to_1" &&
       data.source_of_truth && data.source_of_truth.source_type !== "measured_plan") {
     warnings.push("坐标为归一化相对坐标，不代表真实米制尺寸；不得宣称通过建筑尺寸/规范净空验收。");
