@@ -1,5 +1,13 @@
 # 更新记录
 
+## 1.3.1 — 2026-11-01
+- 刷新并锁定 main `c281194f1cca561825323b4ba48395de86d1fa52`：scene-realism V1.4.0、storyboard V1.3.4、站位规则 V1.9.0、camera-motion V1.1.1。
+- 将导演统筹入口同步到稳定角色/道具/镜头 ID、人工关键帧锁定、项目声明时间基准、静态场景/动态角色/摄影机分轨和多视角身份锚点；这些仍是结构化预演方法，不代表消费级视频模型已支持。
+- 修复 camera-motion Skill frontmatter/README 与 SOURCE_LOCK 版本不一致。
+- 将 manju-director 离线规则完整刷新至 V2.10.5；仍保持独立漫剧闭环，不加入默认核心路由以避免分镜职责重复。
+- 更新 A/B 协议与静态校验器版本基线；本次真实工作流、图像/视频 A/B 仍 NOT_RUN，Generation Gateway 当前 SERVICE_NOT_RUNNING。
+
+
 ## 1.3.0 — 2026-11-01
 - 刷新最新 main 依赖：scene-realism-director-cn V1.3.0；storyboard-director-cn V1.3.1；人物站位规则 V1.6.0。
 - 将动态走位事实拆分为人物根节点路径、身体动作/姿态、脚底支撑、摄影机位置路径、注视点路径、多人错峰和跨镜末态；不复制专业技能参数规则。
