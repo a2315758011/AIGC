@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source_units": "meter",
-  "source_handedness": "right",
+  "source_handedness": "left",
   "target_handedness": "right",
   "source_axis_positive": {
     "x": "right",
@@ -9,12 +9,12 @@
     "z": "up"
   },
   "target_axis_positive": {
-    "x": "right",
+    "x": "left",
     "y": "up",
     "z": "forward"
   },
   "target_axis_from_source": {
-    "x": {"axis": "x", "sign": 1},
+    "x": {"axis": "x", "sign": -1},
     "y": {"axis": "z", "sign": 1},
     "z": {"axis": "y", "sign": -1}
   },
