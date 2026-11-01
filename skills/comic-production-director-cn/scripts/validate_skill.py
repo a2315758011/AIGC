@@ -11,7 +11,6 @@ REQUIRED_FILES = (
     "SOURCE_LOCK.json",
     "references/外部项目采纳矩阵-V1.md",
     "references/平台导出配置登记表-V1.json",
-    "references/平台导出配置登记表-V1.json",
     "../../docs/漫画专业制作与出版总规范-V1.md",
     "../../docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
     "../../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
@@ -35,6 +34,7 @@ SOURCE_REFERENCES = (
     "docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
     "docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
     "docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md",
+    "平台导出配置登记表-V1.json",
 )
 
 def validate(root: Path) -> list[str]:
@@ -54,9 +54,9 @@ def validate(root: Path) -> list[str]:
                 errors.append("FRONTMATTER_UNCLOSED")
             else:
                 front = match.group(1)
-                if not re.search(r"(?m)^name:\\s*comic-production-director-cn\\s*$", front):
+                if not re.search(r"(?m)^name:\s*comic-production-director-cn\s*$", front):
                     errors.append("SKILL_NAME_INVALID")
-                if not re.search(r"(?m)^version:\\s*\\d+\\.\\d+\\.\\d+\\s*$", front):
+                if not re.search(r"(?m)^version:\s*\d+\.\d+\.\d+\s*$", front):
                     errors.append("SKILL_VERSION_INVALID")
         for rule in REQUIRED_RULES:
             if rule not in content:
