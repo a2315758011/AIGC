@@ -40,7 +40,7 @@
     "docs/Deepresearch/2026-11-01_场景数据库工程化与布局冲突复核.md": "0626edad3481a4b6655e18de41c5707522de53e3",
     "references/DirectorDesk三维白模预演适配规范-V1.md": "bfe23c906624fa69294ea3547a8167a6fcabb5a2",
     "scripts/export-directordesk-neutral.cjs": "71282c9fbbe702a21e35b166f13b79ffbf06142a",
-    "tests/test-directordesk-neutral.cjs": "a77ca3cf42587c44266d06a7f9e028007c0b1793",
+    "tests/test-directordesk-neutral.cjs": "12b2f9da0b4ece9913fc17381bcdf9550c5d6d4e",
     "references/DirectorDesk坐标转换清单模板-V1.json": "1ac2fa51692e956a350f8e7e9504da38a43f798a",
     "references/DirectorDesk坐标适配与中立预演包-V1.md": "9a135948b26422f87e6b4d104302b82a0191af14"
   },
@@ -152,7 +152,7 @@
     "directordesk_real_scene_preview": "not_run",
     "coordinate_adapter_spec": "added_not_runtime_tested",
     "coordinate_adapter_source_committed": true,
-    "coordinate_adapter_runtime_tests": "pending_ci_after_handedness_assertion_correction",
+    "coordinate_adapter_runtime_tests": "pending_ci_after_axis_expected_value_correction",
     "native_directordesk_import": "not_run_pc_mcp_disconnected",
     "neutral_preview_export": "implemented_not_yet_executed_on_real_scene",
     "coordinate_positive_direction_gate": "implemented",
