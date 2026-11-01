@@ -174,15 +174,21 @@
     "main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
     "orchestrator_regression_cases": 11,
     "fight_impact_skill_status": "authored_pending_review",
-    "manju_director_status": "refreshed_offline_snapshot_V2.10.5_standalone_not_core_route",
+    "manju_director_status": "V2.10.5_snapshot_sha_and_character_counts_verified_against_main",
     "automated_static_regression": {
-      "status": "pending_current_branch_ci",
-      "previous_run_id": 41261038369,
-      "previous_pass_count": 133,
-      "previous_fail_count": 0,
-      "previous_scope_commit": "09b18847440f75c2858af7f405c91752a01a7c5f",
+      "status": "passed",
+      "run_id": 41270961383,
+      "run_number": 88,
+      "tested_commit": "fda80a6c466d28149c4da1f0448de9ec1e0c8204",
+      "pass_count": 145,
+      "fail_count": 0,
+      "breakdown": {
+        "director_previs_contract": 109,
+        "director_ab_protocol": 36
+      },
       "workflow": "director-previs-regression",
-      "note": "旧133/133仅为上一基线提交的静态合同回归；当前分支必须以本次PR的GitHub Actions结果为准。"
+      "scope": "GitHub Actions static contract, dependency blob SHA, route regression, classroom fixture and A/B protocol. Does not verify target model image/video behavior.",
+      "note": "This run passed the dependency and hash refresh before the additional V2.10.5 snapshot-content gates in the current PR; a subsequent run must validate those new gates."
     },
     "manual_route_dry_run": {
       "status": "passed",
@@ -225,6 +231,7 @@
     "shared_generation_gateway_current_lock": "empty_at_2026-11-01T03:05Z",
     "generation_jobs_submitted": 0,
     "production_files_modified": false,
-    "real_image_video_ab_blocker": "Generation Gateway SERVICE_NOT_RUNNING; provider executable last failed with STATUS_BREAKPOINT 0x80000003; no generation jobs submitted."
+    "real_image_video_ab_blocker": "Generation Gateway SERVICE_NOT_RUNNING; provider executable last failed with STATUS_BREAKPOINT 0x80000003; no generation jobs submitted.",
+    "manju_snapshot_content_gates": "added_2026-11-01_pending_current_pr_ci"
   }
 }
