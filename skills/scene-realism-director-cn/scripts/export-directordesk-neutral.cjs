@@ -38,6 +38,10 @@ function point(p,mv){
  for(const t of ["x","y","z"]){const r=mv.manifest.target_axis_from_source[t];out[t]=r.sign*p[r.axis]*mv.unitFactor+mv.offset[t];}
  return out;
 }
+function direction(v,mv){
+ if(!obj(v)||!["x","y","z"].every(k=>finite(v[k])))fail("DIRECTION_INVALID","朝向向量必须包含有限 XYZ");
+ const out={};for(const t of ["x","y","z"]){const r=mv.manifest.target_axis_from_source[t];out[t]=r.sign*v[r.axis];}return out;
+}
 function dimensions(d,mv){
  if(!obj(d)||!["x","y","z"].every(k=>finite(d[k])&&d[k]>0))return null;
  const out={};
@@ -70,6 +74,11 @@ function convert(db,scg,manifest){
    const a=e.attributes||{},x={id:e.id,exists:e.exists,collision_role:a.collision_role};
    if(a.world_position)x.position_m=point(a.world_position,mv);
    else if(e.exists&&a.collision_role!=="obstacle")unresolved.push({id:e.id,shot:shot.id,reason:"动态实体缺少世界坐标"});
+   // 姿态标签和身体/头部朝向分开保存；不从单一朝向推断另一个。
+   if(a.pose_state!==undefined)x.pose_state=a.pose_state;
+   if(a.body_forward){try{x.body_forward=direction(a.body_forward,mv);}catch(err){unresolved.push({id:e.id,shot:shot.id,reason:"身体朝向无效："+err.message});}}
+   if(a.head_forward){try{x.head_forward=direction(a.head_forward,mv);}catch(err){unresolved.push({id:e.id,shot:shot.id,reason:"头部朝向无效："+err.message});}}
+   if(a.support_state!==undefined)x.support_state=a.support_state;
    if(a.collision_volume){const v=a.collision_volume;if(v.shape==="box")x.size_m=dimensions({x:v.width,y:v.depth,z:v.height},mv);else if(v.shape==="sphere"||v.shape==="capsule")x.proxy={shape:v.shape,radius_m:v.radius*mv.unitFactor,height_m:v.height===undefined?undefined:v.height*mv.unitFactor};}
    entities.push(x);
   }
@@ -106,4 +115,4 @@ if(require.main===module){
  try{const result=convert(JSON.parse(fs.readFileSync(dbp,"utf8")),JSON.parse(fs.readFileSync(scgp,"utf8")),JSON.parse(fs.readFileSync(mp,"utf8")));fs.writeFileSync(out,JSON.stringify(result,null,2)+"\n");console.log(JSON.stringify({output:out,objects:result.fixed_objects.length,shots:result.shots.length,unresolved:result.unresolved.length,release_ready:result.release_ready}));if(!result.release_ready)process.exitCode=1;}
  catch(e){console.error(JSON.stringify({error:e.code||"ERROR",message:e.message}));process.exit(1);}
 }
-module.exports={validateManifest,point,dimensions,convert};
+module.exports={validateManifest,point,direction,dimensions,convert};
