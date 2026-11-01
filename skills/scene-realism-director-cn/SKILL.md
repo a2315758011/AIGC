@@ -163,3 +163,8 @@ node tests/validate-scg-3d-motion.cjs tests/fixtures/SCG三维碰撞回归-V1.js
 当任务涉及复杂人物走位、多机位运动、家具避障或关键动作接触，且当前工作站安装 DirectorDesk 时，必须先读取 `references/DirectorDesk三维白模预演适配规范-V1.md`，优先复用现有导演台，不另建重复三维编辑器/模型库/碰撞服务。AIGC 场景数据库仍管理固定空间事实，SCG 仍管理逐镜动态状态，DirectorDesk 只作为预演执行器。
 
 特别注意：AIGC 场景数据库与 DirectorDesk 的坐标轴定义不同，导出必须建立显式轴映射、单位与原点转换；不得直接复制 XYZ。DirectorDesk 的自动避障仅覆盖同高度地面和静态障碍；物理为近似模拟，不证明复杂骨骼接触、动态群体或视频模型服从性。当前对话没有 DirectorDesk 专用 MCP 工具时，不得声称已操作导演台或完成真实渲染。
+
+
+## DirectorDesk 坐标适配与中立预演包
+
+涉及从场景数据库/SCG 导出三维白模时，先读取 `references/DirectorDesk坐标适配与中立预演包-V1.md`，使用 `references/DirectorDesk坐标转换清单模板-V1.json` 并运行 `scripts/export-directordesk-neutral.cjs`。不得只按 XYZ 轴名称直接交换；必须确认正方向、手性、单位和原点。该适配器目前只生成中立 JSON，不得称为原生 DirectorDesk 工程或真实渲染验收。
