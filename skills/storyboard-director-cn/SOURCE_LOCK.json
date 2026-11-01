@@ -1,7 +1,7 @@
 {
   "package": "storyboard-director-cn",
   "date": "2026-11-01",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
   "source_version": "V2.10.5",
@@ -63,9 +63,9 @@
     {
       "package_path": "references/人物站位与场景调度规则-V1.md",
       "source_path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
-      "git_blob_sha": "28b8a5adb2d44994ec37e671f87257ab5462deae",
-      "characters": 14498
+      "git_blob_sha": "PENDING",
+      "characters": 15854
     }
   ],
-  "source_rule_revision": "V1.8.0 adds top-view layout vs camera-frame division, role identity mapping without prompt conflicts, minimum top-view annotation contract, panorama geometry checks, collision capability tiers, and semantic body-part tracking/bone mapping."
+  "source_rule_revision": "V1.9.0 adds static-world/dynamic-actor/camera state separation, stable IDs and project state as source of truth, project-specific timebase/integer frames, human keyframe locks, read-edit-validate-local-undo workflow, multi-view character anchors for large-angle camera motion, and reference-image responsibility mapping."
 }
