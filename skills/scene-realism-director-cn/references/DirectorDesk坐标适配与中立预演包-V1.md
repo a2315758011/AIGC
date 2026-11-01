@@ -38,3 +38,8 @@ node tests/test-directordesk-neutral.cjs
 - V1 不转换任意欧拉角/四元数朝向，不处理门扇旋转、相机旋转、复杂层级变换；这些应在后续版本明确角度单位和旋转约定后增加。
 - 未知对象不会被猜测尺寸。
 - 输出不等于 DirectorDesk 视口运行或真实白模验收。
+
+
+## 坐标约定纠错记录（2026-11-01）
+
+此前示例把目标 +X 写成 right，同时声明 +Y up、+Z forward、右手系；这组语义彼此不相容。glTF 2.0 右手坐标中 +X 指向左侧、-X 指向右侧。已修正测试夹具和模板：源 X right/Y backward/Z up 按左手源处理，目标 X left/Y up/Z forward 按右手目标处理，轴变换行列式为 -1。DirectorDesk 原生目标 X 正方向仍须通过安装版实际项目/视口确认；不能仅因其 +Y up、角色局部 +Z forward 就宣称已确认。
