@@ -34,7 +34,7 @@
   "skill_files": [
     {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha": "78670b17740dc499ba9fa7affe704b4a542f9bb2"
+      "git_blob_sha": "530d56605e60202240aa29cad2e48805d7000c36"
     },
     {
       "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
@@ -45,8 +45,36 @@
       "git_blob_sha": "27cee268464d662b3f0ba6b955848d37561ed473"
     },
     {
+      "path": "skills/comic-production-director-cn/references/漫画专业制作与出版总规范-V1.md",
+      "git_blob_sha": "5c3abf8a53349508767921baa7865b27ef5bb0fc"
+    },
+    {
+      "path": "skills/comic-production-director-cn/references/第二批外部工具研究摘要-V1.md",
+      "git_blob_sha": "d23dccf6b4553c1da574a3d0e2d50712f52180ea"
+    },
+    {
+      "path": "skills/comic-production-director-cn/references/平台导出配置登记表-V1.json",
+      "git_blob_sha": "1b1646b74281339d73ded763a580d9db521b524a"
+    },
+    {
+      "path": "skills/comic-production-director-cn/scripts/validate_skill.py",
+      "git_blob_sha": "18f2797c3300a0f26bddad17113c86b1fecba3c6"
+    },
+    {
+      "path": "skills/comic-production-director-cn/tests/test_validate_skill.py",
+      "git_blob_sha": "49525bcd2d75c52e7aaae3870bb679683e4e241f"
+    },
+    {
       "path": "skills/comic-production-director-cn/tests/漫画页面质检正反例-V1.json",
       "git_blob_sha": "8749410865a4592de02c451ceacc7658b0f05d13"
+    },
+    {
+      "path": "skills/comic-production-director-cn/tests/validate_qc_cases.py",
+      "git_blob_sha": "161d559586913b56e1a45050f723d74aba6b31a7"
+    },
+    {
+      "path": "skills/comic-production-director-cn/ARTIFACT_MANIFEST.json",
+      "git_blob_sha": "e77f86b248c138e395855d50485646946ea6ad60"
     }
   ],
   "external_projects_reviewed": [
@@ -140,11 +168,14 @@
   "tests": {
     "frontmatter": "PASS_STATIC",
     "reference_paths": "PASS_STATIC",
-    "qc_cases": "PENDING_EXECUTION",
+    "qc_cases": "PASS_4_OF_4_ISOLATED_PYTHON",
     "source_lock": "PENDING_FINAL_SHA",
     "local_installation": "NOT_RUN",
     "tool_runtime": "NOT_RUN",
-    "comic_artifact_e2e": "NOT_RUN"
+    "comic_artifact_e2e": "NOT_RUN",
+    "skill_contract_unittest": "PASS_8_OF_8_ISOLATED_PYTHON_AFTER_FIX",
+    "github_readback": "PASS_ALL_REQUIRED_FILES",
+    "committed_github_actions": "NOT_RUN"
   },
-  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted."
+  "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted. Additional independent test execution found a stale negative-test fixture targeting version 1.0.0 while the skill was 1.2.0; corrected to target 1.2.0. Isolated Python unittest then passed 8/8. QC cases passed 4/4 in isolated Python. Windows PC MCP write channel failed during temporary test-file staging; no local external tools were installed or run."
 }
