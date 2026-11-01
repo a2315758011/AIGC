@@ -117,3 +117,14 @@ description: 面向 AIGC 静态场景图、室内外环境图和漫剧背景的�
 - 画面外对象仍保留在世界状态，不得因为未入镜而丢失。
 - 机位变化只改变摄影机，不得改变固定空间事实。
 - 角色路径必须检查家具占地、墙体、通道和终点可用空间；尺寸未知时只做拓扑检查，不得宣称物理净空通过。
+
+
+## 占地碰撞与逐镜连续性自动校验
+
+- 场景数据库对象新增 `footprint`（地面占地宽度/深度）。尺寸未知必须为 null，不得估算后冒充测量。
+- `clearance_zones` 定义通道/操作净空区域；只有对象 footprint 已知时，才能计算占地矩形与通道区域的相交。未知 footprint 必须输出警告并保持“未验证”。
+- 场景校验器：`tests/validate-scene-database.cjs`，新增物体占地互相重叠、侵入通道区域检查。
+- 镜头连续性校验器：`tests/validate-shot-continuity.cjs`，检查 scene_id、shot_id、previous_shot_id、state_in/state_out 连续性、事件 ID 唯一性，以及状态变化是否有事件。
+- 通过样例：`tests/fixtures/镜头连续性_通过样例.json`；负向样例：`tests/fixtures/镜头连续性_瞬移失败样例.json`。
+- 执行命令：`node tests/validate-scene-database.cjs <场景JSON>`；`node tests/validate-shot-continuity.cjs <镜头序列JSON>`。
+- 仅有静态文件和样例不代表工作站已运行通过。报告必须区分代码已提交、沙箱测试、Windows 工作站测试和真实分镜系统集成。
