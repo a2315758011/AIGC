@@ -3,7 +3,7 @@ name: storyboard-director-cn
 description: 面向中文AI短剧、AI漫剧、真人短视频的分镜编写与独立质检。当用户要求生成、继续、修改、审核或修复分镜时调用。离线内含完整主指令与自检规则 V2.10.5。
 compatibility: 支持读取本技能目录及 references 文件的 AI 客户端；无需 GitHub、联网、MCP 或登录。Node.js 用于可选的 SCG 校验，以及高风险动作时序的结构化事件校验。
 metadata:
-  version: "1.3.4"
+  version: "1.3.5"
   source_version: "V2.10.5"
   language: "zh-CN"
 ---
@@ -27,7 +27,7 @@ metadata:
 如需结构化镜头状态校验，再按需读取：
 - `references/分镜SCG数据契约-V1.md`
 - `references/分镜穿帮专项回归样例-V1.md`
-- `references/分镜事件时间数据契约-V1.md`
+- `references/分镜事件时间数据契约-V1.md`\n- `skills/scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md`（涉及坐姿、支撑、抓握、扶靠、跌倒、身体接触时必须读取）
 
 ## 执行顺序
 1. **锁定事实**：读取剧本、人物/服装/场景/道具资产与目标模型能力；缺失信息标为未知，不得补造。
@@ -63,3 +63,13 @@ node scripts/分镜事件时长校验器-V1.js tests/分镜事件时长回归样
 
 
 若当前环境提供已授权的结构化3D导演台/MCP，可按站位规则执行“先读工程状态与稳定ID→小步修改→验证→局部撤销”；没有该工具时不得假装可操作，也不得为单次任务擅自安装第三方软件。人工锁定的站位/关键帧优先于后续AI建议。
+
+
+## 人物骨骼与接触关系强制校验
+
+凡镜头涉及坐下/起身、脚底支撑、抓握道具、扶靠桌墙、跪地/跌倒、搀扶或身体碰撞：
+1. 在现有 SCG entities 中声明角色 skeletal_rig / skeletal_pose，在目标实体声明 contact_anchors。
+2. 在现有 relations 中声明 contact_constraint；不得另造人物/道具状态账本。
+3. 逐镜保持 contact_id、人物、目标、末端和锚点一致；建立/释放必须有 contact_begin / contact_end 事件。
+4. 运行场景真实性技能中的 `tests/validate-scg-skeletal-contact.cjs` 与对应回归夹具。
+5. 结构校验通过不等于 IK 已执行。没有 Blender / DirectorDesk 解算报告、关键帧和视口证据时，骨骼接触实测必须标记 NOT_RUN。

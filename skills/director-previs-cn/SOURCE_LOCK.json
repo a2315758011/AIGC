@@ -71,7 +71,7 @@
   "local_dependencies": [
     {
       "package": "scene-realism-director-cn",
-      "version": "1.11.0",
+      "version": "1.12.0",
       "path": "skills/scene-realism-director-cn/SKILL.md",
       "git_blob_sha": "5bf4258129a121c9128f9a77a549490cd25def3b",
       "source_lock_path": "skills/scene-realism-director-cn/SOURCE_LOCK.json",
@@ -104,13 +104,13 @@
     },
     {
       "package": "storyboard-director-cn",
-      "version": "1.3.4",
+      "version": "1.3.5",
       "source_version": "V2.10.5",
       "path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "6c79be5cee5966428a6cf31ab8e21c448ad4d69b",
+      "git_blob_sha": "61791f02b22de3a48d1ace442630b7b27d1e4c4f",
       "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.3.4",
-      "source_lock_git_blob_sha": "9af716a3b36255a45a70ee8bbabc2e96dd044445",
+      "source_lock_version": "1.3.5",
+      "source_lock_git_blob_sha": "c72930ce2a01de7360feb0f78795e373c870c54a",
       "authority": "正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性"
     },
     {

@@ -30,7 +30,7 @@ check("protocol requires blind randomized review",protocol.includes("随机化�
 check("protocol separates process and visual metrics",protocol.includes("流程指标（主要）")&&protocol.includes("视觉指标（次要）"));
 check("protocol forbids false visual acceptance",protocol.includes("真实工作流、图像/视频 A/B 仍为 NOT_RUN"));
 check("director A/B is isolated from scene prompt A/B",protocol.includes("两类实验必须分开") && dataset.scene_realism_prompt_ab.status === "separate_experiment_not_combined");
-check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V"+sceneRealismLock.version) && lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version) && protocol.includes("storyboard-director-cn V1.3.4") && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
+check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V"+sceneRealismLock.version) && lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version) && protocol.includes("storyboard-director-cn V1.3.5") && lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.5") && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
 check("protocol contains dynamic movement controls",protocol.includes("foot planting") && protocol.includes("摄影机位置路径与注视点/视线目标路径"));
 check("protocol includes source research",["developers.openai.com","anthropic.com/research","proceedings.neurips.cc","proceedings.iclr.cc"].every(x=>protocol.includes(x)));
 check("rubric has 8 P0 gates",rubric.p0_hard_gates.length===8);

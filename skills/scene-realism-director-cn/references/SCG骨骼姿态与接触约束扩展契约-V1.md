@@ -34,3 +34,13 @@ start_ms/end_ms 使用项目统一毫秒时间轴，end 大于 start；镜头有
 
 ## 6. 边界
 本契约不提供人体动力学、肌肉/软组织、精确网格碰撞或自动动作生成。AABB 通过不代表骨骼无自碰撞、手脚无滑动或抓握成功。缺少 rig、锚点、单位、求解报告或真实视口证据时，不得报告骨骼接触实测通过。
+
+
+## 7. V1.1 跨镜连续性强化
+
+同一 contact_id 是一段连续接触：
+- 连续镜头中 actor、目标实体、effector、target_anchor_id 和 mode 必须保持一致；持续接触标记 inherited。
+- 新接触必须通过 contact_begin 建立；已有接触不能重复建立。
+- contact_end 只能在上一镜存在、本镜已释放时出现；仍持续的接触不得提前结束。
+- contact_begin/contact_end 的 actor（如有）必须与接触人物一致；孤立事件不得通过。
+- 交给真实 IK 的锚点必须提供 transform.position（三维坐标）、coordinate_space（local/world）和 unit（m/cm/mm/normalized）。缺少变换只能做结构检查，不能声称可执行骨骼求解。

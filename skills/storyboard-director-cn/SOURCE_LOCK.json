@@ -1,7 +1,7 @@
 {
   "package": "storyboard-director-cn",
   "date": "2026-11-01",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
   "source_version": "V2.10.5",
@@ -65,6 +65,18 @@
       "source_path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
       "git_blob_sha": "435d7b10c2bf4f75f19fb643547121bebf371f78",
       "characters": 15854
+    },
+    {
+      "package_path": "SKILL.md",
+      "source_path": "skills/storyboard-director-cn/SKILL.md",
+      "git_blob_sha": "61791f02b22de3a48d1ace442630b7b27d1e4c4f",
+      "characters": 2796
+    },
+    {
+      "package_path": "references/SCG骨骼姿态与接触约束扩展契约-V1.md",
+      "source_path": "skills/scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md",
+      "git_blob_sha": "2f37b13c0f434c58a2465e1cfdec3e1fbe6084a1",
+      "characters": 2701
     }
   ],
   "source_rule_revision": "V1.9.0 adds static-world/dynamic-actor/camera state separation, stable IDs and project state as source of truth, project-specific timebase/integer frames, human keyframe locks, read-edit-validate-local-undo workflow, multi-view character anchors for large-angle camera motion, and reference-image responsibility mapping."

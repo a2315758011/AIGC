@@ -1,9 +1,945 @@
-{"version":1,"cases":[
-{"case_id":"valid-sitting","expected_contact_ok":true,"expected_contact_errors":[],"scene":{"shots":[{"id":"S1","time_start_ms":0,"time_end_ms":2000,"entities":[{"id":"C","attributes":{"skeletal_rig":{"rig_id":"R","skeleton_profile":"biped","effectors":{"pelvis":"pelvis","left_foot":"foot.L"}},"skeletal_pose":{"pose_id":"P","pose_state":"sitting","clip_id":"CLIP","root_motion_separate":true}}},{"id":"CHAIR","attributes":{"contact_anchors":[{"id":"seat"}]}}],"relations":[{"subject":"C","predicate":"sitting_on","object":"CHAIR","contact_constraint":{"id":"K1","actor_id":"C","effector":"pelvis","target_anchor_id":"seat","mode":"support","origin":"baseline","start_ms":0,"end_ms":1800,"tolerance_m":0.03,"status":"planned"}}],"events":[]}]}},
-{"case_id":"valid-grasp-event","expected_contact_ok":true,"expected_contact_errors":[],"scene":{"shots":[{"id":"S1","time_start_ms":0,"time_end_ms":1000,"entities":[{"id":"C","attributes":{"skeletal_rig":{"rig_id":"R","skeleton_profile":"biped","effectors":{"right_hand":"hand.R"}},"skeletal_pose":{"pose_id":"P","pose_state":"standing","clip_id":"CLIP","root_motion_separate":true}}},{"id":"PROP","attributes":{"contact_anchors":[{"id":"grip"}]}}],"relations":[{"subject":"PROP","predicate":"held_by","object":"C","contact_constraint":{"id":"K1","actor_id":"C","effector":"right_hand","target_anchor_id":"grip","mode":"grasp","origin":"event","source_event_id":"EV1","start_ms":100,"end_ms":900,"tolerance_m":0.02,"status":"planned"}}],"events":[{"id":"EV1","action":"contact_begin","contact_id":"K1"}]}]}},
-{"case_id":"reject-missing-rig","expected_contact_ok":false,"expected_contact_errors":["CONTACT-DATA-10"],"scene":{"shots":[{"id":"S1","entities":[{"id":"C","attributes":{"skeletal_pose":{"pose_id":"P","pose_state":"standing","clip_id":"CLIP","root_motion_separate":true}}},{"id":"FLOOR","attributes":{"contact_anchors":[{"id":"ground"}]}}],"relations":[{"subject":"C","predicate":"resting_on","object":"FLOOR","contact_constraint":{"id":"K1","actor_id":"C","effector":"left_foot","target_anchor_id":"ground","mode":"support","origin":"baseline","start_ms":0,"end_ms":500,"tolerance_m":0.02,"status":"planned"}}],"events":[]}]}},
-{"case_id":"reject-missing-anchor","expected_contact_ok":false,"expected_contact_errors":["CONTACT-DATA-14"],"scene":{"shots":[{"id":"S1","entities":[{"id":"C","attributes":{"skeletal_rig":{"rig_id":"R","skeleton_profile":"biped","effectors":{"left_foot":"foot.L"}},"skeletal_pose":{"pose_id":"P","pose_state":"standing","clip_id":"CLIP","root_motion_separate":true}}},{"id":"FLOOR","attributes":{"contact_anchors":[]}}],"relations":[{"subject":"C","predicate":"resting_on","object":"FLOOR","contact_constraint":{"id":"K1","actor_id":"C","effector":"left_foot","target_anchor_id":"ground","mode":"support","origin":"baseline","start_ms":0,"end_ms":500,"tolerance_m":0.02,"status":"planned"}}],"events":[]}]}},
-{"case_id":"reject-error-over-tolerance","expected_contact_ok":false,"expected_contact_errors":["CONTACT-DATA-23"],"scene":{"shots":[{"id":"S1","entities":[{"id":"C","attributes":{"skeletal_rig":{"rig_id":"R","skeleton_profile":"biped","effectors":{"right_hand":"hand.R"}},"skeletal_pose":{"pose_id":"P","pose_state":"standing","clip_id":"CLIP","root_motion_separate":true}}},{"id":"PROP","attributes":{"contact_anchors":[{"id":"grip"}]}}],"relations":[{"subject":"PROP","predicate":"held_by","object":"C","contact_constraint":{"id":"K1","actor_id":"C","effector":"right_hand","target_anchor_id":"grip","mode":"grasp","origin":"baseline","start_ms":0,"end_ms":500,"tolerance_m":0.02,"status":"solver_reported","solver":"blender_ik","solver_version":"4.x","measured_error_m":0.08,"evidence_ref":"qa/contact.json"}}],"events":[]}]}},
-{"case_id":"reject-effector-double-booking","expected_contact_ok":false,"expected_contact_errors":["CONTACT-DATA-25"],"scene":{"shots":[{"id":"S1","entities":[{"id":"C","attributes":{"skeletal_rig":{"rig_id":"R","skeleton_profile":"biped","effectors":{"right_hand":"hand.R"}},"skeletal_pose":{"pose_id":"P","pose_state":"standing","clip_id":"CLIP","root_motion_separate":true}}},{"id":"PROP","attributes":{"contact_anchors":[{"id":"grip"}]}},{"id":"TABLE","attributes":{"contact_anchors":[{"id":"edge"}]}}],"relations":[{"subject":"PROP","predicate":"held_by","object":"C","contact_constraint":{"id":"K1","actor_id":"C","effector":"right_hand","target_anchor_id":"grip","mode":"grasp","origin":"baseline","start_ms":0,"end_ms":800,"tolerance_m":0.02,"status":"planned"}},{"subject":"C","predicate":"resting_on","object":"TABLE","contact_constraint":{"id":"K2","actor_id":"C","effector":"right_hand","target_anchor_id":"edge","mode":"brace","origin":"baseline","start_ms":400,"end_ms":900,"tolerance_m":0.02,"status":"planned"}}],"events":[]}]}},
-{"case_id":"reject-release-without-event","expected_contact_ok":false,"expected_contact_errors":["CONTACT-DATA-26"],"scene":{"shots":[{"id":"S1","entities":[{"id":"C","attributes":{"skeletal_rig":{"rig_id":"R","skeleton_profile":"biped","effectors":{"left_foot":"foot.L"}},"skeletal_pose":{"pose_id":"P1","pose_state":"standing","clip_id":"CLIP1","root_motion_separate":true}}},{"id":"FLOOR","attributes":{"contact_anchors":[{"id":"ground"}]}}],"relations":[{"subject":"C","predicate":"resting_on","object":"FLOOR","contact_constraint":{"id":"K1","actor_id":"C","effector":"left_foot","target_anchor_id":"ground","mode":"support","origin":"baseline","start_ms":0,"end_ms":500,"tolerance_m":0.02,"status":"planned"}}],"events":[]},{"id":"S2","entities":[{"id":"C","attributes":{"skeletal_rig":{"rig_id":"R","skeleton_profile":"biped","effectors":{"left_foot":"foot.L"}},"skeletal_pose":{"pose_id":"P2","pose_state":"walking","clip_id":"CLIP2","root_motion_separate":true}}},{"id":"FLOOR","attributes":{"contact_anchors":[{"id":"ground"}]}}],"relations":[],"events":[]}]}}
-]}
+{
+  "version": 1,
+  "cases": [
+    {
+      "case_id": "valid-sitting",
+      "expected_contact_ok": true,
+      "expected_contact_errors": [],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "time_start_ms": 0,
+            "time_end_ms": 2000,
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "pelvis": "pelvis",
+                      "left_foot": "foot.L"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "sitting",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "CHAIR",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "seat"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "C",
+                "predicate": "sitting_on",
+                "object": "CHAIR",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "pelvis",
+                  "target_anchor_id": "seat",
+                  "mode": "support",
+                  "origin": "baseline",
+                  "start_ms": 0,
+                  "end_ms": 1800,
+                  "tolerance_m": 0.03,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": []
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "valid-grasp-event",
+      "expected_contact_ok": true,
+      "expected_contact_errors": [],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "time_start_ms": 0,
+            "time_end_ms": 1000,
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "right_hand": "hand.R"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "standing",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "PROP",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "grip"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "PROP",
+                "predicate": "held_by",
+                "object": "C",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "right_hand",
+                  "target_anchor_id": "grip",
+                  "mode": "grasp",
+                  "origin": "event",
+                  "source_event_id": "EV1",
+                  "start_ms": 100,
+                  "end_ms": 900,
+                  "tolerance_m": 0.02,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": [
+              {
+                "id": "EV1",
+                "action": "contact_begin",
+                "contact_id": "K1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "reject-missing-rig",
+      "expected_contact_ok": false,
+      "expected_contact_errors": [
+        "CONTACT-DATA-10"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "standing",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "FLOOR",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "ground"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "C",
+                "predicate": "resting_on",
+                "object": "FLOOR",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "left_foot",
+                  "target_anchor_id": "ground",
+                  "mode": "support",
+                  "origin": "baseline",
+                  "start_ms": 0,
+                  "end_ms": 500,
+                  "tolerance_m": 0.02,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": []
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "reject-missing-anchor",
+      "expected_contact_ok": false,
+      "expected_contact_errors": [
+        "CONTACT-DATA-14"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "left_foot": "foot.L"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "standing",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "FLOOR",
+                "attributes": {
+                  "contact_anchors": []
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "C",
+                "predicate": "resting_on",
+                "object": "FLOOR",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "left_foot",
+                  "target_anchor_id": "ground",
+                  "mode": "support",
+                  "origin": "baseline",
+                  "start_ms": 0,
+                  "end_ms": 500,
+                  "tolerance_m": 0.02,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": []
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "reject-error-over-tolerance",
+      "expected_contact_ok": false,
+      "expected_contact_errors": [
+        "CONTACT-DATA-23"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "right_hand": "hand.R"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "standing",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "PROP",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "grip"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "PROP",
+                "predicate": "held_by",
+                "object": "C",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "right_hand",
+                  "target_anchor_id": "grip",
+                  "mode": "grasp",
+                  "origin": "baseline",
+                  "start_ms": 0,
+                  "end_ms": 500,
+                  "tolerance_m": 0.02,
+                  "status": "solver_reported",
+                  "solver": "blender_ik",
+                  "solver_version": "4.x",
+                  "measured_error_m": 0.08,
+                  "evidence_ref": "qa/contact.json"
+                }
+              }
+            ],
+            "events": []
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "reject-effector-double-booking",
+      "expected_contact_ok": false,
+      "expected_contact_errors": [
+        "CONTACT-DATA-25"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "right_hand": "hand.R"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "standing",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "PROP",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "grip"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "TABLE",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "edge"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "PROP",
+                "predicate": "held_by",
+                "object": "C",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "right_hand",
+                  "target_anchor_id": "grip",
+                  "mode": "grasp",
+                  "origin": "baseline",
+                  "start_ms": 0,
+                  "end_ms": 800,
+                  "tolerance_m": 0.02,
+                  "status": "planned"
+                }
+              },
+              {
+                "subject": "C",
+                "predicate": "resting_on",
+                "object": "TABLE",
+                "contact_constraint": {
+                  "id": "K2",
+                  "actor_id": "C",
+                  "effector": "right_hand",
+                  "target_anchor_id": "edge",
+                  "mode": "brace",
+                  "origin": "baseline",
+                  "start_ms": 400,
+                  "end_ms": 900,
+                  "tolerance_m": 0.02,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": []
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "reject-release-without-event",
+      "expected_contact_ok": false,
+      "expected_contact_errors": [
+        "CONTACT-DATA-26"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "left_foot": "foot.L"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P1",
+                    "pose_state": "standing",
+                    "clip_id": "CLIP1",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "FLOOR",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "ground"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "C",
+                "predicate": "resting_on",
+                "object": "FLOOR",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "left_foot",
+                  "target_anchor_id": "ground",
+                  "mode": "support",
+                  "origin": "baseline",
+                  "start_ms": 0,
+                  "end_ms": 500,
+                  "tolerance_m": 0.02,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": []
+          },
+          {
+            "id": "S2",
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "left_foot": "foot.L"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P2",
+                    "pose_state": "walking",
+                    "clip_id": "CLIP2",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "FLOOR",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "ground"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [],
+            "events": []
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "reject-contact-target-drift-across-shots",
+      "expected_contact_ok": false,
+      "expected_contact_errors": [
+        "CONTACT-DATA-27"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "time_start_ms": 0,
+            "time_end_ms": 2000,
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "pelvis": "pelvis",
+                      "left_foot": "foot.L"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "sitting",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "CHAIR",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "seat"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "CHAIR-B",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "seat"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "C",
+                "predicate": "sitting_on",
+                "object": "CHAIR",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "pelvis",
+                  "target_anchor_id": "seat",
+                  "mode": "support",
+                  "origin": "baseline",
+                  "start_ms": 0,
+                  "end_ms": 1800,
+                  "tolerance_m": 0.03,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": []
+          },
+          {
+            "id": "S2",
+            "time_start_ms": 2000,
+            "time_end_ms": 4000,
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "pelvis": "pelvis",
+                      "left_foot": "foot.L"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "sitting",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "CHAIR",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "seat"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "CHAIR-B",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "seat"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "C",
+                "predicate": "sitting_on",
+                "object": "CHAIR-B",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "pelvis",
+                  "target_anchor_id": "seat",
+                  "mode": "support",
+                  "origin": "inherited",
+                  "start_ms": 2000,
+                  "end_ms": 3500,
+                  "tolerance_m": 0.03,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": [
+              {
+                "id": "EV-END",
+                "actor": "C",
+                "action": "contact_end",
+                "contact_id": "K1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "reject-contact-end-while-still-active",
+      "expected_contact_ok": false,
+      "expected_contact_errors": [
+        "CONTACT-DATA-28",
+        "CONTACT-DATA-29"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "time_start_ms": 0,
+            "time_end_ms": 2000,
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "pelvis": "pelvis",
+                      "left_foot": "foot.L"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "sitting",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "CHAIR",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "seat"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "C",
+                "predicate": "sitting_on",
+                "object": "CHAIR",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "pelvis",
+                  "target_anchor_id": "seat",
+                  "mode": "support",
+                  "origin": "baseline",
+                  "start_ms": 0,
+                  "end_ms": 1800,
+                  "tolerance_m": 0.03,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": []
+          },
+          {
+            "id": "S2",
+            "time_start_ms": 2000,
+            "time_end_ms": 4000,
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "pelvis": "pelvis",
+                      "left_foot": "foot.L"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "sitting",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "CHAIR",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "seat"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "C",
+                "predicate": "sitting_on",
+                "object": "CHAIR",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "pelvis",
+                  "target_anchor_id": "seat",
+                  "mode": "support",
+                  "origin": "inherited",
+                  "start_ms": 2000,
+                  "end_ms": 3500,
+                  "tolerance_m": 0.03,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": [
+              {
+                "id": "EV-END",
+                "actor": "C",
+                "action": "contact_end",
+                "contact_id": "K1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "reject-orphan-contact-begin",
+      "expected_contact_ok": false,
+      "expected_contact_errors": [
+        "CONTACT-DATA-29"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "time_start_ms": 0,
+            "time_end_ms": 2000,
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "pelvis": "pelvis",
+                      "left_foot": "foot.L"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "sitting",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "CHAIR",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "seat"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "C",
+                "predicate": "sitting_on",
+                "object": "CHAIR",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "pelvis",
+                  "target_anchor_id": "seat",
+                  "mode": "support",
+                  "origin": "baseline",
+                  "start_ms": 0,
+                  "end_ms": 1800,
+                  "tolerance_m": 0.03,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": [
+              {
+                "id": "EV-ORPHAN",
+                "actor": "C",
+                "action": "contact_begin",
+                "contact_id": "MISSING"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "reject-contact-begin-actor-mismatch",
+      "expected_contact_ok": false,
+      "expected_contact_errors": [
+        "CONTACT-DATA-30"
+      ],
+      "scene": {
+        "shots": [
+          {
+            "id": "S1",
+            "time_start_ms": 0,
+            "time_end_ms": 1000,
+            "entities": [
+              {
+                "id": "C",
+                "attributes": {
+                  "skeletal_rig": {
+                    "rig_id": "R",
+                    "skeleton_profile": "biped",
+                    "effectors": {
+                      "right_hand": "hand.R"
+                    }
+                  },
+                  "skeletal_pose": {
+                    "pose_id": "P",
+                    "pose_state": "standing",
+                    "clip_id": "CLIP",
+                    "root_motion_separate": true
+                  }
+                }
+              },
+              {
+                "id": "PROP",
+                "attributes": {
+                  "contact_anchors": [
+                    {
+                      "id": "grip"
+                    }
+                  ]
+                }
+              }
+            ],
+            "relations": [
+              {
+                "subject": "PROP",
+                "predicate": "held_by",
+                "object": "C",
+                "contact_constraint": {
+                  "id": "K1",
+                  "actor_id": "C",
+                  "effector": "right_hand",
+                  "target_anchor_id": "grip",
+                  "mode": "grasp",
+                  "origin": "event",
+                  "source_event_id": "EV1",
+                  "start_ms": 100,
+                  "end_ms": 900,
+                  "tolerance_m": 0.02,
+                  "status": "planned"
+                }
+              }
+            ],
+            "events": [
+              {
+                "id": "EV1",
+                "action": "contact_begin",
+                "contact_id": "K1",
+                "actor": "OTHER"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
