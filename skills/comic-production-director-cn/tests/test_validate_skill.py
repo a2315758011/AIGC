@@ -26,6 +26,7 @@ REQUIRED = (
     "../../docs/Deepresearch/2026-11-02_专业漫画制作外部项目与技能研究.md",
     "../../docs/Deepresearch/2026-11-02_漫画上色翻译与排字工具第二批.md",
     "../../docs/Deepresearch/2026-11-02_MOONKEEP第一话无文字修复与排字工具实物基准测试.md",
+    "../../docs/Deepresearch/2026-11-02_欧美漫画平台规格与AI商业化规则研究.md",
 )
 
 class SkillContractTests(unittest.TestCase):
