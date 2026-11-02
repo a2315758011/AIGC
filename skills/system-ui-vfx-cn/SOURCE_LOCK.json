@@ -5,8 +5,8 @@
   "research_date": "2026-11-02",
   "source_instruction": {
     "path": "docs/漫剧系统UI与程序化特效制作规范-V1.md",
-    "version": "V1.0.0",
-    "blob_sha": "7e1cffcca67cf3e5c6bf7baf4206d01769ba3f63"
+    "version": "V1.0.1",
+    "blob_sha": "535a267a5c8ad06e10dd599e077bb94248a1d0d6"
   },
   "routing_source": {
     "path": "AGENTS.md",
@@ -79,7 +79,7 @@
     "tests/系统UI与粒子回归样例.md"
   ],
   "validation": {
-    "status": "prototype_authored_browser_e2e_pending",
+    "status": "prototype_browser_e2e_passed_chatcut_not_run",
     "tested": [
       "已读取权威源规范、路由文件、研究报告和用户现有 ChatCut Skill",
       "已读取第三方 Skill 正文、关键 references、透明渲染脚本和 MIT LICENSE",
@@ -88,7 +88,9 @@
       "已新增可交互掌心系统面板 HTML 原型；原型源码含 DOM 文本、SVG 分层、Canvas 粒子、参数控件和动画状态机",
       "已新增可交互掌心系统面板 HTML 原型；含真实 DOM 文本、SVG 分层、Canvas 粒子、参数控件和动画状态机",
       "修复面板显隐逻辑：移除覆盖 hidden class 的内联 opacity；粒子层下移到面板文字后方",
-      "CI 首轮浏览器测试暴露扫描线开关未切换 scan-off 状态；已修正为仅暂停扫描线，不影响面板浮动"
+      "CI 首轮浏览器测试暴露扫描线开关未切换 scan-off 状态；已修正为仅暂停扫描线，不影响面板浮动",
+      "GitHub Actions Chromium E2E 16 项通过：控件参数、手部遮挡代理开关、扫描线开关、粒子层级、升级事件粒子、隐藏/重置、完整时间线和 390px 移动视口",
+      "打包目录经 GitHub Actions 暂存后压缩/解压校验通过；下载归档含 8 个正确路径条目（7 个清单资产 + artifact-manifest.json），Unicode 文件名保留，SHA-256 全部匹配"
     ],
     "not_tested": [
       "未在 ChatCut 项目中创建或编辑真实 Motion Graphic",
@@ -96,8 +98,7 @@
       "未在目标工作站安装或运行第三方 Skill",
       "未完成真实人物手部跟踪、matte、透视和跨镜测试",
       "未执行真实漫剧镜头 A/B 或 E4 验收",
-      "尚未运行真实 ChatCut 工具调用或渲染器自动化测试",
-      "本地运行命令被工作站 TASK_GATE_REGISTRY_UNREADABLE 门禁阻断；尚未运行 Playwright 浏览器 E2E"
+      "未在 ChatCut 项目中创建或编辑真实 Motion Graphic；当前会话未提供 ChatCut 运行时动作"
     ],
     "boundary": "本技能正文由本仓库独立编写；第三方公开技术方法保留来源与许可证记录。规则/文档完成不代表目标平台安装或成片验收通过。"
   },
