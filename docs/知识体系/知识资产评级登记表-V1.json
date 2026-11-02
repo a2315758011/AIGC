@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "repository": "a2315758011/AIGC",
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "purpose": "将具体知识条目按可信度评级，供AI剧本分析、导演预演和分镜创作按证据强度调用。",
   "rating_legend": {
     "高": "目标范围内已有可核验结果和复核；优先调用，但不能超出验证范围。",
@@ -636,13 +636,59 @@
       ],
       "usage": "用于设计静态场景/动态角色/摄影机分轨数据合同和大角度环绕风险测试；不作为普通提示词已经具备3D记忆或多视角身份硬约束的证明。",
       "status": "RESEARCH_CANDIDATE_TARGET_MODEL_NOT_RUN"
+    },
+    {
+      "id": "AIGC-LIVEACTION-SAFETY-001",
+      "name": "真人影视分镜的安全视觉转换与实拍风格锁定",
+      "domain": "真人影视分镜/GPT原生生图安全",
+      "rating": "低",
+      "evidence_level": "E1-E2（两个公开 Skill 的工作流方法已审阅并提炼；本仓库规则已建立；目标 GPT 生图对照尚未执行）",
+      "claim": "逐镜锁定真人实拍媒介、检查实际画面内容、保留剧本事实并对不适合直观呈现的细节采用非图像化电影表达，可减少风格漂移和因画面细节导致的失败风险；不能保证模型接受。",
+      "basis": "参考 toyme/storyboard-skill 的逐镜结构化提示词、连续性检查、局部修复和安全检查清单；参考 cajias/agentic-video-skills cinematic-director 的导演意图、演员调度、镜头主动作与生成失败诊断方法。仓库新增原创中文 Skill、转换矩阵、真人视觉锁定规范和四镜头静态回归样例。",
+      "verified_scope": "公开来源内容可访问；仓库文件已写入并回读；路由、文件哈希和四镜头静态样例结构已检查。",
+      "not_verified_scope": "GPT 原生生图接受率、真人实拍风格服从度、人物跨镜一致性、四镜头 7-1-13 至 7-1-16 的真实生成效果和盲评。",
+      "sources": [
+        "skills/live-action-safety-storyboard-cn/SKILL.md",
+        "skills/live-action-safety-storyboard-cn/references/安全视觉转换矩阵-V1.md",
+        "skills/live-action-safety-storyboard-cn/references/真人影视视觉锁定规范-V1.md",
+        "skills/live-action-safety-storyboard-cn/tests/真人安全分镜回归样例-V1.md",
+        "skills/live-action-safety-storyboard-cn/SOURCE_LOCK.json"
+      ],
+      "source_refs": [
+        {
+          "path": "skills/live-action-safety-storyboard-cn/SKILL.md",
+          "git_blob_sha": "65d83d656097c8493456ae414470b5960d09f375"
+        },
+        {
+          "path": "skills/live-action-safety-storyboard-cn/references/安全视觉转换矩阵-V1.md",
+          "git_blob_sha": "61a64abd13c479c53a8501b222e83c3bb390e346"
+        },
+        {
+          "path": "skills/live-action-safety-storyboard-cn/references/真人影视视觉锁定规范-V1.md",
+          "git_blob_sha": "5279650b9847345c6f945df58f3ac8443dee4005"
+        },
+        {
+          "path": "skills/live-action-safety-storyboard-cn/tests/真人安全分镜回归样例-V1.md",
+          "git_blob_sha": "0eac9b922540283174956c3d25fb3e35c60503ea"
+        },
+        {
+          "path": "skills/live-action-safety-storyboard-cn/SOURCE_LOCK.json",
+          "git_blob_sha": "8b519e26eef17e8ca04138f7c9ab103f000bacc0"
+        }
+      ],
+      "external_sources": [
+        "https://github.com/toyme/storyboard-skill",
+        "https://github.com/cajias/agentic-video-skills/tree/master/plugins/cinematic-director/skills/cinematic-director"
+      ],
+      "usage": "当用户说“真人安全分镜”或提出 GPT 原生生图真人影视分镜及虚构暴力画面处理时调用。仅对不适合直观呈现的细节进行合规非图像化转换；禁止使用隐语绕过审核。实际生成后必须独立验收。",
+      "status": "RULES_AND_STATIC_FIXTURE_ADDED_TARGET_GPT_IMAGE_TEST_NOT_RUN"
     }
   ],
   "audit_snapshot": {
     "main_head": "23aaee54a276d46209c6cd4986a257e940ae513a",
     "repository_file_count": 116,
-    "method_entry_count": 17,
-    "scope": "本轮审计聚焦剧本理解、世界状态、场景真实性、人物调度、运镜、导演统筹、打击感与结构化预演；不是全仓库逐文件穷尽审计。",
+    "method_entry_count": 18,
+    "scope": "本轮审计聚焦剧本理解、世界状态、场景真实性、人物调度、运镜、导演统筹、打击感与结构化预演；不是全仓库逐文件穷尽审计。 本次新增真人影视安全分镜条目；GPT 原生生图 A/B 尚未执行。",
     "rule": "评级按具体主张及其验证范围，不按整个 Skill 一刀切；静态测试不代表目标模型生成效果。",
     "pc_mcp_reconnected": true,
     "generation_gateway_status": "SERVICE_NOT_RUNNING; provider start last reported STATUS_BREAKPOINT_0x80000003; no generation jobs submitted.",
@@ -737,8 +783,8 @@
   "audit_summary": {
     "high": 2,
     "medium": 9,
-    "low": 6,
-    "note": "等级是本轮已登记的具体方法条目数量，不是整个仓库知识占比；后续新增证据或版本漂移时应重新评级。"
+    "low": 7,
+    "note": "等级是已登记的具体方法条目数量，不是整个仓库知识占比；新增真人安全分镜条目暂列低级，目标模型实测后再评级。"
   },
   "version_alignment": {
     "audited_main_commit": "c281194f1cca561825323b4ba48395de86d1fa52",
