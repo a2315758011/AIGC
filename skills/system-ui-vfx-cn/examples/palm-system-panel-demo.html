@@ -174,7 +174,7 @@ button:focus-visible,input:focus-visible{outline:2px solid white;outline-offset:
     setTimeout(()=>$('levelUp').classList.remove('show'),1500);
   }
   function play(){
-    cancelAnimationFrame(raf);particles.length=0;seed=17321;panel.classList.remove('hidden');
+    particles.length=0;seed=17321;panel.classList.remove('hidden');
     $('levelValue').textContent='Lv.12';$('levelBar').style.setProperty('--value','48%');
     $('energyValue').textContent='62%';$('energyBar').style.setProperty('--value','62%');
     setPhase('opening');spawn(Math.round(Number($('particleCount').value)*.35));
