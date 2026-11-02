@@ -51,11 +51,12 @@ jobs:
             });
             walk(dir);
             assert.deepEqual(actual.sort(),[...expected.keys()].sort());
-            for(const [rel,x] of expected){const p=path.join(dir,...rel.split('/'));assert.equal(fs.statSync(p).size,x.size);assert.equal(hash(p),x.sha256);}
+            for(const [rel,x] of expected){const p=path.join(dir,...rel.split('/'));assert.equal(fs.statSync(p).size,x.size);if(x.sha256)assert.equal(hash(p),x.sha256);else assert.equal(rel,'SOURCE_LOCK.json','only SOURCE_LOCK may omit a self-referential hash');}
           };
           for(const x of m.files){const p=path.join(root,...x.path.split('/'));assert.equal(fs.statSync(p).size,x.size);assert.equal(hash(p),x.sha256);}
           const lock=JSON.parse(fs.readFileSync(path.join(root,'SOURCE_LOCK.json'),'utf8'));
           assert.equal(lock.artifact_version,m.version);
+          assert.deepEqual(lock.files_manifest.map(x=>({path:x.path,size:x.size,sha256:x.sha256})).sort((a,b)=>a.path.localeCompare(b.path)),m.files.filter(x=>x.path!=='SOURCE_LOCK.json').map(x=>({path:x.path,size:x.size,sha256:x.sha256})).sort((a,b)=>a.path.localeCompare(b.path)));
           const temp=fs.mkdtempSync(path.join(os.tmpdir(),'system-ui-vfx-'));
           const pkg=path.join(temp,'system-ui-vfx-cn');fs.mkdirSync(pkg);
           for(const x of m.files){const a=path.join(root,...x.path.split('/')),b=path.join(pkg,...x.path.split('/'));fs.mkdirSync(path.dirname(b),{recursive:true});fs.copyFileSync(a,b);}
