@@ -1,0 +1,97 @@
+{
+  "version": "1.0.0",
+  "skill": "system-ui-vfx-cn",
+  "target_repository": "a2315758011/AIGC",
+  "research_date": "2026-11-02",
+  "source_instruction": {
+    "path": "docs/漫剧系统UI与程序化特效制作规范-V1.md",
+    "version": "V1.0.0",
+    "blob_sha": "7e1cffcca67cf3e5c6bf7baf4206d01769ba3f63"
+  },
+  "routing_source": {
+    "path": "AGENTS.md",
+    "blob_sha": "c1930a0f3c1d04907fff260ec26f5a8d2f2a1218"
+  },
+  "research_record": {
+    "path": "docs/Deepresearch/2026-11-02_漫剧粒子特效与系统UI可控制作Skill专项研究.md",
+    "blob_sha": "7e5dfe0d144e592258bc612d3cccdabc84b263c8"
+  },
+  "reused_user_skill": {
+    "repository": "a2315758011/ai-skills",
+    "path": "skills/chatcut-motion-graphics/SKILL.md",
+    "blob_sha": "b80791dad4fbecc018045d1f8b9ea945f5b00db7",
+    "action": "调用现有 ChatCut 工作流，不复制其平台接口实现"
+  },
+  "research_sources": [
+    {
+      "repository": "iart-ai/lower-thirds-skills",
+      "path": "skills/lower-thirds/SKILL.md",
+      "commit": "aa8ef7ed9fa59d0a79fc57701e493cfd8197b5d8",
+      "skill_blob_sha": "4496f062375c94de1cac9970ed505aa13e6fc149",
+      "license": "MIT",
+      "use": "透明视频/Alpha 验证、首尾帧、联系表、可读性验收；仅吸收通用规则"
+    },
+    {
+      "repository": "iart-ai/webgl-animation-skills",
+      "path": "skills/particle-system/SKILL.md",
+      "commit": "c3301183bffedb3be65a5588c954da99f1073d1e",
+      "skill_blob_sha": "819edffebf0134bdb326dcfec02615846ae4dba2",
+      "license": "MIT",
+      "use": "粒子状态、受力、生命周期、固定 seed、固定时间步长和冻结取帧"
+    },
+    {
+      "repository": "iart-ai/webgl-animation-skills",
+      "path": "skills/shader-glsl/SKILL.md",
+      "commit": "c3301183bffedb3be65a5588c954da99f1073d1e",
+      "skill_blob_sha": "638fe6e5b8d6120ab736bfaa3d77790a74049b76",
+      "license": "MIT",
+      "use": "噪声、SDF、溶解、位移、ShaderMaterial 与 GPU 参数驱动"
+    },
+    {
+      "repository": "iart-ai/motion-design-skills",
+      "path": "skills/after-effects/SKILL.md",
+      "commit": "3110f145d92bfbb0d3da88940de6c50225b79bf7",
+      "skill_blob_sha": "c7f266baccb546ab893153d62c4d80753e40fec4",
+      "license": "MIT",
+      "use": "Null/Slider 等统一控制、MOGRT、Alpha 输出、工程整理和后期合成"
+    },
+    {
+      "repository": "Mort1d/motion-graphics-skills",
+      "path": "skills/motion-graphics/SKILL.md",
+      "commit": "7f0c3714dc81bea52644a5287c6350345009e579",
+      "license": "MIT",
+      "use": "确定性逐帧渲染、时间线、局部重渲染、联系表与 QA"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "path": "skills/ui-animation/SKILL.md",
+      "commit": "5a781a88ed60c1033767b6b6a966887cd93dd912",
+      "license": "upstream LICENSE not found in this review",
+      "action": "仅吸收公开方法概念，不复制 Skill 正文或脚本"
+    }
+  ],
+  "files": [
+    "SKILL.md",
+    "SOURCE_LOCK.json",
+    "references/制作流程与工具选择.md",
+    "references/参数化数据合同.md",
+    "references/验收与失败诊断.md",
+    "tests/系统UI与粒子回归样例.md"
+  ],
+  "validation": {
+    "status": "authored_pending_review",
+    "tested": [
+      "已读取权威源规范、路由文件、研究报告和用户现有 ChatCut Skill",
+      "已读取第三方 Skill 正文、关键 references、透明渲染脚本和 MIT LICENSE",
+      "已建立系统 UI/VFX 参数合同、生产流程、验收门禁和回归样例"
+    ],
+    "not_tested": [
+      "未在 ChatCut 项目中创建或编辑真实 Motion Graphic",
+      "未在用户账户中验证 ProRes 4444 Alpha 权限",
+      "未在目标工作站安装或运行第三方 Skill",
+      "未完成真实人物手部跟踪、matte、透视和跨镜测试",
+      "未执行真实漫剧镜头 A/B 或 E4 验收"
+    ],
+    "boundary": "本技能正文由本仓库独立编写；第三方公开技术方法保留来源与许可证记录。规则/文档完成不代表目标平台安装或成片验收通过。"
+  }
+}
