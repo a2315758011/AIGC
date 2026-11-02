@@ -179,9 +179,9 @@
     },
     {
       "package": "live-action-safety-storyboard-cn",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "skills/live-action-safety-storyboard-cn/SKILL.md",
-      "git_blob_sha": "65d83d656097c8493456ae414470b5960d09f375",
+      "git_blob_sha": "a669b408f7d39c53cfead2ac508101399ba5dd4d",
       "source_lock_path": "skills/live-action-safety-storyboard-cn/SOURCE_LOCK.json",
       "authority": "真人影视实拍风格锁定、GPT原生生图虚构暴力风险诊断、合规非图像化视觉转换和逐镜修复"
     }
