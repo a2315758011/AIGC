@@ -6,6 +6,7 @@ ROOT = Path.cwd()
 SKILL = ROOT / "skills/storyboard-contact-sheet-cn/SKILL.md"
 README = ROOT / "skills/storyboard-contact-sheet-cn/README.md"
 SOURCE_LOCK = ROOT / "skills/storyboard-contact-sheet-cn/SOURCE_LOCK.json"
+ARTIFACT_MANIFEST = ROOT / "skills/storyboard-contact-sheet-cn/ARTIFACT_MANIFEST.json"
 
 
 class SkillContractTests(unittest.TestCase):
@@ -13,6 +14,7 @@ class SkillContractTests(unittest.TestCase):
         self.assertTrue(SKILL.is_file())
         self.assertTrue(README.is_file())
         self.assertTrue(SOURCE_LOCK.is_file())
+        self.assertTrue(ARTIFACT_MANIFEST.is_file())
 
     def test_skill_contains_workflow_and_quality_gates(self):
         text = SKILL.read_text(encoding="utf-8")
