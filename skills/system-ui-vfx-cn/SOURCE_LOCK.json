@@ -105,37 +105,37 @@
       "path": "SKILL.md",
       "blob_sha": "fbdbba8119e44ba0fa45512fc331d271633a19a6",
       "size": 5671,
-      "sha256": "f0143b319db169c50abbbfc08d8ce22e2d7580b98cfb88f5af36f0f1808a7e07"
+      "sha256": "99da4ee0791e659ee1f504bfe58ed6d8112c8df64d678fe8331cd37a35c6768d"
     },
     {
       "path": "references/制作流程与工具选择.md",
       "blob_sha": "c7f55a87ce99565011744d0c1622b03eaa791ba7",
       "size": 5181,
-      "sha256": "1e1ca10595ad9628047b5a80d59a52e639310b1a5be9216f953d0a9d001162ba"
+      "sha256": "ff4efc4ce0515b525caba0b6af593ed2377c28c060dc1ee687df46c310afda87"
     },
     {
       "path": "references/参数化数据合同.md",
       "blob_sha": "52d14b15b7e3ef301db4e039875e664e92bb6964",
       "size": 2516,
-      "sha256": "170d6befe12d98161d463472002acdc3c6a40fd63a2a6ea619e1890b63962629"
+      "sha256": "1218a46d2dce0446534500916089292a1621651b574d53b307fdd24999ace723"
     },
     {
       "path": "references/验收与失败诊断.md",
       "blob_sha": "c708f3a56d595a608205b60ec220c01c7b52a01d",
       "size": 3414,
-      "sha256": "721ae270decd7a8d650a0d925e2d2bb4618104fbd6a78a8f0142c6e0299964bc"
+      "sha256": "d9452be5a138bb9ea05c72fc50720c6026afeefb61a971179dd86d6cef69167f"
     },
     {
       "path": "tests/系统UI与粒子回归样例.md",
       "blob_sha": "d7441ee8349506bca24c34b01c5f6d08c9f54d75",
       "size": 2419,
-      "sha256": "b71257de2edc4b8aa0474b1937f0aa3c3d46c76e5b1844d6c666149950861720"
+      "sha256": "16ffb773a68f5eb424afaf27c11fd28eebaa361dec3ec3cffebd1ac52e172fad"
     },
     {
       "path": "examples/palm-system-panel-demo.html",
       "blob_sha": "abe2ea3e5b55164de311a16be81fef8f5803fc3a",
       "size": 20011,
-      "sha256": "1851424473283fb314ffa353207c3ebe8c5fbe820cbe4ec1f2d7499367fb277d"
+      "sha256": "3be574dd2a6506920c6b2d93f5be939ab115952c0c5b7335839f3c6104d8e2af"
     }
   ],
   "artifact_version": "1.0.1"
