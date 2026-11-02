@@ -7,37 +7,90 @@
   "status": "authored_pending_target_model_validation",
   "scope": "GPT 原生生图真人影视风格锁定、虚构暴力安全视觉转换、逐镜提示词编译与生成后检查",
   "local_dependencies": [
-    {"package":"storyboard-director-cn","version":"1.3.5","path":"skills/storyboard-director-cn/SKILL.md","git_blob_sha":"61791f02b22de3a48d1ace442630b7b27d1e4c4f","authority":"正式分镜、人物调度与连续性"},
-    {"package":"fight-impact-vfx-cn","version":"1.0.0","path":"skills/fight-impact-vfx-cn/SKILL.md","git_blob_sha":"45c06cb21597094a7a254412a2102494e395b460","authority":"虚构打斗动作因果、受力与特效"},
-    {"package":"camera-motion-director-cn","version":"1.1.1","path":"skills/camera-motion-director-cn/SKILL.md","git_blob_sha":"d3ced489b27d991c97b54e469697191d9ccb102b","authority":"摄影机运动与运镜审片"},
-    {"package":"director-previs-cn","version":"1.4.1","path":"skills/director-previs-cn/SKILL.md","git_blob_sha":"7dad6576c61e3927faa00996bdfa870ffceb8ace","authority":"跨专业统筹与共享事实交接"}
+    {
+      "package": "storyboard-director-cn",
+      "version": "1.3.5",
+      "path": "skills/storyboard-director-cn/SKILL.md",
+      "git_blob_sha": "61791f02b22de3a48d1ace442630b7b27d1e4c4f",
+      "authority": "正式分镜、人物调度与连续性"
+    },
+    {
+      "package": "fight-impact-vfx-cn",
+      "version": "1.0.0",
+      "path": "skills/fight-impact-vfx-cn/SKILL.md",
+      "git_blob_sha": "45c06cb21597094a7a254412a2102494e395b460",
+      "authority": "虚构打斗动作因果、受力与特效"
+    },
+    {
+      "package": "camera-motion-director-cn",
+      "version": "1.1.1",
+      "path": "skills/camera-motion-director-cn/SKILL.md",
+      "git_blob_sha": "d3ced489b27d991c97b54e469697191d9ccb102b",
+      "authority": "摄影机运动与运镜审片"
+    },
+    {
+      "package": "director-previs-cn",
+      "version": "1.4.1",
+      "path": "skills/director-previs-cn/SKILL.md",
+      "git_blob_sha": "7dad6576c61e3927faa00996bdfa870ffceb8ace",
+      "authority": "跨专业统筹与共享事实交接"
+    }
   ],
   "upstream_references": [
     {
-      "repository":"toyme/storyboard-skill",
-      "url":"https://github.com/toyme/storyboard-skill",
-      "version":"0.1.0",
-      "license":"MIT",
-      "reviewed":"2026-11-02",
-      "adopted_methods":["逐镜结构化提示词","角色/服装/道具/场景连续性检查","局部修复而非整组重写","提示词安全检查清单"],
-      "reuse_policy":"只提炼工作流思想；本技能规则为原创中文实现，不复制上游文件。"
+      "repository": "toyme/storyboard-skill",
+      "url": "https://github.com/toyme/storyboard-skill",
+      "version": "0.1.0",
+      "license": "MIT",
+      "reviewed": "2026-11-02",
+      "adopted_methods": [
+        "逐镜结构化提示词",
+        "角色/服装/道具/场景连续性检查",
+        "局部修复而非整组重写",
+        "提示词安全检查清单"
+      ],
+      "reuse_policy": "只提炼工作流思想；本技能规则为原创中文实现，不复制上游文件。"
     },
     {
-      "repository":"cajias/agentic-video-skills",
-      "upstream_skill":"cinematic-director",
-      "url":"https://github.com/cajias/agentic-video-skills/tree/master/plugins/cinematic-director/skills/cinematic-director",
-      "version":"1.2.0",
-      "license":"MIT",
-      "reviewed":"2026-11-02",
-      "adopted_methods":["导演意图与镜头功能优先","演员调度和摄影机分离","单镜头主动作控制","生成失败分类诊断与局部修复"],
-      "reuse_policy":"只提炼方法；不复制上游技能正文、模板或素材。"
+      "repository": "cajias/agentic-video-skills",
+      "upstream_skill": "cinematic-director",
+      "url": "https://github.com/cajias/agentic-video-skills/tree/master/plugins/cinematic-director/skills/cinematic-director",
+      "version": "1.2.0",
+      "license": "MIT",
+      "reviewed": "2026-11-02",
+      "adopted_methods": [
+        "导演意图与镜头功能优先",
+        "演员调度和摄影机分离",
+        "单镜头主动作控制",
+        "生成失败分类诊断与局部修复"
+      ],
+      "reuse_policy": "只提炼方法；不复制上游技能正文、模板或素材。"
     }
   ],
   "validation": {
-    "repository_structure": "pending",
-    "frontmatter_and_links": "pending",
+    "repository_structure": "PASS",
+    "frontmatter_and_links": "PASS",
     "target_gpt_image_generation": "NOT_RUN",
     "live_action_style_ab": "NOT_RUN",
-    "four_shot_case_7-1-13_to_7-1-16": "NOT_RUN"
-  }
+    "four_shot_case_7-1-13_to_7-1-16": "NOT_RUN",
+    "static_regression_fixture": "ADDED_NOT_EXECUTED"
+  },
+  "files": [
+    {
+      "path": "SKILL.md",
+      "git_blob_sha": "65d83d656097c8493456ae414470b5960d09f375"
+    },
+    {
+      "path": "references/安全视觉转换矩阵-V1.md",
+      "git_blob_sha": "61a64abd13c479c53a8501b222e83c3bb390e346"
+    },
+    {
+      "path": "references/真人影视视觉锁定规范-V1.md",
+      "git_blob_sha": "5279650b9847345c6f945df58f3ac8443dee4005"
+    },
+    {
+      "path": "tests/真人安全分镜回归样例-V1.md",
+      "git_blob_sha": "0eac9b922540283174956c3d25fb3e35c60503ea"
+    }
+  ]
 }
