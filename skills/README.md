@@ -25,6 +25,10 @@
 - [平台导出配置登记表](./comic-production-director-cn/references/平台导出配置登记表-V1.json)：机器可读的平台导出参数、AI 披露和商业化状态。
 - [专业欧美漫画排字与页面阅读规则](../docs/专业欧美漫画排字与页面阅读规则-V1.md)：对白阅读顺序、气泡尾巴、字数密度、字体、SFX 和移动端检查。
 
+## 分镜视觉生产工具
+
+- [多宫格视觉分镜联系表工具](../tools/storyboard-contact-sheet/README.md)：将已批准的独立画格按权威镜头顺序排成 2×2、3×3、3×4、4×3、5×5 联系表；不替代分镜导演或正式漫画页面制作。
+
 ## 分镜专项
 
 - [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，保留原有版本和程序校验资产。
