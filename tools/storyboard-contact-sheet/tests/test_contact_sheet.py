@@ -120,6 +120,15 @@ class ContactSheetTests(unittest.TestCase):
         self.assertIn('"valid": true', output.getvalue())
         self.assertFalse((self.root / "contact-sheet.png").exists())
 
+    def test_non_ascii_shot_labels_render(self):
+        manifest, data = self.make_manifest()
+        data["panels"][0]["shot_id"] = "\\u955c\\u5934-OPEN"
+        manifest.write_text(json.dumps(data, ensure_ascii=True), encoding="utf-8")
+        output = self.root / "unicode-labels.png"
+        result = render(manifest, output)
+        self.assertTrue(output.is_file())
+        self.assertEqual(result["panel_count"], 4)
+
 
 if __name__ == "__main__":
     unittest.main()
