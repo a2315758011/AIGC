@@ -93,5 +93,32 @@
       "未执行真实漫剧镜头 A/B 或 E4 验收"
     ],
     "boundary": "本技能正文由本仓库独立编写；第三方公开技术方法保留来源与许可证记录。规则/文档完成不代表目标平台安装或成片验收通过。"
-  }
+  },
+  "files_manifest": [
+    {
+      "path": "SKILL.md",
+      "blob_sha": "cdbc1e59d032fcc6a84ae6a64442b996d3d34936",
+      "characters": 2285
+    },
+    {
+      "path": "references/制作流程与工具选择.md",
+      "blob_sha": "c7f55a87ce99565011744d0c1622b03eaa791ba7",
+      "characters": 2461
+    },
+    {
+      "path": "references/参数化数据合同.md",
+      "blob_sha": "52d14b15b7e3ef301db4e039875e664e92bb6964",
+      "characters": 2038
+    },
+    {
+      "path": "references/验收与失败诊断.md",
+      "blob_sha": "c708f3a56d595a608205b60ec220c01c7b52a01d",
+      "characters": 1650
+    },
+    {
+      "path": "tests/系统UI与粒子回归样例.md",
+      "blob_sha": "d7441ee8349506bca24c34b01c5f6d08c9f54d75",
+      "characters": 1141
+    }
+  ]
 }
