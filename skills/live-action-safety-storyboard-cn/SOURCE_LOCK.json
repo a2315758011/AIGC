@@ -79,7 +79,9 @@
     "shot_switch_7_1_13_to_7_1_14": "PARTIAL_PASS_FIRST_CORRECT_SINGLE_SHOT; HAND_GRIP_TOO_FORCEFUL",
     "tool_isolation_requirement": "NEW_INDEPENDENT_SESSION_OR_TASK_REQUIRED; NOT_AVAILABLE_AS_VERIFIED_CONTROL_IN_CURRENT_FLOW",
     "shot_switch_7_1_14_to_7_1_15": "FAILED_REPEATED_7_1_14_COMPOSITION",
-    "hand_anatomy_and_contact_qa": "RULE_ADDED_V1.0.2; IMAGE_CASE_7_1_15_NOT_PASSED"
+    "hand_anatomy_and_contact_qa": "RULE_ADDED; CURRENT_GPT_IMAGE_CASE_NOT_PASSED",
+    "shot_7_1_15": "FAILED_6_ATTEMPTS; WRIST_SIGIL_AND_MULTI_STRAND_ENERGY_RECUR",
+    "tool_limitation": "PRECISE_PALM_MARK_PLACEMENT_AND_LEFT_HAND_ORIENTATION_NOT_RELIABLY_CONTROLLED"
   },
   "files": [
     {
@@ -108,7 +110,7 @@
     },
     {
       "path": "tests/执行记录_20261102.md",
-      "git_blob_sha": "ef6e3e1237e5f17b53c5a91897b8b45315a9b5b7"
+      "git_blob_sha": "3dd3cfd05ef47fd77e541a83565fe92ce08b8770"
     }
   ]
 }
