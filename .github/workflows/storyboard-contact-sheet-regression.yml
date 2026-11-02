@@ -34,3 +34,5 @@ jobs:
       - name: Run contact-sheet regression tests
         working-directory: tools/storyboard-contact-sheet
         run: python -m unittest discover -s tests -v
+      - name: Run skill contract tests
+        run: python -m unittest discover -s skills/storyboard-contact-sheet-cn/tests -v
