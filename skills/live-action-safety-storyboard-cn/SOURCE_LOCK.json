@@ -1,6 +1,6 @@
 {
   "package": "live-action-safety-storyboard-cn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "date": "2026-11-02",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
@@ -78,12 +78,13 @@
     "four_shot_case_7_1_13_to_7_1_16": "PARTIAL; 7_1_14_CANDIDATE_ONLY; 7_1_15_NOT_GENERATED",
     "shot_switch_7_1_13_to_7_1_14": "PARTIAL_PASS_FIRST_CORRECT_SINGLE_SHOT; HAND_GRIP_TOO_FORCEFUL",
     "tool_isolation_requirement": "NEW_INDEPENDENT_SESSION_OR_TASK_REQUIRED; NOT_AVAILABLE_AS_VERIFIED_CONTROL_IN_CURRENT_FLOW",
-    "shot_switch_7_1_14_to_7_1_15": "FAILED_REPEATED_7_1_14_COMPOSITION"
+    "shot_switch_7_1_14_to_7_1_15": "FAILED_REPEATED_7_1_14_COMPOSITION",
+    "hand_anatomy_and_contact_qa": "RULE_ADDED_V1.0.2; IMAGE_CASE_7_1_15_NOT_PASSED"
   },
   "files": [
     {
       "path": "SKILL.md",
-      "git_blob_sha": "a669b408f7d39c53cfead2ac508101399ba5dd4d"
+      "git_blob_sha": "899b08446c966890d74b46a4ec36081d61d9d67f"
     },
     {
       "path": "README.md",
@@ -107,7 +108,7 @@
     },
     {
       "path": "tests/执行记录_20261102.md",
-      "git_blob_sha": "bd4d043293e7279c75c523704f0c79a933503460"
+      "git_blob_sha": "ef6e3e1237e5f17b53c5a91897b8b45315a9b5b7"
     }
   ]
 }
