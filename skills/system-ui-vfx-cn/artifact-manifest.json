@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "artifact": "system-ui-vfx-cn",
+  "version": "1.0.1",
+  "manifestFile": "artifact-manifest.json",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "required": true,
+      "size": 5671,
+      "sha256": "72ed29ede2c43052e83056215d5ca21eb7663d4abf3279602ccff99280954a36"
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "required": true,
+      "size": 6162,
+      "sha256": "9182a703ae447120e2223a50c6b7479e0dab0b9a42200c6b4a48720ac24f692d"
+    },
+    {
+      "path": "references/制作流程与工具选择.md",
+      "required": true,
+      "size": 5181,
+      "sha256": "44695b19f4c33b8daabcf442410f4e719e70bc8bd8d62ca5e91b8d94bc33e290"
+    },
+    {
+      "path": "references/参数化数据合同.md",
+      "required": true,
+      "size": 2516,
+      "sha256": "4191b6d665b88a4807b16b2a57c4eff10d0cae3bf15e96d32b823387ae338d6b"
+    },
+    {
+      "path": "references/验收与失败诊断.md",
+      "required": true,
+      "size": 3414,
+      "sha256": "0e777543c1f1eaf59655a02a3de55025fb86793dcb964f1356acdeea4a2ea7b2"
+    },
+    {
+      "path": "tests/系统UI与粒子回归样例.md",
+      "required": true,
+      "size": 2419,
+      "sha256": "c369535d1ff8c63464d17c5372d764ff9e399d6fe7c075e3ac5dca6cd9e0981e"
+    },
+    {
+      "path": "examples/palm-system-panel-demo.html",
+      "required": true,
+      "size": 20105,
+      "sha256": "cb0cc07cfc1a71c64689b28d945ce67c43929d6bb3f1cb6de646bd83ea361c77"
+    }
+  ]
+}
