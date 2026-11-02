@@ -10,7 +10,7 @@
       "purpose": "Skill入口与可执行流程",
       "required": true,
       "bytes": 7887,
-      "sha256": "969369fa01fa710558998f4d0bab9aa3b6dbd5520c906c4bb1d0894625ce5e60",
+      "sha256": "8468788140f86f017b53b2c8a61dcd2b533a61b9a18c6dc782fe7faa3b560163",
       "verify": "front matter、工作流章节、上游路由"
     },
     {
