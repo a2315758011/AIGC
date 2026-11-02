@@ -95,8 +95,9 @@ button:focus-visible,input:focus-visible{outline:2px solid white;outline-offset:
       </div>
       <canvas id="particleCanvas" aria-label="能量粒子效果"></canvas>
       <svg class="finger-matte" viewBox="0 0 600 920" aria-hidden="true">
-        <path d="M246 855 C230 818 221 770 216 724 L201 570 C197 533 205 510 225 505 C245 501 259 516 265 548 L285 660 L270 345 C268 303 279 281 302 281 C326 281 337 302 338 342 L348 628 L354 221 C355 180 370 158 394 160 C419 162 430 185 428 226 L420 634 L446 280 C449 241 465 220 488 224 C513 228 523 251 517 291 L489 650 C478 731 456 793 414 855 Z"/>
-        <path class="crease" d="M280 704 Q330 678 376 702 M284 750 Q340 727 398 748"/>
+        <defs><linearGradient id="fingerSkin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7b9a8"/><stop offset=".48" stop-color="#a77f72"/><stop offset="1" stop-color="#765c59"/></linearGradient></defs>
+        <path d="M285 660 L270 345 C268 303 279 281 302 281 C326 281 337 302 338 342 L348 628 L366 635 L365 221 C366 180 380 158 394 160 C419 162 430 185 428 226 L420 634 L439 638 L446 280 C449 241 465 220 488 224 C513 228 523 251 517 291 L489 650 L455 668 L414 675 L376 666 Z" fill="url(#fingerSkin)" stroke="#c4a99b" stroke-width="3"/>
+        <path class="crease" d="M285 410 Q307 398 330 410 M366 335 Q393 323 421 337 M447 402 Q473 390 501 404"/>
       </svg>
       <div class="scene-copy">原型用途：验证可编辑 UI、粒子参数、时间状态与前景手指遮挡。手部为矢量遮挡代理，不代表真实人物跟踪验收。</div>
     </div>
