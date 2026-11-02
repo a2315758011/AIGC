@@ -34,6 +34,7 @@
 - [导演统筹与场面预演技能](./skills/director-previs-cn/SKILL.md)：跨场景真实性、正式分镜、摄影机运镜和打斗特效的导演意图、共享事实与专业技能交接；不重复专业规则。
 - [导演共享事实与 SCG 交接规范](./skills/director-previs-cn/references/导演共享事实与SCG交接规范-V1.md)：复用分镜 SCG 与事件时间契约，统一剧本、资产、场景、人物/道具、镜头状态和摄影机轨迹的数据交接。
 - [打斗特效与打击感研究记录](./Deepresearch/2026-11-01_打斗特效与打击感仓库技能调研.md)：外部仓库、技能、后期工具与许可证审查。
+- [多宫格视觉分镜 Skill 第二轮深度研究](./docs/Deepresearch/2026-11-02_多宫格视觉分镜Skill第二轮深度研究.md)：审查逐格生成、GPT Image 2 宫格模板、Story2Board 学术方法、许可证和 4/9/12/25 格压力测试方案；真实 25 格生图仍待执行。
 - [场景真实性导演技能](./skills/scene-realism-director-cn/)：专门处理场景图假感、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真和全景完整性。
 - [场景真实性研究记录](./docs/Deepresearch/2026-10-31_AI场景真实性问题研究与技能采纳.md)：论文证据、SpatialGenEval、Qwen-Image-Bench、SA-BENCH 等基准及原创中文测试集。
 - [场景空间智能基准补充研究](./docs/Deepresearch/2026-11-01_场景真实性空间智能基准补充研究.md)：SpatialGenEval、GenSpace、InSpace、360°全景 3D 重建路线及真实生图测试阻塞记录。
