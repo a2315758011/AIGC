@@ -211,7 +211,7 @@ button:focus-visible,input:focus-visible{outline:2px solid white;outline-offset:
   updateControl('accentColor','color');
   $('particlesToggle').addEventListener('change',()=>{if(!$('particlesToggle').checked)particles.length=0});
   $('matteToggle').addEventListener('change',()=>{$('matteToggle').checked?document.querySelector('.finger-matte').style.display='block':document.querySelector('.finger-matte').style.display='none';setPhase(phase)});
-  $('scanToggle').addEventListener('change',()=>{document.querySelector('.panel').style.setProperty('animation-play-state',$('scanToggle').checked?'running':'paused')});
+  $('scanToggle').addEventListener('change',()=>{document.querySelector('.panel').classList.toggle('scan-off',!$('scanToggle').checked)});
   $('playButton').addEventListener('click',play);
   $('upgradeButton').addEventListener('click',upgrade);
   $('hideButton').addEventListener('click',()=>{panel.classList.toggle('hidden');setPhase(panel.classList.contains('hidden')?'closing':'stable')});
