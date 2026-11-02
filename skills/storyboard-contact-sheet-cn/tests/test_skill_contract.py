@@ -1,3 +1,4 @@
+import hashlib
 import json
 import unittest
 from pathlib import Path
@@ -42,6 +43,14 @@ class SkillContractTests(unittest.TestCase):
         self.assertEqual(lock["skill"], "storyboard-contact-sheet-cn")
         self.assertEqual(lock["version"], "1.0.0")
         self.assertGreaterEqual(len(lock["upstream_sources"]), 5)
+
+    def test_manifest_file_hashes(self):
+        manifest = json.loads(ARTIFACT_MANIFEST.read_text(encoding="utf-8"))
+        for item in manifest["required_files"]:
+            file_path = ROOT / "skills/storyboard-contact-sheet-cn" / item["path"]
+            payload = file_path.read_bytes()
+            self.assertEqual(len(payload), item["bytes"])
+            self.assertEqual(hashlib.sha256(payload).hexdigest(), item["sha256"])
 
 
 if __name__ == "__main__":
