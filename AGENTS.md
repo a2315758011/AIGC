@@ -27,6 +27,7 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 - 单独正式分镜、人物站位/朝向/视线、走位、轴线和连续性：直接调用 `storyboard-director-cn`。
 - 单独推拉摇移、跟拍、环绕、摄影机轨迹/速度和运镜审片：直接调用 `camera-motion-director-cn`。
 - 单独拳脚/兵器/能量战斗、命中/受击、打击节奏和特效：直接调用 `fight-impact-vfx-cn`。
+- 真人影视/仿实拍分镜、GPT 原生生图暴力视觉风险、真人风格漂移或单镜头安全修复：调用 `live-action-safety-storyboard-cn`；先锁定原剧情与镜头事实，再逐镜做合规非图像化转换。不得使用隐语或同义词隐藏不允许的内容，也不得承诺绕过审核。
 - 跨域打斗任务按需调用：场景真实性→打斗动作因果/特效→正式分镜→摄影机运镜；不需要的技能跳过。
 - `fight-impact-vfx-cn` 当前 SOURCE_LOCK 为 `authored_pending_review`，不得把规则设计说成真实视频验收通过。
 - `manju-director-cn` 离线快照已同步至 V2.10.5；它保留为独立的漫剧资产+分镜完整闭环，不加入 `director-previs-cn` 默认核心路由，避免重复承担 `storyboard-director-cn` 的分镜职责。用户明确要求完整漫剧资产与分镜闭环时才单独调用。
@@ -43,7 +44,8 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 6. 多人站位、场景调度、走位路径、摄影机轴线或双人近景，必须读取 `skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md`。
 7. **涉及摄影机运镜时**，读取 [中文运镜导演 Skill](./skills/camera-motion-director-cn/SKILL.md)，按需加载其 references；图生视频须先评估源画面景深、边缘余量、遮挡和隐藏表面。运镜设计不得改变分镜既定人物世界坐标、站位、距离、朝向、视线、轴线或道具状态。存在结构化运镜计划时运行 `skills/camera-motion-director-cn/scripts/validate_camera_move.py`。
 8. 参考各平台主播/创作者的站位方法时，读取 `docs/平台创作者人物站位实战研究_20261101.md` 与 `docs/平台创作者人物站位实战研究_20261101_第二批.md` 与 `docs/平台创作者人物动态走位与导演预演研究_20261101_第三批.md` 与 `docs/AI漫剧动态预演控制与生成服从性验证研究_20261101_第四批.md` 与 `docs/多平台人物站位图方法与开源导演台代码审查_20261101_第五批.md` 与 `docs/结构化3D导演台与多视角角色一致性研究_20261101_第六批.md`；仅将有复现证据的方法升级为强制规则。
-9. 不联网的学员使用 [完整双规则离线文件](./学员分镜双规则完整版.md) 或完整下载对应 Skill 文件夹。
+9. 真人影视分镜或 GPT 生图安全视觉转换任务，读取 `skills/live-action-safety-storyboard-cn/SKILL.md` 及其两份 references；若涉及完整动作分镜，再按需联读 storyboard/fight/camera 技能。
+10. 不联网的学员使用 [完整双规则离线文件](./学员分镜双规则完整版.md) 或完整下载对应 Skill 文件夹。
 
 ## 权威版本与验收
 
