@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/a2315758011/AIGC/blob/main/tools/storyboard-contact-sheet/manifest.schema.json",
+  "title": "Storyboard Contact Sheet Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "layout",
+    "panels"
+  ],
+  "properties": {
+    "layout": {
+      "type": "string",
+      "enum": [
+        "2x2",
+        "3x3",
+        "3x4",
+        "4x3",
+        "5x5"
+      ]
+    },
+    "panel_size": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "integer",
+          "minimum": 64,
+          "maximum": 8192
+        },
+        {
+          "type": "integer",
+          "minimum": 64,
+          "maximum": 8192
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "gutter": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 512
+    },
+    "margin": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 512
+    },
+    "label_height": {
+      "type": "integer",
+      "minimum": 24,
+      "maximum": 512
+    },
+    "background": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "cell_background": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "label_color": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "panels": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 25,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "order",
+          "shot_id",
+          "image"
+        ],
+        "properties": {
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 25
+          },
+          "shot_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "image": {
+            "type": "string",
+            "minLength": 1
+          },
+          "timecode": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
