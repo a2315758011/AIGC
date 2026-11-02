@@ -1,0 +1,69 @@
+{
+  "artifact": "storyboard-contact-sheet-cn",
+  "version": "1.0.0",
+  "status": "beta",
+  "created_at": "2026-11-02",
+  "repository": "a2315758011/AIGC",
+  "required_files": [
+    {
+      "path": "SKILL.md",
+      "purpose": "Skill入口与可执行流程",
+      "required": true,
+      "bytes": 6704,
+      "sha256": "5dc5896b98d6d8fdbdaa8e525f6a97c251fdd4d86bc40fac91c42141ee8f7fe0",
+      "verify": "front matter, workflow sections, upstream route checks"
+    },
+    {
+      "path": "README.md",
+      "purpose": "中文安装与使用说明",
+      "required": true,
+      "bytes": 1788,
+      "sha256": "e718f68d279ac1151e218a64a0bbc8196946e62c4eba8adc8ad52ac972821818",
+      "verify": "file existence and manual content review"
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "purpose": "上游技能与排版工具来源锁定",
+      "required": true,
+      "bytes": 2170,
+      "sha256": "d96ba3bda8c9ad9065efdf7ac123c682c1505ed9017c7fbfe68880cb422fcc32",
+      "verify": "JSON parse and source reference checks"
+    },
+    {
+      "path": "tests/test_skill_contract.py",
+      "purpose": "技能结构、布局与上游路径回归",
+      "required": true,
+      "bytes": 1738,
+      "sha256": "820fe3e79fd8ff2a0ebed873c669baf79906b1a660f943b6fae187e77d443a5d",
+      "verify": "python -m unittest discover -s skills/storyboard-contact-sheet-cn/tests -v"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "tools/storyboard-contact-sheet/",
+      "purpose": "确定性联系表排版工具",
+      "required": true,
+      "validation": "独立 CI workflow"
+    },
+    {
+      "path": "skills/storyboard-director-cn/",
+      "purpose": "分镜导演与自检",
+      "required": true,
+      "validation": "source lock + upstream path test"
+    },
+    {
+      "path": "skills/live-action-safety-storyboard-cn/",
+      "purpose": "真人媒介视觉锁定",
+      "required": false,
+      "validation": "source lock + upstream path test"
+    },
+    {
+      "path": "skills/comic-production-director-cn/",
+      "purpose": "正式漫画页面边界",
+      "required": false,
+      "validation": "source lock + upstream path test"
+    }
+  ],
+  "package_status": "directory_only_no_zip_yet",
+  "validation_status": "skill_contract_ci_passed; package_staging_and_zip_not_run"
+}
