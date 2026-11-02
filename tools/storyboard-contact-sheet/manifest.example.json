@@ -1,0 +1,39 @@
+{
+  "layout": "2x2",
+  "panel_size": [
+    640,
+    360
+  ],
+  "gutter": 20,
+  "margin": 28,
+  "label_height": 42,
+  "background": "#111820",
+  "cell_background": "#202a35",
+  "label_color": "#f2f5f8",
+  "panels": [
+    {
+      "order": 1,
+      "shot_id": "S001",
+      "image": "frames/shot_001.png",
+      "timecode": "00:00:00"
+    },
+    {
+      "order": 2,
+      "shot_id": "S002",
+      "image": "frames/shot_002.png",
+      "timecode": "00:00:03"
+    },
+    {
+      "order": 3,
+      "shot_id": "S003",
+      "image": "frames/shot_003.png",
+      "timecode": "00:00:06"
+    },
+    {
+      "order": 4,
+      "shot_id": "S004",
+      "image": "frames/shot_004.png",
+      "timecode": "00:00:09"
+    }
+  ]
+}
