@@ -196,7 +196,6 @@ button:focus-visible,input:focus-visible{outline:2px solid white;outline-offset:
     document.querySelector('.panel').style.setProperty('--scan-disabled',$('scanToggle').checked?'0':'1');
     document.querySelector('.panel').classList.toggle('scan-off',!$('scanToggle').checked);
     document.querySelector('.panel').style.setProperty('--unused','0');
-    $('panelAnchor').style.setProperty('opacity',panel.classList.contains('hidden')?'0':'1');
     $('particleCountOut').textContent=$('particleCount').value;
     $('particleSpeedOut').textContent=Number($('particleSpeed').value).toFixed(1)+'×';
     $('particleLifeOut').textContent=Number($('particleLife').value).toFixed(1)+' 秒';
