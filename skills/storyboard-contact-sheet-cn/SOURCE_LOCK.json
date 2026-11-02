@@ -1,0 +1,57 @@
+{
+  "skill": "storyboard-contact-sheet-cn",
+  "version": "1.0.0",
+  "status": "beta",
+  "repository": "a2315758011/AIGC",
+  "upstream_sources": [
+    {
+      "path": "skills/storyboard-director-cn/SKILL.md",
+      "version": "1.3.5",
+      "git_blob_sha": "61791f02b22de3a48d1ace442630b7b27d1e4c4f",
+      "role": "authoritative storyboard planning and independent QC"
+    },
+    {
+      "path": "skills/storyboard-director-cn/references/剧本转分镜指令.md",
+      "version": "V2.10.5",
+      "git_blob_sha": "98feb1281d83aed5ee035bf9f70713598610588c",
+      "role": "shot design rules"
+    },
+    {
+      "path": "skills/storyboard-director-cn/references/剧本转分镜自检指令.md",
+      "version": "V2.10.5",
+      "git_blob_sha": "778c79dbab0705186cad159d22b1356cdbff0e2e",
+      "role": "independent storyboard QC"
+    },
+    {
+      "path": "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md",
+      "version": "V1",
+      "git_blob_sha": "016e8830ea1a6f5db590a4c591eb2912c6b126d0",
+      "role": "cross-shot world-state contract"
+    },
+    {
+      "path": "skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md",
+      "version": "V1.9.0",
+      "git_blob_sha": "435d7b10c2bf4f75f19fb643547121bebf371f78",
+      "role": "positioning and camera continuity"
+    },
+    {
+      "path": "skills/live-action-safety-storyboard-cn/SKILL.md",
+      "version": "1.0.1",
+      "git_blob_sha": "a669b408f7d39c53cfead2ac508101399ba5dd4d",
+      "role": "live-action visual medium lock and safe conversion"
+    },
+    {
+      "path": "skills/comic-production-director-cn/SKILL.md",
+      "version": "1.2.6",
+      "git_blob_sha": "ca5592a4887886daf151d18396f0091b57284ee1",
+      "role": "formal comic page production boundary"
+    },
+    {
+      "path": "tools/storyboard-contact-sheet/contact_sheet.py",
+      "version": "current main",
+      "git_blob_sha": "1dd03d3b1ec080c8dc2301588481c2ef693b98b3",
+      "role": "deterministic contact sheet renderer"
+    }
+  ],
+  "note": "git_blob_sha values pin exact upstream Git objects (SHA-1); they are not SHA-256 artifact hashes. Revalidate current files before use."
+}
