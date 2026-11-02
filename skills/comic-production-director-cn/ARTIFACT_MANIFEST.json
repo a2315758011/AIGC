@@ -7,13 +7,13 @@
     {
       "path": "SKILL.md",
       "required": true,
-      "git_blob_sha": "91b5d0c2b0e126d75cc226834c8722767b8b5a2e",
+      "git_blob_sha": "ca5592a4887886daf151d18396f0091b57284ee1",
       "character_count": 0
     },
     {
       "path": "references/外部项目采纳矩阵-V1.md",
       "required": true,
-      "git_blob_sha": "ce6c87ebe65293d885cb5bbd181abb002e3a8f3c",
+      "git_blob_sha": "14b2e3c411432a848c4feb8b1448e3d890b19f04",
       "character_count": 2536
     },
     {
@@ -73,7 +73,7 @@
     {
       "path": "references/欧美商业漫画美术与气泡排字验收标准-V1.md",
       "status": "added",
-      "git_blob_sha": "14b2e3c411432a848c4feb8b1448e3d890b19f04"
+      "git_blob_sha": "6389135a660bdefc86bcaa80fa0d2381a63869e0"
     }
   ],
   "excluded_from_file_hash_list": [
