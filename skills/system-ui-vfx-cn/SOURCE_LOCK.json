@@ -135,9 +135,9 @@
     },
     {
       "path": "examples/palm-system-panel-demo.html",
-      "blob_sha": "6f638ea0a4d9e8d825eced1d12ff75a3c7d24c9e",
-      "size": 20197,
-      "sha256": "f95dc93ce478e1fd4ef3df51affa1aa07c0dd2bfa1bbdc69f0f2831cb7c3224f"
+      "blob_sha": "3ae058d08dc77a145da67ca492ef28f2146cc7e4",
+      "size": 20205,
+      "sha256": "92f95231d53900b7dc95190c65b8988564d707dc99c8100ab7199394f07963c6"
     }
   ],
   "artifact_version": "1.0.1"
