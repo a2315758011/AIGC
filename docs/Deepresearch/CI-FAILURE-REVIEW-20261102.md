@@ -1,0 +1,3 @@
+# CI failure review — 2026-11-02
+
+The first package check failed because SOURCE_LOCK.json cannot contain its own SHA-256 without a recursive dependency. The outer manifest now permits a null hash only for that exact file and cross-checks all remaining entries against SOURCE_LOCK.files_manifest. Two follow-up runs exposed a stale demo HTML byte count (20197 vs 20205); the manifest and lock were refreshed. Final run 41430581679 passed: 17 Chromium checks, 7 asset entries, staging, extraction, and artifact upload. The downloaded ZIP digest matched GitHub. ChatCut production integration and real character tracking remain unverified.
