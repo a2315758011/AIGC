@@ -15,7 +15,7 @@
 需要 Python 3.11+ 与 Pillow。
 
 ```powershell
-python -m pip install Pillow
+python -m pip install -r requirements.txt
 python contact_sheet.py --manifest manifest.json --output contact-sheet.png
 python contact_sheet.py --manifest manifest.json --output contact-sheet.png --validate-only
 ```
@@ -45,3 +45,13 @@ JSON Schema： [manifest.schema.json](./manifest.schema.json)。脚本还会额�
 这些是联系表画布尺寸，不包含独立画格原图。25 格联系表只用于总览，逐格审片必须打开独立画格。
 
 当前工具只负责排版和文件级检查，不判断图像中的角色身份、场景拓扑或镜头连续性；这些仍由 AIGC 现有专业 Skill 独立验收。
+
+
+## 回归状态（2026-11-02）
+
+- 隔离运行：10/10 单元回归通过，覆盖 2×2、5×5、3×4、4×3、缺图、路径越界、重复顺序/源图、数量不匹配、标签溢出及源图不变性。
+- 命令行生成与 `--validate-only`：临时 2×2 样例均通过，输出文件生成/校验行为正确。
+- GitHub Actions：工作流文件已提交；本轮连接器未返回对应 push 的运行记录，状态为未验证。
+- GPT 原生生图的视觉质量、正式人物/场景连续性、25 格 A/B：尚未执行。
+
+这些测试是文件与排版器回归，不是分镜视觉质量验收。
