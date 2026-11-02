@@ -29,6 +29,7 @@
 - [分镜导演技能](./skills/storyboard-director-cn/) 和 [漫剧导演技能](./skills/manju-director-cn/)：连同 references、scripts、tests 一起下载；不能仅凭 SKILL.md 摘要冒充全文。
 - [人物站位与场景调度规则](./skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md)：多人站位、走位路径、场景锚点与摄影机轴线。
 - [中文运镜导演技能](./skills/camera-motion-director-cn/)：摄影机运动设计、图生视频运动可行性、模型提示词适配与运镜审片。
+- [真人影视安全分镜技能](./skills/live-action-safety-storyboard-cn/): GPT 原生生图真人实拍风格锁定、虚构暴力安全视觉转换、逐镜提示词和局部修复；快速调用词：真人安全分镜。
 - [打斗与打击感特效导演技能](./skills/fight-impact-vfx-cn/)：动作因果、受击反馈、冲击帧、速度表现、武器拖尾、冲击波、碎片、声音同步与特效审片。
 - [导演统筹与场面预演技能](./skills/director-previs-cn/SKILL.md)：跨场景真实性、正式分镜、摄影机运镜和打斗特效的导演意图、共享事实与专业技能交接；不重复专业规则。
 - [导演共享事实与 SCG 交接规范](./skills/director-previs-cn/references/导演共享事实与SCG交接规范-V1.md)：复用分镜 SCG 与事件时间契约，统一剧本、资产、场景、人物/道具、镜头状态和摄影机轨迹的数据交接。
