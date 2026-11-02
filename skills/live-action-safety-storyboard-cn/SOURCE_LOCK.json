@@ -71,11 +71,11 @@
   "validation": {
     "repository_structure": "PASS",
     "frontmatter_and_links": "PASS",
-    "target_gpt_image_generation": "SINGLE_IMAGE_2_ATTEMPTS; BOTH_LIVE_ACTION_PRELIMINARY; BOTH_SIGIL_SKIN_CRACK_FAILURE",
+    "target_gpt_image_generation": "SINGLE_IMAGE_3_ATTEMPTS; LIVE_ACTION_PRELIMINARY; SIGIL_BRANCHING_FAIL_3_OF_3",
     "live_action_style_ab": "NOT_RUN",
     "four_shot_case_7-1-13_to_7-1-16": "NOT_RUN",
     "static_regression_fixture": "UPDATED_NOT_EXECUTED",
-    "four_shot_case_7_1_13_to_7_1_16": "NOT_PASSED; ONLY_7_1_13_SINGLE_IMAGE_PARTIAL"
+    "four_shot_case_7_1_13_to_7_1_16": "NOT_PASSED; ONLY_7_1_13_PARTIAL"
   },
   "files": [
     {
@@ -104,7 +104,7 @@
     },
     {
       "path": "tests/执行记录_20261102.md",
-      "git_blob_sha": "dfaaafaf8d6b6d3b6a5233c9172f6168baafdab5"
+      "git_blob_sha": "8f7a6af41a0161a1bb9cf562ad8466010040294d"
     }
   ]
 }
