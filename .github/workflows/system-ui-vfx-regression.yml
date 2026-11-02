@@ -1,0 +1,97 @@
+name: System UI VFX Regression
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/system-ui-vfx-cn/**"
+      - ".github/workflows/system-ui-vfx-regression.yml"
+  pull_request:
+    paths:
+      - "skills/system-ui-vfx-cn/**"
+      - ".github/workflows/system-ui-vfx-regression.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  browser-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Verify manifest, stage package, extract, and test browser
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import os from 'node:os';
+          import path from 'node:path';
+          import crypto from 'node:crypto';
+          import { execFileSync } from 'node:child_process';
+          import { pathToFileURL } from 'node:url';
+          import assert from 'node:assert/strict';
+          import { chromium } from 'playwright';
+          const root = path.resolve('skills/system-ui-vfx-cn');
+          const m = JSON.parse(fs.readFileSync(path.join(root,'artifact-manifest.json'),'utf8'));
+          const hash = p => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+          const verify = dir => {
+            const expected = new Map(m.files.map(x=>[x.path,x]));
+            const actual = [];
+            const walk = (d,r='') => fs.readdirSync(d,{withFileTypes:true}).forEach(e=>{
+              const p=r?r+'/'+e.name:e.name;
+              if(p===m.manifestFile) return;
+              if(e.isSymbolicLink()) throw Error('SYMLINK:'+p);
+              if(e.isDirectory()) walk(path.join(d,e.name),p); else actual.push(p);
+            });
+            walk(dir);
+            assert.deepEqual(actual.sort(),[...expected.keys()].sort());
+            for(const [rel,x] of expected){const p=path.join(dir,...rel.split('/'));assert.equal(fs.statSync(p).size,x.size);assert.equal(hash(p),x.sha256);}
+          };
+          for(const x of m.files){const p=path.join(root,...x.path.split('/'));assert.equal(fs.statSync(p).size,x.size);assert.equal(hash(p),x.sha256);}
+          const lock=JSON.parse(fs.readFileSync(path.join(root,'SOURCE_LOCK.json'),'utf8'));
+          assert.equal(lock.artifact_version,m.version);
+          const temp=fs.mkdtempSync(path.join(os.tmpdir(),'system-ui-vfx-'));
+          const pkg=path.join(temp,'system-ui-vfx-cn');fs.mkdirSync(pkg);
+          for(const x of m.files){const a=path.join(root,...x.path.split('/')),b=path.join(pkg,...x.path.split('/'));fs.mkdirSync(path.dirname(b),{recursive:true});fs.copyFileSync(a,b);}
+          fs.copyFileSync(path.join(root,m.manifestFile),path.join(pkg,m.manifestFile));verify(pkg);
+          const zip=path.join(process.env.RUNNER_TEMP,'system-ui-vfx-cn-1.0.1.zip');
+          execFileSync('zip',['-qr',zip,'system-ui-vfx-cn'],{cwd:temp});
+          const unpack=path.join(temp,'unpack');fs.mkdirSync(unpack);execFileSync('unzip',['-q',zip,'-d',unpack]);verify(path.join(unpack,'system-ui-vfx-cn'));
+          const browser=await chromium.launch({headless:true});
+          const page=await browser.newPage({viewport:{width:1280,height:900}});
+          const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+          try{
+            await page.goto(pathToFileURL(path.join(unpack,'system-ui-vfx-cn','examples','palm-system-panel-demo.html')).href);
+            assert.equal(await page.locator('#levelValue').textContent(),'Lv.12');
+            const set=async(id,v)=>page.locator('#'+id).evaluate((e,x)=>{e.value=String(x);e.dispatchEvent(new Event('input',{bubbles:true}));},v);
+            await set('particleCount',96);await set('particleSpeed',1.7);await set('particleLife',1.2);await set('panelScale',1.2);
+            assert.equal(await page.locator('#particleCountOut').textContent(),'96');
+            await page.locator('#matteToggle').uncheck();assert.equal(await page.locator('.finger-matte').evaluate(e=>getComputedStyle(e).display),'none');
+            await page.locator('#matteToggle').check();await page.locator('#scanToggle').uncheck();
+            assert.equal(await page.locator('#systemPanel').evaluate(e=>e.classList.contains('scan-off')),true);
+            const layers=await page.evaluate(()=>[+getComputedStyle(document.querySelector('#particleCanvas')).zIndex,+getComputedStyle(document.querySelector('#panelAnchor')).zIndex]);
+            assert.ok(layers[0]<layers[1],'particles must not cover UI text');
+            await page.locator('#upgradeButton').click();assert.equal(await page.locator('#levelValue').textContent(),'Lv.13');assert.equal(await page.locator('#energyValue').textContent(),'88%');
+            await page.locator('#hideButton').click();assert.equal(await page.locator('#panelAnchor').evaluate(e=>e.classList.contains('hidden')),true);assert.equal(await page.locator('#panelAnchor').evaluate(e=>getComputedStyle(e).opacity),'0');
+            await page.locator('#resetButton').click();assert.equal(await page.locator('#levelValue').textContent(),'Lv.12');
+            await page.locator('#playButton').click();assert.equal(await page.locator('#phaseChip').textContent(),'面板展开');
+            await page.waitForTimeout(2400);assert.equal(await page.locator('#phaseChip').textContent(),'等级提升');
+            await page.waitForTimeout(2100);assert.equal(await page.locator('#panelAnchor').evaluate(e=>e.classList.contains('hidden')),true);
+            await page.waitForTimeout(800);assert.equal(await page.locator('#phaseChip').textContent(),'待机');
+            await page.setViewportSize({width:390,height:844});
+            const mobile=await page.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth}));
+            assert.ok(mobile.width<=mobile.viewport,'mobile horizontal overflow');assert.deepEqual(errors,[]);
+            console.log(JSON.stringify({status:'PASS',manifestFiles:m.files.length,browserChecks:16,layers,mobile,errors},null,2));
+          }finally{await browser.close();fs.rmSync(temp,{recursive:true,force:true});}
+          NODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: system-ui-vfx-cn-1.0.1
+          path: ${{ runner.temp }}/system-ui-vfx-cn-1.0.1.zip
+          if-no-files-found: error
