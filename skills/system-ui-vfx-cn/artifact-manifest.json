@@ -43,8 +43,8 @@
     {
       "path": "examples/palm-system-panel-demo.html",
       "required": true,
-      "size": 20197,
-      "sha256": "f95dc93ce478e1fd4ef3df51affa1aa07c0dd2bfa1bbdc69f0f2831cb7c3224f"
+      "size": 20205,
+      "sha256": "92f95231d53900b7dc95190c65b8988564d707dc99c8100ab7199394f07963c6"
     }
   ]
 }
