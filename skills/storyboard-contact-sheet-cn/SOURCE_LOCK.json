@@ -49,7 +49,7 @@
     {
       "path": "tools/storyboard-contact-sheet/contact_sheet.py",
       "version": "current main",
-      "git_blob_sha": "1dd03d3b1ec080c8dc2301588481c2ef693b98b3",
+      "git_blob_sha": "44340a9ee8cb5a6e0a2ee5f79715fa6c746321a6",
       "role": "deterministic contact sheet renderer"
     }
   ],
