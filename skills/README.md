@@ -29,6 +29,10 @@
 
 - [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，保留原有版本和程序校验资产。
 
+## 漫剧粒子特效与系统 UI（研究候选，未正式采纳）
+
+- [漫剧粒子特效与系统 UI 可控制作 Skill 专项研究](../docs/Deepresearch/2026-11-02_漫剧粒子特效与系统UI可控制作Skill专项研究.md)：第三方 Motion Graphics、UI Animation、After Effects 合成、Niagara、Shader、Remotion 候选技能的来源、能力、许可证边界、适配判断与下一轮验证计划。当前属于研究资料，不代表已安装或真实镜头验收通过。
+
 ## 漫剧专项
 
 - [manju-director-cn](./manju-director-cn/)：AI 漫剧专用，剧本转分镜、独立自检、自动修复、重新输出完整修订终稿及人物/场景/道具资产规则。
