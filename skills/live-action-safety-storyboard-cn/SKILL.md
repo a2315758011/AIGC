@@ -2,7 +2,7 @@
 name: live-action-safety-storyboard-cn
 description: 面向 GPT 原生生图的真人影视分镜安全视觉转换技能。用户要求真人仿实拍分镜，或分镜中的虚构暴力/受伤/血腥表现导致图像生成拒绝、风格漂移、动作被删改时调用。负责真人影视风格锁定、逐镜风险诊断、合规非图像化视觉转换、单镜头提示词编译与生成后验收；不替代正式分镜、打斗动作因果、运镜和场景真实性技能。
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   language: "zh-CN"
   source_repo: "a2315758011/AIGC"
 ---
