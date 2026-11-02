@@ -62,6 +62,12 @@
       "purpose": "正式漫画页面边界",
       "required": false,
       "validation": "来源锁及路径回归"
+    },
+    {
+      "path": "tools/storyboard-vfx-overlay/",
+      "purpose": "蒙版约束的非破坏式真人表面光效合成",
+      "required": true,
+      "validation": "独立 GitHub Actions 回归"
     }
   ],
   "package_status": "directory_only_no_zip_yet",
