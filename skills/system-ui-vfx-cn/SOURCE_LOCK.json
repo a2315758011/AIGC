@@ -79,18 +79,20 @@
     "tests/系统UI与粒子回归样例.md"
   ],
   "validation": {
-    "status": "authored_pending_review",
+    "status": "structure_verified_runtime_pending",
     "tested": [
       "已读取权威源规范、路由文件、研究报告和用户现有 ChatCut Skill",
       "已读取第三方 Skill 正文、关键 references、透明渲染脚本和 MIT LICENSE",
-      "已建立系统 UI/VFX 参数合同、生产流程、验收门禁和回归样例"
+      "已建立系统 UI/VFX 参数合同、生产流程、验收门禁和回归样例",
+      "已回读全部 10 个仓库文件；frontmatter、引用路径、README/AGENTS 路由和源指令/研究记录 SHA 一致"
     ],
     "not_tested": [
       "未在 ChatCut 项目中创建或编辑真实 Motion Graphic",
       "未在用户账户中验证 ProRes 4444 Alpha 权限",
       "未在目标工作站安装或运行第三方 Skill",
       "未完成真实人物手部跟踪、matte、透视和跨镜测试",
-      "未执行真实漫剧镜头 A/B 或 E4 验收"
+      "未执行真实漫剧镜头 A/B 或 E4 验收",
+      "尚未运行真实 ChatCut 工具调用或渲染器自动化测试"
     ],
     "boundary": "本技能正文由本仓库独立编写；第三方公开技术方法保留来源与许可证记录。规则/文档完成不代表目标平台安装或成片验收通过。"
   },
