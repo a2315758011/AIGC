@@ -1,0 +1,70 @@
+{
+  "artifact": "storyboard-contact-sheet-cn",
+  "version": "1.0.0",
+  "status": "beta",
+  "created_at": "2026-11-02",
+  "repository": "a2315758011/AIGC",
+  "required_files": [
+    {
+      "path": "SKILL.md",
+      "purpose": "Skill入口与可执行流程",
+      "required": true,
+      "bytes": 6704,
+      "sha256": "5dc5896b98d6d8fdbdaa8e525f6a97c251fdd4d86bc40fac91c42141ee8f7fe0",
+      "verify": "front matter、工作流章节、上游路由"
+    },
+    {
+      "path": "README.md",
+      "purpose": "中文使用说明",
+      "required": true,
+      "bytes": 1860,
+      "sha256": "\u0038b602b90e48ba2b1aaec82fc60f862090c2854e5a90b0ebb62ca3132a6ff51f4",
+      "verify": "文件存在及内容审查"
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "purpose": "上游技能与排版工具来源锁定",
+      "required": true,
+      "bytes": 2170,
+      "sha256": "d96ba3bda8c9ad9065efdf7ac123c682c1505ed9017c7fbfe68880cb422fcc32",
+      "verify": "JSON解析与来源路径检查"
+    },
+    {
+      "path": "tests/test_skill_contract.py",
+      "purpose": "技能结构、布局、来源及清单哈希回归",
+      "required": true,
+      "bytes": 2244,
+      "sha256": "ea07cec6c6a8f4842cc54b8375fdadc17da2914507fbd327ed49c7d5844e5e1b",
+      "verify": "python -m unittest discover -s skills/storyboard-contact-sheet-cn/tests -v"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "tools/storyboard-contact-sheet/",
+      "purpose": "确定性联系表排版工具",
+      "required": true,
+      "validation": "GitHub Actions回归"
+    },
+    {
+      "path": "skills/storyboard-director-cn/",
+      "purpose": "分镜导演与独立自检",
+      "required": true,
+      "validation": "来源锁及路径回归"
+    },
+    {
+      "path": "skills/live-action-safety-storyboard-cn/",
+      "purpose": "真人媒介视觉锁定",
+      "required": false,
+      "validation": "来源锁及路径回归"
+    },
+    {
+      "path": "skills/comic-production-director-cn/",
+      "purpose": "正式漫画页面边界",
+      "required": false,
+      "validation": "来源锁及路径回归"
+    }
+  ],
+  "package_status": "directory_only_no_zip_yet",
+  "validation_status": "skill_contract_and_contact_sheet_ci_passed; staging_and_zip_not_run",
+  "manifest_self_hash": "omitted_to_avoid_self_reference"
+}
