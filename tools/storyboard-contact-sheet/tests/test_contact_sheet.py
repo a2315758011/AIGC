@@ -129,6 +129,16 @@ class ContactSheetTests(unittest.TestCase):
         self.assertTrue(output.is_file())
         self.assertEqual(result["panel_count"], 4)
 
+    def test_cli_generates_contact_sheet(self):
+        manifest, _ = self.make_manifest()
+        output = self.root / "cli-sheet.png"
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            code = main(["--manifest", str(manifest), "--output", str(output)])
+        self.assertEqual(code, 0)
+        self.assertTrue(output.is_file())
+        self.assertIn('"ok": true', stdout.getvalue())
+
 
 if __name__ == "__main__":
     unittest.main()
