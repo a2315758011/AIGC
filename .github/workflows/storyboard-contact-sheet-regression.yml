@@ -1,0 +1,31 @@
+name: Storyboard Contact Sheet Regression
+
+on:
+  push:
+    paths:
+      - "tools/storyboard-contact-sheet/**"
+      - ".github/workflows/storyboard-contact-sheet-regression.yml"
+  pull_request:
+    paths:
+      - "tools/storyboard-contact-sheet/**"
+      - ".github/workflows/storyboard-contact-sheet-regression.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contact-sheet-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check "Pillow>=10,<14"
+      - name: Run contact-sheet regression tests
+        working-directory: tools/storyboard-contact-sheet
+        run: python -m unittest discover -s tests -v
