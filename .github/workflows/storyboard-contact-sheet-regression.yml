@@ -4,11 +4,13 @@ on:
   push:
     paths:
       - "tools/storyboard-contact-sheet/**"
+      - "tools/storyboard-vfx-overlay/**"
       - "skills/storyboard-contact-sheet-cn/**"
       - ".github/workflows/storyboard-contact-sheet-regression.yml"
   pull_request:
     paths:
       - "tools/storyboard-contact-sheet/**"
+      - "tools/storyboard-vfx-overlay/**"
       - ".github/workflows/storyboard-contact-sheet-regression.yml"
   workflow_dispatch:
 
@@ -37,3 +39,10 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Run skill contract tests
         run: python -m unittest discover -s skills/storyboard-contact-sheet-cn/tests -v
+
+      - name: Install VFX overlay dependencies
+        working-directory: tools/storyboard-vfx-overlay
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
+      - name: Run VFX overlay regression tests
+        working-directory: tools/storyboard-vfx-overlay
+        run: python -m unittest discover -s tests -v
