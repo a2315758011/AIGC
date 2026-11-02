@@ -85,7 +85,8 @@
       "已读取第三方 Skill 正文、关键 references、透明渲染脚本和 MIT LICENSE",
       "已建立系统 UI/VFX 参数合同、生产流程、验收门禁和回归样例",
       "已回读全部 10 个仓库文件；frontmatter、引用路径、README/AGENTS 路由和源指令/研究记录 SHA 一致",
-      "已新增可交互掌心系统面板 HTML 原型；原型源码含 DOM 文本、SVG 分层、Canvas 粒子、参数控件和动画状态机"
+      "已新增可交互掌心系统面板 HTML 原型；原型源码含 DOM 文本、SVG 分层、Canvas 粒子、参数控件和动画状态机",
+      "已新增可交互掌心系统面板 HTML 原型；含真实 DOM 文本、SVG 分层、Canvas 粒子、参数控件和动画状态机"
     ],
     "not_tested": [
       "未在 ChatCut 项目中创建或编辑真实 Motion Graphic",
@@ -101,39 +102,39 @@
   "files_manifest": [
     {
       "path": "SKILL.md",
-      "blob_sha": "626b2370d90614b50e36b6fe9160b0e7bb67a672",
+      "blob_sha": "fbdbba8119e44ba0fa45512fc331d271633a19a6",
       "size": 5671,
-      "sha256": "14b2e30622e3ca5eaf0775cc9c7927ed140c38755d05e2e274a4478d599c1304"
+      "sha256": "72ed29ede2c43052e83056215d5ca21eb7663d4abf3279602ccff99280954a36"
     },
     {
       "path": "references/制作流程与工具选择.md",
       "blob_sha": "c7f55a87ce99565011744d0c1622b03eaa791ba7",
       "size": 5181,
-      "sha256": "ff4efc4ce0515b525caba0b6af593ed2377c28c060dc1ee687df46c310afda87"
+      "sha256": "44695b19f4c33b8daabcf442410f4e719e70bc8bd8d62ca5e91b8d94bc33e290"
     },
     {
       "path": "references/参数化数据合同.md",
       "blob_sha": "52d14b15b7e3ef301db4e039875e664e92bb6964",
       "size": 2516,
-      "sha256": "1218a46d2dce0446534500916089292a1621651b574d53b307fdd24999ace723"
+      "sha256": "4191b6d665b88a4807b16b2a57c4eff10d0cae3bf15e96d32b823387ae338d6b"
     },
     {
       "path": "references/验收与失败诊断.md",
       "blob_sha": "c708f3a56d595a608205b60ec220c01c7b52a01d",
       "size": 3414,
-      "sha256": "d9452be5a138bb9ea05c72fc50720c6026afeefb61a971179dd86d6cef69167f"
+      "sha256": "0e777543c1f1eaf59655a02a3de55025fb86793dcb964f1356acdeea4a2ea7b2"
     },
     {
       "path": "tests/系统UI与粒子回归样例.md",
       "blob_sha": "d7441ee8349506bca24c34b01c5f6d08c9f54d75",
       "size": 2419,
-      "sha256": "16ffb773a68f5eb424afaf27c11fd28eebaa361dec3ec3cffebd1ac52e172fad"
+      "sha256": "c369535d1ff8c63464d17c5372d764ff9e399d6fe7c075e3ac5dca6cd9e0981e"
     },
     {
       "path": "examples/palm-system-panel-demo.html",
       "blob_sha": "ea1ff84c9dc3b6610ecad83ed93d63e33b308bfe",
       "size": 20105,
-      "sha256": "a9fedca40f9cc89ab701c3f40a34fcfe2a94d151391c3558f1f46ac1c816c60e"
+      "sha256": "cb0cc07cfc1a71c64689b28d945ce67c43929d6bb3f1cb6de646bd83ea361c77"
     }
   ],
   "artifact_version": "1.0.1"
