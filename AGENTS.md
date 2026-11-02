@@ -98,3 +98,7 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 - 结构化导演台/多视角身份锚点仅有源码与论文静态证据；目标工作站未安装运行，消费级视频模型支持情况未验证。
 
 每次实际调用仍须回读当前 main 的专业 Skill、references、scripts、tests 并核对 Git Blob SHA；发现版本漂移时停止使用陈旧摘要。共享 Generation Gateway 当前 `SERVICE_NOT_RUNNING`，提供程序最近启动状态为 `0x80000003`；真实图像/视频 A/B 仍为 NOT_RUN。`fight-impact-vfx-cn` 仍为 `authored_pending_review`，不得声称真实视频或后期验收通过。
+
+
+## 多宫格视觉分镜 Skill 路由
+用户要求 4格/9格/12格/25格影视、漫剧或广告分镜联系表时，读取 `skills/storyboard-contact-sheet-cn/SKILL.md`。默认独立逐格生成，联系表程序只负责排版和标注。整图生成不得冒充逐格验收。正式漫画页面仍走 `comic-production-director-cn`。
