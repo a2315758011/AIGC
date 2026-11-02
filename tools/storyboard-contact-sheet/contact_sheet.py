@@ -82,7 +82,7 @@ def resolve_frame(root: Path, name: str) -> Path:
 def load_font(font_path, labels, size):
     candidates = [font_path] if font_path else [
         r"C:\Windows\Fonts\msyh.ttc", r"C:\Windows\Fonts\arial.ttf",
-        "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc", "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
         "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "/Library/Fonts/Arial.ttf"]
     for candidate in candidates:
         if not candidate:
