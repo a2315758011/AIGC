@@ -6,6 +6,23 @@
 
 任务分类、专业技能边界、跨技能依赖、共享事实合同、质量门禁和研究采纳证据等级，统一遵循 [AIGC知识结构总图与跨技能调用规范](./docs/知识体系/AIGC知识结构总图与跨技能调用规范-V1.md)。本文件负责执行路由；总索引负责解释体系；专业 Skill 负责具体规则。三者不得互相复制成多套标准。
 
+## 系统 UI 与程序化特效任务
+
+用户要求制作漫剧系统界面、全息 HUD、属性面板、技能卡、提示窗、魔法符号、程序化粒子、能量纹理或透明特效叠加层时，必须读取：
+- [漫剧系统 UI 与程序化特效制作规范](./docs/漫剧系统UI与程序化特效制作规范-V1.md)
+- [系统 UI/VFX 专项研究档案](./docs/Deepresearch/2026-11-02_漫剧粒子特效与系统UI可控制作Skill专项研究.md)
+- [系统 UI/VFX 专业 Skill](./skills/system-ui-vfx-cn/SKILL.md)（建立后作为专业执行入口）
+- 用户私人仓库现有 [ChatCut Motion Graphics Skill](https://github.com/a2315758011/ai-skills/blob/main/skills/chatcut-motion-graphics/SKILL.md)，如需调用 ChatCut 直接 JSX 工作流。
+
+职责路由：
+- UI 组件、文字/数值、动画、2D 粒子和透明叠加：使用 system-ui-vfx-cn。
+- 打斗接触、受力、命中特效因果：同时调用 fight-impact-vfx-cn，但不重复定义其动作规则。
+- 人物/道具锚点、空间位置、遮挡事实：读取共享 SCG 和 storyboard-director-cn。
+- 摄影机运动改变画面投影时，联读 camera-motion-director-cn；不得擅自改变人物世界坐标。
+- 需要人物跟踪、遮罩、透视合成时，按需评估 After Effects 或其他后期工具；不得默认要求安装商业软件。
+
+生产优先级：先复用 ChatCut 直接 JSX 和时间线；透明 Alpha 先检查 ChatCut 账户权限及真实导出；小型 2D 粒子用 Canvas；只有确有性能/视觉需要才引入 Three.js/Shader；精细人物遮挡才进入后期跟踪合成。不得把研究候选写成已安装或已通过目标镜头验收。
+
 ## 导演统筹任务
 ## 专业漫画制作任务
 
