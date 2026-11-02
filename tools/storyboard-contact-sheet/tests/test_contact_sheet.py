@@ -20,7 +20,7 @@ class ContactSheetTests(unittest.TestCase):
         panels = []
         for i in range(1, count + 1):
             name = f"frame_{i:02d}.png"
-            Image.new("RGB", (320, 180), (i * 7, i * 11, i * 13)).save(self.root / name)
+            Image.new("RGB", (320, 180), (i * 7 % 256, i * 11 % 256, i * 13 % 256)).save(self.root / name)
             panels.append({"order": i, "shot_id": f"SHOT-{i:02d}", "image": name,
                            "timecode": f"00:00:{i:02d}"})
         data = {"layout": layout, "panel_size": [320, 180], "gutter": 4,
