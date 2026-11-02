@@ -1,6 +1,6 @@
 {
   "skill": "comic-production-director-cn",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "authoritative_sources": [
     {
       "path": "docs/漫画专业制作与出版总规范-V1.md",
@@ -38,7 +38,7 @@
   "skill_files": [
     {
       "path": "skills/comic-production-director-cn/SKILL.md",
-      "git_blob_sha": "6eb5ce9217490cb432ae81f3ebcdb2fa062f49fb"
+      "git_blob_sha": "91b5d0c2b0e126d75cc226834c8722767b8b5a2e"
     },
     {
       "path": "skills/comic-production-director-cn/references/外部项目采纳矩阵-V1.md",
@@ -78,7 +78,7 @@
     },
     {
       "path": "skills/comic-production-director-cn/ARTIFACT_MANIFEST.json",
-      "git_blob_sha": "c64f17c5eada18096e32f3aa8b01274dd8321f7a"
+      "git_blob_sha": "5bbb80a137aaaefa29e094ebeca6a2429306b857"
     },
     {
       "path": "skills/comic-production-director-cn/references/TT_AutoManga安全隔离审查-V1.md",
@@ -193,7 +193,8 @@
     "github_actions_job": "validate",
     "tool_candidate_review": "PASS_GITHUB_SOURCE_READBACK",
     "local_tool_installation": "NOT_RUN_WINDOWS_MCP_UNAVAILABLE",
-    "image_cleanup_e2e": "NOT_RUN"
+    "image_cleanup_e2e": "NOT_RUN",
+    "art_direction_gate": "ADDED_NOT_RUNTIME_TESTED"
   },
   "note": "Git blob identifiers are SHA-1 from GitHub Contents API, not SHA-256 artifact hashes. MOONKEEP ZIPs were materialized read-only; both internal SHA-256 manifests verified. V1.1 is explicitly a re-generated visual sample and is not source-preserving restoration. CTD/LaMa and agent-comic-kit were source-audited but not installed or executed. The 6/6 contract tests were run in a replicated isolated fixture; committed script/tests and GitHub Actions have not yet run. Platform export profiles were added as machine-readable JSON. The 8/8 contract cases and platform policy guard cases were run against a replicated isolated fixture in the analysis runtime; the committed files and GitHub Actions job have not yet run. Professional western-comic lettering and page-reading rules were added from Clip Studio Paint official guidance, Blambot, and CorelDRAW. Skill bumped to v1.2.0. The contract logic is validated in an isolated replicated fixture; committed test files and GitHub Actions remain unexecuted. Additional independent test execution found a stale negative-test fixture targeting version 1.0.0 while the skill was 1.2.0; corrected to target 1.2.0. Isolated Python unittest then passed 8/8. QC cases passed 4/4 in isolated Python. Windows PC MCP write channel failed during temporary test-file staging; no local external tools were installed or run. V1.2.1 fixes the missing explicit reference to the first-batch external research document discovered by independently re-running the source-reference validator. Skill manifest and source lock updated. All required references now pass static checks. V1.2.2 adds TT_AutoManga source security review. Identified startup orphan-asset deletion risk and unauthenticated loopback API; do not expose 5180 via public/Tailscale MCP and do not connect to MOONKEEP data. Workstation Python 3.11 has FastAPI/Pydantic/httpx/Pillow/torch but lacks pytest and MCP SDK; SwarmUI 7801 and ComfyUI 8188 did not respond. No dependencies installed or model downloads performed. V1.2.3 adds mandatory security boundary rules for external comic tools and regression tests. Independently executed isolated Python unit suite: 9/9 PASS. Static readback confirms required source references and platform policy guards. No external comic software installed or run. GitHub Actions Comic Production Skill Regression run #80 (run_id 41331297738) completed successfully on commit 099ae1cba602867ef144403e88407721e171f4f1. The validate job passed both source contract validation and positive/negative contract tests. Manifest and skill index were updated to reflect v1.2.3 and the CI evidence. V1.2.4 adds a third-party tool comparison for Carrot Manga Translator, Lumina, KŌMA Studio and archived IOPaint. Carrot is the first local test candidate; Windows MCP was unavailable, so no install/runtime claim is made. Two GPT image-generation attempts produced plot-mismatched bandaging scenes and were rejected."
 }
