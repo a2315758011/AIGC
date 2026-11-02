@@ -17,7 +17,7 @@
 ```powershell
 python -m pip install -r requirements.txt
 python contact_sheet.py --manifest manifest.json --output contact-sheet.png
-python contact_sheet.py --manifest manifest.json --output contact-sheet.png --validate-only
+python contact_sheet.py --manifest manifest.json --validate-only
 ```
 
 ## 清单格式
