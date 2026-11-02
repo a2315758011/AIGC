@@ -32,8 +32,9 @@
       "package": "director-previs-cn",
       "version": "1.4.1",
       "path": "skills/director-previs-cn/SKILL.md",
-      "git_blob_sha": "7dad6576c61e3927faa00996bdfa870ffceb8ace",
-      "authority": "跨专业统筹与共享事实交接"
+      "git_blob_sha": "b5dd67968bdb339678974eafee349dcfe914672a",
+      "authority": "跨专业统筹与共享事实交接",
+      "source_lock_git_blob_sha": "6787ee2d60831215d088a7114e88e6dc2f2ffeca"
     }
   ],
   "upstream_references": [
