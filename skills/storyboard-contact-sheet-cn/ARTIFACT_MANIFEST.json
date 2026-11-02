@@ -9,8 +9,8 @@
       "path": "SKILL.md",
       "purpose": "Skill入口与可执行流程",
       "required": true,
-      "bytes": 6704,
-      "sha256": "5dc5896b98d6d8fdbdaa8e525f6a97c251fdd4d86bc40fac91c42141ee8f7fe0",
+      "bytes": 7887,
+      "sha256": "969369fa01fa710558998f4d0bab9aa3b6dbd5520c906c4bb1d0894625ce5e60",
       "verify": "front matter、工作流章节、上游路由"
     },
     {
@@ -18,7 +18,7 @@
       "purpose": "中文使用说明",
       "required": true,
       "bytes": 1860,
-      "sha256": "\u0039fa765c4787cf7ebb75a09732480fe26351f2f5a90a06e5d247d55e63fdd069a",
+      "sha256": "9fa765c4787cf7ebb75a09732480fe26351f2f5a90a06e5d247d55e63fdd069a",
       "verify": "文件存在及内容审查"
     },
     {
