@@ -1,7 +1,7 @@
 {
   "schema": "skill-artifact-manifest-v1",
   "skill": "comic-production-director-cn",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "generated_from": "GitHub main; all listed files fetched and checked by GitHub Contents API",
   "files": [
     {
@@ -69,6 +69,11 @@
       "required": true,
       "git_blob_sha": "d9b48bf43cd335b9b8fe11546aebd7bf370d07c5",
       "character_count": 4413
+    },
+    {
+      "path": "references/欧美商业漫画美术与气泡排字验收标准-V1.md",
+      "status": "added",
+      "git_blob_sha": "14b2e3c411432a848c4feb8b1448e3d890b19f04"
     }
   ],
   "excluded_from_file_hash_list": [
@@ -103,7 +108,8 @@
     },
     "tool_candidate_review": "PASS_GITHUB_SOURCE_READBACK",
     "local_tool_installation": "NOT_RUN_WINDOWS_MCP_UNAVAILABLE",
-    "art_direction_gate": "ADDED_NOT_RUNTIME_TESTED"
+    "art_direction_gate": "ADDED_NOT_RUNTIME_TESTED",
+    "balloon_geometry_gate": "DOCUMENTED_NOT_RUNTIME_TESTED"
   },
   "packaging": {
     "zip_created": false,
