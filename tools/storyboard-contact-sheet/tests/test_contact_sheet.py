@@ -85,6 +85,30 @@ class ContactSheetTests(unittest.TestCase):
         render(manifest, self.root / "sheet.png")
         self.assertEqual(source.read_bytes(), before)
 
+    def test_twelve_panel_landscape_and_portrait_layouts(self):
+        for layout in ("3x4", "4x3"):
+            with self.subTest(layout=layout):
+                manifest, _ = self.make_manifest(layout, 12)
+                output = self.root / f"{layout}.png"
+                result = render(manifest, output)
+                self.assertEqual(result["panel_count"], 12)
+                self.assertTrue(output.is_file())
+
+    def test_duplicate_resolved_frame_path_rejected(self):
+        manifest, data = self.make_manifest()
+        data["panels"][1]["image"] = "./frame_01.png"
+        manifest.write_text(json.dumps(data), encoding="utf-8")
+        with self.assertRaisesRegex(ManifestError, "duplicate resolved"):
+            render(manifest, self.root / "bad.png")
+
+    def test_overlong_label_rejected(self):
+        manifest, data = self.make_manifest()
+        data["panel_size"] = [64, 64]
+        data["panels"][0]["shot_id"] = "SHOT-" + ("X" * 80)
+        manifest.write_text(json.dumps(data), encoding="utf-8")
+        with self.assertRaisesRegex(ManifestError, "too wide"):
+            render(manifest, self.root / "bad.png")
+
 
 if __name__ == "__main__":
     unittest.main()
