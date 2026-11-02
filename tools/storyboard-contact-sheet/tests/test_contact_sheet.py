@@ -20,10 +20,10 @@ class ContactSheetTests(unittest.TestCase):
         panels = []
         for i in range(1, count + 1):
             name = f"frame_{i:02d}.png"
-            Image.new("RGB", (120, 80), (i * 7, i * 11, i * 13)).save(self.root / name)
+            Image.new("RGB", (320, 180), (i * 7, i * 11, i * 13)).save(self.root / name)
             panels.append({"order": i, "shot_id": f"SHOT-{i:02d}", "image": name,
                            "timecode": f"00:00:{i:02d}"})
-        data = {"layout": layout, "panel_size": [120, 80], "gutter": 4,
+        data = {"layout": layout, "panel_size": [320, 180], "gutter": 4,
                 "margin": 4, "label_height": 24, "panels": panels}
         path = self.root / "manifest.json"
         path.write_text(json.dumps(data), encoding="utf-8")
@@ -33,7 +33,7 @@ class ContactSheetTests(unittest.TestCase):
         manifest, _ = self.make_manifest()
         output = self.root / "sheet.png"
         result = render(manifest, output)
-        self.assertEqual(result["size"], [2*4 + 2*120 + 4, 2*4 + 2*(80+24) + 4])
+        self.assertEqual(result["size"], [2*4 + 2*320 + 4, 2*4 + 2*(180+24) + 4])
         self.assertEqual(result["ordered_shot_ids"], ["SHOT-01", "SHOT-02", "SHOT-03", "SHOT-04"])
         self.assertTrue(output.is_file())
 
@@ -42,12 +42,12 @@ class ContactSheetTests(unittest.TestCase):
         output = self.root / "sheet25.png"
         result = render(manifest, output)
         self.assertEqual(result["panel_count"], 25)
-        self.assertEqual(result["size"], [2*4 + 5*120 + 4*4, 2*4 + 5*(80+24) + 4*4])
+        self.assertEqual(result["size"], [2*4 + 5*320 + 4*4, 2*4 + 5*(180+24) + 4*4])
         with Image.open(output) as sheet:
             # First cell and last cell retain the expected source-frame colors.
-            self.assertEqual(sheet.getpixel((4+60, 4+40)), (7, 11, 13))
-            x_last = 4 + 4*(120+4) + 60
-            y_last = 4 + 4*(80+24) + 40
+            self.assertEqual(sheet.getpixel((4+160, 4+90)), (7, 11, 13))
+            x_last = 4 + 4*(320+4) + 160
+            y_last = 4 + 4*(180+24) + 90
             self.assertEqual(sheet.getpixel((x_last, y_last)), (175, 275 % 256, 325 % 256))
 
     def test_duplicate_order_rejected(self):
