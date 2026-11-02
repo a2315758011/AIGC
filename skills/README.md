@@ -29,6 +29,13 @@
 
 - [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，保留原有版本和程序校验资产。
 
+## 系统 UI 与程序化特效专项
+
+- [system-ui-vfx-cn](./system-ui-vfx-cn/) V1.0.0：系统 UI、全息 HUD、属性/技能面板、程序化粒子、能量纹理、透明 Alpha、人物锚点/遮挡与跨镜连续性；以 ChatCut 直接 JSX 为首选，不重复建设时间线。
+- [权威制作规范](../docs/漫剧系统UI与程序化特效制作规范-V1.md)：系统 UI/VFX 内容真值、分层、参数、时间复现、空间合成和验收门禁。
+- [专项研究档案](../docs/Deepresearch/2026-11-02_漫剧粒子特效与系统UI可控制作Skill专项研究.md)：第三方技能、许可证、ChatCut 官方能力和技术路线研究。
+- 当前状态：技能文件与结构已建立；真实 ChatCut 运行、Alpha 导出、人物遮挡和跨镜验收尚未完成。
+
 ## 漫剧粒子特效与系统 UI（研究候选，未正式采纳）
 
 - [漫剧粒子特效与系统 UI 可控制作 Skill 专项研究](../docs/Deepresearch/2026-11-02_漫剧粒子特效与系统UI可控制作Skill专项研究.md)：第三方 Motion Graphics、UI Animation、After Effects 合成、Niagara、Shader、Remotion 候选技能的来源、能力、许可证边界、适配判断与下一轮验证计划。当前属于研究资料，不代表已安装或真实镜头验收通过。
