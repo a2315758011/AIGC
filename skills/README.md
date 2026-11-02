@@ -35,7 +35,7 @@
 
 ## 系统 UI 与程序化特效专项
 
-- [system-ui-vfx-cn](./system-ui-vfx-cn/) V1.0.0：系统 UI、全息 HUD、属性/技能面板、程序化粒子、能量纹理、透明 Alpha、人物锚点/遮挡与跨镜连续性。
+- [system-ui-vfx-cn](./system-ui-vfx-cn/) V1.0.1：系统 UI、全息 HUD、属性/技能面板、程序化粒子、能量纹理、透明 Alpha、人物锚点/遮挡与跨镜连续性。
 - [掌心系统面板交互原型](./system-ui-vfx-cn/examples/palm-system-panel-demo.html)：可编辑 DOM/SVG/Canvas 原型，支持数值升级、粒子控制、主题色、面板锚点和前景手指 matte。
 - [回归样例](./system-ui-vfx-cn/tests/系统UI与粒子回归样例.md)：覆盖参数控制、动画状态、遮挡、透明导出和移动端布局。
 - [权威制作规范](../docs/漫剧系统UI与程序化特效制作规范-V1.md)：内容真值、分层、参数、时间复现、空间合成和验收门禁。
