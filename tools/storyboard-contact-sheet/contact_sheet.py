@@ -149,7 +149,7 @@ def render(manifest_path: Path, output_path: Path, font_path=None):
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Create a deterministic storyboard contact sheet.")
     parser.add_argument("--manifest", required=True, type=Path)
-    parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--output", type=Path)
     parser.add_argument("--font")
     parser.add_argument("--validate-only", action="store_true")
     args = parser.parse_args(argv)
@@ -162,6 +162,8 @@ def main(argv=None):
                     im.verify()
             print(json.dumps({"valid": True, "layout": data["layout"], "panel_count": len(panels)}, ensure_ascii=False))
         else:
+            if args.output is None:
+                parser.error("--output is required unless --validate-only is used")
             print(json.dumps({"ok": True, **render(args.manifest, args.output, args.font)}, ensure_ascii=False))
         return 0
     except ManifestError as exc:
