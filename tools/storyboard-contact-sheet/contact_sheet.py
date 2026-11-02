@@ -57,9 +57,9 @@ def read_manifest(path: Path):
             raise ManifestError(f"panels[{i}].image is required")
         if not isinstance(p.get("timecode", ""), str):
             raise ManifestError(f"panels[{i}].timecode must be text")
-        if order in orders or sid in ids or image.replace("\\\\", "/") in images:
+        if order in orders or sid in ids or image.replace(chr(92), "/") in images:
             raise ManifestError("duplicate order, shot_id or source image")
-        orders.add(order); ids.add(sid); images.add(image.replace("\\\\", "/"))
+        orders.add(order); ids.add(sid); images.add(image.replace(chr(92), "/"))
     if orders != set(range(1, count + 1)):
         raise ManifestError(f"orders must be contiguous 1..{count}")
     return data, sorted(panels, key=lambda p: p["order"])
