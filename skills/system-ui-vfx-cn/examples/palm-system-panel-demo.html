@@ -20,7 +20,7 @@ body{display:grid;place-items:center;padding:20px}
 .hand .crease{fill:none;stroke:rgba(68,49,48,.48);stroke-width:3;stroke-linecap:round}
 .hand .rim{fill:none;stroke:rgba(255,224,205,.45);stroke-width:5;stroke-linecap:round}
 .palm-glow{position:absolute;left:49%;top:47%;width:28%;height:17%;z-index:1;border-radius:50%;background:radial-gradient(ellipse,rgba(var(--cyan-rgb),.3),transparent 70%);filter:blur(12px);transform:rotate(-10deg)}
-#particleCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+#particleCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
 .panel-anchor{position:absolute;left:61%;top:68%;width:42%;z-index:4;transform:translate(calc(-50% + var(--panel-x)),calc(-50% + var(--panel-y))) scale(var(--panel-scale));transform-origin:50% 50%;perspective:900px;transition:opacity .35s,filter .35s}
 .panel-anchor.hidden{opacity:0;pointer-events:none;filter:blur(8px)}
 .panel{position:relative;padding:12px 13px 11px;border:1px solid rgba(var(--cyan-rgb),.8);border-radius:8px;background:linear-gradient(135deg,rgba(8,28,43,.92),rgba(9,42,58,.76));box-shadow:0 0 18px rgba(var(--cyan-rgb),.2),inset 0 0 24px rgba(var(--cyan-rgb),.07);clip-path:polygon(0 0,94% 0,100% 12%,100% 100%,6% 100%,0 88%);backdrop-filter:blur(7px);animation:panelFloat 3.8s ease-in-out infinite}
