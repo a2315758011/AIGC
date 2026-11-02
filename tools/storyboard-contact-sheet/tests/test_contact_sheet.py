@@ -1,11 +1,13 @@
+import io
 import json
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 
 from PIL import Image
 
-from contact_sheet import ManifestError, render
+from contact_sheet import ManifestError, main, render
 
 
 class ContactSheetTests(unittest.TestCase):
@@ -108,6 +110,15 @@ class ContactSheetTests(unittest.TestCase):
         manifest.write_text(json.dumps(data), encoding="utf-8")
         with self.assertRaisesRegex(ManifestError, "too wide"):
             render(manifest, self.root / "bad.png")
+
+    def test_validate_only_needs_no_output_path(self):
+        manifest, _ = self.make_manifest()
+        output = io.StringIO()
+        with redirect_stdout(output):
+            code = main(["--manifest", str(manifest), "--validate-only"])
+        self.assertEqual(code, 0)
+        self.assertIn('"valid": true', output.getvalue())
+        self.assertFalse((self.root / "contact-sheet.png").exists())
 
 
 if __name__ == "__main__":
