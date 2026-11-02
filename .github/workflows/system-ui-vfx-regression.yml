@@ -77,7 +77,7 @@ jobs:
             assert.equal(await page.locator('#systemPanel').evaluate(e=>e.classList.contains('scan-off')),true);
             const layers=await page.evaluate(()=>[+getComputedStyle(document.querySelector('#particleCanvas')).zIndex,+getComputedStyle(document.querySelector('#panelAnchor')).zIndex]);
             assert.ok(layers[0]<layers[1],'particles must not cover UI text');
-            await page.locator('#upgradeButton').click();assert.equal(await page.locator('#levelValue').textContent(),'Lv.13');assert.equal(await page.locator('#energyValue').textContent(),'88%');
+            await page.locator('#upgradeButton').click();assert.equal(await page.locator('#levelValue').textContent(),'Lv.13');assert.equal(await page.locator('#energyValue').textContent(),'88%');assert.ok(await page.evaluate(()=>window.__systemUiDemo.getParticleCount())>0,'upgrade event must emit particles');
             await page.locator('#hideButton').click();assert.equal(await page.locator('#panelAnchor').evaluate(e=>e.classList.contains('hidden')),true);await page.waitForFunction(()=>getComputedStyle(document.querySelector('#panelAnchor')).opacity==='0');
             await page.locator('#resetButton').click();assert.equal(await page.locator('#levelValue').textContent(),'Lv.12');
             await page.locator('#playButton').click();assert.equal(await page.locator('#phaseChip').textContent(),'面板展开');
