@@ -5,11 +5,11 @@
   "manifestFile": "artifact-manifest.json",
   "files": [
     {"path":"SKILL.md","required":true,"size":5671,"sha256":"99da4ee0791e659ee1f504bfe58ed6d8112c8df64d678fe8331cd37a35c6768d"},
-    {"path":"SOURCE_LOCK.json","required":true,"size":6281,"sha256":"37e52d5912bb47783d3d88190485f19a72dafdfcc18e956b71cb1f59218ab642"},
+    {"path":"SOURCE_LOCK.json","required":true,"size":6418,"sha256":"aad5d5226a18c8bd4e2bb385c559cc0b20b60019b4386b26561a71553d53a37c"},
     {"path":"references/制作流程与工具选择.md","required":true,"size":5181,"sha256":"ff4efc4ce0515b525caba0b6af593ed2377c28c060dc1ee687df46c310afda87"},
     {"path":"references/参数化数据合同.md","required":true,"size":2516,"sha256":"1218a46d2dce0446534500916089292a1621651b574d53b307fdd24999ace723"},
     {"path":"references/验收与失败诊断.md","required":true,"size":3414,"sha256":"d9452be5a138bb9ea05c72fc50720c6026afeefb61a971179dd86d6cef69167f"},
     {"path":"tests/系统UI与粒子回归样例.md","required":true,"size":2419,"sha256":"16ffb773a68f5eb424afaf27c11fd28eebaa361dec3ec3cffebd1ac52e172fad"},
-    {"path":"examples/palm-system-panel-demo.html","required":true,"size":20011,"sha256":"3be574dd2a6506920c6b2d93f5be939ab115952c0c5b7335839f3c6104d8e2af"}
+    {"path":"examples/palm-system-panel-demo.html","required":true,"size":19980,"sha256":"c031a48c7df199c6efab2074103702cef7fa346dcd9147998f91b4e53fc879ee"}
   ]
 }
