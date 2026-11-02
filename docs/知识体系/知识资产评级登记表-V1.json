@@ -645,8 +645,8 @@
       "evidence_level": "E1-E2（规则与样例已建；首轮 GPT 原生生图出现皮肤裂纹式误表现，修订后复测未获得可用图像）",
       "claim": "逐镜锁定真人实拍媒介、检查实际画面内容、保留剧本事实并对不适合直观呈现的细节采用非图像化电影表达，可减少风格漂移和因画面细节导致的失败风险；不能保证模型接受。",
       "basis": "参考 toyme/storyboard-skill 的逐镜结构化提示词、连续性检查、局部修复和安全检查清单；参考 cajias/agentic-video-skills cinematic-director 的导演意图、演员调度、镜头主动作与生成失败诊断方法。仓库新增原创中文 Skill、转换矩阵、真人视觉锁定规范和四镜头静态回归样例。",
-      "verified_scope": "仓库文件、路由和哈希可回读；7-1-13 首轮两张生成图已观察到真人摄影风格，但能量印记误呈皮肤裂纹；第三次图像不可用。",
-      "not_verified_scope": "修订后图像表现、GPT 原生生图接受率、人物跨镜一致性、其余三镜真实生成效果和盲评。",
+      "verified_scope": "仓库规则与路由已回读；7-1-13 两次独立单张图均具备初步真人影视摄影质感，但两次均将能量印记画成裂纹/皮肤破损式形态；单张输出能力已实测。",
+      "not_verified_scope": "能量印记无伤口表达、其余三镜真实生成、人物跨镜一致性、正式盲评及平台接受率。",
       "sources": [
         "skills/live-action-safety-storyboard-cn/SKILL.md",
         "skills/live-action-safety-storyboard-cn/references/安全视觉转换矩阵-V1.md",
@@ -681,7 +681,7 @@
         },
         {
           "path": "skills/live-action-safety-storyboard-cn/tests/执行记录_20261102.md",
-          "git_blob_sha": "86b1afb09d65a5fac7d20e1152fb739e5695369c"
+          "git_blob_sha": "dfaaafaf8d6b6d3b6a5233c9172f6168baafdab5"
         },
         {
           "path": "skills/live-action-safety-storyboard-cn/SOURCE_LOCK.json",
@@ -693,7 +693,7 @@
         "https://github.com/cajias/agentic-video-skills/tree/master/plugins/cinematic-director/skills/cinematic-director"
       ],
       "usage": "当用户说“真人安全分镜”或提出 GPT 原生生图真人影视分镜及虚构暴力画面处理时调用。仅对不适合直观呈现的细节进行合规非图像化转换；禁止使用隐语绕过审核。实际生成后必须独立验收。",
-      "status": "INITIAL_IMAGE_TEST_FAILED_PROMPT_REVISED_FULL_VALIDATION_PENDING"
+      "status": "SINGLE_IMAGE_OUTPUT_CONFIRMED_SIGIL_VISUAL_FAIL_2_OF_2"
     }
   ],
   "audit_snapshot": {
