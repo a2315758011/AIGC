@@ -139,6 +139,14 @@ class ContactSheetTests(unittest.TestCase):
         self.assertTrue(output.is_file())
         self.assertIn('"ok": true', stdout.getvalue())
 
+    def test_3x3_nine_panel_layout(self):
+        manifest, _ = self.make_manifest("3x3", 9)
+        output = self.root / "sheet9.png"
+        result = render(manifest, output)
+        self.assertEqual(result["panel_count"], 9)
+        self.assertEqual(result["layout"], "3x3")
+        self.assertTrue(output.is_file())
+
 
 if __name__ == "__main__":
     unittest.main()
