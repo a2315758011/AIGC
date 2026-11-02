@@ -1,6 +1,6 @@
 {
   "package": "director-previs-cn",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "date": "2026-11-02",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
@@ -176,6 +176,14 @@
       "path": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",
       "git_blob_sha": "c21fa189e568a9026a1b2845d3ee89318291f142",
       "authority": "统一项目时间基准、镜头区间、动作事件、前置依赖与互斥资源时码权威契约"
+    },
+    {
+      "package": "live-action-safety-storyboard-cn",
+      "version": "1.0.0",
+      "path": "skills/live-action-safety-storyboard-cn/SKILL.md",
+      "git_blob_sha": "65d83d656097c8493456ae414470b5960d09f375",
+      "source_lock_path": "skills/live-action-safety-storyboard-cn/SOURCE_LOCK.json",
+      "authority": "真人影视实拍风格锁定、GPT原生生图虚构暴力风险诊断、合规非图像化视觉转换和逐镜修复"
     }
   ],
   "excluded_candidates": [
