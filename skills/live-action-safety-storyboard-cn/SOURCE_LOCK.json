@@ -75,7 +75,9 @@
     "live_action_style_ab": "NOT_RUN",
     "four_shot_case_7-1-13_to_7-1-16": "NOT_RUN",
     "static_regression_fixture": "UPDATED_NOT_EXECUTED",
-    "four_shot_case_7_1_13_to_7_1_16": "NOT_PASSED; 7_1_13_PARTIAL_SAFETY_ONLY; 7_1_14_CONTEXT_DRIFT"
+    "four_shot_case_7_1_13_to_7_1_16": "NOT_PASSED; 7_1_13_PARTIAL_SAFETY_ONLY; 7_1_14_CONTEXT_DRIFT",
+    "shot_switch_7_1_13_to_7_1_14": "FAILED_REPEAT_PREVIOUS_SHOT_VISUAL",
+    "tool_isolation_requirement": "NEW_INDEPENDENT_SESSION_OR_TASK_REQUIRED; NOT_AVAILABLE_AS_VERIFIED_CONTROL_IN_CURRENT_FLOW"
   },
   "files": [
     {
@@ -104,7 +106,7 @@
     },
     {
       "path": "tests/执行记录_20261102.md",
-      "git_blob_sha": "1234a0d2a25a95c24406111562ee0d9dc31f446e"
+      "git_blob_sha": "0fbe4078524cecdd39d1008511a8fae334985b3b"
     }
   ]
 }
