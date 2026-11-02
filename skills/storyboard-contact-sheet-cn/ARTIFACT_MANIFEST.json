@@ -17,8 +17,8 @@
       "path": "README.md",
       "purpose": "中文安装与使用说明",
       "required": true,
-      "bytes": 1788,
-      "sha256": "e718f68d279ac1151e218a64a0bbc8196946e62c4eba8adc8ad52ac972821818",
+      "bytes": 1833,
+      "sha256": "eabcc8a2ff2503423ebfc7e74f8a454ad407ccbc92fc0b52ad367ec7ccae443b",
       "verify": "file existence and manual content review"
     },
     {
