@@ -2,7 +2,7 @@
 name: system-ui-vfx-cn
 description: 面向 AI 漫剧、AI 短剧和动画视频的系统 UI 与程序化特效制作技能。用于全息 HUD、系统弹窗、属性/技能面板、数值变化、魔法符号、扫描线、能量纹理、粒子、透明叠加层、人物锚定与遮挡、跨镜 UI 连续性及特效独立验收。
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   language: "zh-CN"
   source_repo: "a2315758011/AIGC"
 ---
