@@ -40,6 +40,8 @@
 - [回归样例](./system-ui-vfx-cn/tests/系统UI与粒子回归样例.md)：覆盖参数控制、动画状态、遮挡、透明导出和移动端布局。
 - [权威制作规范](../docs/漫剧系统UI与程序化特效制作规范-V1.md)：内容真值、分层、参数、时间复现、空间合成和验收门禁。
 - [专项研究档案](../docs/Deepresearch/2026-11-02_漫剧粒子特效与系统UI可控制作Skill专项研究.md)：第三方技能、许可证、ChatCut 官方能力和技术路线研究。
+- 调用口令：`制作漫剧系统UI特效`。自动加载 system-ui-vfx-cn，并按镜头事实调用 ChatCut Motion Graphics；不要求用户记住技能名。
+- [技能包 SHA-256 清单](./system-ui-vfx-cn/artifact-manifest.json)：用于暂存、压缩、解压后的完整性核验。
 - 当前状态：原型源码已提交；目标 ChatCut 运行、Alpha 导出、真实人物遮挡和跨镜验收仍待实测。
 
 
