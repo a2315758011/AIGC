@@ -81,7 +81,7 @@ def resolve_frame(root: Path, name: str) -> Path:
 
 def load_font(font_path, labels, size):
     candidates = [font_path] if font_path else [
-        r"C:\\Windows\\Fonts\\msyh.ttc", r"C:\\Windows\\Fonts\\arial.ttf",
+        r"C:\Windows\Fonts\msyh.ttc", r"C:\Windows\Fonts\arial.ttf",
         "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
         "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "/Library/Fonts/Arial.ttf"]
     for candidate in candidates:
@@ -104,6 +104,8 @@ def render(manifest_path: Path, output_path: Path, font_path=None):
     data, panels = read_manifest(manifest_path)
     root = manifest_path.parent
     frames = [resolve_frame(root, p["image"]) for p in panels]
+    if len(set(frames)) != len(frames):
+        raise ManifestError("duplicate resolved source frame")
     output_path = output_path.resolve()
     if output_path in frames or output_path == manifest_path:
         raise ManifestError("output cannot overwrite manifest or source frame")
@@ -120,6 +122,9 @@ def render(manifest_path: Path, output_path: Path, font_path=None):
     sheet = Image.new("RGB", (2*margin + cols*pw + (cols-1)*gap,
                               2*margin + rows*cell_h + (rows-1)*gap), bg)
     draw = ImageDraw.Draw(sheet)
+    for label in labels:
+        if draw.textbbox((0, 0), label, font=font)[2] > pw - 16:
+            raise ManifestError(f"label is too wide for panel cell: {label}")
     for i, (panel, frame_path, label) in enumerate(zip(panels, frames, labels)):
         try:
             with Image.open(frame_path) as src:
