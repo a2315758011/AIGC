@@ -96,7 +96,7 @@ python contact_sheet.py --manifest manifest.json --validate-only
 
 每次交付应包含独立原图、权威镜头 manifest、程序生成的 PNG 联系表、逐格审核结果与返工记录、生成模型/版本/参考资产/关键参数及未验证项。用户只要联系表时，可将独立画格放在同一交付目录，不必在聊天中逐张铺开，但不能删除独立源文件。
 
-## 7. 失败与状态规则
+## 8. 失败与状态规则
 
 - 源镜头数量与布局容量不一致：BLOCKED。
 - 镜号/顺序/源图重复：BLOCKED。
@@ -109,6 +109,6 @@ python contact_sheet.py --manifest manifest.json --validate-only
 
 状态必须区分 PASS / FAIL / BLOCKED / NOT_RUN。禁止把代码存在、CI 通过或一张好看的宫格图说成完整生产验收。
 
-## 8. 版本与当前限制
+## 9. 版本与当前限制
 
 版本 1.0.0 beta。当前已具备确定性联系表排版器和自动化回归；GPT 原生生图的逐格一致性、25 格生产 A/B、真实项目端到端生成仍需单独验收。未经测试，不得提升为 production-ready。
