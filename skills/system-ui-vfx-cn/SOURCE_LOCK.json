@@ -87,7 +87,8 @@
       "已回读全部 10 个仓库文件；frontmatter、引用路径、README/AGENTS 路由和源指令/研究记录 SHA 一致",
       "已新增可交互掌心系统面板 HTML 原型；原型源码含 DOM 文本、SVG 分层、Canvas 粒子、参数控件和动画状态机",
       "已新增可交互掌心系统面板 HTML 原型；含真实 DOM 文本、SVG 分层、Canvas 粒子、参数控件和动画状态机",
-      "修复面板显隐逻辑：移除覆盖 hidden class 的内联 opacity；粒子层下移到面板文字后方"
+      "修复面板显隐逻辑：移除覆盖 hidden class 的内联 opacity；粒子层下移到面板文字后方",
+      "CI 首轮浏览器测试暴露扫描线开关未切换 scan-off 状态；已修正为仅暂停扫描线，不影响面板浮动"
     ],
     "not_tested": [
       "未在 ChatCut 项目中创建或编辑真实 Motion Graphic",
@@ -133,9 +134,9 @@
     },
     {
       "path": "examples/palm-system-panel-demo.html",
-      "blob_sha": "abe2ea3e5b55164de311a16be81fef8f5803fc3a",
-      "size": 20011,
-      "sha256": "3be574dd2a6506920c6b2d93f5be939ab115952c0c5b7335839f3c6104d8e2af"
+      "blob_sha": "5aa6477217aa3979125708d4335070025f0a0cd9",
+      "size": 19980,
+      "sha256": "c031a48c7df199c6efab2074103702cef7fa346dcd9147998f91b4e53fc879ee"
     }
   ],
   "artifact_version": "1.0.1"
