@@ -69,8 +69,8 @@
     {
       "package_path": "SKILL.md",
       "source_path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "d3a5a37657ed20bbd6a69860a4580906319b8f32",
-      "characters": 3384
+      "git_blob_sha": "55573512271cc4e7e33438f3ec2cb7ef48f999dd",
+      "characters": 3456
     },
     {
       "package_path": "references/SCG骨骼姿态与接触约束扩展契约-V1.md",
@@ -87,8 +87,8 @@
     {
       "package_path": "README.md",
       "source_path": "README.md",
-      "git_blob_sha": "6445982109a2354f5991f9f3be142003f6dc639e",
-      "characters": 1655
+      "git_blob_sha": "01c36ad395964f3dc0b6a5b24c0c95c905d9040c",
+      "characters": 1737
     },
     {
       "package_path": "scripts/validate-facial-performance-continuity.cjs",
