@@ -1,6 +1,17 @@
 name: video-director-regression
 
 on:
+  push:
+    branches:
+      - "feat/video-director-cn-20261103"
+    paths:
+      - "AGENTS.md"
+      - "README.md"
+      - "skills/README.md"
+      - "skills/video-director-cn/**"
+      - "docs/代码动画与程序化视频制作规范-V1.md"
+      - "docs/知识体系/**"
+      - "docs/Deepresearch/2026-11-03_video-director程序化视频工作流审查与采纳.md"
   pull_request:
     paths:
       - "AGENTS.md"
