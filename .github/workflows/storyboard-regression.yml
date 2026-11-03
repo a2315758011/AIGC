@@ -4,7 +4,9 @@ on:
   pull_request:
     paths:
       - "剧本转分镜指令"
-      - "剧本转分镜自检指令"\n      - "分镜规则清单.json"\n      - "AGENTS.md"
+      - "剧本转分镜自检指令"
+      - "分镜规则清单.json"
+      - "AGENTS.md"
       - "skills/storyboard-director-cn/references/**"
       - "skills/storyboard-director-cn/SKILL.md"
       - "skills/storyboard-director-cn/README.md"
@@ -19,6 +21,8 @@ on:
     paths:
       - "剧本转分镜指令"
       - "剧本转分镜自检指令"
+      - "分镜规则清单.json"
+      - "AGENTS.md"
       - "skills/storyboard-director-cn/references/**"
       - "skills/storyboard-director-cn/SKILL.md"
       - "skills/storyboard-director-cn/README.md"
