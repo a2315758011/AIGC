@@ -248,6 +248,12 @@
       "git_blob_sha": "3ceea14dc427c1af16bba0384034ab59d9c36c3f",
       "sha256": "521fda9fa6b8a9485951eb07a393d0e2ca95d0b05f78af81db4052fbd85aec56",
       "size_bytes": 2269
+    },
+    {
+      "path": "tests/test_skill_package_contract.py",
+      "git_blob_sha": "c68c8fbf06d021cff0eeb7caef37ef989f523080",
+      "sha256": "f5d013a41d4453fba2fd514a705512d79888939dbd47888b9b05e0de3a21f6a6",
+      "size_bytes": 3148
     }
   ],
   "runtime": {
@@ -267,6 +273,6 @@
   "verification": {
     "status": "PENDING_CI",
     "target_production": "NOT_RUN",
-    "notes": "补齐上游 references/sources.md 后需重新运行包清单、适配器和 MP4 QA 回归。"
+    "notes": "补齐上游 sources.md 并新增包内引用/来源锁合同测试；需重新运行完整回归。"
   }
 }
