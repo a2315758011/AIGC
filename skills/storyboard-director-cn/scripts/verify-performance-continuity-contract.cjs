@@ -76,7 +76,7 @@ for (const marker of qaMarkers) {
 }
 if (qaMarkers.every((m) => rootQa.includes(m))) pass('QA rule contains all cross-segment facial-performance checks');
 
-if (!skill.includes('version: "1.3.6"') ||
+if (!skill.includes('version: "1.3.7"') ||
     !skill.includes('source_version: "V2.10.6"') ||
     !skill.includes('跨 10 秒或 15 秒生成段落的表演尾态继承')) {
   fail('SKILL metadata or execution contract is stale');
@@ -104,7 +104,7 @@ const writingRule = ruleMap.get('剧本转分镜指令');
 const qaRule = ruleMap.get('剧本转分镜自检指令');
 if (ruleIndex.source_version === 'V2.10.6' && writingRule?.version === 'V2.10.6' && qaRule?.version === 'V2.10.6' && writingRule?.git_blob_sha === '21282b2499fd2e3eb4b74aaa1659427a0c7b3867' && qaRule?.git_blob_sha === '8b0bfd485d31a7312abc8aedae9d30c698b74547') pass('rule index pins both V2.10.6 authority sources');
 else fail('rule index contains stale or mismatched authority pins');
-if (ruleIndex.skill?.version === '1.3.6' && ruleIndex.skill?.source_version === 'V2.10.6') pass('rule index pins storyboard Skill 1.3.6');
+if (ruleIndex.skill?.version === '1.3.7' && ruleIndex.skill?.source_version === 'V2.10.6') pass('rule index pins storyboard Skill 1.3.7');
 else fail('rule index Skill version is stale');
 if (agents.includes('当前主编写／独立质检规则：V2.10.6')) pass('AGENTS declares current V2.10.6 rules');
 else fail('AGENTS current rule version is stale');
