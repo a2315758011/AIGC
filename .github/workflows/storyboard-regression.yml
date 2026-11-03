@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - "剧本转分镜指令"
-      - "剧本转分镜自检指令"
+      - "剧本转分镜自检指令"\n      - "分镜规则清单.json"\n      - "AGENTS.md"
       - "skills/storyboard-director-cn/references/**"
       - "skills/storyboard-director-cn/SKILL.md"
       - "skills/storyboard-director-cn/README.md"
@@ -40,6 +40,8 @@ jobs:
           node-version: "20"
       - name: Facial performance continuity contract
         run: node skills/storyboard-director-cn/scripts/verify-performance-continuity-contract.cjs
+      - name: Facial performance preflight regression
+        run: node skills/storyboard-director-cn/scripts/validate-facial-performance-continuity.cjs skills/storyboard-director-cn/tests/面部表演连续性回归样例-V1.json
       - name: SCG regression
         run: node skills/storyboard-director-cn/scripts/分镜SCG校验器-V1.js skills/storyboard-director-cn/tests/分镜SCG回归样例-V1.json
       - name: Event-time regression
