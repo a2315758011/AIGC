@@ -75,7 +75,7 @@ const writingSource = storyboardRuleIndex.rules.find(item => item.path === "剧�
 const selfCheckSource = storyboardRuleIndex.rules.find(item => item.path === "剧本转分镜自检指令");
 check("manju writing snapshot SHA matches current main", Boolean(writingSource && manjuLock.files.some(item => item.package_path === "references/剧本转分镜指令.md" && item.git_blob_sha === writingSource.git_blob_sha)));
 check("manju self-check snapshot SHA matches current main", Boolean(selfCheckSource && manjuLock.files.some(item => item.package_path === "references/剧本转分镜自检指令.md" && item.git_blob_sha === selfCheckSource.git_blob_sha)));
-check("manju README summarizes all V2.10.6 additions", ["人物站位与场面调度","场景基线与空间差量","场景拓扑与可信姿态推断"].every(term => manjuReadmeText.includes(term)));
+check("manju README summarizes all V2.10.6 additions", ["人物站位与场面调度","场景基线与空间差量","场景拓扑与可信姿态推断","面部表演连续性"].every(term => manjuReadmeText.includes(term)));
 for (const snapshot of manjuLock.files || []) {
   const packagePath = path.join("skills/manju-director-cn", snapshot.package_path);
   check(`manju packaged snapshot exists: ${snapshot.package_path}`, exists(packagePath));
