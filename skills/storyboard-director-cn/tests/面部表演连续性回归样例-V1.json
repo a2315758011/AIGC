@@ -660,7 +660,13 @@
               }
             ],
             "relations": [],
-            "events": []
+            "events": [
+              {
+                "id": "EV-02",
+                "source_id": "SRC-02",
+                "action": "reveal_information"
+              }
+            ]
           }
         ]
       }
