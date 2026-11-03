@@ -3,17 +3,17 @@
   "skill": "video-director-cn",
   "hash_algorithm": "SHA-256",
   "manifest_scope": "skills/video-director-cn/",
-  "file_count": 22,
+  "file_count": 23,
   "files": [
     {
       "path": "SKILL.md",
-      "sha256": "23a0e2acc7fd9d30d9a9f6b278ea00d71072eabb033c12ec97cd88efc7ff7e93",
-      "size_bytes": 6930
+      "sha256": "a67db3b45fa8db0b1a91ae247f3f0c0c0a8cd259b4abd988d102a57c8776b117",
+      "size_bytes": 7014
     },
     {
       "path": "README.md",
-      "sha256": "8cf1ebd7b77a892ecdd51bc865372c7fa04a328ad0589279a4a82f70c1bde270",
-      "size_bytes": 2745
+      "sha256": "6ceda782e70873c75cf748c98c38977345db0424aeaf52cd775d8a1c73ffe058",
+      "size_bytes": 2773
     },
     {
       "path": "CHANGELOG.md",
@@ -111,9 +111,14 @@
       "size_bytes": 0
     },
     {
+      "path": "references/sources.md",
+      "sha256": "521fda9fa6b8a9485951eb07a393d0e2ca95d0b05f78af81db4052fbd85aec56",
+      "size_bytes": 2269
+    },
+    {
       "path": "SOURCE_LOCK.json",
-      "sha256": "bf58e81ecc7c38b7bf90d901c81d08ac420cbc6cbb411cbbbcf34b351eb79806",
-      "size_bytes": 10200
+      "sha256": "ed97f3e4d52394c33fea775617cd8ab3f3a63c09ad500a5590c2a5dc5d090942",
+      "size_bytes": 9734
     }
   ],
   "self_exclusion": "artifact-manifest.json is excluded to avoid recursive self-hashing."
