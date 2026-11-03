@@ -1,0 +1,261 @@
+{
+  "schema_version": "1.0.0",
+  "skill": "video-director-cn",
+  "skill_version": "1.0.0",
+  "language": "zh-CN",
+  "created": "2026-11-03",
+  "integration_branch": "feat/video-director-cn-20261103",
+  "base_ref": "main",
+  "upstream": {
+    "repository": "win4r/video-director",
+    "commit": "4747e5c153509ef7f8f7fd1a0aad6acfda36280d",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "references/upstream-SKILL.md",
+        "upstream_path": "video-director/SKILL.md",
+        "git_blob_sha": "4023f229ac48ca99c7e3f5e9ffadb83450c084f2"
+      },
+      {
+        "path": "references/upstream-README.zh-CN.md",
+        "upstream_path": "README.zh-CN.md",
+        "git_blob_sha": "6b6e42b44bdbe34196a4dad283bfdd45fe128605"
+      },
+      {
+        "path": "references/METHODOLOGY.md",
+        "upstream_path": "METHODOLOGY.md",
+        "git_blob_sha": "4e09e96ef491d74c180dab548bbcb964f9ee86f5"
+      },
+      {
+        "path": "references/briefs.md",
+        "upstream_path": "video-director/references/briefs.md",
+        "git_blob_sha": "22f70ba6946cc60d895cb75ff3cd25a007e40971"
+      },
+      {
+        "path": "references/craft.md",
+        "upstream_path": "video-director/references/craft.md",
+        "git_blob_sha": "ab7813dcbe8f03a71c2234f029ceab646538a026"
+      },
+      {
+        "path": "references/sound.md",
+        "upstream_path": "video-director/references/sound.md",
+        "git_blob_sha": "15a788134966566bc9f4456bef6d179f429c451b"
+      },
+      {
+        "path": "references/quality.md",
+        "upstream_path": "video-director/references/quality.md",
+        "git_blob_sha": "dc370b7758a1b937e192a029b4783f1d9361581b"
+      },
+      {
+        "path": "scripts/check_timeline.py",
+        "upstream_path": "video-director/scripts/check_timeline.py",
+        "git_blob_sha": "c4c931c12fd7b275d33e107319a062c7cc4ceb59"
+      },
+      {
+        "path": "scripts/qa_video.py",
+        "upstream_path": "video-director/scripts/qa_video.py",
+        "git_blob_sha": "c62dfeb72c15b723a9d4a1d9f294a0f181358a28"
+      },
+      {
+        "path": "LICENSE",
+        "upstream_path": "LICENSE",
+        "git_blob_sha": "2c258d88ca8cf1ec34ac66c79af3b40963463f6f"
+      }
+    ],
+    "excluded": [
+      {
+        "path": "video-director/evals/",
+        "reason": "上游评测材料保留在原项目；本仓库使用适配器回归和 MP4 QA smoke test，不将上游作者评测当作本仓库生产证据。"
+      },
+      {
+        "path": "assets/demo media",
+        "reason": "展示视频/动图不是运行依赖；保留上游来源，不增加重复二进制素材。"
+      }
+    ]
+  },
+  "authoritative_instruction": {
+    "path": "docs/代码动画与程序化视频制作规范-V1.md",
+    "git_blob_sha": "f1a5f4b140290d7bf71482f88fcdd697a9b3606b"
+  },
+  "routing": {
+    "path": "AGENTS.md",
+    "git_blob_sha": "2eb1d405e88eda915614acb17e6c23cdd78d0913"
+  },
+  "update_protocol": {
+    "path": "skills/SKILL_UPDATE_PROTOCOL.md",
+    "git_blob_sha": "8a0d1d201ec56ca3eeb2958cb254a4902a696158"
+  },
+  "cross_skill_dependencies": [
+    {
+      "path": "skills/storyboard-director-cn/SKILL.md",
+      "git_blob_sha": "61791f02b22de3a48d1ace442630b7b27d1e4c4f"
+    },
+    {
+      "path": "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md",
+      "git_blob_sha": "016e8830ea1a6f5db590a4c591eb2912c6b126d0"
+    },
+    {
+      "path": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",
+      "git_blob_sha": "c21fa189e568a9026a1b2845d3ee89318291f142"
+    },
+    {
+      "path": "skills/director-previs-cn/references/导演共享事实与SCG交接规范-V1.md",
+      "git_blob_sha": "6cd621046e2b57e86deb43b2ef7fe5f4714076e2"
+    },
+    {
+      "path": "skills/camera-motion-director-cn/SKILL.md",
+      "git_blob_sha": "d3ced489b27d991c97b54e469697191d9ccb102b"
+    },
+    {
+      "path": "skills/scene-realism-director-cn/SKILL.md",
+      "git_blob_sha": "ba673c3c970fa20df2b7c1f271b680c84e353010"
+    }
+  ],
+  "package_files": [
+    {
+      "path": "SKILL.md",
+      "git_blob_sha": "e035379dffc9d97cd31f5d76d155ada741ab73fb",
+      "sha256": "23a0e2acc7fd9d30d9a9f6b278ea00d71072eabb033c12ec97cd88efc7ff7e93",
+      "size_bytes": 6930
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha": "1f72584e9f1d4f14fc69a2b080878ec3fc55de45",
+      "sha256": "8cf1ebd7b77a892ecdd51bc865372c7fa04a328ad0589279a4a82f70c1bde270",
+      "size_bytes": 2745
+    },
+    {
+      "path": "CHANGELOG.md",
+      "git_blob_sha": "c11bb32b9ee4d7a5c1532b2d8660f58e92986472",
+      "sha256": "c37746480bcd5a1bc702c665194cdddf5be36f0c68fa3ea9b948332b599189e1",
+      "size_bytes": 618
+    },
+    {
+      "path": "requirements-qa.txt",
+      "git_blob_sha": "5bdfb7aa5065a67d883121d41b53f1442755fd58",
+      "sha256": "928b4a9fbb1bfc11372d211a0afd57602edf34b1f2584a526b49aea87fb8f9c3",
+      "size_bytes": 30
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha": "2c258d88ca8cf1ec34ac66c79af3b40963463f6f",
+      "sha256": "95b1b76ca2f10a345e8372b7d68a99f2322da4f3356b90a52500ae4eb37ce43e",
+      "size_bytes": 1062
+    },
+    {
+      "path": "references/程序化视频工作流中文速查-V1.md",
+      "git_blob_sha": "42caa46ab5f1be2bdf1884d1550f5b1ba50d2853",
+      "sha256": "a416be220d52df63ddade51f962a809c483942221ecb4396fb08920d79c779a3",
+      "size_bytes": 3841
+    },
+    {
+      "path": "references/upstream-SKILL.md",
+      "git_blob_sha": "4023f229ac48ca99c7e3f5e9ffadb83450c084f2",
+      "sha256": "aa7740e3f606a79c14971628b913ab8bc21df8e17f70b6edd76412773069f98e",
+      "size_bytes": 30803
+    },
+    {
+      "path": "references/upstream-README.zh-CN.md",
+      "git_blob_sha": "6b6e42b44bdbe34196a4dad283bfdd45fe128605",
+      "sha256": "70ee881fd461592a078683b2abb544708b7b8418d2a7a14a262d98ece93d3352",
+      "size_bytes": 6402
+    },
+    {
+      "path": "references/METHODOLOGY.md",
+      "git_blob_sha": "4e09e96ef491d74c180dab548bbcb964f9ee86f5",
+      "sha256": "e09567ef7bb95ee1c70141628da3fe1e9e6708c0502aa79dec9ec4e60812ddd0",
+      "size_bytes": 19600
+    },
+    {
+      "path": "references/briefs.md",
+      "git_blob_sha": "22f70ba6946cc60d895cb75ff3cd25a007e40971",
+      "sha256": "0a6c7ee01a2067090de11f5fe61cf390cec82ad66315283062b88f35bde287aa",
+      "size_bytes": 15913
+    },
+    {
+      "path": "references/craft.md",
+      "git_blob_sha": "ab7813dcbe8f03a71c2234f029ceab646538a026",
+      "sha256": "0a338a9667253b6c2b89b3d269fe8fb91c2c9c83dc65a0ba80ab270498613b48",
+      "size_bytes": 23825
+    },
+    {
+      "path": "references/sound.md",
+      "git_blob_sha": "15a788134966566bc9f4456bef6d179f429c451b",
+      "sha256": "13fa885416b64665029017fb3985eedc35ecc7d0e8f09cd54f71ae65c8d66f41",
+      "size_bytes": 11331
+    },
+    {
+      "path": "references/quality.md",
+      "git_blob_sha": "dc370b7758a1b937e192a029b4783f1d9361581b",
+      "sha256": "4f7a606e349eaaeb0f8eabcf38fe62a0c76027697700056828385446bbc75979",
+      "size_bytes": 17657
+    },
+    {
+      "path": "scripts/check_timeline.py",
+      "git_blob_sha": "c4c931c12fd7b275d33e107319a062c7cc4ceb59",
+      "sha256": "8f1b9440008839045cd09013d565b8004f36b19d08f50cf2926f8e35f4d5bf74",
+      "size_bytes": 9471
+    },
+    {
+      "path": "scripts/qa_video.py",
+      "git_blob_sha": "c62dfeb72c15b723a9d4a1d9f294a0f181358a28",
+      "sha256": "fb0aee3ec22c84a105aa652b7f76e9127e51bd41dd657b5501e7e7730f65b4c9",
+      "size_bytes": 24111
+    },
+    {
+      "path": "scripts/compile_aigc_timeline.py",
+      "git_blob_sha": "d8187eba66919fb3893e9f6bea9e13de54f8bd2f",
+      "sha256": "6a6d39c025ebfaa88dd7a0ba78dea2cecc79a37ffc37f465c6535e61087731e6",
+      "size_bytes": 12475
+    },
+    {
+      "path": "scripts/verify_manifest.py",
+      "git_blob_sha": "715b194f7efd56b8a2bcd54e37f8f0b957a1e72c",
+      "sha256": "d17b4a8fd149e0b73a32ce54f277e48f66c5e57e44e68c5ed753a23d7ef819c0",
+      "size_bytes": 1923
+    },
+    {
+      "path": "tests/fixtures/events-valid.json",
+      "git_blob_sha": "daa3e6b664117c3295470f1615197a8b772e9afb",
+      "sha256": "baea104e29ad32fe77840b3ac38b6ae3e99957d47ee5c6c5b02f24b216f0b05f",
+      "size_bytes": 1127
+    },
+    {
+      "path": "tests/fixtures/render-spec-valid.json",
+      "git_blob_sha": "d9947ee010cb76f623d8c605685b6e422a13bc2b",
+      "sha256": "1bad095c171a06e5606a6bbefb178e2e01f0c643978e0e3c39ec6a9c71de3d39",
+      "size_bytes": 624
+    },
+    {
+      "path": "tests/test_compile_aigc_timeline.py",
+      "git_blob_sha": "e150e58f3bef883b61dd852e0f21b7fd31bfe177",
+      "sha256": "6a870b2efe59a37d45c90ee1f0983224ffb7a09503e7779210a825963ae3cb01",
+      "size_bytes": 6415
+    },
+    {
+      "path": "tests/__init__.py",
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    }
+  ],
+  "runtime": {
+    "python": "3.9+",
+    "qa": [
+      "ffmpeg",
+      "ffprobe",
+      "numpy",
+      "Pillow"
+    ],
+    "html_render": [
+      "project-managed Node.js",
+      "Playwright/Chromium"
+    ],
+    "remotion": "project-local dependencies and lockfile"
+  },
+  "verification": {
+    "status": "PENDING_GITHUB_ACTIONS",
+    "target_production": "NOT_RUN",
+    "notes": "静态回归和合成 MP4 smoke test 不能证明真实剧集、真人表演或目标视频模型的生产质量。"
+  }
+}
