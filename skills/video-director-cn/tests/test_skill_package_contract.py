@@ -21,7 +21,7 @@ class SkillPackageContractTests(unittest.TestCase):
             ROOT / "SKILL.md",
             ROOT / "references" / "upstream-SKILL.md",
         ]
-        pattern = re.compile(r"(?<![\\w./])((?:references|scripts)/[^\s`<>\"\])}]+?\.(?:md|py))")
+        pattern = re.compile(r"(?<![\w./])((?:references|scripts)/[^\s`<>\"\])}]+?\.(?:md|py))")
         referenced = set()
         for doc in docs:
             body = doc.read_text(encoding="utf-8")
