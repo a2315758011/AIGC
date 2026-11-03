@@ -251,9 +251,9 @@
     },
     {
       "path": "tests/test_skill_package_contract.py",
-      "git_blob_sha": "c68c8fbf06d021cff0eeb7caef37ef989f523080",
-      "sha256": "f5d013a41d4453fba2fd514a705512d79888939dbd47888b9b05e0de3a21f6a6",
-      "size_bytes": 3148
+      "git_blob_sha": "b9063ab01781405b68a54b33e88bac109de5eeb5",
+      "sha256": "39a6a9800acc136bd428715f1df645dd4ad0c3300d92fcb61d3965de1b37231a",
+      "size_bytes": 3491
     }
   ],
   "runtime": {
@@ -273,6 +273,6 @@
   "verification": {
     "status": "PENDING_CI",
     "target_production": "NOT_RUN",
-    "notes": "补齐上游 sources.md 并新增包内引用/来源锁合同测试；需重新运行完整回归。"
+    "notes": "包内引用路径回归已修正；需重新运行完整 CI。"
   }
 }
