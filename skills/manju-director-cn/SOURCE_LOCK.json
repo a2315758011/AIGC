@@ -1,7 +1,7 @@
 {
   "package": "manju-director-cn",
-  "version": "1.1.1",
-  "date": "2026-11-01",
+  "version": "1.1.2",
+  "date": "2026-11-03",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
   "scope": "AI漫剧制作、人物场景资产、分镜编写、独立自检、修复、完整终稿重写",
@@ -16,16 +16,28 @@
     {
       "package_path": "references/剧本转分镜指令.md",
       "source_path": "剧本转分镜指令",
-      "git_blob_sha": "98feb1281d83aed5ee035bf9f70713598610588c",
-      "characters": 35851
+      "git_blob_sha": "21282b2499fd2e3eb4b74aaa1659427a0c7b3867",
+      "characters": 37864
     },
     {
       "package_path": "references/剧本转分镜自检指令.md",
       "source_path": "剧本转分镜自检指令",
-      "git_blob_sha": "778c79dbab0705186cad159d22b1356cdbff0e2e",
-      "characters": 22048
+      "git_blob_sha": "8b0bfd485d31a7312abc8aedae9d30c698b74547",
+      "characters": 22766
+    },
+    {
+      "package_path": "SKILL.md",
+      "source_path": "skills/manju-director-cn/SKILL.md",
+      "git_blob_sha": "c260ef072e4ff59863c4ba1e845dd7e37d2df911",
+      "characters": 3395
+    },
+    {
+      "package_path": "README.md",
+      "source_path": "skills/manju-director-cn/README.md",
+      "git_blob_sha": "cf6875f7d5ff740111c7f1e0fc02cee63bc4e73b",
+      "characters": 2153
     }
   ],
-  "source_rule_revision": "Storyboard-director V2.10.5; full writing and independent self-check snapshots refreshed from current main; complete revised final script and independent recheck retained.",
-  "source_version": "V2.10.5"
+  "source_rule_revision": "Storyboard-director V2.10.6; full writing and independent self-check snapshots refreshed from current main; facial performance continuity and cross-generation-segment inheritance are included; complete revised final script and independent recheck retained.",
+  "source_version": "V2.10.6"
 }
