@@ -1,0 +1,47 @@
+{
+  "episodes": [
+    {
+      "episode_id": "EP01",
+      "time_start_ms": 0,
+      "time_end_ms": 4000,
+      "shots": [
+        {
+          "id": "S001",
+          "time_start_ms": 0,
+          "time_end_ms": 2000,
+          "visible_event_ids": ["E001"]
+        },
+        {
+          "id": "S002",
+          "time_start_ms": 2000,
+          "time_end_ms": 4000,
+          "visible_event_ids": ["E002"]
+        }
+      ],
+      "events": [
+        {
+          "event_id": "E001",
+          "actor_ids": ["CHAR_A"],
+          "event_start_ms": 500,
+          "event_end_ms": 1800,
+          "requires_visible": true,
+          "exclusive": true,
+          "duration_status": "measured",
+          "min_duration_ms": 700,
+          "action": "展示核心信息"
+        },
+        {
+          "event_id": "E002",
+          "actor_ids": ["CHAR_A"],
+          "event_start_ms": 1900,
+          "event_end_ms": 3000,
+          "requires_visible": true,
+          "exclusive": true,
+          "duration_status": "measured",
+          "min_duration_ms": 500,
+          "action": "完成核心揭示"
+        }
+      ]
+    }
+  ]
+}

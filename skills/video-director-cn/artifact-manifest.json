@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0.0",
+  "skill": "video-director-cn",
+  "hash_algorithm": "SHA-256",
+  "manifest_scope": "skills/video-director-cn/",
+  "file_count": 24,
+  "files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "0404a5036001e66fad3266929c621e6f85850405aed8692dee3d1f812654b26e",
+      "size_bytes": 7297
+    },
+    {
+      "path": "README.md",
+      "sha256": "3beb9ce8e56cc9c9877063b888a48c24b8b8da018edb23bad556e4ff2fb8d163",
+      "size_bytes": 2967
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "dbd44e5d128da670e18adc4a626c7e05c957ee04b0de8ff4a1621b344d0d838b",
+      "size_bytes": 716
+    },
+    {
+      "path": "requirements-qa.txt",
+      "sha256": "928b4a9fbb1bfc11372d211a0afd57602edf34b1f2584a526b49aea87fb8f9c3",
+      "size_bytes": 30
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "95b1b76ca2f10a345e8372b7d68a99f2322da4f3356b90a52500ae4eb37ce43e",
+      "size_bytes": 1062
+    },
+    {
+      "path": "references/程序化视频工作流中文速查-V1.md",
+      "sha256": "a416be220d52df63ddade51f962a809c483942221ecb4396fb08920d79c779a3",
+      "size_bytes": 3841
+    },
+    {
+      "path": "references/upstream-SKILL.md",
+      "sha256": "aa7740e3f606a79c14971628b913ab8bc21df8e17f70b6edd76412773069f98e",
+      "size_bytes": 30803
+    },
+    {
+      "path": "references/upstream-README.zh-CN.md",
+      "sha256": "70ee881fd461592a078683b2abb544708b7b8418d2a7a14a262d98ece93d3352",
+      "size_bytes": 6402
+    },
+    {
+      "path": "references/METHODOLOGY.md",
+      "sha256": "e09567ef7bb95ee1c70141628da3fe1e9e6708c0502aa79dec9ec4e60812ddd0",
+      "size_bytes": 19600
+    },
+    {
+      "path": "references/briefs.md",
+      "sha256": "0a6c7ee01a2067090de11f5fe61cf390cec82ad66315283062b88f35bde287aa",
+      "size_bytes": 15913
+    },
+    {
+      "path": "references/craft.md",
+      "sha256": "0a338a9667253b6c2b89b3d269fe8fb91c2c9c83dc65a0ba80ab270498613b48",
+      "size_bytes": 23825
+    },
+    {
+      "path": "references/sound.md",
+      "sha256": "13fa885416b64665029017fb3985eedc35ecc7d0e8f09cd54f71ae65c8d66f41",
+      "size_bytes": 11331
+    },
+    {
+      "path": "references/quality.md",
+      "sha256": "4f7a606e349eaaeb0f8eabcf38fe62a0c76027697700056828385446bbc75979",
+      "size_bytes": 17657
+    },
+    {
+      "path": "scripts/check_timeline.py",
+      "sha256": "8f1b9440008839045cd09013d565b8004f36b19d08f50cf2926f8e35f4d5bf74",
+      "size_bytes": 9471
+    },
+    {
+      "path": "scripts/qa_video.py",
+      "sha256": "fb0aee3ec22c84a105aa652b7f76e9127e51bd41dd657b5501e7e7730f65b4c9",
+      "size_bytes": 24111
+    },
+    {
+      "path": "scripts/compile_aigc_timeline.py",
+      "sha256": "6a6d39c025ebfaa88dd7a0ba78dea2cecc79a37ffc37f465c6535e61087731e6",
+      "size_bytes": 12475
+    },
+    {
+      "path": "scripts/verify_manifest.py",
+      "sha256": "d17b4a8fd149e0b73a32ce54f277e48f66c5e57e44e68c5ed753a23d7ef819c0",
+      "size_bytes": 1923
+    },
+    {
+      "path": "tests/fixtures/events-valid.json",
+      "sha256": "baea104e29ad32fe77840b3ac38b6ae3e99957d47ee5c6c5b02f24b216f0b05f",
+      "size_bytes": 1127
+    },
+    {
+      "path": "tests/fixtures/render-spec-valid.json",
+      "sha256": "1bad095c171a06e5606a6bbefb178e2e01f0c643978e0e3c39ec6a9c71de3d39",
+      "size_bytes": 624
+    },
+    {
+      "path": "tests/test_compile_aigc_timeline.py",
+      "sha256": "6a870b2efe59a37d45c90ee1f0983224ffb7a09503e7779210a825963ae3cb01",
+      "size_bytes": 6415
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "d2a925778a2292476809d1261df2156929f8eaa0cd541059e3596925618c1d63",
+      "size_bytes": 2269
+    },
+    {
+      "path": "tests/test_skill_package_contract.py",
+      "sha256": "39a6a9800acc136bd428715f1df645dd4ad0c3300d92fcb61d3965de1b37231a",
+      "size_bytes": 3491
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "61e1b1076a7cedcede5d56e8559f891b1f056edcb90a972ac8df63eae59045b0",
+      "size_bytes": 9843
+    }
+  ],
+  "self_exclusion": "artifact-manifest.json is excluded to avoid recursive self-hashing."
+}

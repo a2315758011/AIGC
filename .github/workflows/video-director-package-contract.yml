@@ -1,0 +1,186 @@
+name: video-director-package-contract
+
+on:
+  push:
+    branches:
+      - "feat/video-director-cn-20261103"
+      - "main"
+    paths:
+      - "AGENTS.md"
+      - "skills/storyboard-director-cn/**"
+      - "skills/video-director-cn/**"
+      - "docs/代码动画与程序化视频制作规范-V1.md"
+  pull_request:
+    paths:
+      - "AGENTS.md"
+      - "skills/storyboard-director-cn/**"
+      - "skills/video-director-cn/**"
+      - "docs/代码动画与程序化视频制作规范-V1.md"
+
+permissions:
+  contents: read
+
+jobs:
+  source-and-package-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify pinned authority and cross-skill dependency blobs
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+
+          lock = json.loads(open("skills/video-director-cn/SOURCE_LOCK.json", encoding="utf-8").read())
+          refs = [
+              lock["authoritative_instruction"],
+              lock["routing"],
+              lock["update_protocol"],
+              *lock["cross_skill_dependencies"],
+          ]
+          for ref in refs:
+              actual = subprocess.check_output(
+                  ["git", "rev-parse", "HEAD:" + ref["path"]], text=True
+              ).strip()
+              if actual != ref["git_blob_sha"]:
+                  raise SystemExit(
+                      "FAIL: source lock drift for " + ref["path"] +
+                      "; expected " + ref["git_blob_sha"] + "; actual " + actual
+                  )
+
+          package = {item["path"]: item["git_blob_sha"] for item in lock["package_files"]}
+          for upstream in lock["upstream"]["files"]:
+              local_path = upstream["path"]
+              if package.get(local_path) != upstream["git_blob_sha"]:
+                  raise SystemExit("FAIL: vendored upstream blob mismatch: " + local_path)
+          print("PASS: authority, route, update protocol, cross-skill and upstream blob pins")
+          PY
+
+      - name: Validate existing SCG regression contract
+        run: node skills/storyboard-director-cn/scripts/分镜SCG校验器-V1.js skills/storyboard-director-cn/tests/分镜SCG回归样例-V1.json
+
+      - name: Validate source event-time ledger before projection
+        run: node skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js skills/video-director-cn/tests/fixtures/events-valid.json
+
+      - name: Verify source package manifest
+        run: python skills/video-director-cn/scripts/verify_manifest.py
+
+      - name: Build fresh manifest-driven staging, ZIP and extracted copy
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import shutil
+          import subprocess
+          import sys
+          import zipfile
+          from pathlib import Path, PurePosixPath
+
+          source = Path("skills/video-director-cn").resolve()
+          manifest_path = source / "artifact-manifest.json"
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+          workspace = Path(os.environ["RUNNER_TEMP"]) / (
+              "video-director-package-" + os.environ["GITHUB_RUN_ID"] + "-" +
+              os.environ["GITHUB_RUN_ATTEMPT"]
+          )
+          if workspace.exists():
+              raise SystemExit("FAIL: task-specific package workspace already exists")
+          workspace.mkdir(parents=True)
+          staging = workspace / "staging"
+          archive = workspace / "video-director-cn.zip"
+          extracted = workspace / "extracted"
+          staging.mkdir()
+          extracted.mkdir()
+
+          expected = set()
+          for item in manifest["files"]:
+              rel = PurePosixPath(item["path"])
+              if rel.is_absolute() or ".." in rel.parts or not rel.parts:
+                  raise SystemExit("FAIL: unsafe manifest path: " + item["path"])
+              key = rel.as_posix()
+              if key in expected:
+                  raise SystemExit("FAIL: duplicate manifest path: " + key)
+              expected.add(key)
+              src = source.joinpath(*rel.parts)
+              if not src.is_file() or src.is_symlink():
+                  raise SystemExit("FAIL: missing or symlink source: " + key)
+              dst = staging.joinpath(*rel.parts)
+              dst.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(src, dst)
+
+          shutil.copy2(manifest_path, staging / "artifact-manifest.json")
+          subprocess.run(
+              [sys.executable, str(staging / "scripts" / "verify_manifest.py"),
+               str(staging / "artifact-manifest.json")],
+              check=True,
+          )
+
+          with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as zf:
+              for file in sorted(p for p in staging.rglob("*") if p.is_file()):
+                  zf.write(file, file.relative_to(staging).as_posix())
+          with zipfile.ZipFile(archive) as zf:
+              bad = zf.testzip()
+              names = set(zf.namelist())
+              expected_zip = expected | {"artifact-manifest.json"}
+              if bad:
+                  raise SystemExit("FAIL: ZIP CRC error: " + bad)
+              if names != expected_zip:
+                  raise SystemExit(
+                      "FAIL: ZIP file set mismatch; missing=" +
+                      repr(sorted(expected_zip - names)) + "; extra=" +
+                      repr(sorted(names - expected_zip))
+                  )
+              zf.extractall(extracted)
+
+          subprocess.run(
+              [sys.executable, str(extracted / "scripts" / "verify_manifest.py"),
+               str(extracted / "artifact-manifest.json")],
+              check=True,
+          )
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env:
+              env.write("VIDEO_DIRECTOR_PACKAGE_ROOT=" + str(extracted) + "\n")
+          print("PASS: fresh staging, ZIP CRC/file set and extracted SHA-256")
+          print("PACKAGE_FILES=" + str(len(expected) + 1))
+          PY
+
+      - name: Run package tests from extracted copy
+        run: python -m unittest discover -s "$VIDEO_DIRECTOR_PACKAGE_ROOT/tests" -p "test_*.py" -v
+
+      - name: Install QA dependencies from extracted copy
+        run: python -m pip install -r "$VIDEO_DIRECTOR_PACKAGE_ROOT/requirements-qa.txt"
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Render synthetic MP4 and run QA from extracted copy
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/video-director-package-qa"
+          ffmpeg -hide_banner -loglevel error -y \
+            -f lavfi -i "testsrc2=size=1280x720:rate=24:duration=4" \
+            -pix_fmt yuv420p "$RUNNER_TEMP/video-director-package-qa/smoke.mp4"
+          python "$VIDEO_DIRECTOR_PACKAGE_ROOT/scripts/qa_video.py" \
+            "$RUNNER_TEMP/video-director-package-qa/smoke.mp4" \
+            --out "$RUNNER_TEMP/video-director-package-qa/report" \
+            --times "0.5,1.5,2.5,3.5"
+          test -s "$RUNNER_TEMP/video-director-package-qa/report/report.json"
+          test -s "$RUNNER_TEMP/video-director-package-qa/report/report.md"
+          test -s "$RUNNER_TEMP/video-director-package-qa/report/beats_sheet.jpg"
+          test -s "$RUNNER_TEMP/video-director-package-qa/report/phone_sheet.jpg"
+          test -s "$RUNNER_TEMP/video-director-package-qa/report/hook_sheet.jpg"

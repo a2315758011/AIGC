@@ -7,6 +7,12 @@
 - [AIGC知识结构总图与跨技能调用规范](./docs/知识体系/AIGC知识结构总图与跨技能调用规范-V1.md)：统一知识分层、专业职责边界、跨技能调用顺序、共享事实合同、质量门禁与研究采纳标准。新增能力先归类到此体系，不重复造规则。
 
 ## 入口
+
+## 程序化代码视频制作（分镜后的执行/渲染层）
+- [video-director-cn 程序化视频导演 Skill](./skills/video-director-cn/)：将已批准分镜/简报转换为可控 HTML、Canvas、SVG、Three.js、Remotion 动画和 MP4；包含 AIGC 事件时间适配器、逐帧时间轴检查与成片 QA。
+- [代码动画与程序化视频制作规范](./docs/代码动画与程序化视频制作规范-V1.md)：明确 SCG/事件时间账本仍是唯一事实源，timeline.json 仅为渲染层派生视图。
+- [video-director 采纳与验证报告](./docs/Deepresearch/2026-11-03_video-director程序化视频工作流审查与采纳.md)：上游来源、MIT 许可证、适用边界、静态回归与未验证事项。
+
 ## 专业漫画制作（独立于漫剧分镜）
 - [TT_AutoManga 源码安全与本地兼容性审查](./docs/Deepresearch/2026-11-02_TT_AutoManga源码安全与本地兼容性审查.md)：启动时孤儿资产清理、无认证 loopback API、MCP 边界与本机依赖探测；当前不建议直接接入 MOONKEEP。
 - [第二批漫画专业工具研究与工作流验证](./docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md)：TT_AutoManga、ComfyUI Comic Creator、Manhwa Studio、WakuWaku 等源码/许可证/工作流审查。

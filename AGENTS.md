@@ -102,3 +102,16 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 
 ## 多宫格视觉分镜 Skill 路由
 用户要求 4格/9格/12格/25格影视、漫剧或广告分镜联系表时，读取 `skills/storyboard-contact-sheet-cn/SKILL.md`。默认独立逐格生成，联系表程序只负责排版和标注。整图生成不得冒充逐格验收。正式漫画页面仍走 `comic-production-director-cn`。
+
+## 程序化代码视频制作 Skill 路由
+
+当用户要求把一句话简报、已批准分镜或图形方案制作成代码驱动动画/MP4，或制作动态 UI、HUD、数据故事、程序化粒子/能量叠加、解释动画、片头片尾、循环动画时，调用 `skills/video-director-cn/SKILL.md`，并先读取权威规范 `docs/代码动画与程序化视频制作规范-V1.md`。
+
+强制边界：
+- 该技能是正式分镜后的程序化执行/渲染层，不替代 `storyboard-director-cn`、SCG、事件时间账本、人物站位、场景真实性、摄影机运镜或打斗动作因果规则。
+- `timeline.json` 只能是从批准的 SCG/事件时间账本派生的渲染时间表；不得复制/重建 entities、relations、events、人物世界位置、道具关系或静态场景事实。
+- 先运行 `node skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js events.json` 验证源事件账本；Txx 硬错误必须先修复，Wxx 警告须人工复核，Node.js 不可用则标记 NOT_RUN。通过源账本预检后再运行 `skills/video-director-cn/scripts/compile_aigc_timeline.py` 和上游 `check_timeline.py`；时间轴有 ERROR 不进入编码。
+- 代码动画必须按时间/帧号纯函数渲染；使用固定随机种子和已锁定资源；不允许隐式计时器或跨帧隐藏状态。
+- MP4 输出后运行 `qa_video.py`，检查报告与关键帧/连续帧联系表，并安排独立审片。机器 QA 通过不能替代剧情、人物、真人表演或成片质量验收。
+- 真人仿实拍任务仅将其用于可控 UI/字幕/图形/特效叠加或预演，不得把程序化 2D/3D 角色动画冒充真实演员视频。
+- 上游目标模型为 Claude Opus 5.5；其他 AI 可以遵循工作流，但目标客户端、渲染环境和真实成片质量须单独验证。
