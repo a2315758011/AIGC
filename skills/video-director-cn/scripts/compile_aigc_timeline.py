@@ -17,9 +17,10 @@ from typing import Any
 
 RENDER_FIELDS = (
     "objects", "vo", "reads", "cuts", "silences", "sfx",
-    "captions", "texts", "terms", "camera", "source_refs",
+    "captions", "texts", "terms", "camera",
 )
 FORBIDDEN_RENDER_FIELDS = {"scenes", "shots", "events", "entities", "relations", "hero", "episode_id"}
+ALLOWED_RENDER_SPEC_FIELDS = set(RENDER_FIELDS) | {"meta", "hero_event_id", "hero_what", "source_refs"}
 
 
 class ContractError(ValueError):
@@ -58,6 +59,11 @@ def compile_timeline(
         raise ContractError(
             "render spec must not define source world/shot data: " + ", ".join(forbidden)
         )
+    unknown = sorted(set(render_spec) - ALLOWED_RENDER_SPEC_FIELDS)
+    if unknown:
+        raise ContractError("unknown render-spec fields: " + ", ".join(unknown))
+    if "source_refs" in render_spec and not isinstance(render_spec["source_refs"], list):
+        raise ContractError("render-spec.source_refs must be an array of repo-relative references")
 
     episodes = ledger.get("episodes")
     if not isinstance(episodes, list) or not episodes:
@@ -228,12 +234,15 @@ def compile_timeline(
     if source_ledger_path:
         source_hash = hashlib.sha256(Path(source_ledger_path).read_bytes()).hexdigest()
 
+    ledger_label = None
+    if source_ledger_path:
+        ledger_label = str(source_ledger_path).replace("\\\\", "/").rsplit("/", 1)[-1]
     timeline["aigc_source"] = {
         "event_time_contract": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",
         "scg_contract": "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md",
         "episode_id": episode_id,
         "source_timebase": "ms",
-        "event_ledger_path": source_ledger_path,
+        "event_ledger_path": ledger_label,
         "event_ledger_sha256": source_hash,
         "scg_refs": render_spec.get("source_refs", []),
         "authority_note": (
