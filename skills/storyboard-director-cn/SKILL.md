@@ -25,9 +25,10 @@ metadata:
 - references/人物站位与场景调度规则-V1.md（V1.9.0，含平台创作者实战方法）
 
 如需结构化镜头状态校验，再按需读取：
-- `references/分镜SCG数据契约-V1.md`
+- `references/分镜SCG数据契约-V1.md`（使用结构化分镜或生成段落时读取）
 - `references/分镜穿帮专项回归样例-V1.md`
-- `references/分镜事件时间数据契约-V1.md`\n- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`\n- `references/分镜SCG数据契约-V1.md`（使用结构化分镜或生成段落时读取）\n- `references/分镜SCG数据契约-V1.md`（使用结构化分镜或生成段落时读取）（涉及坐姿、支撑、抓握、扶靠、跌倒、身体接触时必须读取）
+- `references/分镜事件时间数据契约-V1.md`
+- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`（涉及坐姿、支撑、抓握、扶靠、跌倒、身体接触时必须读取）
 
 ## 执行顺序
 1. **锁定事实**：读取剧本、人物/服装/场景/道具资产与目标模型能力；缺失信息标为未知，不得补造。
@@ -51,7 +52,15 @@ node scripts/分镜SCG校验器-V1.js tests/分镜SCG回归样例-V1.json
 ```
 若环境没有 Node.js，可跳过并明确标记“SCG 程序校验未执行”。程序通过只证明校验器覆盖的规则通过，不代表实际视频生成质量通过。
 
-## 跨镜/跨生成段落面部表演连续性校验\n\n当结构化 SCG 使用 `generation_segments` 或 `facial_performance` 时，在技能目录运行：\n```bash\nnode scripts/validate-facial-performance-continuity.cjs tests/面部表演连续性回归样例-V1.json\n```\n校验器检查段落分组与模型时长上限、可见面部状态字段、上一可见表演尾态继承、跨 10 秒/15 秒等生成段落边界、剧情事件触发和段内表演推进。它不判断文字情绪是否符合剧本，也不证明模型生成视频真实服从。\n\n## 高风险时序：事件时长校验
+## 跨镜/跨生成段落面部表演连续性校验
+
+当结构化 SCG 使用 `generation_segments` 或 `facial_performance` 时，在技能目录运行：
+```bash
+node scripts/validate-facial-performance-continuity.cjs tests/面部表演连续性回归样例-V1.json
+```
+校验器检查段落分组与模型时长上限、可见面部状态字段、上一可见表演尾态继承、跨 10 秒/15 秒等生成段落边界、剧情事件触发和段内表演推进。它不判断文字情绪是否符合剧本，也不证明模型生成视频真实服从。
+
+## 高风险时序：事件时长校验
 存在持续动作、前置依赖、互斥动作、机关接合/持续操作或多人逐一可见展示时，先建立结构化事件时间账本，并按 `references/分镜事件时间数据契约-V1.md` 核对字段，再在技能根目录运行：
 ```bash
 node scripts/分镜事件时长校验器-V1.js tests/分镜事件时长回归样例-V1.json
