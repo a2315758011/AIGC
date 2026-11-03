@@ -21,7 +21,7 @@ class SkillPackageContractTests(unittest.TestCase):
             ROOT / "SKILL.md",
             ROOT / "references" / "upstream-SKILL.md",
         ]
-        pattern = re.compile(r"((?:references|scripts)/[^\s`<>\"\])}]+?\.(?:md|py))")
+        pattern = re.compile(r"(?<![\\w./])((?:references|scripts)/[^\s`<>\"\])}]+?\.(?:md|py))")
         referenced = set()
         for doc in docs:
             body = doc.read_text(encoding="utf-8")
@@ -39,6 +39,11 @@ class SkillPackageContractTests(unittest.TestCase):
         self.assertEqual(manifest["file_count"], len(manifested))
         self.assertEqual(lock["upstream"]["license"], "MIT")
         self.assertEqual(len(lock["upstream"]["commit"]), 40)
+        dependencies = lock.get("cross_skill_dependencies", [])
+        self.assertTrue(dependencies, "cross-skill dependency pins are required")
+        for dependency in dependencies:
+            self.assertTrue(dependency["path"].startswith("skills/"))
+            self.assertRegex(dependency["git_blob_sha"], r"^[0-9a-f]{40}$")
 
         for rel, item in locked.items():
             path = ROOT / rel
