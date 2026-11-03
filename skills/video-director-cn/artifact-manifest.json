@@ -17,8 +17,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "c37746480bcd5a1bc702c665194cdddf5be36f0c68fa3ea9b948332b599189e1",
-      "size_bytes": 618
+      "sha256": "dbd44e5d128da670e18adc4a626c7e05c957ee04b0de8ff4a1621b344d0d838b",
+      "size_bytes": 716
     },
     {
       "path": "requirements-qa.txt",
@@ -122,8 +122,8 @@
     },
     {
       "path": "SOURCE_LOCK.json",
-      "sha256": "347bad0c6f6948029fc5e1e17de77db47465646928d593965bd1c56e4d97efed",
-      "size_bytes": 10049
+      "sha256": "8cf06351672d621b4a21d282a6e0c04b98f403d329e7aba807ed358e5c433ab3",
+      "size_bytes": 10045
     }
   ],
   "self_exclusion": "artifact-manifest.json is excluded to avoid recursive self-hashing."
