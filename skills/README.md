@@ -36,7 +36,7 @@
 
 ## 分镜专项
 
-- [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，保留原有版本和程序校验资产。
+- [storyboard-director-cn](./storyboard-director-cn/)：分镜导演与独立自检技能，包含跨生成段落面部表演连续性与程序预检。
 
 ## 系统 UI 与程序化特效专项
 
