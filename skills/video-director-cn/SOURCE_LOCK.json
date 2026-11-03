@@ -60,6 +60,11 @@
         "path": "LICENSE",
         "upstream_path": "LICENSE",
         "git_blob_sha": "2c258d88ca8cf1ec34ac66c79af3b40963463f6f"
+      },
+      {
+        "path": "references/sources.md",
+        "upstream_path": "video-director/references/sources.md",
+        "git_blob_sha": "3ceea14dc427c1af16bba0384034ab59d9c36c3f"
       }
     ],
     "excluded": [
@@ -114,15 +119,15 @@
   "package_files": [
     {
       "path": "SKILL.md",
-      "git_blob_sha": "e035379dffc9d97cd31f5d76d155ada741ab73fb",
-      "sha256": "23a0e2acc7fd9d30d9a9f6b278ea00d71072eabb033c12ec97cd88efc7ff7e93",
-      "size_bytes": 6930
+      "git_blob_sha": "5711dda26ded01f2c9cda299650e5d50a955ee19",
+      "sha256": "a67db3b45fa8db0b1a91ae247f3f0c0c0a8cd259b4abd988d102a57c8776b117",
+      "size_bytes": 7014
     },
     {
       "path": "README.md",
-      "git_blob_sha": "1f72584e9f1d4f14fc69a2b080878ec3fc55de45",
-      "sha256": "8cf1ebd7b77a892ecdd51bc865372c7fa04a328ad0589279a4a82f70c1bde270",
-      "size_bytes": 2745
+      "git_blob_sha": "15f65e41209ccb5379358fc8b06fd6c0c5099529",
+      "sha256": "6ceda782e70873c75cf748c98c38977345db0424aeaf52cd775d8a1c73ffe058",
+      "size_bytes": 2773
     },
     {
       "path": "CHANGELOG.md",
@@ -237,6 +242,12 @@
       "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "size_bytes": 0
+    },
+    {
+      "path": "references/sources.md",
+      "git_blob_sha": "3ceea14dc427c1af16bba0384034ab59d9c36c3f",
+      "sha256": "521fda9fa6b8a9485951eb07a393d0e2ca95d0b05f78af81db4052fbd85aec56",
+      "size_bytes": 2269
     }
   ],
   "runtime": {
@@ -254,22 +265,8 @@
     "remotion": "project-local dependencies and lockfile"
   },
   "verification": {
-    "status": "PASS_STATIC_CI",
-    "workflow": "video-director-regression",
-    "run_id": 41618210255,
-    "run_number": 4,
-    "run_url": "https://github.com/a2315758011/AIGC/actions/runs/41618210255",
-    "pr_number": 27,
-    "pull_request_head_sha": "932b1952c157bfdff113d32056fdb8e4e1b4ae4d",
-    "pull_request_merge_sha": "ac2248e0ed1fcc060a9b69637ea2401d09d0a751",
-    "results": {
-      "package_manifest": "PASS — 22 files; exact file set, sizes and SHA-256 match",
-      "python_compile": "PASS",
-      "adapter_and_timeline_regression": "PASS — 14 tests",
-      "synthetic_mp4_qa": "PASS — 4-second 1280x720 24fps MP4; frame 0, flash and pop checks passed; beat/phone/hook sheets generated",
-      "audio_qa": "NOT_APPLICABLE — smoke MP4 intentionally has no audio stream"
-    },
+    "status": "PENDING_CI",
     "target_production": "NOT_RUN",
-    "notes": "本次 CI 证明适配器、上游时间轴校验器、包清单和合成 MP4 QA smoke test 可复现；不证明用户真实剧集、真人表演、音轨、目标视频模型或正式生产成片质量。"
+    "notes": "补齐上游 references/sources.md 后需重新运行包清单、适配器和 MP4 QA 回归。"
   }
 }
