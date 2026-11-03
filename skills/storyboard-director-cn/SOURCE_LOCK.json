@@ -101,6 +101,12 @@
       "source_path": "tests/面部表演连续性回归样例-V1.json",
       "git_blob_sha": "0702f70bb7b75e4786a979287a5c49c55da62ead",
       "characters": 53694
+    },
+    {
+      "package_path": "scripts/package-offline-skill-regression.cjs",
+      "source_path": "scripts/package-offline-skill-regression.cjs",
+      "git_blob_sha": "55829a94da89c14cc8537f65d1fef4861bbdd574",
+      "characters": 6883
     }
   ],
   "source_rule_revision": "V1.9.0 adds static-world/dynamic-actor/camera state separation, stable IDs and project state as source of truth, project-specific timebase/integer frames, human keyframe locks, read-edit-validate-local-undo workflow, multi-view character anchors for large-angle camera motion, and reference-image responsibility mapping. V2.10.6 adds explicit per-shot facial performance states and cross-generation-segment entry/progression/exit inheritance, preventing unsupported neutral-face resets while preserving intentional restrained/poker-face acting; adds an independent zombie-face QA gate. V1.3.7 adds SCG V1.1 generation-segment grouping and per-person facial_performance state on existing shot entities; machine preflight validates declared model duration caps, cross-shot/cross-segment inheritance, offscreen carry-forward, intentional neutral acting, and event-triggered state changes. Added 15 positive/negative fixtures; CI executes the preflight."
