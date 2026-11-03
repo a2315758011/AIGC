@@ -48,5 +48,14 @@ jobs:
         run: node skills/storyboard-director-cn/scripts/validate-facial-performance-continuity.cjs skills/storyboard-director-cn/tests/面部表演连续性回归样例-V1.json
       - name: SCG regression
         run: node skills/storyboard-director-cn/scripts/分镜SCG校验器-V1.js skills/storyboard-director-cn/tests/分镜SCG回归样例-V1.json
+      - name: Build and verify offline Skill ZIP
+        run: node skills/storyboard-director-cn/scripts/package-offline-skill-regression.cjs --output "${RUNNER_TEMP}/storyboard-director-cn-1.3.7.zip"
+      - name: Upload verified offline Skill ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: storyboard-director-cn-v1.3.7
+          path: ${{ runner.temp }}/storyboard-director-cn-1.3.7.zip
+          if-no-files-found: error
+          retention-days: 30
       - name: Event-time regression
         run: node skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js skills/storyboard-director-cn/tests/分镜事件时长回归样例-V1.json
