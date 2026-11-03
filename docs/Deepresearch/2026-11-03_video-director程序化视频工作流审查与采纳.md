@@ -90,20 +90,39 @@ CI 工作流引导文件已通过 PR #28 合并到 main；本分支的下一次�
 
 ## 6. 测试与证据状态
 
-本报告初次创建时，仓库回归处于待运行状态。完成 GitHub Actions 后必须把实际 run ID、commit、通过数和失败数回填到本节。
+<badge>静态回归通过</badge>
 
-计划验证：
+### 本专项 CI 证据
 
-1. Python 语法编译；
-2. AIGC 事件时间适配器正向/负向测试；
-3. 上游 `check_timeline.py` 对编译结果的通过与 gap 负向拒绝；
-4. 技能包文件集合、文件大小和 SHA-256 完整性；
-5. ffmpeg 生成的 4 秒合成测试 MP4 通过 `qa_video.py` smoke test。
+| 工作流 | Run | 结果 | 实际验证 |
+|---|---:|---|---|
+| `video-director-regression` | `41626934891`（#38） | PASS | 24 项包文件/大小/SHA-256 清单；Python 编译；18 项适配器与包合同测试；4 秒、1280×720、24 FPS 合成 MP4；上游 `qa_video.py` 与联系表生成 |
+| `video-director-package-contract` | `41626935252`（#12） | PASS | 权威规范/路由/更新协议/跨 Skill 依赖/upstream blob 锁定；12 个 SCG 回归用例、0 mismatch；事件时间校验器通过；从 manifest 创建全新 staging；ZIP CRC 与文件集合核验；解压副本 SHA-256 核验；解压副本 18 项测试；解压副本合成 MP4 QA |
+| `director-previs-regression` | `41626934900`（#420） | FAIL（非本 PR 文件） | 154 PASS / 5 FAIL，原因是既有 director-previs 版本与依赖锁漂移；见下方说明 |
 
-尚未验证：真实 HTML/Canvas/Three.js/Remotion 工程的浏览器逐帧渲染、用户正式剧集的完整时间轴编译、真实音轨、真人演员表演、目标视频模型服从率、最终生产成片独立审片。
+### 非本 PR 的既有失败
+
+`director-previs-regression` 的 5 个失败为：
+1. director-previs Skill 版本与其来源锁不一致；
+2. director README 记录为 1.4.1，与检查规则不一致；
+3. `live-action-safety-storyboard-cn` 依赖 SHA 不一致（期望 `a669b408f7d39c53cfead2ac508101399ba5dd4d`，实际 `899b08446c966890d74b46a4ec36081d61d9d67f`）；
+4. 该依赖的来源锁版本不一致；
+5. 该依赖的来源锁 SHA 不一致。
+
+已核对 `skills/director-previs-cn/SKILL.md`、`README.md`、`SOURCE_LOCK.json` 在 PR 分支与 main 的 Git blob SHA 完全相同；PR #27 没有修改这些文件，也没有修复或掩盖这项既有问题。因此不能把整个仓库工作流描述为全绿。
+
+### 尚未验证
+
+- 用户真实剧集的事件账本编译和完整 timeline；
+- HTML/Canvas/SVG/Three.js/Remotion 的真实项目渲染；
+- 真实音轨的响度、峰值和音画同步；
+- 真人演员表演、复杂身体接触、目标视频模型服从率；
+- 最终生产成片的独立审片。
+
+本次 MP4 是自动生成的合成测试视频，只证明 QA 工具链可运行，不代表生产作品通过。
 
 ## 7. 采纳等级
 
 建议登记为**中等级 / E3（以回归结果为准）**：上游源码、许可证和脚本可审查；本仓库新增适配器可通过可复现的静态回归。不得升级为 E4，除非在用户真实制作流程中完成受控案例、实际 MP4 渲染和独立审片。
 
-状态：`CODE_REVIEWED_STATIC_REGRESSION_PENDING_TARGET_PRODUCTION_NOT_RUN`。
+状态：`CODE_REVIEWED_STATIC_REGRESSION_PASS_TARGET_PRODUCTION_NOT_RUN`。
