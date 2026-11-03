@@ -34,7 +34,7 @@ AIGC 的 SCG 和事件时间账本仍是剧情世界状态与事件时序的唯�
 - `SKILL.md`：中文入口与 AIGC 适配规则
 - `scripts/compile_aigc_timeline.py`：SCG 事件时间账本到渲染时间表的单向投影
 - `scripts/check_timeline.py`、`qa_video.py`：上游原始校验器
-- `references/`：上游规则原文与中文速查
+- `references/`：上游规则原文、五份制作/来源参考与中文速查
 - `tests/`：适配器、时间轴与清单回归
 - `SOURCE_LOCK.json`：上游固定提交、文件 SHA 和跨技能依赖
 - `artifact-manifest.json`：本技能包文件集合、大小与 SHA-256
