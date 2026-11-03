@@ -50,7 +50,8 @@ metadata:
 
 1. **锁定输入**：读取简报、剧本、正式分镜、SCG、事件时间账本、批准资产和目标交付规格；未知项明确标记。
 2. **写创意方案**：创建 `TREATMENT.md`，比较三种结构方向，说明最终选择；只学习参考作品的节奏/构图/镜头语法，不复制其内容。
-3. **源账本预检**：AIGC 项目先运行 `node skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js events.json`。Txx 硬错误必须先修复；Wxx 警告须人工复核并记录。Node.js 不可用时标记 NOT_RUN，不得声称源账本已验证。\n4. **编译时间表**：通过源账本预检后运行 `scripts/compile_aigc_timeline.py`，从已人工复核的事件时间账本派生 `timeline.json`。
+3. **源账本预检**：AIGC 项目先运行 `node skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js events.json`。Txx 硬错误必须先修复；Wxx 警告须人工复核并记录。Node.js 不可用时标记 NOT_RUN，不得声称源账本已验证。
+4. **编译时间表**：通过源账本预检后运行 `scripts/compile_aigc_timeline.py`，从已人工复核的事件时间账本派生 `timeline.json`。
 5. **时间轴门禁**：运行 `scripts/check_timeline.py`；ERROR 必须修复后才能写动画代码，WARN 必须修复或写明保留理由。
 6. **静帧先行**：先做 styleframe、首帧、高潮帧和结尾海报；构图/素材/文字不通过，不进入高成本渲染。
 7. **确定性编码**：每帧是时间 t 或 frame index 的纯函数；禁止隐式计时器、Date.now、未固定随机数、跨帧隐藏状态。
