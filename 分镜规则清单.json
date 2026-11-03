@@ -20,7 +20,7 @@
       "git_blob_sha": "8b0bfd485d31a7312abc8aedae9d30c698b74547"
     }
   ],
-  "update_contract": "在线模式须读取 main 最新清单和全部 required 规则，并核对版本/SHA；新增或废弃 required 规则时同步更新本清单、Skill SOURCE_LOCK 与离线全文。高风险时序必须执行结构化事件时间校验；离线模式必须明确标记快照与最新版核验状态。所有模式均禁止把文本审核、结构化校验或视频测试互相冒充。",
+  "update_contract": "在线模式须读取 main 最新清单和全部 required 规则，并核对版本/SHA；新增或废弃 required 规则时同步更新本清单、Skill SOURCE_LOCK 与离线全文。高风险时序必须执行结构化事件时间校验；离线模式必须明确标记快照与最新版核验状态。所有模式均禁止把文本审核、结构化校验或视频测试互相冒充。 面部表演结构化数据启用时，必须运行面部表演连续性校验器；它复用 SCG 镜头状态和事件 ID，不得另建人物状态/事件时间账本。",
   "gate": {
     "fail_closed": true,
     "p0_allowed": 0,
@@ -49,7 +49,7 @@
   "source_version": "V2.10.6",
   "skill": {
     "path": "skills/storyboard-director-cn/SKILL.md",
-    "version": "1.3.6",
+    "version": "1.3.7",
     "source_version": "V2.10.6",
     "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json"
   },
@@ -69,6 +69,14 @@
       "tests": "skills/storyboard-director-cn/tests/分镜事件时长回归样例-V1.json",
       "schema": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",
       "limits": "仅校验人工/AI提取并复核的结构化事件账本；不解析普通中文稿，不验证生成视频"
+    },
+    {
+      "path": "skills/storyboard-director-cn/scripts/validate-facial-performance-continuity.cjs",
+      "version": "V1.1",
+      "required_when": "使用 SCG generation_segments 或 person.attributes.facial_performance 结构化数据时",
+      "tests": "skills/storyboard-director-cn/tests/面部表演连续性回归样例-V1.json",
+      "schema": "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md",
+      "limits": "只校验分段映射/声明模型时长上限、可见面部表演字段、上一可见表演尾态继承和事件触发；不判断表演是否符合剧本，不证明目标视频模型服从"
     }
   ],
   "offline_bundle_version": "V2.10.6",
