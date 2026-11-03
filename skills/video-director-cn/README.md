@@ -22,7 +22,7 @@ AIGC 的 SCG 和事件时间账本仍是剧情世界状态与事件时序的唯�
 
 ## 依赖
 
-- Python 3.9+
+- Python 3.9+\n- 源事件时间账本预检：使用 AIGC 主线项目的 Node.js 环境运行 `skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js`；不复制该校验器到本技能。
 - QA：ffmpeg、ffprobe、NumPy、Pillow（见 `requirements-qa.txt`）
 - HTML/Canvas：当前项目自己的 Node.js、Playwright/Chromium
 - Remotion：按目标项目现有 package.json 和锁文件安装/运行
