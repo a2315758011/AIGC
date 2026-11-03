@@ -49,7 +49,7 @@
   "source_version": "V2.10.6",
   "skill": {
     "path": "skills/storyboard-director-cn/SKILL.md",
-    "version": "1.3.6",
+    "version": "1.3.7",
     "source_version": "V2.10.6",
     "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json"
   },
