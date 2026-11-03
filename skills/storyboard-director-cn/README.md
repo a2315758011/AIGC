@@ -20,6 +20,7 @@
 
 ```bash
 node scripts/分镜SCG校验器-V1.js tests/分镜SCG回归样例-V1.json
+node scripts/validate-facial-performance-continuity.cjs tests/面部表演连续性回归样例-V1.json
 node scripts/分镜事件时长校验器-V1.js tests/分镜事件时长回归样例-V1.json
 ```
 
