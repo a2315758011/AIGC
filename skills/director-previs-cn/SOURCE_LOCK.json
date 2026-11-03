@@ -185,7 +185,7 @@
       "source_lock_path": "skills/live-action-safety-storyboard-cn/SOURCE_LOCK.json",
       "authority": "真人影视实拍风格锁定、GPT原生生图虚构暴力风险诊断、合规非图像化视觉转换和逐镜修复",
       "source_lock_version": "1.0.2",
-      "source_lock_git_blob_sha": "3fbc580fb33d0e2907433b07c0ef6df2070c9ea1"
+      "source_lock_git_blob_sha": "8a9a6db1fac72d16269c1817d6ecbc6307c1f232"
     }
   ],
   "excluded_candidates": [
@@ -193,7 +193,7 @@
       "package": "manju-director-cn",
       "version": "1.1.2",
       "source_version": "V2.10.6",
-      "source_lock_git_blob_sha": "2060962d669b158b0c6e4bb8473cc1a90d554971",
+      "source_lock_git_blob_sha": "a9c5d81a801298cb2bdc7482333811e6d104a16a",
       "reason": "离线快照已刷新到 main 的 V2.10.6 并通过源文件 SHA/字符数一致性核对；仍不加入 director-previs 默认核心路由，以避免与 storyboard-director-cn 重复承担完整分镜/自检职责。仅在用户明确需要漫剧人物/场景/道具资产与完整分镜闭环时独立调用。"
     }
   ],
