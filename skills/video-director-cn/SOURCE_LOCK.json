@@ -93,7 +93,7 @@
   "cross_skill_dependencies": [
     {
       "path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "d3a5a37657ed20bbd6a69860a4580906319b8f32"
+      "git_blob_sha": "55573512271cc4e7e33438f3ec2cb7ef48f999dd"
     },
     {
       "path": "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md",
