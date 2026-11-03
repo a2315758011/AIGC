@@ -189,10 +189,10 @@
   "excluded_candidates": [
     {
       "package": "manju-director-cn",
-      "version": "1.1.1",
-      "source_version": "V2.10.5",
-      "source_lock_git_blob_sha": "f33403cf33db58c203786cfd2a48d014185e9185",
-      "reason": "离线快照已刷新到 main 的 V2.10.5 并通过源文件 SHA/字符数一致性核对；仍不加入 director-previs 默认核心路由，以避免与 storyboard-director-cn 重复承担完整分镜/自检职责。仅在用户明确需要漫剧人物/场景/道具资产与完整分镜闭环时独立调用。"
+      "version": "1.1.2",
+      "source_version": "V2.10.6",
+      "source_lock_git_blob_sha": "1efde71d38d54456bc8b2cf2e7bf8dbc76359a0d",
+      "reason": "离线快照已同步至 main 的 V2.10.6 并通过源文件 SHA/字符数一致性核对，包含跨镜头与跨生成段落面部表演连续性规则；仍不加入 director-previs 默认核心路由，以避免与 storyboard-director-cn 重复承担完整分镜/自检职责。仅在用户明确需要漫剧人物/场景/道具资产与完整分镜闭环时独立调用。"
     }
   ],
   "verification": {
@@ -203,7 +203,7 @@
     "main_commit": "7454c7e929aa50addc83d28a7fc7e6caac937218",
     "orchestrator_regression_cases": 11,
     "fight_impact_skill_status": "authored_pending_review",
-    "manju_director_status": "V2.10.5_snapshot_SHA_and_character_counts_verified_against_main_and_packaged_copy",
+    "manju_director_status": "V2.10.6_snapshot_SHA_and_character_counts_verified_against_main_and_packaged_copy",
     "automated_static_regression": {
       "status": "passed",
       "run_id": 41293255055,
