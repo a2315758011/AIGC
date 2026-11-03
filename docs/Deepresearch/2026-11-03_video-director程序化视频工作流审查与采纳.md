@@ -37,14 +37,14 @@ MIT 许可证允许复制、修改和再发布，但必须保留版权与许可�
 | `video-director/references/briefs.md` | `22f70ba6946cc60d895cb75ff3cd25a007e40971` | 简报、结构和时间表模板 |
 | `video-director/references/craft.md` | `ab7813dcbe8f03a71c2234f029ceab646538a026` | 画面工艺与可读性 |
 | `video-director/references/sound.md` | `15a788134966566bc9f4456bef6d179f429c451b` | 音乐、旁白与 SFX |
-| `video-director/references/quality.md` | `dc370b7758a1b937e192a029b4783f1d9361581b` | 质量检查目录 |
+| `video-director/references/quality.md` | `dc370b7758a1b937e192a029b4783f1d9361581b` | 质量检查目录 |\n| `video-director/references/sources.md` | `3ceea14dc427c1af16bba0384034ab59d9c36c3f` | 上游八个公开仓库与方法来源说明 |
 | `METHODOLOGY.md` | `4e09e96ef491d74c180dab548bbcb964f9ee86f5` | 上游方法说明 |
 | `README.zh-CN.md` | `6b6e42b44bdbe34196a4dad283bfdd45fe128605` | 上游中文项目说明 |
 | `LICENSE` | `2c258d88ca8cf1ec34ac66c79af3b40963463f6f` | MIT 许可 |
 
 运行依赖：Python、ffmpeg/ffprobe、NumPy、Pillow；HTML/Canvas 逐帧渲染还需要目标工程自己的浏览器自动化/渲染依赖。上游 Skill 主要面向 Claude Opus 5.5 / Claude Code；其他编码 Agent 可以参考其流程，但不能据此宣称跨模型等效验证。
 
-本次只复制运行时必需的 Skill、四份参考、两个 QA 脚本、中文 README、方法说明和 LICENSE。上游 demo 视频/动图不是运行依赖；上游 evals 保留在原项目，本仓库不把作者评测样本伪装成自己的生产验证。
+本次复制完整 Skill、五份制作/来源参考、两个 QA 脚本、中文 README、方法说明和 LICENSE。上游 demo 视频/动图不是运行依赖；上游 evals 保留在原项目，本仓库不把作者评测样本伪装成自己的生产验证。
 
 ## 3. 两个关键脚本的职责与限制
 
