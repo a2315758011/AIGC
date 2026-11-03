@@ -38,6 +38,37 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Verify pinned authority and cross-skill dependency blobs
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+
+          lock = json.loads(open("skills/video-director-cn/SOURCE_LOCK.json", encoding="utf-8").read())
+          refs = [
+              lock["authoritative_instruction"],
+              lock["routing"],
+              lock["update_protocol"],
+              *lock["cross_skill_dependencies"],
+          ]
+          for ref in refs:
+              actual = subprocess.check_output(
+                  ["git", "rev-parse", "HEAD:" + ref["path"]], text=True
+              ).strip()
+              if actual != ref["git_blob_sha"]:
+                  raise SystemExit(
+                      "FAIL: source lock drift for " + ref["path"] +
+                      "; expected " + ref["git_blob_sha"] + "; actual " + actual
+                  )
+
+          package = {item["path"]: item["git_blob_sha"] for item in lock["package_files"]}
+          for upstream in lock["upstream"]["files"]:
+              local_path = upstream["path"]
+              if package.get(local_path) != upstream["git_blob_sha"]:
+                  raise SystemExit("FAIL: vendored upstream blob mismatch: " + local_path)
+          print("PASS: authority, route, update protocol, cross-skill and upstream blob pins")
+          PY
+
       - name: Validate existing SCG regression contract
         run: node skills/storyboard-director-cn/scripts/分镜SCG校验器-V1.js skills/storyboard-director-cn/tests/分镜SCG回归样例-V1.json
 
