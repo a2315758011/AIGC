@@ -1,0 +1,63 @@
+name: video-director-regression
+
+on:
+  pull_request:
+    paths:
+      - "AGENTS.md"
+      - "README.md"
+      - "skills/README.md"
+      - "skills/video-director-cn/**"
+      - "docs/代码动画与程序化视频制作规范-V1.md"
+      - "docs/知识体系/**"
+      - "docs/Deepresearch/2026-11-03_video-director程序化视频工作流审查与采纳.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify exact skill package and SHA-256 manifest
+        run: python skills/video-director-cn/scripts/verify_manifest.py
+
+      - name: Compile Python scripts
+        run: python -m py_compile skills/video-director-cn/scripts/*.py
+
+      - name: Run adapter and timeline regression
+        run: python -m unittest discover -s skills/video-director-cn/tests -p "test_*.py" -v
+
+      - name: Install QA dependencies
+        run: python -m pip install -r skills/video-director-cn/requirements-qa.txt
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Render synthetic MP4 and run upstream QA smoke test
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/video-director"
+          ffmpeg -hide_banner -loglevel error -y \
+            -f lavfi -i "testsrc2=size=1280x720:rate=24:duration=4" \
+            -pix_fmt yuv420p "$RUNNER_TEMP/video-director/smoke.mp4"
+          python skills/video-director-cn/scripts/qa_video.py \
+            "$RUNNER_TEMP/video-director/smoke.mp4" \
+            --out "$RUNNER_TEMP/video-director/qa" \
+            --times "0.5,1.5,2.5,3.5"
+          test -s "$RUNNER_TEMP/video-director/qa/report.json"
+          test -s "$RUNNER_TEMP/video-director/qa/report.md"
+          test -s "$RUNNER_TEMP/video-director/qa/beats_sheet.jpg"
+          test -s "$RUNNER_TEMP/video-director/qa/phone_sheet.jpg"
+          test -s "$RUNNER_TEMP/video-director/qa/hook_sheet.jpg"
