@@ -193,8 +193,8 @@
       "package": "manju-director-cn",
       "version": "1.1.2",
       "source_version": "V2.10.6",
-      "source_lock_git_blob_sha": "2060962d669b158b0c6e4bb8473cc1a90d554971",
-      "reason": "离线快照已刷新到 main 的 V2.10.6 并通过源文件 SHA/字符数一致性核对；仍不加入 director-previs 默认核心路由，以避免与 storyboard-director-cn 重复承担完整分镜/自检职责。仅在用户明确需要漫剧人物/场景/道具资产与完整分镜闭环时独立调用。"
+      "source_lock_git_blob_sha": "3932450cf6b63d5f5e6af71b02340e966a7cd0da",
+      "reason": "离线快照已同步到 main 的 V2.10.6 并通过源文件 SHA/字符数一致性核对，包含跨镜头与跨生成段落面部表演连续性规则；仍不加入 director-previs 默认核心路由，以避免与 storyboard-director-cn 重复承担完整分镜/自检职责。仅在用户明确需要漫剧人物/场景/道具资产与完整分镜闭环时独立调用。"
     }
   ],
   "verification": {
