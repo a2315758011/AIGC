@@ -113,9 +113,9 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 ## 跨技能依赖版本一致性门禁
 
 每次调用导演统筹或预演技能前，先比较 `SOURCE_LOCK.json` 中锁定的依赖与当前 `main` 权威文件，不得只依赖历史版本号。
-本次核对基线为 main `b47f00b965cd122296788db79f6d18d3dae90cdb`，发布前再次以当前 main 和 SOURCE_LOCK 的 SHA 为准：
-- `director-previs-cn` 计划同步为 V1.4.4；依赖 `scene-realism-director-cn` V1.15.0、`storyboard-director-cn` V1.3.6、站位规则 V1.9.0、`camera-motion-director-cn` V1.1.1、`live-action-safety-storyboard-cn` V1.0.1（其 SOURCE_LOCK 修订版 V1.0.2）。
-- `manju-director-cn` 计划同步为 V1.1.2，离线分镜/自检规则 V2.10.6，并加入空间先行 SOP；仍作为独立资产+分镜闭环，不进入 `director-previs-cn` 默认核心路由。
+本次对照基线（本分支基于 main `b47f00b965cd122296788db79f6d18d3dae90cdb`；发布前仍以当前 main 和 SOURCE_LOCK 的 SHA 为准）：
+- `director-previs-cn` 本分支已同步为 V1.4.4；依赖 `scene-realism-director-cn` V1.15.0、`storyboard-director-cn` V1.3.6、站位规则 V1.9.0、`camera-motion-director-cn` V1.1.1、`live-action-safety-storyboard-cn` V1.0.1（其 SOURCE_LOCK 修订版 V1.0.2）。
+- `manju-director-cn` 本分支已同步为 V1.1.2，离线分镜/自检规则 V2.10.6，并加入空间先行 SOP；仍作为独立资产+分镜闭环，不进入 `director-previs-cn` 默认核心路由。
 - `fight-impact-vfx-cn` 当前 SOURCE_LOCK 为 `authored_pending_review`，不得把规则设计说成真实视频验收通过。
 - 结构化导演台/多视角身份锚点仅有源码与论文静态证据；目标工作站未安装运行，消费级视频模型支持情况未验证。
 

@@ -84,7 +84,7 @@
   },
   "routing": {
     "path": "AGENTS.md",
-    "git_blob_sha": "c3949fe33a2eeada86b2a001107e34513d992d0e"
+    "git_blob_sha": "aaf849a6e92f5161fd7bdf63827be50d16cd87aa"
   },
   "update_protocol": {
     "path": "skills/SKILL_UPDATE_PROTOCOL.md",
