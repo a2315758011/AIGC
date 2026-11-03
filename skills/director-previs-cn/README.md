@@ -1,10 +1,10 @@
-# 导演统筹与场面预演 Skill V1.4.4
+# 导演统筹与场面预演 Skill V1.4.5
 
 本技能是导演层的任务统筹入口，不重复开发已有专业规则。
 
 ## 当前权威专业技能版本
 - `scene-realism-director-cn` V1.15.0（conditional）：场景真实性、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真、俯视/全景。
-- `storyboard-director-cn` V1.3.6 / source V2.10.6：正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性。
+- `storyboard-director-cn` V1.3.7 / source V2.10.6：正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性。
 - 人物站位与场景调度规则 V1.9.0：动态路径、foot grounding/foot planting、关键帧速度连续性、群演一致性、相机位置/视线轨迹分离。
 - `camera-motion-director-cn` V1.1.1：摄影机运动、位置/视线轨迹、模型适配和运镜审片。
 - `fight-impact-vfx-cn` V1.0.0：打斗动作因果、接触/受击、打击节奏、命中特效、环境反馈和声画同步（当前自身 SOURCE_LOCK 标记 authored_pending_review）。
