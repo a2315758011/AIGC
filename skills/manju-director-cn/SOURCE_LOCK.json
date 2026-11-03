@@ -30,6 +30,18 @@
       "source_path": "docs/知识体系/漫剧资产与分镜生产SOP-空间先行-V1.md",
       "git_blob_sha": "14e86e916835e254170608a6e5682a755fb4be1f",
       "characters": 3294
+    },
+    {
+      "package_path": "SKILL.md",
+      "source_path": "skills/manju-director-cn/SKILL.md",
+      "git_blob_sha": "9986e0705ff6eb1ae489db706969ec4e3ac01ecc",
+      "characters": 3879
+    },
+    {
+      "package_path": "README.md",
+      "source_path": "skills/manju-director-cn/README.md",
+      "git_blob_sha": "01bc00c169cb29b452fc38e34a589049b23985b9",
+      "characters": 2423
     }
   ],
   "source_rule_revision": "Storyboard-director V2.10.6; full writing and independent self-check snapshots refreshed from current main; spatial-first production SOP added; scene baseline is a hard gate before formal storyboard.",
