@@ -3,7 +3,7 @@
   "skill": "video-director-cn",
   "hash_algorithm": "SHA-256",
   "manifest_scope": "skills/video-director-cn/",
-  "file_count": 23,
+  "file_count": 24,
   "files": [
     {
       "path": "SKILL.md",
@@ -116,9 +116,14 @@
       "size_bytes": 2269
     },
     {
+      "path": "tests/test_skill_package_contract.py",
+      "sha256": "f5d013a41d4453fba2fd514a705512d79888939dbd47888b9b05e0de3a21f6a6",
+      "size_bytes": 3148
+    },
+    {
       "path": "SOURCE_LOCK.json",
-      "sha256": "da1f0e702725fbf36e635d1bd7f3fa30b824bfd7eaa39a9cf2196f0e97d9638e",
-      "size_bytes": 9734
+      "sha256": "1bc00e07098cccf19633079704b6205d1a939651ad2a25dc851d5af0d4e578b2",
+      "size_bytes": 9982
     }
   ],
   "self_exclusion": "artifact-manifest.json is excluded to avoid recursive self-hashing."
