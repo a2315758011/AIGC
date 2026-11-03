@@ -117,13 +117,13 @@
     },
     {
       "path": "tests/test_skill_package_contract.py",
-      "sha256": "f5d013a41d4453fba2fd514a705512d79888939dbd47888b9b05e0de3a21f6a6",
-      "size_bytes": 3148
+      "sha256": "39a6a9800acc136bd428715f1df645dd4ad0c3300d92fcb61d3965de1b37231a",
+      "size_bytes": 3491
     },
     {
       "path": "SOURCE_LOCK.json",
-      "sha256": "2daa91c79986fffb178cadc0e481bdbaaf82c64c64988ab241169c8457349fa1",
-      "size_bytes": 9982
+      "sha256": "190d213a34f337e8c9016bc90ad5de41aaf25dc318da995a2a378e49ced8316e",
+      "size_bytes": 9945
     }
   ],
   "self_exclusion": "artifact-manifest.json is excluded to avoid recursive self-hashing."
