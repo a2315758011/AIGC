@@ -2,7 +2,7 @@
 
 实验编号：DIRECTOR-PREVIS-EVAL-20261101
 适用技能：director-previs-cn V1.4.1
-权威专业依赖：scene-realism-director-cn V1.15.0；storyboard-director-cn V1.3.5 / 站位规则 V1.9.0；camera-motion-director-cn V1.1.1；fight-impact-vfx-cn V1.0.0（待独立评审）
+权威专业依赖：scene-realism-director-cn V1.15.0；storyboard-director-cn V1.3.6 / 站位规则 V1.9.0；camera-motion-director-cn V1.1.1；fight-impact-vfx-cn V1.0.0（待独立评审）
 状态：实验协议已准备；真实工作流与图像/视频 A/B 尚未运行。
 
 ## 1. 实验目的与变量隔离
@@ -74,7 +74,7 @@ A/B 唯一有意改变的变量是“是否先经过导演统筹并形成共享�
 
 ## 6. 动态走位交接约束
 
-依据当前 storyboard-director-cn V1.3.5 与人物站位规则 V1.9.0：
+依据当前 storyboard-director-cn V1.3.6 与人物站位规则 V1.9.0：
 - 先锁静态空间、人物身份、初始站位和摄影机，再添加动态动作。
 - 人物整体位移路径（root path）与身体动作/姿态（pose/action）必须分开描述。
 - 路径包含起点、途经点、终点和时间/关键帧；手绘路径按空间距离分配时间，不能按鼠标采样点数量分配。
