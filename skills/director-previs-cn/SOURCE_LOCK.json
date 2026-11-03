@@ -1,7 +1,7 @@
 {
   "package": "director-previs-cn",
-  "version": "1.4.2",
-  "date": "2026-11-02",
+  "version": "1.4.3",
+  "date": "2026-11-03",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
   "verified_main_commit": "cb7f60b0bd69631095432aadcaca7c23a8f19b09",
@@ -104,13 +104,13 @@
     },
     {
       "package": "storyboard-director-cn",
-      "version": "1.3.5",
-      "source_version": "V2.10.5",
+      "version": "1.3.6",
+      "source_version": "V2.10.6",
       "path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "61791f02b22de3a48d1ace442630b7b27d1e4c4f",
+      "git_blob_sha": "96f649cc262bfc13f2482357a93873d048b2d233",
       "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json",
-      "source_lock_version": "1.3.5",
-      "source_lock_git_blob_sha": "c72930ce2a01de7360feb0f78795e373c870c54a",
+      "source_lock_version": "1.3.6",
+      "source_lock_git_blob_sha": "574170c47ea764953719c90983e5e1e7e8a7a5a6",
       "authority": "正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性"
     },
     {
@@ -242,7 +242,7 @@
     "pc_mcp_connection": "connected_2026-11-01",
     "scene_realism_skill_status": "conditional",
     "scene_realism_prompt_ab": "separate_protocol_added_target_model_ab_not_run",
-    "storyboard_skill_version": "1.3.5",
+    "storyboard_skill_version": "1.3.6",
     "storyboard_positioning_rules_version": "1.9.0",
     "dynamic_movement_research": "reviewed_static_only_not_installed",
     "third_party_evaluator": "not_installed_hardware_and_cost_gate",
@@ -269,7 +269,7 @@
     "classroom_truth_source": "original_user_reference_image_visual_count",
     "classroom_male_seat": "row3_column_unresolved",
     "classroom_female_seat": "row3_adjacent_column_and_side_unresolved",
-    "director_previs_version": "1.4.1"
+    "director_previs_version": "1.4.3"
   },
   "note": "导演共享事实与SCG交接规范 V1.0.0 已加入；版本同步与回归断言已修复。GitHub Actions 运行 41293255055：185 PASS / 0 FAIL。真实工作流A/B及真实图片/视频A/B尚未执行。静态回归只证明仓库合同与测试通过，不代表模型真实生成质量已通过。 V1.4.1 final classroom correction: source image is 4 columns x 5 rows = 20 desks, not 4x6. Scene realism dependency is upgraded/pinned at V1.15.0; classroom integration fixture now matches the original image and user's story: teacher at podium, female lead sits at adjacent desk to male lead, female classmate 2 interrupts first and classmate 3 later. Male is row3 with exact column unresolved; female is adjacent with exact column/side unresolved. Regression script asserts these unresolved constraints rather than inventing a seat. GitHub Actions workflow label and classroom-specific test target are updated to 4x5. Follow-up CI repair: director-previs validator now expects version 1.4.1 and its README matches; scene-realism README/SKILL/source lock are V1.15.0, director README dependency label is V1.15.0. Workflow and source-lock hashes are synchronized. The 4x5 classroom fixture and test script were corrected; latest CI run had only two remaining failures caused by stale version assertions, now fixed. A/B protocol and result template are now pinned to director-previs 1.4.1 and scene-realism 1.15.0. The protocol's experiment status remains NOT_RUN; no model-level A/B result is claimed. Classroom continuation 2026-11-01: added CLASSROOM-CN-4X5-001/导演走位预演计划_V1.json with six source-grounded ordered events. It preserves unresolved character columns, exact paths, dimensions and timecodes; it is a symbolic blocking plan, not a completed SCG shot ledger or visual validation. CI repair 2026-11-01: latest main run 41313396815 exposed two stale pins only: scene-realism SOURCE_LOCK blob SHA and director dependency source_lock_git_blob_sha. Updated both to current scene-realism SOURCE_LOCK SHA c8c96cedfb7293d5197b2d595830b8d16b929e40; no skill logic or classroom facts changed. Awaiting rerun of GitHub Actions. Real image/video A/B remains NOT_RUN; current classroom baseline remains 4 columns x 5 rows = 20 desk-chair sets.",
   "cross_skill_refs": {

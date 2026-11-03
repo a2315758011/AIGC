@@ -1,22 +1,22 @@
 {
   "package": "storyboard-director-cn",
-  "date": "2026-11-01",
-  "version": "1.3.5",
+  "date": "2026-11-03",
+  "version": "1.3.6",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "source_version": "V2.10.5",
+  "source_version": "V2.10.6",
   "files": [
     {
       "package_path": "references/剧本转分镜指令.md",
       "source_path": "剧本转分镜指令",
-      "git_blob_sha": "98feb1281d83aed5ee035bf9f70713598610588c",
-      "characters": 35851
+      "git_blob_sha": "21282b2499fd2e3eb4b74aaa1659427a0c7b3867",
+      "characters": 37864
     },
     {
       "package_path": "references/剧本转分镜自检指令.md",
       "source_path": "剧本转分镜自检指令",
-      "git_blob_sha": "778c79dbab0705186cad159d22b1356cdbff0e2e",
-      "characters": 22048
+      "git_blob_sha": "8b0bfd485d31a7312abc8aedae9d30c698b74547",
+      "characters": 22766
     },
     {
       "package_path": "references/分镜SCG数据契约-V1.md",
@@ -69,15 +69,21 @@
     {
       "package_path": "SKILL.md",
       "source_path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "61791f02b22de3a48d1ace442630b7b27d1e4c4f",
-      "characters": 2796
+      "git_blob_sha": "96f649cc262bfc13f2482357a93873d048b2d233",
+      "characters": 2822
     },
     {
       "package_path": "references/SCG骨骼姿态与接触约束扩展契约-V1.md",
       "source_path": "skills/scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md",
-      "git_blob_sha": "2f37b13c0f434c58a2465e1cfdec3e1fbe6084a1",
-      "characters": 2701
+      "git_blob_sha": "e6ae50e4b7348c8fd548127d641d27ba8c1fc531",
+      "characters": 3088
+    },
+    {
+      "package_path": "scripts/verify-performance-continuity-contract.cjs",
+      "source_path": "scripts/verify-performance-continuity-contract.cjs",
+      "git_blob_sha": "ecbca38015c1a9fd2ed90745a8633335cec7867a",
+      "characters": 3552
     }
   ],
-  "source_rule_revision": "V1.9.0 adds static-world/dynamic-actor/camera state separation, stable IDs and project state as source of truth, project-specific timebase/integer frames, human keyframe locks, read-edit-validate-local-undo workflow, multi-view character anchors for large-angle camera motion, and reference-image responsibility mapping."
+  "source_rule_revision": "V1.9.0 adds static-world/dynamic-actor/camera state separation, stable IDs and project state as source of truth, project-specific timebase/integer frames, human keyframe locks, read-edit-validate-local-undo workflow, multi-view character anchors for large-angle camera motion, and reference-image responsibility mapping. V2.10.6 adds explicit per-shot facial performance states and cross-generation-segment entry/progression/exit inheritance, preventing unsupported neutral-face resets while preserving intentional restrained/poker-face acting; adds an independent zombie-face QA gate."
 }

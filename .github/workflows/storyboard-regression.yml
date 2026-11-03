@@ -3,6 +3,11 @@ name: Storyboard Regression
 on:
   pull_request:
     paths:
+      - "剧本转分镜指令"
+      - "剧本转分镜自检指令"
+      - "skills/storyboard-director-cn/references/**"
+      - "skills/storyboard-director-cn/SKILL.md"
+      - "skills/storyboard-director-cn/README.md"
       - "skills/storyboard-director-cn/scripts/**"
       - "skills/storyboard-director-cn/tests/**"
       - "skills/storyboard-director-cn/SOURCE_LOCK.json"
@@ -12,6 +17,11 @@ on:
       - "main"
       - "fix/storyboard-parallel-regression-ci-20261028"
     paths:
+      - "剧本转分镜指令"
+      - "剧本转分镜自检指令"
+      - "skills/storyboard-director-cn/references/**"
+      - "skills/storyboard-director-cn/SKILL.md"
+      - "skills/storyboard-director-cn/README.md"
       - "skills/storyboard-director-cn/scripts/**"
       - "skills/storyboard-director-cn/tests/**"
       - "skills/storyboard-director-cn/SOURCE_LOCK.json"
@@ -28,6 +38,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      - name: Facial performance continuity contract
+        run: node skills/storyboard-director-cn/scripts/verify-performance-continuity-contract.cjs
       - name: SCG regression
         run: node skills/storyboard-director-cn/scripts/分镜SCG校验器-V1.js skills/storyboard-director-cn/tests/分镜SCG回归样例-V1.json
       - name: Event-time regression

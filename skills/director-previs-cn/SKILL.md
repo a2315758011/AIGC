@@ -2,7 +2,7 @@
 name: director-previs-cn
 description: 中文影视/短剧/漫剧导演统筹与场面预演入口。用户要求导演方案、跨场景真实性/正式分镜/摄影机运镜/打斗特效的整体统筹或复杂多专业场面预演时调用；单一专业任务直接调用对应专业技能。本技能只负责导演意图、共享事实底稿、专业技能路由、冲突消解和结果整合，不重复专业规则。
 metadata:
-  version: "1.4.2"
+  version: "1.4.3"
   language: "zh-CN"
   source_repo: "a2315758011/AIGC"
 ---
@@ -103,7 +103,7 @@ node skills/director-previs-cn/scripts/validate_director_previs.js
 
 该检查器验证路由合同、来源锁、依赖文件 SHA、教室集成夹具和十一项回归用例。fight-impact-vfx 当前自身状态为 `authored_pending_review`，使用时须遵守其验证边界。静态检查只证明仓库合同一致，不证明模型真实遵循提示词，也不证明图像/视频质量提升。
 
-当前权威依赖版本：scene-realism-director-cn V1.12.0；storyboard-director-cn V1.3.5（源规则 V2.10.5）；人物站位规则 V1.9.0；camera-motion-director-cn V1.1.1。涉及动态走位时，必须读取站位规则中的稳定 ID、人工锁定、项目状态真值、静态场景/动态角色/摄影机分轨、项目声明时间基准、多视角身份锚点、路径时间、根节点/姿态分离、grounding/foot planting、关键帧速度连续性、群演个体一致性和相机位置/视线分轨要求；不得在本 Skill 里复制第二套参数规则。若存在已授权结构化导演台/MCP，先读取实际工程和稳定 ID，保护人工锁定项，再小步编辑、验证和局部撤销；不得默认所有工具均为24fps，也不得假设消费级视频模型接受相同控制信号。
+当前权威依赖版本：scene-realism-director-cn V1.15.0；storyboard-director-cn V1.3.6（源规则 V2.10.6）；人物站位规则 V1.9.0；camera-motion-director-cn V1.1.1。涉及动态走位时，必须读取站位规则中的稳定 ID、人工锁定、项目状态真值、静态场景/动态角色/摄影机分轨、项目声明时间基准、多视角身份锚点、路径时间、根节点/姿态分离、grounding/foot planting、关键帧速度连续性、群演个体一致性和相机位置/视线分轨要求；不得在本 Skill 里复制第二套参数规则。若存在已授权结构化导演台/MCP，先读取实际工程和稳定 ID，保护人工锁定项，再小步编辑、验证和局部撤销；不得默认所有工具均为24fps，也不得假设消费级视频模型接受相同控制信号。
 
 导演工作流 A/B 与场景真实性提示策略 A/B 是两个独立实验。前者只改变是否调用 director-previs-cn；后者只比较场景提示策略。不得在同一轮同时改变两个变量。
 
