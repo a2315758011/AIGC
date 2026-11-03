@@ -63,7 +63,7 @@ const routes = JSON.parse(read("skills/director-previs-cn/tests/fixtures/导演�
 const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
 check("frontmatter exists", Boolean(frontmatter));
 check("skill name is correct", Boolean(frontmatter && /^name:\s*director-previs-cn$/m.test(frontmatter[1])));
-check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.4"/.test(frontmatter[1])) && lock.version === "1.4.4");
+check("skill version matches source lock", Boolean(frontmatter && /version:\s*"1\.4\.5"/.test(frontmatter[1])) && lock.version === "1.4.5");
 check("source lock targets current branch", lock.branch === "main");
 check("source lock records a valid reviewed main commit", /^[0-9a-f]{40}$/.test(lock.verified_main_commit) && lock.branch === "main");
 const cameraFrontmatter = cameraSkillText.match(/^---\n([\s\S]*?)\n---/);
@@ -104,7 +104,7 @@ check("scene realism dependency is current", dependencyByName["scene-realism-dir
 check("scene realism skill blob is current", dependencyByName["scene-realism-director-cn"]?.git_blob_sha === sceneRealismLock.files?.["SKILL.md"]);
 check("scene realism source lock blob is current", dependencyByName["scene-realism-director-cn"]?.source_lock_version === sceneRealismLock.version && dependencyByName["scene-realism-director-cn"]?.source_lock_git_blob_sha === gitBlobSha(sceneRealismLockText));
 check("skeletal contact contract is pinned", Boolean(lock.cross_skill_refs?.["scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md"]) && exists("skills/scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md"));
-check("storyboard dependency is current", dependencyByName["storyboard-director-cn"]?.version === "1.3.6");
+check("storyboard dependency is current", dependencyByName["storyboard-director-cn"]?.version === "1.3.7");
 check("positioning rules are current", dependencyByName["storyboard-positioning-rules"]?.version === "1.9.0");
 check("camera motion dependency is current", dependencyByName["camera-motion-director-cn"]?.version === "1.1.1");
 check("sixth-batch structured previs research is pinned", dependencyByName["structured-previs-research-sixth-batch"]?.git_blob_sha === "d151b072b105bf31505504fb7a2972dab89e412f");
@@ -118,7 +118,7 @@ check("root AGENTS routes fight specialist", rootAgents.includes("直接调用 `
 check("director skill flags fight skill review status", skillText.includes("authored_pending_review"));
 check("PR workflow watches fight skill", workflowText.includes("skills/fight-impact-vfx-cn/**"));
 check("skill README documents all specialists", specialists.every(name => readmeText.includes(name)));
-check("director README is version 1.4.4", readmeText.includes("V1.4.4"));
+check("director README is version 1.4.5", readmeText.includes("V1.4.5"));
 check("director handoff contract is documented", readmeText.includes("导演共享事实与SCG交接规范-V1.md"));
 check("director contract reuses authoritative SCG", handoffContract.includes("分镜SCG数据契约-V1.md") && scgContract.includes("shot") && scgContract.includes("entities"));
 check("director contract reuses event time contract", handoffContract.includes("分镜事件时间数据契约-V1.md") && eventTimeContract.includes("time_start_ms"));
