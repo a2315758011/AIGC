@@ -93,11 +93,11 @@
   "cross_skill_dependencies": [
     {
       "path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "96f649cc262bfc13f2482357a93873d048b2d233"
+      "git_blob_sha": "d3a5a37657ed20bbd6a69860a4580906319b8f32"
     },
     {
       "path": "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md",
-      "git_blob_sha": "016e8830ea1a6f5db590a4c591eb2912c6b126d0"
+      "git_blob_sha": "45d0df1398fd4e00b7c6d02a94e33f2792bc65e3"
     },
     {
       "path": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",
