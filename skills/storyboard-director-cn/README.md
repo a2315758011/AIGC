@@ -8,7 +8,8 @@
 - 分镜导演推演：视觉节拍、动作链、逐镜面部表演证据、跨 10 秒/15 秒生成段落的表情尾态继承、镜头功能、观众视点和模型可执行性。
 - 空间连续性：人物世界位置、身体朝向、视线、景别裁切、道具持有与跨镜状态。
 - 自检修复闭环：发现 P0/P1 问题 → 修复最早冲突镜头 → 检查关联镜头 → 输出完整终稿。
-- SCG 数据契约 V1.1：逐镜面部表演状态与生成段落分组；配套结构化连续性校验器和 15 个正/负回归样例。\n- 可选 SCG 数据契约、回归样例和 Node.js 校验器。
+- SCG 数据契约 V1.1：逐镜面部表演状态与生成段落分组；配套结构化连续性校验器和 15 个正/负回归样例。
+- 可选 SCG 数据契约、回归样例和 Node.js 校验器。
 - 高风险动作时序校验：持续动作、前置依赖、互斥动作、机关接合与逐人可见展示的结构化事件时间账本。
 - 默认不输出 SVG；内部示意图不作为交付要求。
 
@@ -17,7 +18,8 @@
 在 Skill 根目录执行对应命令：
 
 ```bash
-node scripts/分镜SCG校验器-V1.js tests/分镜SCG回归样例-V1.json\nnode scripts/validate-facial-performance-continuity.cjs tests/面部表演连续性回归样例-V1.json
+node scripts/分镜SCG校验器-V1.js tests/分镜SCG回归样例-V1.json
+node scripts/validate-facial-performance-continuity.cjs tests/面部表演连续性回归样例-V1.json
 node scripts/分镜事件时长校验器-V1.js tests/分镜事件时长回归样例-V1.json
 ```
 
