@@ -1,7 +1,7 @@
 {
   "package": "storyboard-director-cn",
   "date": "2026-11-03",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
   "source_version": "V2.10.6",
@@ -21,8 +21,8 @@
     {
       "package_path": "references/分镜SCG数据契约-V1.md",
       "source_path": "分镜SCG数据契约-V1.md",
-      "git_blob_sha": "016e8830ea1a6f5db590a4c591eb2912c6b126d0",
-      "characters": 2191
+      "git_blob_sha": "1c6fd1c9f0af7f009d8de4f3da8f3c0c20e8cebd",
+      "characters": 5396
     },
     {
       "package_path": "scripts/分镜SCG校验器-V1.js",
@@ -69,8 +69,8 @@
     {
       "package_path": "SKILL.md",
       "source_path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "96f649cc262bfc13f2482357a93873d048b2d233",
-      "characters": 2822
+      "git_blob_sha": "033e4c5881001dcc8752bd28c8e255759a619364",
+      "characters": 3192
     },
     {
       "package_path": "references/SCG骨骼姿态与接触约束扩展契约-V1.md",
@@ -81,9 +81,27 @@
     {
       "package_path": "scripts/verify-performance-continuity-contract.cjs",
       "source_path": "scripts/verify-performance-continuity-contract.cjs",
-      "git_blob_sha": "ecbca38015c1a9fd2ed90745a8633335cec7867a",
-      "characters": 3552
+      "git_blob_sha": "cd7c21152fa0947cd794e1ed06218db342596b7e",
+      "characters": 5647
+    },
+    {
+      "package_path": "README.md",
+      "source_path": "README.md",
+      "git_blob_sha": "617177edecefe4d08734b5523b60b117f823dc4d",
+      "characters": 1607
+    },
+    {
+      "package_path": "scripts/validate-facial-performance-continuity.cjs",
+      "source_path": "scripts/validate-facial-performance-continuity.cjs",
+      "git_blob_sha": "86e9f04e7904c391bcf24d841972b23058d764cc",
+      "characters": 11937
+    },
+    {
+      "package_path": "tests/面部表演连续性回归样例-V1.json",
+      "source_path": "tests/面部表演连续性回归样例-V1.json",
+      "git_blob_sha": "0702f70bb7b75e4786a979287a5c49c55da62ead",
+      "characters": 53694
     }
   ],
-  "source_rule_revision": "V1.9.0 adds static-world/dynamic-actor/camera state separation, stable IDs and project state as source of truth, project-specific timebase/integer frames, human keyframe locks, read-edit-validate-local-undo workflow, multi-view character anchors for large-angle camera motion, and reference-image responsibility mapping. V2.10.6 adds explicit per-shot facial performance states and cross-generation-segment entry/progression/exit inheritance, preventing unsupported neutral-face resets while preserving intentional restrained/poker-face acting; adds an independent zombie-face QA gate."
+  "source_rule_revision": "V1.9.0 adds static-world/dynamic-actor/camera state separation, stable IDs and project state as source of truth, project-specific timebase/integer frames, human keyframe locks, read-edit-validate-local-undo workflow, multi-view character anchors for large-angle camera motion, and reference-image responsibility mapping. V2.10.6 adds explicit per-shot facial performance states and cross-generation-segment entry/progression/exit inheritance, preventing unsupported neutral-face resets while preserving intentional restrained/poker-face acting; adds an independent zombie-face QA gate. V1.3.7 adds SCG V1.1 generation-segment grouping and per-person facial_performance state on existing shot entities; machine preflight validates declared model duration caps, cross-shot/cross-segment inheritance, offscreen carry-forward, intentional neutral acting, and event-triggered state changes. Added 15 positive/negative fixtures; CI executes the preflight."
 }
