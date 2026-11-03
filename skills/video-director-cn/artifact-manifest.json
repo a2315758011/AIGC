@@ -122,8 +122,8 @@
     },
     {
       "path": "SOURCE_LOCK.json",
-      "sha256": "8cf06351672d621b4a21d282a6e0c04b98f403d329e7aba807ed358e5c433ab3",
-      "size_bytes": 10045
+      "sha256": "61e1b1076a7cedcede5d56e8559f891b1f056edcb90a972ac8df63eae59045b0",
+      "size_bytes": 9843
     }
   ],
   "self_exclusion": "artifact-manifest.json is excluded to avoid recursive self-hashing."
