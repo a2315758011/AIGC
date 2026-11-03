@@ -18,6 +18,16 @@
 - 只完成请求的阶段，不自动推进到下一阶段；例如分镜完成不自动渲染视频，HUD 设计不自动剪辑成片。
 - 仅运行本次交付适用的验收。没有执行的检查必须标记 `NOT_RUN`，不得用静态检查冒充真实生成或独立审片。
 
+## 漫剧完整资产与分镜的空间先行门禁（强制）
+
+用户提供剧本并要求完整漫剧资产+正式分镜时，必须先读取 [漫剧资产与分镜生产 SOP（空间先行）](./docs/知识体系/漫剧资产与分镜生产SOP-空间先行-V1.md)，主入口调用 `manju-director-cn`。固定顺序为：剧本事实锁定 → 资产需求总账 → 场景空间基线 → 角色/服装/关键道具母版 → 导演场面调度 → 正式分镜 → 独立质检。正式分镜前必须取得 `SPACE_BASELINE_LOCKED` 证据；场景基线至少有已批准参考或俯视/布局图、关键视角/白模与可复核锚点/结构化数据。未锁空间时只能做剧本分析和资产盘点，不得写正式逐镜稿。
+
+- 先做资产需求盘点，不等于先批量生成道具图；决定空间占地的大件先以尺寸或代理占位进入场景基线。
+- 场景空间基线锁定后，再制作角色/服装/关键道具视觉母版并绑定稳定 ID/锚点；若尺寸改变布局，先更新并重新锁定场景。
+- 只做正式分镜时仍由 `storyboard-director-cn` 内置导演推演和独立质检负责；只做单项资产/场景时不自动扩大到分镜。
+- `director-previs-cn` 仅用于完整导演方案、复杂跨专业统筹或完整成片流程，不为普通分镜重复写第二份分镜。
+
+
 ## 系统 UI 与程序化特效任务
 
 用户要求制作漫剧系统界面、全息 HUD、属性面板、技能卡、提示窗、魔法符号、程序化粒子、能量纹理或透明特效叠加层时，必须读取：
@@ -59,7 +69,7 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 - 用户直接说“真人安全分镜”，或提出真人影视/仿实拍分镜、GPT 原生生图暴力视觉风险、真人风格漂移或单镜头安全修复：调用 `live-action-safety-storyboard-cn`；先锁定原剧情与镜头事实，再逐镜做合规非图像化转换。不得使用隐语或同义词隐藏不允许的内容，也不得承诺绕过审核。
 - 跨域打斗任务按需调用：场景真实性→打斗动作因果/特效→正式分镜→摄影机运镜；不需要的技能跳过。
 - `fight-impact-vfx-cn` 当前 SOURCE_LOCK 为 `authored_pending_review`，不得把规则设计说成真实视频验收通过。
-- `manju-director-cn` 离线快照已同步至 V2.10.5；它保留为独立的漫剧资产+分镜完整闭环，不加入 `director-previs-cn` 默认核心路由，避免重复承担 `storyboard-director-cn` 的分镜职责。用户明确要求完整漫剧资产与分镜闭环时才单独调用。
+- `manju-director-cn` V1.1.2 离线快照已同步至 V2.10.6，内含空间先行 SOP；它保留为独立的漫剧资产+分镜完整闭环，不加入 `director-previs-cn` 默认核心路由，避免重复承担 `storyboard-director-cn` 的分镜职责。用户明确要求完整漫剧资产与分镜闭环时才单独调用。
 - 共享同一份场景/人物/道具事实；不得让下游技能无理由重置用户已锁定事实。
 - 文字方案、静态结构检查、白模预演、真实图像/视频和成片验收分别报告。
 
@@ -82,7 +92,7 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 
 ## 权威版本与验收
 
-- 当前主编写／独立质检规则：V2.10.5（以规则清单、原文 Git Blob SHA 和当前 main 为准）。
+- 当前主编写／独立质检规则：V2.10.6（以规则清单、原文 Git Blob SHA 和当前 main 为准）。
 - 技能包为离线快照；不可把本仓库更新当作已安装的学员设备自动升级。
 - 文字自检、SCG 结构验证、事件时间校验、运镜计划静态校验、真实视频生成验收分别报告，禁止互相冒充。
 - 历史旧链接请迁移到本仓库；项目新指令、仓库链接及 SOURCE_LOCK 均以这里为主。
@@ -103,10 +113,10 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 ## 跨技能依赖版本一致性门禁
 
 每次调用导演统筹或预演技能前，先比较 `SOURCE_LOCK.json` 中锁定的依赖与当前 `main` 权威文件，不得只依赖历史版本号。
-本次同步基线为 main `7454c7e929aa50addc83d28a7fc7e6caac937218`：
-- `director-previs-cn` 已更新至 V1.4.0，依赖锁定 `scene-realism-director-cn` V1.12.0、`storyboard-director-cn` V1.3.5、站位规则 V1.9.0、`camera-motion-director-cn` V1.1.1。
-- `camera-motion-director-cn` 的 SKILL frontmatter、README 与 SOURCE_LOCK 已统一为 V1.1.1。
-- `manju-director-cn` 离线规则已刷新至 V2.10.5；仍为独立漫剧闭环，不加入导演统筹默认路由，以免与分镜专业技能重复。
+本次核对基线为 main `b47f00b965cd122296788db79f6d18d3dae90cdb`，发布前再次以当前 main 和 SOURCE_LOCK 的 SHA 为准：
+- `director-previs-cn` 计划同步为 V1.4.4；依赖 `scene-realism-director-cn` V1.15.0、`storyboard-director-cn` V1.3.6、站位规则 V1.9.0、`camera-motion-director-cn` V1.1.1、`live-action-safety-storyboard-cn` V1.0.1（其 SOURCE_LOCK 修订版 V1.0.2）。
+- `manju-director-cn` 计划同步为 V1.1.2，离线分镜/自检规则 V2.10.6，并加入空间先行 SOP；仍作为独立资产+分镜闭环，不进入 `director-previs-cn` 默认核心路由。
+- `fight-impact-vfx-cn` 当前 SOURCE_LOCK 为 `authored_pending_review`，不得把规则设计说成真实视频验收通过。
 - 结构化导演台/多视角身份锚点仅有源码与论文静态证据；目标工作站未安装运行，消费级视频模型支持情况未验证。
 
 每次实际调用仍须回读当前 main 的专业 Skill、references、scripts、tests 并核对 Git Blob SHA；发现版本漂移时停止使用陈旧摘要。共享 Generation Gateway 当前 `SERVICE_NOT_RUNNING`，提供程序最近启动状态为 `0x80000003`；真实图像/视频 A/B 仍为 NOT_RUN。`fight-impact-vfx-cn` 仍为 `authored_pending_review`，不得声称真实视频或后期验收通过。
