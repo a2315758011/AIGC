@@ -1,10 +1,10 @@
-# 导演统筹与场面预演 Skill V1.4.4
+# 导演统筹与场面预演 Skill V1.4.5
 
 本技能是导演层的任务统筹入口，不重复开发已有专业规则。
 
 ## 当前权威专业技能版本
 - `scene-realism-director-cn` V1.15.0（conditional）：场景真实性、建筑拓扑、空间功能、透视尺度、物理接触、光照材质、参考图保真、俯视/全景。
-- `storyboard-director-cn` V1.3.6 / source V2.10.6：正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性。
+- `storyboard-director-cn` V1.3.7 / source V2.10.6（SCG V1.1）：正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性。
 - 人物站位与场景调度规则 V1.9.0：动态路径、foot grounding/foot planting、关键帧速度连续性、群演一致性、相机位置/视线轨迹分离。
 - `camera-motion-director-cn` V1.1.1：摄影机运动、位置/视线轨迹、模型适配和运镜审片。
 - `fight-impact-vfx-cn` V1.0.0：打斗动作因果、接触/受击、打击节奏、命中特效、环境反馈和声画同步（当前自身 SOURCE_LOCK 标记 authored_pending_review）。
@@ -18,6 +18,7 @@
 ## 文件
 - `SKILL.md`：触发条件、路由、导演意图、共享事实和冲突处理。
 - `SOURCE_LOCK.json`：外部来源许可证、Commit、文件 Blob SHA，以及最新 main 专业依赖版本和哈希。
+- SCG 含 `generation_segments` 或 `facial_performance` 时，必须调用 storyboard-director-cn V1.1 面部表演连续性预检；结构校验不替代真实视频审片。
 - `references/导演意图与技能交接协议.md`：导演意图、专业分工、交接顺序和冲突优先级。
 - `references/导演共享事实与SCG交接规范-V1.md`：复用 SCG 与事件时间权威契约，统一剧本、项目资产、场景、人物/道具、镜头状态和摄影机轨迹的交接，不重复造字段。
 - `tests/fixtures/`：十一项路由用例、十一项工作流 A/B 实验数据和高中教室集成基准。

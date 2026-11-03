@@ -83,7 +83,7 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 2. **完整**读取 [剧本转分镜指令](./剧本转分镜指令) 和 [剧本转分镜自检指令](./剧本转分镜自检指令)。绝不可只看摘要或文件名。
 3. 写分镜→按独立自检逐镜审核→默认修复 P0/P1→重写完整修订稿→从头复检。需要完整调度时读 [总控](./剧本转分镜总控-学员技能优先版-V3.0.md)。
 4. 涉及人物、三视图、场景或道具，再读 [AIGC人物资产指令](./AIGC人物资产指令)。
-5. 使用结构化镜头状态或高风险事件时间核查时，读取 [分镜导演 Skill](./skills/storyboard-director-cn/SKILL.md)、`references/`、`scripts/` 与 `tests/` 并运行对应校验。
+5. 使用结构化镜头状态或高风险事件时间核查时，读取 [分镜导演 Skill](./skills/storyboard-director-cn/SKILL.md)、`references/`、`scripts/` 与 `tests/` 并运行对应校验；SCG 含 `generation_segments` 或人物 `attributes.facial_performance` 时，必须运行 `node skills/storyboard-director-cn/scripts/validate-facial-performance-continuity.cjs`。
 6. 多人站位、场景调度、走位路径、摄影机轴线或双人近景，必须读取 `skills/storyboard-director-cn/references/人物站位与场景调度规则-V1.md`。
 7. **涉及摄影机运镜时**，读取 [中文运镜导演 Skill](./skills/camera-motion-director-cn/SKILL.md)，按需加载其 references；图生视频须先评估源画面景深、边缘余量、遮挡和隐藏表面。运镜设计不得改变分镜既定人物世界坐标、站位、距离、朝向、视线、轴线或道具状态。存在结构化运镜计划时运行 `skills/camera-motion-director-cn/scripts/validate_camera_move.py`。
 8. 参考各平台主播/创作者的站位方法时，读取 `docs/平台创作者人物站位实战研究_20261101.md` 与 `docs/平台创作者人物站位实战研究_20261101_第二批.md` 与 `docs/平台创作者人物动态走位与导演预演研究_20261101_第三批.md` 与 `docs/AI漫剧动态预演控制与生成服从性验证研究_20261101_第四批.md` 与 `docs/多平台人物站位图方法与开源导演台代码审查_20261101_第五批.md` 与 `docs/结构化3D导演台与多视角角色一致性研究_20261101_第六批.md`；仅将有复现证据的方法升级为强制规则。
@@ -113,8 +113,8 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 ## 跨技能依赖版本一致性门禁
 
 每次调用导演统筹或预演技能前，先比较 `SOURCE_LOCK.json` 中锁定的依赖与当前 `main` 权威文件，不得只依赖历史版本号。
-本次对照基线（本分支基于 main `b47f00b965cd122296788db79f6d18d3dae90cdb`；发布前仍以当前 main 和 SOURCE_LOCK 的 SHA 为准）：
-- `director-previs-cn` 本分支已同步为 V1.4.4；依赖 `scene-realism-director-cn` V1.15.0、`storyboard-director-cn` V1.3.6、站位规则 V1.9.0、`camera-motion-director-cn` V1.1.1、`live-action-safety-storyboard-cn` V1.0.1（其 SOURCE_LOCK 修订版 V1.0.2）。
+本次对照基线（本分支基于 main `6fab49ecddc1c09645c4547fcb60bfcc42025f09`；发布前仍以当前 main 和 SOURCE_LOCK 的 SHA 为准）：
+- `director-previs-cn` 本分支已同步为 V1.4.5；依赖 `scene-realism-director-cn` V1.15.0、`storyboard-director-cn` V1.3.7（source V2.10.6 / SCG V1.1）、站位规则 V1.9.0、`camera-motion-director-cn` V1.1.1、`live-action-safety-storyboard-cn` V1.0.1（其 SOURCE_LOCK 修订版 V1.0.2）。
 - `manju-director-cn` 本分支已同步为 V1.1.2，离线分镜/自检规则 V2.10.6，并加入空间先行 SOP；仍作为独立资产+分镜闭环，不进入 `director-previs-cn` 默认核心路由。
 - `fight-impact-vfx-cn` 当前 SOURCE_LOCK 为 `authored_pending_review`，不得把规则设计说成真实视频验收通过。
 - 结构化导演台/多视角身份锚点仅有源码与论文静态证据；目标工作站未安装运行，消费级视频模型支持情况未验证。

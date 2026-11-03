@@ -2,7 +2,7 @@
 name: director-previs-cn
 description: 中文影视/短剧/漫剧导演统筹与场面预演入口。用户要求导演方案、跨场景真实性/正式分镜/摄影机运镜/打斗特效的整体统筹或复杂多专业场面预演时调用；单一专业任务直接调用对应专业技能。本技能只负责导演意图、共享事实底稿、专业技能路由、冲突消解和结果整合，不重复专业规则。
 metadata:
-  version: "1.4.4"
+  version: "1.4.5"
   language: "zh-CN"
   source_repo: "a2315758011/AIGC"
 ---
@@ -103,8 +103,20 @@ node skills/director-previs-cn/scripts/validate_director_previs.js
 
 该检查器验证路由合同、来源锁、依赖文件 SHA、教室集成夹具和十一项回归用例。fight-impact-vfx 当前自身状态为 `authored_pending_review`，使用时须遵守其验证边界。静态检查只证明仓库合同一致，不证明模型真实遵循提示词，也不证明图像/视频质量提升。
 
-当前权威依赖版本：scene-realism-director-cn V1.15.0；storyboard-director-cn V1.3.6（源规则 V2.10.6）；人物站位规则 V1.9.0；camera-motion-director-cn V1.1.1。涉及动态走位时，必须读取站位规则中的稳定 ID、人工锁定、项目状态真值、静态场景/动态角色/摄影机分轨、项目声明时间基准、多视角身份锚点、路径时间、根节点/姿态分离、grounding/foot planting、关键帧速度连续性、群演个体一致性和相机位置/视线分轨要求；不得在本 Skill 里复制第二套参数规则。若存在已授权结构化导演台/MCP，先读取实际工程和稳定 ID，保护人工锁定项，再小步编辑、验证和局部撤销；不得默认所有工具均为24fps，也不得假设消费级视频模型接受相同控制信号。
+当前权威依赖版本：scene-realism-director-cn V1.15.0；storyboard-director-cn V1.3.7（源规则 V2.10.6）；人物站位规则 V1.9.0；camera-motion-director-cn V1.1.1。涉及动态走位时，必须读取站位规则中的稳定 ID、人工锁定、项目状态真值、静态场景/动态角色/摄影机分轨、项目声明时间基准、多视角身份锚点、路径时间、根节点/姿态分离、grounding/foot planting、关键帧速度连续性、群演个体一致性和相机位置/视线分轨要求；不得在本 Skill 里复制第二套参数规则。若存在已授权结构化导演台/MCP，先读取实际工程和稳定 ID，保护人工锁定项，再小步编辑、验证和局部撤销；不得默认所有工具均为24fps，也不得假设消费级视频模型接受相同控制信号。
 
 导演工作流 A/B 与场景真实性提示策略 A/B 是两个独立实验。前者只改变是否调用 director-previs-cn；后者只比较场景提示策略。不得在同一轮同时改变两个变量。
 
 开展导演统筹效果对比时，必须先读取 `tests/导演统筹工作流A-B实验协议-V1.md`、`tests/导演统筹视觉评分量表-V1.json` 和 `tests/fixtures/导演统筹A-B实验数据集-V1.json`。实验结果必须写入 `tests/templates/导演统筹实验结果模板-V1.json` 的副本；没有真实运行数据时保持 NOT_RUN。
+
+
+## 9. SCG 面部表演与生成段落预检
+
+当 SCG 含 `scene.generation_segments` 或 person entity 的 `attributes.facial_performance` 时，必须运行 storyboard-director-cn 提供的结构化预检：
+
+```bash
+node skills/storyboard-director-cn/scripts/validate-facial-performance-continuity.cjs scene.json
+node skills/storyboard-director-cn/scripts/validate-facial-performance-continuity.cjs skills/storyboard-director-cn/tests/面部表演连续性回归样例-V1.json
+```
+
+该预检检查模型时长上限证据结构、生成段落归属与时码、逐镜面部状态、跨镜/跨段尾态继承、角色出画后的状态恢复和剧情事件触发。机器 PASS 只证明结构化合同成立，不判断表演是否符合剧本、演员是否自然或真实视频模型是否服从。未执行必须标记 `NOT_RUN`；不得用结构校验冒充视频验收。

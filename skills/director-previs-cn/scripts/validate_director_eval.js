@@ -22,6 +22,8 @@ const template=parse(templatePath);
 const classroom=parse(classroomPath);
 const lock=parse("skills/director-previs-cn/SOURCE_LOCK.json");
 const sceneRealismLock=parse("skills/scene-realism-director-cn/SOURCE_LOCK.json");
+const storyboardLock=parse("skills/storyboard-director-cn/SOURCE_LOCK.json");
+const storyboardDependency=lock.local_dependencies.find(x=>x.package==="storyboard-director-cn");
 check("A/B protocol exists",protocol.length>1000);
 check("A/B defines both arms",protocol.includes("A 组：直接专业技能工作流")&&protocol.includes("B 组：导演统筹工作流"));
 check("A/B changes only orchestration",protocol.includes("唯一有意改变的变量是"));
@@ -30,7 +32,9 @@ check("protocol requires blind randomized review",protocol.includes("随机化�
 check("protocol separates process and visual metrics",protocol.includes("流程指标（主要）")&&protocol.includes("视觉指标（次要）"));
 check("protocol forbids false visual acceptance",protocol.includes("真实工作流、图像/视频 A/B 仍为 NOT_RUN"));
 check("director A/B is isolated from scene prompt A/B",protocol.includes("两类实验必须分开") && dataset.scene_realism_prompt_ab.status === "separate_experiment_not_combined");
-check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V"+sceneRealismLock.version) && lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version) && protocol.includes("director-previs-cn V1.4.4") && protocol.includes("storyboard-director-cn V1.3.6") && lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.6") && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
+check("protocol preserves authoritative 4x5/20 classroom truth",protocol.includes("4列×5排共20套") && protocol.includes("具体列号未知") && !protocol.includes("4×6") && !protocol.includes("24套桌椅"));
+check("A/B fixture specialist versions match current locks",dataset.specialist_versions["scene-realism-director-cn"]===sceneRealismLock.version && dataset.specialist_versions["storyboard-director-cn"]===storyboardLock.version);
+check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V"+sceneRealismLock.version) && lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version) && protocol.includes("director-previs-cn V"+lock.version) && protocol.includes("storyboard-director-cn V"+storyboardLock.version) && storyboardDependency?.version===storyboardLock.version && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
 check("protocol contains dynamic movement controls",protocol.includes("foot planting") && protocol.includes("摄影机位置路径与注视点/视线目标路径"));
 check("protocol includes source research",["developers.openai.com","anthropic.com/research","proceedings.neurips.cc","proceedings.iclr.cc"].every(x=>protocol.includes(x)));
 check("rubric has 8 P0 gates",rubric.p0_hard_gates.length===8);
@@ -60,6 +64,6 @@ check("composite seating thumbnail is non-authoritative",dataset.classroom_asset
 check("reference assets remain outside public repository",dataset.classroom_assets.asset_storage.includes("Library")&&protocol.includes("不复制到公开仓库"));
 check("source lock records A/B as not run",lock.verification.workflow_integration_ab==="not_run"&&lock.verification.real_image_video_ab==="not_run");
 check("source lock records a valid verified main commit",/^[0-9a-f]{40}$/.test(lock.verified_main_commit) && lock.branch==="main");
-check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version)&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.6"));
+check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version)&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version===storyboardLock.version)&&storyboardLock.version==="1.3.7");
 console.log("\n结果："+passed+" PASS / "+failed+" FAIL");
 if(failed) process.exitCode=1;

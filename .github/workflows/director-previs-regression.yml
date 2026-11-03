@@ -66,6 +66,8 @@ jobs:
         run: node skills/director-previs-cn/scripts/validate_director_previs.js
       - name: Validate director A-B evaluation protocol
         run: node skills/director-previs-cn/scripts/validate_director_eval.js
+      - name: Validate storyboard facial performance continuity preflight
+        run: node skills/storyboard-director-cn/scripts/validate-facial-performance-continuity.cjs skills/storyboard-director-cn/tests/面部表演连续性回归样例-V1.json
       - name: Validate scene database validator syntax
         run: node --check skills/scene-realism-director-cn/tests/validate-scene-database.cjs
       - name: Validate authoritative classroom scene database
