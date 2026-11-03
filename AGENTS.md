@@ -110,7 +110,7 @@ MOONKEEP 或其他已有漫画项目进行去字、修复或排字时，必须�
 强制边界：
 - 该技能是正式分镜后的程序化执行/渲染层，不替代 `storyboard-director-cn`、SCG、事件时间账本、人物站位、场景真实性、摄影机运镜或打斗动作因果规则。
 - `timeline.json` 只能是从批准的 SCG/事件时间账本派生的渲染时间表；不得复制/重建 entities、relations、events、人物世界位置、道具关系或静态场景事实。
-- 先运行 `skills/video-director-cn/scripts/compile_aigc_timeline.py`（输入必须是已人工复核的事件时间账本），再运行上游 `check_timeline.py`；时间轴有 ERROR 不进入编码。
+- 先运行 `node skills/storyboard-director-cn/scripts/分镜事件时长校验器-V1.js events.json` 验证源事件账本；Txx 硬错误必须先修复，Wxx 警告须人工复核，Node.js 不可用则标记 NOT_RUN。通过源账本预检后再运行 `skills/video-director-cn/scripts/compile_aigc_timeline.py` 和上游 `check_timeline.py`；时间轴有 ERROR 不进入编码。
 - 代码动画必须按时间/帧号纯函数渲染；使用固定随机种子和已锁定资源；不允许隐式计时器或跨帧隐藏状态。
 - MP4 输出后运行 `qa_video.py`，检查报告与关键帧/连续帧联系表，并安排独立审片。机器 QA 通过不能替代剧情、人物、真人表演或成片质量验收。
 - 真人仿实拍任务仅将其用于可控 UI/字幕/图形/特效叠加或预演，不得把程序化 2D/3D 角色动画冒充真实演员视频。
