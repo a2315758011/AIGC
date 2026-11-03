@@ -69,20 +69,20 @@
     {
       "package_path": "SKILL.md",
       "source_path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "6c9bf2cbe8d40d955c5f79293172a4dca8de396d",
-      "characters": 2855
+      "git_blob_sha": "96f649cc262bfc13f2482357a93873d048b2d233",
+      "characters": 2822
     },
     {
       "package_path": "references/SCG骨骼姿态与接触约束扩展契约-V1.md",
       "source_path": "skills/scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md",
-      "git_blob_sha": "2f37b13c0f434c58a2465e1cfdec3e1fbe6084a1",
-      "characters": 2701
+      "git_blob_sha": "e6ae50e4b7348c8fd548127d641d27ba8c1fc531",
+      "characters": 3088
     },
     {
       "package_path": "scripts/verify-performance-continuity-contract.cjs",
       "source_path": "scripts/verify-performance-continuity-contract.cjs",
-      "git_blob_sha": "27d01a82376233a8faca901ee3d9f8a740ff59c6",
-      "characters": 3554
+      "git_blob_sha": "ecbca38015c1a9fd2ed90745a8633335cec7867a",
+      "characters": 3552
     }
   ],
   "source_rule_revision": "V1.9.0 adds static-world/dynamic-actor/camera state separation, stable IDs and project state as source of truth, project-specific timebase/integer frames, human keyframe locks, read-edit-validate-local-undo workflow, multi-view character anchors for large-angle camera motion, and reference-image responsibility mapping. V2.10.6 adds explicit per-shot facial performance states and cross-generation-segment entry/progression/exit inheritance, preventing unsupported neutral-face resets while preserving intentional restrained/poker-face acting; adds an independent zombie-face QA gate."
