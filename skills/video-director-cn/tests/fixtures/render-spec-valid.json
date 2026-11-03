@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 24,
+    "clock": "reads",
+    "register": "clean",
+    "loop": false
+  },
+  "hero_event_id": "E002",
+  "hero_what": "完成核心揭示",
+  "texts": [
+    {
+      "id": "hook",
+      "text": "程序化视频",
+      "from": 0.5,
+      "to": 2.8,
+      "role": "hook",
+      "px": 84,
+      "box": [100, 100, 800, 160]
+    }
+  ],
+  "captions": [
+    {
+      "from": 0.5,
+      "to": 2.8,
+      "text": "程序化视频",
+      "src": "E001"
+    }
+  ],
+  "terms": ["程序化视频"],
+  "cuts": [2.0],
+  "silences": [
+    {
+      "from": 1.0,
+      "to": 1.5
+    }
+  ]
+}
