@@ -120,13 +120,13 @@
     {
       "path": "SKILL.md",
       "git_blob_sha": "5711dda26ded01f2c9cda299650e5d50a955ee19",
-      "sha256": "a67db3b45fa8db0b1a91ae247f3f0c0c0a8cd259b4abd988d102a57c8776b117",
+      "sha256": "dfe9c64f78d955ea89630bd3be9af1f076f46bf4ab2a44636a6823bbf660f1c2",
       "size_bytes": 7014
     },
     {
       "path": "README.md",
       "git_blob_sha": "15f65e41209ccb5379358fc8b06fd6c0c5099529",
-      "sha256": "6ceda782e70873c75cf748c98c38977345db0424aeaf52cd775d8a1c73ffe058",
+      "sha256": "f03fc4db68b119fc1b30ec1f1bbfb85a5e34a9e07585770d0c69b5d110d20676",
       "size_bytes": 2773
     },
     {
@@ -246,7 +246,7 @@
     {
       "path": "references/sources.md",
       "git_blob_sha": "3ceea14dc427c1af16bba0384034ab59d9c36c3f",
-      "sha256": "521fda9fa6b8a9485951eb07a393d0e2ca95d0b05f78af81db4052fbd85aec56",
+      "sha256": "d2a925778a2292476809d1261df2156929f8eaa0cd541059e3596925618c1d63",
       "size_bytes": 2269
     },
     {
