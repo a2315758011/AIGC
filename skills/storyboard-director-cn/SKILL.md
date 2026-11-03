@@ -25,9 +25,10 @@ metadata:
 - references/人物站位与场景调度规则-V1.md（V1.9.0，含平台创作者实战方法）
 
 如需结构化镜头状态校验，再按需读取：
-- `references/分镜SCG数据契约-V1.md`
+- `references/分镜SCG数据契约-V1.md`（使用结构化分镜时读取；启用 `generation_segments` 或 `facial_performance` 时按 V1.1 执行预检）
 - `references/分镜穿帮专项回归样例-V1.md`
-- `references/分镜事件时间数据契约-V1.md`\n- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`（涉及坐姿、支撑、抓握、扶靠、跌倒、身体接触时必须读取）
+- `references/分镜事件时间数据契约-V1.md`
+- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`（涉及坐姿、支撑、抓握、扶靠、跌倒、身体接触时必须读取）
 
 ## 执行顺序
 1. **锁定事实**：读取剧本、人物/服装/场景/道具资产与目标模型能力；缺失信息标为未知，不得补造。
