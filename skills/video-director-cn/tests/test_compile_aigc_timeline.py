@@ -100,6 +100,32 @@ class CompileAigcTimelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ContractError, "must not define source world/shot data"):
             compile_timeline(self.ledger, spec, "EP01")
 
+
+    def test_unknown_render_spec_fields_are_rejected(self):
+        spec = json.loads(json.dumps(self.render_spec))
+        spec["invented_scene_state"] = {"character_position": [1, 2, 3]}
+        with self.assertRaisesRegex(ContractError, "unknown render-spec fields"):
+            compile_timeline(self.ledger, spec, "EP01")
+
+    def test_source_file_metadata_keeps_only_basename(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ledger_path = Path(tmp) / "events.json"
+            ledger_path.write_text(json.dumps(self.ledger), encoding="utf-8")
+            result = compile_timeline(
+                self.ledger, self.render_spec, "EP01",
+                source_ledger_path=str(ledger_path)
+            )
+        self.assertEqual(result["aigc_source"]["event_ledger_path"], "events.json")
+        self.assertEqual(len(result["aigc_source"]["event_ledger_sha256"]), 64)
+
+    def test_hero_event_must_be_visible_in_a_shot(self):
+        spec = json.loads(json.dumps(self.render_spec))
+        spec["hero_event_id"] = "E001"
+        ledger = json.loads(json.dumps(self.ledger))
+        ledger["episodes"][0]["shots"][0]["visible_event_ids"] = []
+        with self.assertRaisesRegex(ContractError, "requires visible evidence"):
+            compile_timeline(ledger, spec, "EP01")
+
     def test_source_shots_are_not_silently_reordered(self):
         ledger = json.loads(json.dumps(self.ledger))
         ledger["episodes"][0]["shots"].reverse()
