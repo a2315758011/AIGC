@@ -110,7 +110,7 @@
       "git_blob_sha": "033e4c5881001dcc8752bd28c8e255759a619364",
       "source_lock_path": "skills/storyboard-director-cn/SOURCE_LOCK.json",
       "source_lock_version": "1.3.7",
-      "source_lock_git_blob_sha": "e30c31c09b44203db4ef9800ccc5dc188f980772",
+      "source_lock_git_blob_sha": "3d34ed676d825c37d606aebc571c16d40a26187d",
       "authority": "正式分镜、人物站位/朝向/视线、根节点走位、路径时间、事件时长和连续性"
     },
     {
