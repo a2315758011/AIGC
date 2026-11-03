@@ -131,9 +131,9 @@
     },
     {
       "path": "CHANGELOG.md",
-      "git_blob_sha": "c11bb32b9ee4d7a5c1532b2d8660f58e92986472",
-      "sha256": "c37746480bcd5a1bc702c665194cdddf5be36f0c68fa3ea9b948332b599189e1",
-      "size_bytes": 618
+      "git_blob_sha": "af56b2e076b5e1912192e6d2acb1ae0e1c50f0d7",
+      "sha256": "dbd44e5d128da670e18adc4a626c7e05c957ee04b0de8ff4a1621b344d0d838b",
+      "size_bytes": 716
     },
     {
       "path": "requirements-qa.txt",
@@ -276,6 +276,6 @@
   "verification": {
     "status": "PENDING_CI",
     "target_production": "NOT_RUN",
-    "notes": "源事件时间校验已加入权威规范和 Skill 路由；需在更新 CI 后重跑完整回归。"
+    "notes": "完整上游引用、源事件校验入口和包合同测试已纳入；等待最新 CI 结果。"
   }
 }
