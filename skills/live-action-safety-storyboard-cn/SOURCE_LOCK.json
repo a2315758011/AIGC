@@ -9,9 +9,9 @@
   "local_dependencies": [
     {
       "package": "storyboard-director-cn",
-      "version": "1.3.5",
+      "version": "1.3.6",
       "path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "61791f02b22de3a48d1ace442630b7b27d1e4c4f",
+      "git_blob_sha": "96f649cc262bfc13f2482357a93873d048b2d233",
       "authority": "正式分镜、人物调度与连续性"
     },
     {
@@ -30,11 +30,10 @@
     },
     {
       "package": "director-previs-cn",
-      "version": "1.4.1",
+      "version": "1.4.4",
       "path": "skills/director-previs-cn/SKILL.md",
-      "git_blob_sha": "b5dd67968bdb339678974eafee349dcfe914672a",
-      "authority": "跨专业统筹与共享事实交接",
-      "source_lock_git_blob_sha": "6787ee2d60831215d088a7114e88e6dc2f2ffeca"
+      "git_blob_sha": "ae27f7b6a80161eeb7f23208f64963940698a267",
+      "authority": "跨专业统筹与共享事实交接"
     }
   ],
   "upstream_references": [

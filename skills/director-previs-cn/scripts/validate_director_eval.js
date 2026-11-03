@@ -30,10 +30,12 @@ check("protocol requires blind randomized review",protocol.includes("随机化�
 check("protocol separates process and visual metrics",protocol.includes("流程指标（主要）")&&protocol.includes("视觉指标（次要）"));
 check("protocol forbids false visual acceptance",protocol.includes("真实工作流、图像/视频 A/B 仍为 NOT_RUN"));
 check("director A/B is isolated from scene prompt A/B",protocol.includes("两类实验必须分开") && dataset.scene_realism_prompt_ab.status === "separate_experiment_not_combined");
-check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V"+sceneRealismLock.version) && lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version) && protocol.includes("storyboard-director-cn V1.3.5") && lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.5") && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
+check("protocol pins latest specialist versions",protocol.includes("scene-realism-director-cn V"+sceneRealismLock.version) && lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version) && protocol.includes("director-previs-cn V1.4.4") && protocol.includes("storyboard-director-cn V1.3.6") && lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.6") && protocol.includes("V1.9.0") && protocol.includes("camera-motion-director-cn V1.1.1"));
 check("protocol contains dynamic movement controls",protocol.includes("foot planting") && protocol.includes("摄影机位置路径与注视点/视线目标路径"));
 check("protocol includes source research",["developers.openai.com","anthropic.com/research","proceedings.neurips.cc","proceedings.iclr.cc"].every(x=>protocol.includes(x)));
 check("rubric has 8 P0 gates",rubric.p0_hard_gates.length===8);
+check("A/B classroom protocol uses current 4x5 layout and preserves unresolved seat column",protocol.includes("4列×5排共20套")&&protocol.includes("具体列号未知")&&!protocol.includes("4×6"));
+check("visual rubric matches current 4x5 classroom and adjacent-seat blocking",rubric.p0_hard_gates.find(x=>x.id==="HG-01")?.criterion.includes("4列×5排，共20套")&&rubric.p0_hard_gates.find(x=>x.id==="HG-05")?.criterion.includes("具体列号保持未知")&&rubric.p0_hard_gates.find(x=>x.id==="HG-06")?.criterion.includes("男主相邻桌"));
 check("rubric reuses 10 scene-realism dimensions",rubric.base_visual_dimensions.length===10);
 check("rubric has 8 dynamic video checks",rubric.video_additional_checks.length===8);
 check("rubric uses 1-5 scale",Boolean(rubric.scale["1"]&&rubric.scale["5"]));
@@ -58,6 +60,6 @@ check("composite seating thumbnail is non-authoritative",dataset.classroom_asset
 check("reference assets remain outside public repository",dataset.classroom_assets.asset_storage.includes("Library")&&protocol.includes("不复制到公开仓库"));
 check("source lock records A/B as not run",lock.verification.workflow_integration_ab==="not_run"&&lock.verification.real_image_video_ab==="not_run");
 check("source lock records a valid verified main commit",/^[0-9a-f]{40}$/.test(lock.verified_main_commit) && lock.branch==="main");
-check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version)&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.5"));
+check("source lock records current scene and storyboard versions",lock.local_dependencies.some(x=>x.package==="scene-realism-director-cn"&&x.version===sceneRealismLock.version)&&lock.local_dependencies.some(x=>x.package==="storyboard-director-cn"&&x.version==="1.3.6"));
 console.log("\n结果："+passed+" PASS / "+failed+" FAIL");
 if(failed) process.exitCode=1;

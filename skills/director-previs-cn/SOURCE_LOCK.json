@@ -1,10 +1,10 @@
 {
   "package": "director-previs-cn",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "date": "2026-11-03",
   "source_repo": "a2315758011/AIGC",
   "branch": "main",
-  "verified_main_commit": "cb7f60b0bd69631095432aadcaca7c23a8f19b09",
+  "verified_main_commit": "b47f00b965cd122296788db79f6d18d3dae90cdb",
   "scope": "导演意图、跨专业技能路由、共享事实底稿、动态走位通道分离、跨技能整合与整体验收",
   "source_first": true,
   "upstream_references": [
@@ -181,18 +181,20 @@
       "package": "live-action-safety-storyboard-cn",
       "version": "1.0.1",
       "path": "skills/live-action-safety-storyboard-cn/SKILL.md",
-      "git_blob_sha": "a669b408f7d39c53cfead2ac508101399ba5dd4d",
+      "git_blob_sha": "899b08446c966890d74b46a4ec36081d61d9d67f",
       "source_lock_path": "skills/live-action-safety-storyboard-cn/SOURCE_LOCK.json",
-      "authority": "真人影视实拍风格锁定、GPT原生生图虚构暴力风险诊断、合规非图像化视觉转换和逐镜修复"
+      "authority": "真人影视实拍风格锁定、GPT原生生图虚构暴力风险诊断、合规非图像化视觉转换和逐镜修复",
+      "source_lock_version": "1.0.2",
+      "source_lock_git_blob_sha": "8a9a6db1fac72d16269c1817d6ecbc6307c1f232"
     }
   ],
   "excluded_candidates": [
     {
       "package": "manju-director-cn",
-      "version": "1.1.1",
-      "source_version": "V2.10.5",
-      "source_lock_git_blob_sha": "f33403cf33db58c203786cfd2a48d014185e9185",
-      "reason": "离线快照已刷新到 main 的 V2.10.5 并通过源文件 SHA/字符数一致性核对；仍不加入 director-previs 默认核心路由，以避免与 storyboard-director-cn 重复承担完整分镜/自检职责。仅在用户明确需要漫剧人物/场景/道具资产与完整分镜闭环时独立调用。"
+      "version": "1.1.2",
+      "source_version": "V2.10.6",
+      "source_lock_git_blob_sha": "a9c5d81a801298cb2bdc7482333811e6d104a16a",
+      "reason": "离线快照已刷新到 main 的 V2.10.6 并通过源文件 SHA/字符数一致性核对；仍不加入 director-previs 默认核心路由，以避免与 storyboard-director-cn 重复承担完整分镜/自检职责。仅在用户明确需要漫剧人物/场景/道具资产与完整分镜闭环时独立调用。"
     }
   ],
   "verification": {
@@ -203,7 +205,7 @@
     "main_commit": "7454c7e929aa50addc83d28a7fc7e6caac937218",
     "orchestrator_regression_cases": 11,
     "fight_impact_skill_status": "authored_pending_review",
-    "manju_director_status": "V2.10.5_snapshot_SHA_and_character_counts_verified_against_main_and_packaged_copy",
+    "manju_director_status": "V1.1.2 / source V2.10.6; spatial-first SOP included; pending current CI revalidation",
     "automated_static_regression": {
       "status": "passed",
       "run_id": 41293255055,
@@ -261,7 +263,7 @@
     "generation_jobs_submitted": 0,
     "production_files_modified": false,
     "real_image_video_ab_blocker": "Generation Gateway SERVICE_NOT_RUNNING; provider executable last failed with STATUS_BREAKPOINT 0x80000003; no generation jobs submitted.",
-    "manju_snapshot_content_gates": "passed",
+    "manju_snapshot_content_gates": "pending_ci_revalidation_after_V2.10.6_and_space_first_SOP_refresh",
     "unified_handoff_contract": "added_and_pinned",
     "scg_data_contract": "reused_as_authority_no_duplicate_schema",
     "event_time_contract": "reused_as_authority",
@@ -269,7 +271,8 @@
     "classroom_truth_source": "original_user_reference_image_visual_count",
     "classroom_male_seat": "row3_column_unresolved",
     "classroom_female_seat": "row3_adjacent_column_and_side_unresolved",
-    "director_previs_version": "1.4.3"
+    "director_previs_version": "1.4.4",
+    "manju_director_version": "1.1.2"
   },
   "note": "导演共享事实与SCG交接规范 V1.0.0 已加入；版本同步与回归断言已修复。GitHub Actions 运行 41293255055：185 PASS / 0 FAIL。真实工作流A/B及真实图片/视频A/B尚未执行。静态回归只证明仓库合同与测试通过，不代表模型真实生成质量已通过。 V1.4.1 final classroom correction: source image is 4 columns x 5 rows = 20 desks, not 4x6. Scene realism dependency is upgraded/pinned at V1.15.0; classroom integration fixture now matches the original image and user's story: teacher at podium, female lead sits at adjacent desk to male lead, female classmate 2 interrupts first and classmate 3 later. Male is row3 with exact column unresolved; female is adjacent with exact column/side unresolved. Regression script asserts these unresolved constraints rather than inventing a seat. GitHub Actions workflow label and classroom-specific test target are updated to 4x5. Follow-up CI repair: director-previs validator now expects version 1.4.1 and its README matches; scene-realism README/SKILL/source lock are V1.15.0, director README dependency label is V1.15.0. Workflow and source-lock hashes are synchronized. The 4x5 classroom fixture and test script were corrected; latest CI run had only two remaining failures caused by stale version assertions, now fixed. A/B protocol and result template are now pinned to director-previs 1.4.1 and scene-realism 1.15.0. The protocol's experiment status remains NOT_RUN; no model-level A/B result is claimed. Classroom continuation 2026-11-01: added CLASSROOM-CN-4X5-001/导演走位预演计划_V1.json with six source-grounded ordered events. It preserves unresolved character columns, exact paths, dimensions and timecodes; it is a symbolic blocking plan, not a completed SCG shot ledger or visual validation. CI repair 2026-11-01: latest main run 41313396815 exposed two stale pins only: scene-realism SOURCE_LOCK blob SHA and director dependency source_lock_git_blob_sha. Updated both to current scene-realism SOURCE_LOCK SHA c8c96cedfb7293d5197b2d595830b8d16b929e40; no skill logic or classroom facts changed. Awaiting rerun of GitHub Actions. Real image/video A/B remains NOT_RUN; current classroom baseline remains 4 columns x 5 rows = 20 desk-chair sets.",
   "cross_skill_refs": {
