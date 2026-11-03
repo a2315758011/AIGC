@@ -84,7 +84,7 @@
   },
   "routing": {
     "path": "AGENTS.md",
-    "git_blob_sha": "aaf849a6e92f5161fd7bdf63827be50d16cd87aa"
+    "git_blob_sha": "1c68cc737c1f3ab49228aef143ff36d349ed6cc7"
   },
   "update_protocol": {
     "path": "skills/SKILL_UPDATE_PROTOCOL.md",
@@ -93,11 +93,11 @@
   "cross_skill_dependencies": [
     {
       "path": "skills/storyboard-director-cn/SKILL.md",
-      "git_blob_sha": "96f649cc262bfc13f2482357a93873d048b2d233"
+      "git_blob_sha": "55573512271cc4e7e33438f3ec2cb7ef48f999dd"
     },
     {
       "path": "skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md",
-      "git_blob_sha": "016e8830ea1a6f5db590a4c591eb2912c6b126d0"
+      "git_blob_sha": "9b0408693743133b780241177409a95acc1ff0d4"
     },
     {
       "path": "skills/storyboard-director-cn/references/分镜事件时间数据契约-V1.md",

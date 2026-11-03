@@ -222,11 +222,13 @@
     }
   ],
   "specialist_versions": {
-    "scene-realism-director-cn": "1.4.0",
-    "storyboard-director-cn": "1.3.4",
+    "scene-realism-director-cn": "1.15.0",
+    "storyboard-director-cn": "1.3.7",
     "storyboard-positioning-rules": "1.9.0",
     "camera-motion-director-cn": "1.1.1",
-    "fight-impact-vfx-cn": "1.0.0 (authored_pending_review)"
+    "fight-impact-vfx-cn": "1.0.0 (authored_pending_review)",
+    "storyboard-scg-data-contract": "1.1.0",
+    "storyboard-facial-performance-preflight": "V1.1"
   },
   "scene_realism_prompt_ab": {
     "status": "separate_experiment_not_combined",

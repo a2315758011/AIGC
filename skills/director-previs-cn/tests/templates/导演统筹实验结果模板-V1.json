@@ -4,10 +4,10 @@
   "status": "NOT_RUN",
   "blocked_reason": "尚未执行；运行时填写具体阻塞原因。",
   "environment": {
-    "workflow_version": "director-previs-cn@1.4.4",
+    "workflow_version": "director-previs-cn@1.4.5",
     "specialist_versions": {
       "scene-realism-director-cn": "1.15.0",
-      "storyboard-director-cn": "1.3.6",
+      "storyboard-director-cn": "1.3.7",
       "storyboard-positioning-rules": "1.9.0",
       "camera-motion-director-cn": "1.1.1",
       "fight-impact-vfx-cn": "1.0.0 (authored_pending_review)"
@@ -53,6 +53,6 @@
   "decision": "NOT_EVALUATED",
   "decision_notes": "不得将仓库静态测试结果填写为工作流或视觉质量实验结果。",
   "notes": [
-    "2026-11-03版本基线同步：director-previs-cn 1.4.4；scene-realism-director-cn 1.15.0；storyboard-director-cn 1.3.6；站位规则1.9.0；camera-motion-director-cn 1.1.1。实验状态仍为NOT_RUN，不代表已进行真实A/B。"
+    "2026-11-03版本基线同步：director-previs-cn 1.4.5；scene-realism-director-cn 1.15.0；storyboard-director-cn 1.3.7 / SCG V1.1；站位规则1.9.0；camera-motion-director-cn 1.1.1。实验状态仍为NOT_RUN，不代表已进行真实A/B。"
   ]
 }
