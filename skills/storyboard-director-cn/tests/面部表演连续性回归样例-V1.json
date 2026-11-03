@@ -624,6 +624,20 @@
               "reference": "fixture-only evidence record; not a real provider claim",
               "verified_at": "2026-11-03"
             }
+          },
+          {
+            "id": "GEN-03",
+            "shot_ids": [
+              "SH-03"
+            ],
+            "model_profile": "fixture/model@1",
+            "max_duration_ms": 10000,
+            "duration_limit_evidence": {
+              "status": "verified",
+              "source_type": "measured",
+              "reference": "fixture-only evidence record; not a real provider claim",
+              "verified_at": "2026-11-03"
+            }
           }
         ],
         "shots": [
@@ -689,6 +703,34 @@
                 "visible": true,
                 "attributes": {
                   "facial_performance": {
+                    "face_visibility": "not_visible",
+                    "acting_role": "primary"
+                  }
+                }
+              }
+            ],
+            "relations": [],
+            "events": [
+              {
+                "id": "EV-02",
+                "source_id": "SRC-02",
+                "action": "reveal_information"
+              }
+            ]
+          },
+          {
+            "id": "SH-03",
+            "time_start_ms": 20000,
+            "time_end_ms": 30000,
+            "generation_segment_id": "GEN-03",
+            "entities": [
+              {
+                "id": "CHAR-A",
+                "type": "person",
+                "exists": true,
+                "visible": true,
+                "attributes": {
+                  "facial_performance": {
                     "face_visibility": "visible",
                     "acting_role": "primary",
                     "entry_state": {
@@ -727,13 +769,7 @@
               }
             ],
             "relations": [],
-            "events": [
-              {
-                "id": "EV-02",
-                "source_id": "SRC-02",
-                "action": "reveal_information"
-              }
-            ]
+            "events": []
           }
         ]
       }
@@ -2276,6 +2312,155 @@
             ],
             "relations": [],
             "events": []
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "invalid-before-entry-event-in-current-shot",
+      "expected_ok": false,
+      "expected_errors": [
+        "F07"
+      ],
+      "scene": {
+        "generation_segments": [
+          {
+            "id": "GEN-01",
+            "shot_ids": [
+              "SH-01"
+            ],
+            "model_profile": "fixture/model@1",
+            "max_duration_ms": 10000,
+            "duration_limit_evidence": {
+              "status": "verified",
+              "source_type": "measured",
+              "reference": "fixture-only evidence record; not a real provider claim",
+              "verified_at": "2026-11-03"
+            }
+          },
+          {
+            "id": "GEN-02",
+            "shot_ids": [
+              "SH-02"
+            ],
+            "model_profile": "fixture/model@1",
+            "max_duration_ms": 10000,
+            "duration_limit_evidence": {
+              "status": "verified",
+              "source_type": "measured",
+              "reference": "fixture-only evidence record; not a real provider claim",
+              "verified_at": "2026-11-03"
+            }
+          }
+        ],
+        "shots": [
+          {
+            "id": "SH-01",
+            "time_start_ms": 0,
+            "time_end_ms": 10000,
+            "generation_segment_id": "GEN-01",
+            "entities": [
+              {
+                "id": "CHAR-A",
+                "type": "person",
+                "exists": true,
+                "visible": true,
+                "attributes": {
+                  "facial_performance": {
+                    "face_visibility": "visible",
+                    "acting_role": "primary",
+                    "entry_state": {
+                      "expression_id": "restrained_anger",
+                      "gaze_target_id": null,
+                      "brow_state": "furrowed",
+                      "eye_state": "focused",
+                      "mouth_state": "lips_pressed",
+                      "jaw_state": "tense",
+                      "tension_level": "medium",
+                      "head_pose": "level",
+                      "intent": "restrained_anger"
+                    },
+                    "beats": [],
+                    "exit_state": {
+                      "expression_id": "restrained_anger",
+                      "gaze_target_id": null,
+                      "brow_state": "furrowed",
+                      "eye_state": "focused",
+                      "mouth_state": "lips_pressed",
+                      "jaw_state": "tense",
+                      "tension_level": "medium",
+                      "head_pose": "level",
+                      "intent": "restrained_anger"
+                    },
+                    "continuity": {
+                      "mode": "establish",
+                      "segment_boundary": false
+                    }
+                  }
+                }
+              }
+            ],
+            "relations": [],
+            "events": []
+          },
+          {
+            "id": "SH-02",
+            "time_start_ms": 10000,
+            "time_end_ms": 20000,
+            "generation_segment_id": "GEN-02",
+            "entities": [
+              {
+                "id": "CHAR-A",
+                "type": "person",
+                "exists": true,
+                "visible": true,
+                "attributes": {
+                  "facial_performance": {
+                    "face_visibility": "visible",
+                    "acting_role": "primary",
+                    "entry_state": {
+                      "expression_id": "controlled_neutral",
+                      "gaze_target_id": null,
+                      "brow_state": "relaxed",
+                      "eye_state": "steady",
+                      "mouth_state": "closed_neutral",
+                      "jaw_state": "released",
+                      "tension_level": "low",
+                      "head_pose": "level",
+                      "intent": "deliberate_restraint"
+                    },
+                    "beats": [],
+                    "exit_state": {
+                      "expression_id": "controlled_neutral",
+                      "gaze_target_id": null,
+                      "brow_state": "relaxed",
+                      "eye_state": "steady",
+                      "mouth_state": "closed_neutral",
+                      "jaw_state": "released",
+                      "tension_level": "low",
+                      "head_pose": "level",
+                      "intent": "deliberate_restraint"
+                    },
+                    "continuity": {
+                      "mode": "change",
+                      "from_shot_id": "SH-01",
+                      "segment_boundary": true,
+                      "trigger_event_id": "EV-02",
+                      "change_timing": "before_entry",
+                      "reason": "剧情信息触发人物表演状态变化"
+                    }
+                  }
+                }
+              }
+            ],
+            "relations": [],
+            "events": [
+              {
+                "id": "EV-02",
+                "source_id": "SRC-02",
+                "action": "reveal_information"
+              }
+            ]
           }
         ]
       }

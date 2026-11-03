@@ -113,7 +113,7 @@ check("storyboard source lock version and SHA are current", dependencyByName["st
 check("storyboard SCG V1.1 contract is pinned", dependencyByName["storyboard-scg-data-contract"]?.version === "1.1.0" && dependencyByName["storyboard-scg-data-contract"]?.git_blob_sha === gitBlobSha(scgContract));
 check("storyboard facial preflight validator is pinned", dependencyByName["storyboard-facial-performance-preflight"]?.git_blob_sha === gitBlobSha(facialPreflightText) && lock.cross_skill_refs?.["storyboard-director-cn/scripts/validate-facial-performance-continuity.cjs"] === gitBlobSha(facialPreflightText));
 check("storyboard facial preflight regression fixture is pinned", dependencyByName["storyboard-facial-performance-regression"]?.git_blob_sha === gitBlobSha(read("skills/storyboard-director-cn/tests/面部表演连续性回归样例-V1.json")) && lock.cross_skill_refs?.["storyboard-director-cn/tests/面部表演连续性回归样例-V1.json"] === gitBlobSha(read("skills/storyboard-director-cn/tests/面部表演连续性回归样例-V1.json")));
-check("storyboard facial preflight fixture has 21 cases", facialPreflightFixture.cases.length === 21);
+check("storyboard facial preflight fixture has 21 cases", facialPreflightFixture.cases.length === 22);
 check("storyboard facial preflight is part of director CI", workflowText.includes("validate-facial-performance-continuity.cjs"));
 check("positioning rules are current", dependencyByName["storyboard-positioning-rules"]?.version === "1.9.0");
 check("camera motion dependency is current", dependencyByName["camera-motion-director-cn"]?.version === "1.1.1");

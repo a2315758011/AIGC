@@ -324,13 +324,14 @@ function validateScene(scene) {
           const reasonValid = typeof continuity.reason === "string" &&
             continuity.reason.trim().length > 0;
           const timing = continuity.change_timing;
+          const triggerEndIndex = timing === "before_entry" ? shotIndex - 1 : shotIndex;
           const triggerExists = eventExists(
-            shots, previous.shotIndex + 1, shotIndex, triggerId
+            shots, previous.shotIndex + 1, triggerEndIndex, triggerId
           );
           if (!triggerExists || !reasonValid ||
               !["before_entry", "within_shot"].includes(timing)) {
             add(issues, "F07", shot.id, entity.id,
-              "change 必须引用前序可见镜头之后的真实事件，声明变化原因与 change_timing");
+              "change 必须引用前序可见表演镜头之后的真实事件；before_entry 事件必须位于当前镜头之前，当前镜头事件只能用于 within_shot；同时声明变化原因与 change_timing");
           }
 
           if (timing === "before_entry") {

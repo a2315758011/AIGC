@@ -174,7 +174,7 @@ E25 遮挡后错误重生
 - `establish`：角色第一次出现可见关键表演状态；不得伪造 `from_shot_id`，`segment_boundary` 必须为 false。若本镜内表情由 entry 变化至 exit，必须用 beats 记录事件及最终状态。
 - `inherit`：没有新剧情触发。entry_state 必须与最近一次脸部可见镜头的 exit_state 完全一致；exit_state 也必须保持该状态；不得有 beats。
 - `change`：必须提供真实 `trigger_event_id`、非空 `reason` 和 `change_timing`。
-  - `change_timing:"before_entry"`：剧情触发发生在上一可见表演镜头之后、当前镜头首态之前（允许触发发生在角色脸部不可见的中间镜头）；当前 entry_state 必须已体现变化。若本镜还继续变化，用 beats 记录，最后一个 state_after 必须等于 exit_state；无 beats 时 entry_state 必须等于 exit_state。
+  - `change_timing:"before_entry"`：触发事件必须位于上一可见表演镜头之后、当前镜头之前的中间镜头（可由角色脸部不可见的中间镜头承载），不得引用当前镜头的 `events[]`；当前镜头内发生的触发统一使用 `within_shot` 并用 beats 记录。当前 entry_state 必须已体现变化。若本镜还继续变化，用 beats 记录，最后一个 state_after 必须等于 exit_state；无 beats 时 entry_state 必须等于 exit_state。
   - `change_timing:"within_shot"`：当前镜头从上一尾态开始，entry_state 必须等于上一 exit_state；beats 必须包含 trigger_event_id，最后一个 state_after 必须等于 exit_state，且 exit_state 必须与 entry_state 不同。
 - 有前序可见表演状态时，`from_shot_id` 必须指向最近一次脸部可见且承担表演任务的 shot；角色中间出画或脸部不可见，不会清空此前状态。
 - `segment_boundary` 必须准确反映当前镜头与最近一次可见表演镜头是否属于不同 generation segment；未使用 generation_segments 时为 false。
