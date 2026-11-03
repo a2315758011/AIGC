@@ -3,7 +3,7 @@ name: video-director-regression
 on:
   push:
     branches:
-      - "feat/video-director-cn-20261103"
+      - "main"
     paths:
       - "AGENTS.md"
       - "README.md"
