@@ -29,7 +29,7 @@ metadata:
 1. `../../docs/代码动画与程序化视频制作规范-V1.md`（本仓库权威指令源）。
 2. `references/程序化视频工作流中文速查-V1.md`。
 3. `references/upstream-SKILL.md`（上游完整原文）。
-4. 按任务读取 `references/briefs.md`、`craft.md`、`sound.md`、`quality.md`。
+4. 按任务读取 `references/briefs.md`、`craft.md`、`sound.md`、`quality.md`；涉及上游方法来源、引用或采纳依据时读取 `references/sources.md`。
 5. 涉及剧情/人物/道具/场景/镜头事实时，读取当前主线：
    - `../storyboard-director-cn/SKILL.md`
    - `../storyboard-director-cn/references/分镜SCG数据契约-V1.md`
