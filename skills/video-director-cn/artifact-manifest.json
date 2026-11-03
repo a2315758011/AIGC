@@ -7,13 +7,13 @@
   "files": [
     {
       "path": "SKILL.md",
-      "sha256": "dfe9c64f78d955ea89630bd3be9af1f076f46bf4ab2a44636a6823bbf660f1c2",
-      "size_bytes": 7014
+      "sha256": "0404a5036001e66fad3266929c621e6f85850405aed8692dee3d1f812654b26e",
+      "size_bytes": 7297
     },
     {
       "path": "README.md",
-      "sha256": "f03fc4db68b119fc1b30ec1f1bbfb85a5e34a9e07585770d0c69b5d110d20676",
-      "size_bytes": 2773
+      "sha256": "3beb9ce8e56cc9c9877063b888a48c24b8b8da018edb23bad556e4ff2fb8d163",
+      "size_bytes": 2967
     },
     {
       "path": "CHANGELOG.md",
@@ -122,8 +122,8 @@
     },
     {
       "path": "SOURCE_LOCK.json",
-      "sha256": "190d213a34f337e8c9016bc90ad5de41aaf25dc318da995a2a378e49ced8316e",
-      "size_bytes": 9945
+      "sha256": "347bad0c6f6948029fc5e1e17de77db47465646928d593965bd1c56e4d97efed",
+      "size_bytes": 10049
     }
   ],
   "self_exclusion": "artifact-manifest.json is excluded to avoid recursive self-hashing."
