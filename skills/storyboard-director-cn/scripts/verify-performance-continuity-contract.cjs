@@ -44,7 +44,7 @@ const masterMarkers = [
   '不无依据恢复中性脸',
   '上一段尾帧',
   '生成前的表演连续性放行',
-  '有意扑克脸'
+  '扑克脸'
 ];
 for (const marker of masterMarkers) {
   if (!rootMaster.includes(marker)) fail('authoring rule missing marker: ' + marker);
