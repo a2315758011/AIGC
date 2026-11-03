@@ -27,7 +27,7 @@ metadata:
 如需结构化镜头状态校验，再按需读取：
 - `references/分镜SCG数据契约-V1.md`
 - `references/分镜穿帮专项回归样例-V1.md`
-- `references/分镜事件时间数据契约-V1.md`\n- `skills/scene-realism-director-cn/references/SCG骨骼姿态与接触约束扩展契约-V1.md`（涉及坐姿、支撑、抓握、扶靠、跌倒、身体接触时必须读取）
+- `references/分镜事件时间数据契约-V1.md`\n- `references/SCG骨骼姿态与接触约束扩展契约-V1.md`（涉及坐姿、支撑、抓握、扶靠、跌倒、身体接触时必须读取）
 
 ## 执行顺序
 1. **锁定事实**：读取剧本、人物/服装/场景/道具资产与目标模型能力；缺失信息标为未知，不得补造。
