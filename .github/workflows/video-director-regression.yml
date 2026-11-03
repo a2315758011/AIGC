@@ -42,14 +42,94 @@ jobs:
       - name: Verify exact skill package and SHA-256 manifest
         run: python skills/video-director-cn/scripts/verify_manifest.py
 
-      - name: Compile Python scripts
-        run: python -m py_compile skills/video-director-cn/scripts/*.py
+      - name: Build fresh manifest-driven staging and verify extracted ZIP
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import shutil
+          import subprocess
+          import sys
+          import zipfile
+          from pathlib import Path, PurePosixPath
 
-      - name: Run adapter and timeline regression
-        run: python -m unittest discover -s skills/video-director-cn/tests -p "test_*.py" -v
+          source = Path("skills/video-director-cn").resolve()
+          manifest_path = source / "artifact-manifest.json"
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+          workspace = Path(os.environ["RUNNER_TEMP"]) / (
+              "video-director-package-" + os.environ["GITHUB_RUN_ID"] + "-" +
+              os.environ["GITHUB_RUN_ATTEMPT"]
+          )
+          if workspace.exists():
+              raise SystemExit("FAIL: task-specific package workspace already exists")
+          workspace.mkdir(parents=True)
+          staging = workspace / "staging"
+          archive = workspace / "video-director-cn.zip"
+          extracted = workspace / "extracted"
+          staging.mkdir()
+          extracted.mkdir()
+
+          expected = set()
+          for item in manifest["files"]:
+              rel = PurePosixPath(item["path"])
+              if rel.is_absolute() or ".." in rel.parts or not rel.parts:
+                  raise SystemExit("FAIL: unsafe manifest path: " + item["path"])
+              key = rel.as_posix()
+              if key in expected:
+                  raise SystemExit("FAIL: duplicate manifest path: " + key)
+              expected.add(key)
+              src = source.joinpath(*rel.parts)
+              if not src.is_file() or src.is_symlink():
+                  raise SystemExit("FAIL: missing or symlink source: " + key)
+              dst = staging.joinpath(*rel.parts)
+              dst.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(src, dst)
+
+          shutil.copy2(manifest_path, staging / "artifact-manifest.json")
+          verifier = staging / "scripts" / "verify_manifest.py"
+          subprocess.run(
+              [sys.executable, str(verifier), str(staging / "artifact-manifest.json")],
+              check=True,
+          )
+
+          with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as zf:
+              for file in sorted(p for p in staging.rglob("*") if p.is_file()):
+                  zf.write(file, file.relative_to(staging).as_posix())
+          with zipfile.ZipFile(archive) as zf:
+              bad = zf.testzip()
+              names = set(zf.namelist())
+              expected_zip = expected | {"artifact-manifest.json"}
+              if bad:
+                  raise SystemExit("FAIL: ZIP CRC error: " + bad)
+              if names != expected_zip:
+                  raise SystemExit(
+                      "FAIL: ZIP file set mismatch; missing=" +
+                      repr(sorted(expected_zip - names)) + "; extra=" +
+                      repr(sorted(names - expected_zip))
+                  )
+              zf.extractall(extracted)
+
+          subprocess.run(
+              [sys.executable, str(extracted / "scripts" / "verify_manifest.py"),
+               str(extracted / "artifact-manifest.json")],
+              check=True,
+          )
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env:
+              env.write("VIDEO_DIRECTOR_PACKAGE_ROOT=" + str(extracted) + "\\n")
+          print("PASS: manifest-driven fresh staging, ZIP file set, CRC and extracted SHA-256")
+          print("PACKAGE_FILES=" + str(len(expected) + 1))
+
+          PY
+
+      - name: Compile Python scripts from extracted package
+        run: python -m py_compile "$VIDEO_DIRECTOR_PACKAGE_ROOT"/scripts/*.py
+
+      - name: Run adapter and timeline regression from extracted package
+        run: python -m unittest discover -s "$VIDEO_DIRECTOR_PACKAGE_ROOT/tests" -p "test_*.py" -v
 
       - name: Install QA dependencies
-        run: python -m pip install -r skills/video-director-cn/requirements-qa.txt
+        run: python -m pip install -r "$VIDEO_DIRECTOR_PACKAGE_ROOT/requirements-qa.txt"
 
       - name: Install ffmpeg
         run: |
