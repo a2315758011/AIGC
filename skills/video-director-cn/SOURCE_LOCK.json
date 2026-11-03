@@ -272,10 +272,5 @@
     "source_validation": [
       "project-managed Node.js"
     ]
-  },
-  "verification": {
-    "status": "PENDING_CI",
-    "target_production": "NOT_RUN",
-    "notes": "完整上游引用、源事件校验入口和包合同测试已纳入；等待最新 CI 结果。"
   }
 }
