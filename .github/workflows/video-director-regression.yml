@@ -116,7 +116,7 @@ jobs:
               check=True,
           )
           with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env:
-              env.write("VIDEO_DIRECTOR_PACKAGE_ROOT=" + str(extracted) + "\\n")
+              env.write("VIDEO_DIRECTOR_PACKAGE_ROOT=" + str(extracted) + "\n")
           print("PASS: manifest-driven fresh staging, ZIP file set, CRC and extracted SHA-256")
           print("PACKAGE_FILES=" + str(len(expected) + 1))
 
