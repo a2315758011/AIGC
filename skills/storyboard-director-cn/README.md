@@ -23,7 +23,7 @@ node scripts/validate-facial-performance-continuity.cjs tests/面部表演连续
 node scripts/分镜事件时长校验器-V1.js tests/分镜事件时长回归样例-V1.json
 ```
 
-第二个命令针对高风险动作时序的结构化事件账本。它不解析普通中文稿，也不证明生成视频执行成功；估算时长只触发待复核警告。
+第二个命令针对跨镜/跨生成段落面部表演状态；第三个命令针对高风险动作时序的结构化事件账本。它不解析普通中文稿，也不证明生成视频执行成功；估算时长只触发待复核警告。
 
 ## 学员使用方式
 1. 将整个 `storyboard-director-cn` 文件夹作为一个 Skill 导入/提供给支持本地 Skill 的 AI 客户端。
