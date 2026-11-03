@@ -21,7 +21,7 @@ const rootMasterPath = '剧本转分镜指令';
 const rootQaPath = '剧本转分镜自检指令';
 const packageMasterPath = 'skills/storyboard-director-cn/references/剧本转分镜指令.md';
 const packageQaPath = 'skills/storyboard-director-cn/references/剧本转分镜自检指令.md';
-const skillPath = 'skills/storyboard-director-cn/SKILL.md';
+const skillPath = 'skills/storyboard-director-cn/SKILL.md';\nconst scgPath = 'skills/storyboard-director-cn/references/分镜SCG数据契约-V1.md';\nconst validatorPath = 'skills/storyboard-director-cn/scripts/validate-facial-performance-continuity.cjs';\nconst fixturePath = 'skills/storyboard-director-cn/tests/面部表演连续性回归样例-V1.json';\nconst indexPath = '分镜规则清单.json';\nconst agentsPath = 'AGENTS.md';\nconst readmePath = 'skills/storyboard-director-cn/README.md';
 const lockPath = 'skills/storyboard-director-cn/SOURCE_LOCK.json';
 
 const rootMaster = read(rootMasterPath);
@@ -29,7 +29,7 @@ const rootQa = read(rootQaPath);
 const packageMaster = read(packageMasterPath);
 const packageQa = read(packageQaPath);
 const skill = read(skillPath);
-const lock = JSON.parse(read(lockPath));
+const lock = JSON.parse(read(lockPath));\nconst ruleIndex = JSON.parse(read(indexPath));\nconst readme = read(readmePath);\nconst agents = read(agentsPath);\nconst scg = read(scgPath);\nconst facialValidator = read(validatorPath);\nconst facialFixture = JSON.parse(read(fixturePath));
 
 if (rootMaster !== packageMaster) fail('packaged authoring rule differs from authoritative source');
 else pass('authoring rule exactly matches authoritative source');
@@ -76,13 +76,13 @@ const requiredEntries = [
   'references/剧本转分镜指令.md',
   'references/剧本转分镜自检指令.md',
   'SKILL.md',
-  'scripts/verify-performance-continuity-contract.cjs'
+  'scripts/verify-performance-continuity-contract.cjs',\n  'references/分镜SCG数据契约-V1.md',\n  'scripts/validate-facial-performance-continuity.cjs',\n  'tests/面部表演连续性回归样例-V1.json'
 ];
 const entries = new Map((lock.files || []).map((entry) => [entry.package_path, entry]));
 for (const packagePath of requiredEntries) {
   if (!entries.has(packagePath)) fail('SOURCE_LOCK missing package file: ' + packagePath);
 }
-if (requiredEntries.every((p) => entries.has(p))) pass('SOURCE_LOCK contains all required package files');
+if (requiredEntries.every((p) => entries.has(p))) pass('SOURCE_LOCK contains all required package files');\n\nconst ruleMap = new Map((ruleIndex.rules || []).map((item) => [item.path, item]));\nconst writingRule = ruleMap.get('剧本转分镜指令');\nconst qaRule = ruleMap.get('剧本转分镜自检指令');\nif (ruleIndex.source_version === 'V2.10.6' && writingRule?.version === 'V2.10.6' && qaRule?.version === 'V2.10.6' && writingRule?.git_blob_sha === '21282b2499fd2e3eb4b74aaa1659427a0c7b3867' && qaRule?.git_blob_sha === '8b0bfd485d31a7312abc8aedae9d30c698b74547') pass('rule index pins both V2.10.6 authority sources');\nelse fail('rule index contains stale or mismatched authority pins');\nif (ruleIndex.skill?.version === '1.3.6' && ruleIndex.skill?.source_version === 'V2.10.6') pass('rule index pins storyboard Skill 1.3.6');\nelse fail('rule index Skill version is stale');\nif (agents.includes('当前主编写／独立质检规则：V2.10.6')) pass('AGENTS declares current V2.10.6 rules');\nelse fail('AGENTS current rule version is stale');\nif (readme.includes('编写规则：V2.10.6') && readme.includes('独立自检规则：V2.10.6')) pass('offline README matches V2.10.6 source');\nelse fail('offline README contains stale rule versions');\nif (scg.includes('V1.1 面部表演与生成段落连续性扩展') && facialValidator.includes('generation_segments') && facialFixture.cases?.length >= 10) pass('SCG facial extension, validator and regression fixture are present');\nelse fail('facial performance preflight assets are incomplete');
 
 for (const entry of lock.files || []) {
   const bytes = fs.readFileSync(path.join('skills/storyboard-director-cn', entry.package_path));
