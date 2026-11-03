@@ -194,7 +194,7 @@
       "version": "1.1.2",
       "source_version": "V2.10.6",
       "source_lock_git_blob_sha": "2060962d669b158b0c6e4bb8473cc1a90d554971",
-      "reason": "离线快照已刷新到 main 的 V2.10.5 并通过源文件 SHA/字符数一致性核对；仍不加入 director-previs 默认核心路由，以避免与 storyboard-director-cn 重复承担完整分镜/自检职责。仅在用户明确需要漫剧人物/场景/道具资产与完整分镜闭环时独立调用。"
+      "reason": "离线快照已刷新到 main 的 V2.10.6 并通过源文件 SHA/字符数一致性核对；仍不加入 director-previs 默认核心路由，以避免与 storyboard-director-cn 重复承担完整分镜/自检职责。仅在用户明确需要漫剧人物/场景/道具资产与完整分镜闭环时独立调用。"
     }
   ],
   "verification": {
@@ -263,7 +263,7 @@
     "generation_jobs_submitted": 0,
     "production_files_modified": false,
     "real_image_video_ab_blocker": "Generation Gateway SERVICE_NOT_RUNNING; provider executable last failed with STATUS_BREAKPOINT 0x80000003; no generation jobs submitted.",
-    "manju_snapshot_content_gates": "passed",
+    "manju_snapshot_content_gates": "pending_ci_revalidation_after_V2.10.6_and_space_first_SOP_refresh",
     "unified_handoff_contract": "added_and_pinned",
     "scg_data_contract": "reused_as_authority_no_duplicate_schema",
     "event_time_contract": "reused_as_authority",
