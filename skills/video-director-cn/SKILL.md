@@ -31,7 +31,7 @@ metadata:
 3. `references/upstream-SKILL.md`（上游完整原文）。
 4. 按任务读取 `references/briefs.md`、`craft.md`、`sound.md`、`quality.md`。
 5. 涉及剧情/人物/道具/场景/镜头事实时，读取当前主线：
-   - `../storyboard-director-cn/SKILL.md)
+   - `../storyboard-director-cn/SKILL.md`
    - `../storyboard-director-cn/references/分镜SCG数据契约-V1.md`
    - `../storyboard-director-cn/references/分镜事件时间数据契约-V1.md`
    - `../director-previs-cn/references/导演共享事实与SCG交接规范-V1.md`
