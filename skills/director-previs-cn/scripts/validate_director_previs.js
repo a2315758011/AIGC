@@ -70,12 +70,12 @@ const cameraFrontmatter = cameraSkillText.match(/^---\n([\s\S]*?)\n---/);
 check("camera skill metadata matches source lock 1.1.1", Boolean(cameraFrontmatter && /version:\s*"1\.1\.1"/.test(cameraFrontmatter[1])) && cameraLock.version === "1.1.1");
 const manjuFrontmatter = manjuSkillText.match(/^---\n([\s\S]*?)\n---/);
 check("manju skill and source lock versions align", Boolean(manjuFrontmatter && /version:\s*"1\.1\.1"/.test(manjuFrontmatter[1]) && /source_version:\s*"V2\.10\.5"/.test(manjuFrontmatter[1])) && manjuLock.version === "1.1.1");
-check("manju offline snapshot matches current main rule index", manjuLock.source_version === storyboardRuleIndex.source_version && manjuLock.source_version === "V2.10.5");
+check("manju offline snapshot matches current main rule index", manjuLock.source_version === storyboardRuleIndex.source_version && manjuLock.source_version === "V2.10.6");
 const writingSource = storyboardRuleIndex.rules.find(item => item.path === "剧本转分镜指令");
 const selfCheckSource = storyboardRuleIndex.rules.find(item => item.path === "剧本转分镜自检指令");
 check("manju writing snapshot SHA matches current main", Boolean(writingSource && manjuLock.files.some(item => item.package_path === "references/剧本转分镜指令.md" && item.git_blob_sha === writingSource.git_blob_sha)));
 check("manju self-check snapshot SHA matches current main", Boolean(selfCheckSource && manjuLock.files.some(item => item.package_path === "references/剧本转分镜自检指令.md" && item.git_blob_sha === selfCheckSource.git_blob_sha)));
-check("manju README summarizes all V2.10.5 additions", ["人物站位与场面调度","场景基线与空间差量","场景拓扑与可信姿态推断"].every(term => manjuReadmeText.includes(term)));
+check("manju README summarizes all V2.10.6 additions", ["人物站位与场面调度","场景基线与空间差量","场景拓扑与可信姿态推断","面部表演连续性"].every(term => manjuReadmeText.includes(term)));
 for (const snapshot of manjuLock.files || []) {
   const packagePath = path.join("skills/manju-director-cn", snapshot.package_path);
   check(`manju packaged snapshot exists: ${snapshot.package_path}`, exists(packagePath));
@@ -200,7 +200,7 @@ check("integration test contains controlled A/B", integrationText.includes("A组
 check("classroom integration skips non-applicable fight skill", integrationText.includes("fight-impact-vfx-cn` 明确跳过"));
 check("visual A/B is not falsely marked complete", lock.verification.real_image_video_ab === "not_run");
 check("fight impact dependency remains pending review", lock.verification.fight_impact_skill_status === "authored_pending_review");
-check("manju package is refreshed but kept standalone outside core route", Array.isArray(lock.excluded_candidates) && lock.excluded_candidates.some(item => item.package === "manju-director-cn" && item.version === "1.1.1" && item.source_version === "V2.10.5" && item.reason.includes("重复")));
+check("manju package is refreshed but kept standalone outside core route", Array.isArray(lock.excluded_candidates) && lock.excluded_candidates.some(item => item.package === "manju-director-cn" && item.version === "1.1.2" && item.source_version === "V2.10.6" && item.reason.includes("重复")));
 check("manual route dry run is 11/11 but not independent", lock.verification.manual_route_dry_run.status === "passed" && lock.verification.manual_route_dry_run.pass_count === 11 && lock.verification.independent_route_review === "not_run");
 check("workflow A/B and real image/video A/B remain unrun", lock.verification.workflow_integration_ab === "not_run" && lock.verification.real_image_video_ab === "not_run");
 
