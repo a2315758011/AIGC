@@ -254,8 +254,22 @@
     "remotion": "project-local dependencies and lockfile"
   },
   "verification": {
-    "status": "PENDING_GITHUB_ACTIONS",
+    "status": "PASS_STATIC_CI",
+    "workflow": "video-director-regression",
+    "run_id": 41618210255,
+    "run_number": 4,
+    "run_url": "https://github.com/a2315758011/AIGC/actions/runs/41618210255",
+    "pr_number": 27,
+    "pull_request_head_sha": "932b1952c157bfdff113d32056fdb8e4e1b4ae4d",
+    "pull_request_merge_sha": "ac2248e0ed1fcc060a9b69637ea2401d09d0a751",
+    "results": {
+      "package_manifest": "PASS — 22 files; exact file set, sizes and SHA-256 match",
+      "python_compile": "PASS",
+      "adapter_and_timeline_regression": "PASS — 14 tests",
+      "synthetic_mp4_qa": "PASS — 4-second 1280x720 24fps MP4; frame 0, flash and pop checks passed; beat/phone/hook sheets generated",
+      "audio_qa": "NOT_APPLICABLE — smoke MP4 intentionally has no audio stream"
+    },
     "target_production": "NOT_RUN",
-    "notes": "静态回归和合成 MP4 smoke test 不能证明真实剧集、真人表演或目标视频模型的生产质量。"
+    "notes": "本次 CI 证明适配器、上游时间轴校验器、包清单和合成 MP4 QA smoke test 可复现；不证明用户真实剧集、真人表演、音轨、目标视频模型或正式生产成片质量。"
   }
 }
