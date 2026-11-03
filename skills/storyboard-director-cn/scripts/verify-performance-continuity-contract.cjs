@@ -91,6 +91,7 @@ const requiredEntries = [
   'scripts/verify-performance-continuity-contract.cjs',
   'references/分镜SCG数据契约-V1.md',
   'scripts/validate-facial-performance-continuity.cjs',
+  'scripts/package-offline-skill-regression.cjs',
   'tests/面部表演连续性回归样例-V1.json',
   'README.md'
 ];
