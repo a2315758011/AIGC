@@ -1,0 +1,132 @@
+{
+  "version": "1.0",
+  "protocol": "面部表演连续性A-B实测协议V1.0",
+  "status": "NOT_RUN",
+  "run_id": null,
+  "preregistered_at": "2026-11-04",
+  "control_variables": {
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "api_version": null,
+    "character_asset_id": null,
+    "character_asset_sha256": null,
+    "scene_asset_id": null,
+    "scene_asset_sha256": null,
+    "dialogue_sha256": null,
+    "workflow_sha256": null,
+    "resolution": null,
+    "fps": null,
+    "aspect_ratio": null,
+    "seed_support": null,
+    "seed": null,
+    "segment_plan": null
+  },
+  "pairs": [
+    {
+      "pair_id": "FP-01",
+      "scenario": "情绪跨片段继承",
+      "status": "NOT_RUN",
+      "arms": {
+        "A": {
+          "prompt_sha256": null,
+          "scg_sha256": null,
+          "job_id": null,
+          "artifact_path": null,
+          "artifact_sha256": null,
+          "elapsed_seconds": null,
+          "cost": null,
+          "retries": null
+        },
+        "B": {
+          "prompt_sha256": null,
+          "scg_sha256": null,
+          "job_id": null,
+          "artifact_path": null,
+          "artifact_sha256": null,
+          "elapsed_seconds": null,
+          "cost": null,
+          "retries": null
+        }
+      },
+      "reviewers": []
+    },
+    {
+      "pair_id": "FP-02",
+      "scenario": "微表情与情绪节拍",
+      "status": "NOT_RUN",
+      "arms": {
+        "A": {
+          "prompt_sha256": null,
+          "scg_sha256": null,
+          "job_id": null,
+          "artifact_path": null,
+          "artifact_sha256": null,
+          "elapsed_seconds": null,
+          "cost": null,
+          "retries": null
+        },
+        "B": {
+          "prompt_sha256": null,
+          "scg_sha256": null,
+          "job_id": null,
+          "artifact_path": null,
+          "artifact_sha256": null,
+          "elapsed_seconds": null,
+          "cost": null,
+          "retries": null
+        }
+      },
+      "reviewers": []
+    },
+    {
+      "pair_id": "FP-03",
+      "scenario": "对白、倾听反应与跨镜承接",
+      "status": "NOT_RUN",
+      "arms": {
+        "A": {
+          "prompt_sha256": null,
+          "scg_sha256": null,
+          "job_id": null,
+          "artifact_path": null,
+          "artifact_sha256": null,
+          "elapsed_seconds": null,
+          "cost": null,
+          "retries": null
+        },
+        "B": {
+          "prompt_sha256": null,
+          "scg_sha256": null,
+          "job_id": null,
+          "artifact_path": null,
+          "artifact_sha256": null,
+          "elapsed_seconds": null,
+          "cost": null,
+          "retries": null
+        }
+      },
+      "reviewers": []
+    }
+  ],
+  "reviewer_score_schema": {
+    "reviewer_id": null,
+    "blind_code": null,
+    "defects": [],
+    "scores": {
+      "emotion_intent": null,
+      "brow_eye_mouth_jaw_coordination": null,
+      "microexpression_naturalness": null,
+      "temporal_continuity": null,
+      "cross_segment_inheritance": null,
+      "gaze_stability": null,
+      "lip_sync": null,
+      "head_pose_coordination": null,
+      "identity_stability": null,
+      "live_action_credibility": null
+    },
+    "evidence_timecodes": [],
+    "pairwise_preference": null
+  },
+  "final_decision": "INSUFFICIENT_EVIDENCE",
+  "notes": "空模板。不得将 NOT_RUN 或空字段计为通过；真实视频和至少两名独立评审完成后才能填写结论。"
+}
