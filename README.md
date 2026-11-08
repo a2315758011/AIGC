@@ -15,6 +15,12 @@
 - [代码动画与程序化视频制作规范](./docs/代码动画与程序化视频制作规范-V1.md)：明确 SCG/事件时间账本仍是唯一事实源，timeline.json 仅为渲染层派生视图。
 - [video-director 采纳与验证报告](./docs/Deepresearch/2026-11-03_video-director程序化视频工作流审查与采纳.md)：上游来源、MIT 许可证、适用边界、静态回归与未验证事项。
 
+## AI 漫剧题材创作模板（21 类）
+
+- [AI 漫剧题材模板总目录](./skills/ai-manju-genre-templates/README.md)：收录 21 个题材化创作模板，覆盖玄幻修仙、西幻魔法、星际机甲、系统无限流、末日废土、古代/现代题材与类型片。
+- 这些模板用于题材企划、资产提示词、分集剧本、导演手册和发布包；正式影视分镜仍走 `storyboard-director-cn`，漫画页面/排字/出版仍走 `comic-production-director-cn`。
+- 上游来源、MIT 许可证和 21 个文件的 Blob SHA 锁定见该目录的 `SOURCE_LOCK.json`。本仓库迁移不等于目标客户端已完成逐题材实测。
+
 ## 专业漫画制作（独立于漫剧分镜）
 - [TT_AutoManga 源码安全与本地兼容性审查](./docs/Deepresearch/2026-11-02_TT_AutoManga源码安全与本地兼容性审查.md)：启动时孤儿资产清理、无认证 loopback API、MCP 边界与本机依赖探测；当前不建议直接接入 MOONKEEP。
 - [第二批漫画专业工具研究与工作流验证](./docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md)：TT_AutoManga、ComfyUI Comic Creator、Manhwa Studio、WakuWaku 等源码/许可证/工作流审查。

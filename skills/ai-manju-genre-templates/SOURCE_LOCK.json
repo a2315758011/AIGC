@@ -1,0 +1,123 @@
+{
+  "package": "ai-manju-genre-templates",
+  "version": "1.0.0",
+  "source_repo": "zhanghao123vip/ai-manju-skills",
+  "source_license": "MIT",
+  "source_license_copyright": "2026 zhanghao123vip",
+  "imported_at": "2026-11-08",
+  "target_repo": "a2315758011/AIGC",
+  "target_branch": "import/ai-manju-skills-2026-11-08",
+  "files": {
+    "skills/xuanhuan-manju/SKILL.md": {
+      "source_git_blob_sha": "c8b3b2c8d178b49909f113ddce1df66ca4c32dcd",
+      "target_git_blob_sha": "c8b3b2c8d178b49909f113ddce1df66ca4c32dcd",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/xihuan-manju/SKILL.md": {
+      "source_git_blob_sha": "add3a1d6063cc249bb855227fa77a4155b6656c0",
+      "target_git_blob_sha": "add3a1d6063cc249bb855227fa77a4155b6656c0",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/xingji-manju/SKILL.md": {
+      "source_git_blob_sha": "63cc066ead91150a702a4e745a2b44a80d157bef",
+      "target_git_blob_sha": "63cc066ead91150a702a4e745a2b44a80d157bef",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/xitong-manju/SKILL.md": {
+      "source_git_blob_sha": "2c138f064b6c991c703668b358150459d91f62dc",
+      "target_git_blob_sha": "2c138f064b6c991c703668b358150459d91f62dc",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/moshi-manju/SKILL.md": {
+      "source_git_blob_sha": "0dac520aabbde9d737d08e04dff8248cec9312a1",
+      "target_git_blob_sha": "0dac520aabbde9d737d08e04dff8248cec9312a1",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/chuanyue-manju/SKILL.md": {
+      "source_git_blob_sha": "fff6f2c47fe6208434807b5559442737a419a1b6",
+      "target_git_blob_sha": "fff6f2c47fe6208434807b5559442737a419a1b6",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/gongdou-manju/SKILL.md": {
+      "source_git_blob_sha": "2957a22cd4196a701b5b711fe8dd0b7643e8a7c3",
+      "target_git_blob_sha": "2957a22cd4196a701b5b711fe8dd0b7643e8a7c3",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/zhaidou-manju/SKILL.md": {
+      "source_git_blob_sha": "0d93dd05a0853901fe1c71d32e673335ac4f4d24",
+      "target_git_blob_sha": "0d93dd05a0853901fe1c71d32e673335ac4f4d24",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/quanmou-manju/SKILL.md": {
+      "source_git_blob_sha": "f23c00ae63992e2867cf2d7ff8c6b3df80d01ff8",
+      "target_git_blob_sha": "f23c00ae63992e2867cf2d7ff8c6b3df80d01ff8",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/wuxia-manju/SKILL.md": {
+      "source_git_blob_sha": "b14e073a8833a2e1fc9b68aa616a12cf9db45fb0",
+      "target_git_blob_sha": "b14e073a8833a2e1fc9b68aa616a12cf9db45fb0",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/zhongtian-manju/SKILL.md": {
+      "source_git_blob_sha": "a77de2c3a87ce66a5ee930ef01139682389ce7c9",
+      "target_git_blob_sha": "a77de2c3a87ce66a5ee930ef01139682389ce7c9",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/dushi-manju/SKILL.md": {
+      "source_git_blob_sha": "d45d7886c76499da58172d1584d16283d482f200",
+      "target_git_blob_sha": "d45d7886c76499da58172d1584d16283d482f200",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/tianchong-manju/SKILL.md": {
+      "source_git_blob_sha": "3e5cc775978311c8c9a28433aec9c880fd54cdc0",
+      "target_git_blob_sha": "3e5cc775978311c8c9a28433aec9c880fd54cdc0",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/jiating-manju/SKILL.md": {
+      "source_git_blob_sha": "faa0fa35fbc058013d824345cc933aae6e59c884",
+      "target_git_blob_sha": "faa0fa35fbc058013d824345cc933aae6e59c884",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/chongsheng-manju/SKILL.md": {
+      "source_git_blob_sha": "d4b7cb6e914d10d8ba098e33f8ef7ac058e1dbbe",
+      "target_git_blob_sha": "d4b7cb6e914d10d8ba098e33f8ef7ac058e1dbbe",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/shangzhan-manju/SKILL.md": {
+      "source_git_blob_sha": "296b4c552a3c2b5f599ca38ee5757681d1d8f958",
+      "target_git_blob_sha": "296b4c552a3c2b5f599ca38ee5757681d1d8f958",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/niandai-manju/SKILL.md": {
+      "source_git_blob_sha": "78b36f066ab8fdb257c037adcadf04da26dc3366",
+      "target_git_blob_sha": "78b36f066ab8fdb257c037adcadf04da26dc3366",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/yule-manju/SKILL.md": {
+      "source_git_blob_sha": "a76f0427748572115dfb0651d634883d4df53bc4",
+      "target_git_blob_sha": "a76f0427748572115dfb0651d634883d4df53bc4",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/xiaoyuan-manju/SKILL.md": {
+      "source_git_blob_sha": "148f962e065be246019e2fbfd08373f890b82391",
+      "target_git_blob_sha": "148f962e065be246019e2fbfd08373f890b82391",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/xuanyi-manju/SKILL.md": {
+      "source_git_blob_sha": "703e31c8d0b6023d1be7449a7cbd7e9ebc2bf3e8",
+      "target_git_blob_sha": "703e31c8d0b6023d1be7449a7cbd7e9ebc2bf3e8",
+      "verification": "identical_git_blob_sha"
+    },
+    "skills/minsu-manju/SKILL.md": {
+      "source_git_blob_sha": "f3e49f448db7eb14943cf85629d7d80524d5d385",
+      "target_git_blob_sha": "f3e49f448db7eb14943cf85629d7d80524d5d385",
+      "verification": "identical_git_blob_sha"
+    }
+  },
+  "verification": {
+    "skill_files_total": 21,
+    "identical_blob_sha": 21,
+    "runtime_tests": "NOT_RUN",
+    "upstream_claims_independently_verified": false
+  }
+}
