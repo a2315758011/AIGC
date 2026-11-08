@@ -17,6 +17,12 @@
 
 - [scene-realism-director-cn](./scene-realism-director-cn/)：场景图真实性控制、建筑拓扑、功能布局、透视尺度、接触遮挡、光照/色彩/曝光、物体级形状纹理、局部编辑物理副作用、参考图保真、全景检查与独立质检；包含 8 场景空间基准和 5 项光色物理专项回归。
 
+## AI 漫剧题材创作模板（独立于专业漫画出版）
+
+- [ai-manju-genre-templates](./ai-manju-genre-templates/) V1.0.0：21 个题材化 AI 漫剧模板，覆盖幻想、古代、现代和类型片；输出企划、资产提示词、分集剧本、导演手册与发布包。
+- 本目录是题材创作模板，不替代 `manju-director-cn` 的漫剧资产/分镜生产流程、`storyboard-director-cn` 的正式分镜，也不替代 `comic-production-director-cn` 的漫画页面与出版规则。
+- 来源和逐文件 Git Blob SHA 见 [SOURCE_LOCK](./ai-manju-genre-templates/SOURCE_LOCK.json)；MIT 许可证见该目录 LICENSE。上游未逐一实测的题材仍保持未验证状态。
+
 ## 专业漫画制作专项
 - [TT_AutoManga 安全隔离审查](./comic-production-director-cn/references/TT_AutoManga安全隔离审查-V1.md)：使用外部漫画工具前先审查启动清理、数据目录、认证和网络暴露边界。
 - 第二批外部工具与读者测试：见 [第二批研究](../docs/Deepresearch/2026-11-02_漫画专业工具第二批研究与工作流验证.md) 和 [读者测试/页面质检清单](./comic-production-director-cn/references/读者测试与页面质检清单-V1.md)。
